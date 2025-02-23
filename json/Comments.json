@@ -1,0 +1,33 @@
+[
+    {
+        "id":1,
+        "user": "",
+        "body": "WOWZER what a song!",
+        "date": "12/25/1991",
+        "postID": ""
+    },{
+        "id":2,
+        "user":"",
+        "body":"HOLY SHNIKES THIS APP is ok i guess...",
+        "date": "1/1/0",
+        "postID": ""
+    },{
+        "id":3,
+        "user":"",
+        "body":"This song is ok",
+        "date": "3/9/1409 BCE",
+        "postID": ""
+    },{
+        "id":4,
+        "user":"",
+        "body":"I cant stop playing this song, HELP!",
+        "date": "4/5/1975",
+        "postID": ""
+    },{
+        "id":5,
+        "user":"",
+        "body":"Sir, another plane has hit the tower",
+        "date": "9/11/2001",
+        "postID": ""
+    }
+  ]
