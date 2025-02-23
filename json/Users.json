@@ -1,21 +1,30 @@
 [
     {
-        "id":1,
+        "id":"ddaae79a-34d5-4ef4-b911-755d9e19959b",
         "firstName":"Josiah",
         "lastName":"Black",
         "email":"rwhite@gmail.com",
-        "type":"Student"
+        "type":"Student",
+        "favoriteSongs":[],
+        "friends":["0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea", "ef08a850-a3f5-4d87-9a51-c2d83f8132f0"],
+        "favoritePosts":[]
     },{
-        "id":2,
+        "id":"0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
         "firstName":"Amy",
         "lastName":"Smith",
         "email":"asmith@gmail.com",
-        "type":"Teacher"
+        "type":"Teacher",
+        "favoriteSongs":[],
+        "friends":["ddaae79a-34d5-4ef4-b911-755d9e19959b", "ef08a850-a3f5-4d87-9a51-c2d83f8132f0"],
+        "favoritePosts":[]
     },{
-        "id":3,
+        "id":"ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
         "firstName":"Jim",
         "lastName":"Hudson",
         "email":"jhudson@yahoo.com",
-        "type":"Student"
+        "type":"Student",
+        "favoriteSongs":[],
+        "friends":["ddaae79a-34d5-4ef4-b911-755d9e19959b", "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea"],
+        "favoritePosts":[]
     }
 ]
