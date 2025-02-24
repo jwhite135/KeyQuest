@@ -1,0 +1,15 @@
+[
+    {
+        "id":"073657f2-0de9-4fa7-a699-2744002efe8d",
+        "genre": "rock",
+        "title": "Rock Song",
+        "artist": "Rock Band",
+        "difficulty": 2
+    },{
+        "id":"3e7607be-d290-436b-acf1-6ca8ac4013a7",
+        "genre": "classical",
+        "title": "Classical Song",
+        "artist": "Classical Guy",
+        "difficulty": 8
+    }
+]
