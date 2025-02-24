@@ -1,0 +1,15 @@
+[
+    {
+        "studentID": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
+        "lessonID": "50511fad-535b-4d75-b135-b66d7eaadd0a",
+        "lessonTitle": "Lesson 1",
+        "song": "3e7607be-d290-436b-acf1-6ca8ac4013a7",
+        "completed": false
+    },{
+        "studentID": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
+        "lessonID": "04c4f1e3-6de8-4aee-a095-ddf1015edc0d",
+        "lessonTitle": "Bohemian Rhapsody: part 1",
+        "song": "073657f2-0de9-4fa7-a699-2744002efe8d",
+        "completed": true
+    }
+]
