@@ -1,23 +1,23 @@
 package com.model;
 
 public class DataWriter {
-    public static void saveSongs() {
+    public void saveSongs() {
         return;
     }
 
-    public static void saveUsers() {
+    public void saveUsers() {
         return;
     }
 
-    public static void savePosts() {
+    public void savePosts() {
         return;
     }
 
-    public static void saveComments() {
+    public void saveComments() {
         return;
     }
 
-    public static void saveLessons() {
+    public void saveLessons() {
         return;
     }
 }
