@@ -11,16 +11,9 @@ public class SongDatabase {
     }
 
     public static SongDatabase getInstance() {
-        if (songDatabase == null) {
-            songDatabase = new SongDatabase();
-        }
-        return songDatabase;
-    }
+        return null; // Placeholder for actual implementation
+    } 
 
-    public static void setInstance(SongDatabase songDatabase) {
-        SongDatabase.songDatabase = songDatabase;
-    }
-    
     public Arraylist<Song> getSongs() {
         return songs;
     }
