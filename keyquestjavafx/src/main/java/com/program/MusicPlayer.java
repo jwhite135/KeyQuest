@@ -1,17 +1,31 @@
 package com.program;
 
 import com.music.Music;
+
 public class MusicPlayer {
     public void playSong() {
-        Music.playNote("D5q");
-        Music.playNote("D5q");
-        Music.playNote("D5q");
-        Music.playNote("D5q");
-        Music.playNote("C5q");
-        Music.playNote("C5q");
-        Music.playNote("A4q");
-        Music.playNote("A4q");
-        Music.playNote("C5w");
+        try {
+            Thread.sleep(300);
+            Music.playNote("D5q");
+            Thread.sleep(5);
+            Music.playNote("D5q");
+            Thread.sleep(5);
+            Music.playNote("D5q");
+            Thread.sleep(5);
+            Music.playNote("D5q");
+            Thread.sleep(5);
+            Music.playNote("C5q");
+            Thread.sleep(5);
+            Music.playNote("C5q");
+            Thread.sleep(5);
+            Music.playNote("A4q");
+            Thread.sleep(5);
+            Music.playNote("A4q");
+            Thread.sleep(5);
+            Music.playNote("C5w");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public static void main(String[] args) {
