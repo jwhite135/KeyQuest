@@ -17,6 +17,10 @@ public class SongDatabase {
         return songDatabase;
     }
 
+    public static void setInstance(SongDatabase songDatabase) {
+        SongDatabase.songDatabase = songDatabase;
+    }
+    
     public Arraylist<Song> getSongs() {
         return songs;
     }
