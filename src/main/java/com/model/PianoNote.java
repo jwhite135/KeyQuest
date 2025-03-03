@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+
 public class PianoNote extends Note {
     private char key;
     private int octave;
