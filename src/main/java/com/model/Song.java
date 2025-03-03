@@ -14,6 +14,15 @@ public class Song {
         this.sheetMusic = new ArrayList<SheetMusic>();
     }
     
+    public Song(UUID id, Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
+        this.UUID = id;
+        this.genre = genre;
+        this.name = title;
+        this.artist = artist;
+        this.sheetMusic = sheetMusic;
+        this.difficulty = difficulty;
+    }
+
     public Song(Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
         this.genre = genre;
         this.name = title;
