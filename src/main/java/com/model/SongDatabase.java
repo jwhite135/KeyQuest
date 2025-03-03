@@ -14,7 +14,7 @@ public class SongDatabase {
         return null; // Placeholder for actual implementation
     } 
 
-    public Arraylist<Song> getSongs() {
+    public ArrayList<Song> getSongs() {
         return songs;
     }
 

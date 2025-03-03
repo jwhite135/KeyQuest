@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+
 public class Song {
     private Genre genre;    
     private String name;
@@ -24,7 +26,7 @@ public class Song {
         return;
     }
 
-    public void playAlong(Intrument instrument) {
+    public void playAlong(Instrument instrument) {
         return;
     }
 
