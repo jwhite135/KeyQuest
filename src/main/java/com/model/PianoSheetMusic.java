@@ -5,6 +5,7 @@ public class PianoSheetMusic {
     private boolean major;
 
     public PianoSheetMusic(char key, boolean major) {
-
+        this.key = key;
+        this.major = major;
     }
 }
