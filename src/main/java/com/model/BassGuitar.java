@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-public class BaseGuitar {
+public class BassGuitar {
     private ArrayList<Note> notes;
     
     public BassGuitar() {
@@ -18,6 +18,6 @@ public class BaseGuitar {
     }
 
     public void playSong(Song song) {
-        
+
     }
 }
