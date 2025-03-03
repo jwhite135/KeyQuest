@@ -1,6 +1,6 @@
 package com.model;
 
-public class PianoSheetMusic {
+public class PianoSheetMusic extends SheetMusic {
     private char key;
     private boolean major;
 
