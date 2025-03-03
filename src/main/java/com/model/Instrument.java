@@ -1,4 +1,4 @@
-package src.main.java.com.model;
+package com.model;
 
 public class Instrument {
     private String name;
@@ -15,6 +15,6 @@ public class Instrument {
     }
 
     public void playSong(Song song) {
-        
+
     }
 }
