@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+
 abstract class Measure {
     private ArrayList<Chord> chords;
 
