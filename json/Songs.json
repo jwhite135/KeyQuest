@@ -8,8 +8,66 @@
     },{
         "id":"3e7607be-d290-436b-acf1-6ca8ac4013a7",
         "genre": "classical",
-        "title": "Classical Song",
-        "artist": "Classical Guy",
-        "difficulty": 8
+        "title": "Oriental Riff",
+        "artist": "Unknown",
+        "difficulty": 1,
+        "measures": [
+            {
+                "chords": [
+                    {
+                        "notes": [
+                            {"pitch": "A4", "length": "i"},
+                            {"pitch": "D4", "length": "i"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "A4", "length": "i"},
+                            {"pitch": "D4", "length": "i"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "A4", "length": "i"},
+                            {"pitch": "D4", "length": "i"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "G3", "length": "q"},
+                            {"pitch": "C4", "length": "q"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "E3", "length": "q"},
+                            {"pitch": "C4", "length": "q"}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chords": [
+                    {
+                        "notes": [
+                            {"pitch": "E3", "length": "q"},
+                            {"pitch": "A4", "length": "q"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "E3", "length": "q"},
+                            {"pitch": "A4", "length": "q"}
+                        ]
+                    },
+                    {
+                        "notes": [
+                            {"pitch": "G3", "length": "h"},
+                            {"pitch": "C4", "length": "h"}
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]
