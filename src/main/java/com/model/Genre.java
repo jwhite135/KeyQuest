@@ -1,4 +1,5 @@
 package com.model;
+
 public enum Genre {
     CLASSICAL,
     JAZZ,
