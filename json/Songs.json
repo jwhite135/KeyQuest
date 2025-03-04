@@ -11,63 +11,68 @@
         "title": "Oriental Riff",
         "artist": "Unknown",
         "difficulty": 1,
-        "measures": [
-            {
-                "chords": [
-                    {
-                        "notes": [
-                            {"pitch": "A4", "length": "i"},
-                            {"pitch": "D4", "length": "i"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "A4", "length": "i"},
-                            {"pitch": "D4", "length": "i"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "A4", "length": "i"},
-                            {"pitch": "D4", "length": "i"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "G3", "length": "q"},
-                            {"pitch": "C4", "length": "q"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "E3", "length": "q"},
-                            {"pitch": "C4", "length": "q"}
-                        ]
-                    }
-                ]
-            },
-            {
-                "chords": [
-                    {
-                        "notes": [
-                            {"pitch": "E3", "length": "q"},
-                            {"pitch": "A4", "length": "q"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "E3", "length": "q"},
-                            {"pitch": "A4", "length": "q"}
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {"pitch": "G3", "length": "h"},
-                            {"pitch": "C4", "length": "h"}
-                        ]
-                    }
-                ]
-            }
-        ]
+        "SheetMusic": {
+            "tempo": "100",
+            "timeSignatureNumerator": "4",
+            "timeSignatureDenomintaor": "4",
+            "measures": [
+                {
+                    "chords": [
+                        {
+                            "notes": [
+                                {"pitch": "A4", "length": "i"},
+                                {"pitch": "D4", "length": "i"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "A4", "length": "i"},
+                                {"pitch": "D4", "length": "i"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "A4", "length": "i"},
+                                {"pitch": "D4", "length": "i"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "G3", "length": "q"},
+                                {"pitch": "C4", "length": "q"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "E3", "length": "q"},
+                                {"pitch": "C4", "length": "q"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "chords": [
+                        {
+                            "notes": [
+                                {"pitch": "E3", "length": "q"},
+                                {"pitch": "A4", "length": "q"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "E3", "length": "q"},
+                                {"pitch": "A4", "length": "q"}
+                            ]
+                        },
+                        {
+                            "notes": [
+                                {"pitch": "G3", "length": "h"},
+                                {"pitch": "C4", "length": "h"}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     }
 ]
