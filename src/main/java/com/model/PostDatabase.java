@@ -3,7 +3,7 @@ package com.model;
 import java.util.ArrayList;
 
 public class PostDatabase {
-    private PostDatabase postDatabase;
+    private static PostDatabase postDatabase;
     private ArrayList<Post> posts;
 
     private PostDatabase() {
