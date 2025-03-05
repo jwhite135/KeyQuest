@@ -12,62 +12,65 @@
         "artist": "Unknown",
         "difficulty": 1,
         "SheetMusic": {
+            "type": 1,
             "tempo": "100",
             "timeSignatureNumerator": "4",
-            "timeSignatureDenomintaor": "4",
+            "timeSignatureDenominator": "4",
             "measures": [
                 {
+                    "type": 1,
                     "chords": [
                         {
                             "notes": [
-                                {"pitch": "A4", "length": "i"},
-                                {"pitch": "D4", "length": "i"}
+                                {"type": 1, "pitch": "A4", "length": "i"},
+                                {"type": 1, "pitch": "D4", "length": "i"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "A4", "length": "i"},
-                                {"pitch": "D4", "length": "i"}
+                                {"type": 1, "pitch": "A4", "length": "i"},
+                                {"type": 1, "pitch": "D4", "length": "i"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "A4", "length": "i"},
-                                {"pitch": "D4", "length": "i"}
+                                {"type": 1, "pitch": "A4", "length": "i"},
+                                {"type": 1, "pitch": "D4", "length": "i"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "G3", "length": "q"},
-                                {"pitch": "C4", "length": "q"}
+                                {"type": 1, "pitch": "G3", "length": "q"},
+                                {"type": 1, "pitch": "C4", "length": "q"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "E3", "length": "q"},
-                                {"pitch": "C4", "length": "q"}
+                                {"type": 1, "pitch": "E3", "length": "q"},
+                                {"type": 1, "pitch": "C4", "length": "q"}
                             ]
                         }
                     ]
                 },
                 {
+                    "type": 1,
                     "chords": [
                         {
                             "notes": [
-                                {"pitch": "E3", "length": "q"},
-                                {"pitch": "A4", "length": "q"}
+                                {"type": 1, "pitch": "E3", "length": "q"},
+                                {"type": 1, "pitch": "A4", "length": "q"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "E3", "length": "q"},
-                                {"pitch": "A4", "length": "q"}
+                                {"type": 1, "pitch": "E3", "length": "q"},
+                                {"type": 1, "pitch": "A4", "length": "q"}
                             ]
                         },
                         {
                             "notes": [
-                                {"pitch": "G3", "length": "h"},
-                                {"pitch": "C4", "length": "h"}
+                                {"type": 1, "pitch": "G3", "length": "h"},
+                                {"type": 1, "pitch": "C4", "length": "h"}
                             ]
                         }
                     ]
