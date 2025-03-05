@@ -1,6 +1,13 @@
 package com.model;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants{
+   
     public void saveSongs() {
         SongDatabase songs = SongDatabase.getInstance();
         ArrayList<Song> songList = songs.getSongs();
@@ -20,7 +27,7 @@ public class DataWriter extends DataConstants{
 
     public static JSONObject getSongJSON(Song song) {
         JSONObject songDetails = new JSONObject();
-        songDetails.put(SONG_ID, song.getId());
+        songDetails.put(SONG_ID, song.getUUID());
         songDetails.put(SONG_TITLE, song.getName());
         songDetails.put(SONG_ARTIST, song.getArtist());
         songDetails.put(SONG_GENRE, song.getGenre());
