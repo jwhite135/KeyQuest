@@ -19,8 +19,41 @@ public class DataLoader extends DataConstants {
                 Genre genre = (Genre)songJSON.get(SONG_GENRE);
                 String title = (String)songJSON.get(SONG_TITLE);
                 String artist = (String)songJSON.get(SONG_ARTIST);
-                int difficulty = (int)songJSON.get(SONG_DIFFICULTY);
-                songs.add(new Song(id, genre, title, artist, null, difficulty));
+                int difficulty = ((Long)songJSON.get(SONG_DIFFICULTY)).intValue();
+                ArrayList<SheetMusic> sheetMusics = new ArrayList<SheetMusic>();
+                JSONArray sheets = (JSONArray)songJSON.get(SONG_SHEET_MUSIC);
+                for(int j = 0; j < sheets.size(); j++) {
+                    int sheetType = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TYPE)).intValue();
+                    if (sheetType == 1) {
+                        int tempo = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TEMPO)).intValue();
+                        int timeSignatureNumerator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_NUM)).intValue();
+                        int timeSignatureDenominator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_DEN)).intValue();
+                    }
+                    ArrayList<Measure> measures = new ArrayList<Measure>();
+                    JSONArray measureList = (JSONArray)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_MEASURES);
+                    for(int k = 0; k < measureList.size(); k++) {
+                        int measureType = ((Long)((JSONObject)measureList.get(j)).get(MEASURE_TYPE)).intValue();
+                        ArrayList<Chord> chords = new ArrayList<Chord>();
+                        JSONArray chordList = (JSONArray)((JSONObject)measureList.get(k)).get(MEASURE_CHORDS);
+                        for(int l = 0; l < chordList.size(); l++) {
+                            ArrayList<Note> notes = new ArrayList<Note>();
+                            JSONArray noteList = (JSONArray)((JSONObject)chordList.get(l)).get(CHORD_NOTES);
+                            for(int m = 0; m < noteList.size(); m++) {
+                                int noteType = ((Long)((JSONObject)noteList.get(m)).get(NOTE_TYPE)).intValue();
+                                String pitch = (String)((JSONObject)noteList.get(m)).get(NOTE_PITCH);
+                                int length = ((Long)((JSONObject)noteList.get(m)).get(NOTE_LENGTH)).intValue();
+                                if(noteType == 1) {
+                                    notes.add(new PianoNote(length, pitch, false, false));
+                                }
+                            }
+                            chords.add(new Chord(notes));
+                        }
+                        if(measureType == 1) {
+                            measures.add(new PianoMeasure(true, chords));
+                        }
+                    }
+                }
+                songs.add(new Song(id, genre, title, artist, sheetMusics, difficulty));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,11 +69,11 @@ public class DataLoader extends DataConstants {
             for(int i = 0; i < usersJSON.size(); i++) {
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
 				UUID id = UUID.fromString((String)userJSON.get(USER_ID));
-				String firstName = (String)userJSON.get(USER_FIRST_NAME);
-				String lastName = (String)userJSON.get(USER_LAST_NAME);
+				String username = (String)userJSON.get(USER_USERNAME);
 				String email = (String)userJSON.get(USER_EMAIL);
                 String password = (String)userJSON.get(USER_PASSWORD);
                 String type = (String)userJSON.get(USER_TYPE);
+                int dailyStreak = ((Long)userJSON.get(USER_DAILY_STREAK)).intValue();
                 ArrayList<UUID> favoriteSongs = new ArrayList<UUID>();
                 JSONArray songs = (JSONArray)userJSON.get(USER_FAVORITE_SONGS);
                 if(songs != null) {
@@ -62,7 +95,28 @@ public class DataLoader extends DataConstants {
                         favoritePosts.add(UUID.fromString((String)posts.get(j)));
                     }
                 }
-                users.add(new User(id, firstName, lastName, email, password, type, favoriteSongs, friends, favoritePosts));
+                switch(type) {
+                    case "Student":
+                        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+                        JSONArray lessonList = (JSONArray)userJSON.get(STUDENT_LESSONS);
+                        // parse Lesson
+                        UUID teacherID = UUID.fromString((String)userJSON.get(STUDENT_TEACHER));
+                        users.add(new Student(id, username, email, password, dailyStreak, null, null, null, null, null));
+                        break;
+                    case "Teacher":
+                        ArrayList<UUID> students = new ArrayList<UUID>();
+                        JSONArray studentList = (JSONArray)userJSON.get(TEACHER_STUDENTS);
+                        if(studentList != null) {
+                            for(int j = 0; j < studentList.size(); j++) {
+                                students.add(UUID.fromString((String)studentList.get(j)));
+                            }
+                        }
+                        users.add(new Teacher(id, username, email, password, dailyStreak, null, null, null, null));
+                        break;
+                    default:
+                        users.add(new User(id, username, email, password, dailyStreak, null, null, null));
+                        break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,13 +127,5 @@ public class DataLoader extends DataConstants {
 
     public ArrayList<Post> getPosts() {
         return new ArrayList<Post>();
-    }
-
-    public ArrayList<Comment> getComments() {
-        return new ArrayList<Comment>();
-    }
-
-    public ArrayList<Lesson> getLessons() {
-        return new ArrayList<Lesson>();
     }
 }

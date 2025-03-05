@@ -1,21 +1,21 @@
 package com.model;
-
+import java.util.UUID;
 import java.util.ArrayList;
 
 public class Song {
+    private UUID id;
     private Genre genre;    
     private String name;
     private String artist;
     private ArrayList<SheetMusic> sheetMusic;
     private int difficulty;
-    private String UUID;
 
     public Song() {
         this.sheetMusic = new ArrayList<SheetMusic>();
     }
     
     public Song(UUID id, Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
-        this.UUID = id;
+        this.id = id;
         this.genre = genre;
         this.name = title;
         this.artist = artist;
@@ -29,6 +29,7 @@ public class Song {
         this.artist = artist;
         this.sheetMusic = sheetMusic;
         this.difficulty = difficulty;
+        this.id = UUID.randomUUID();
     }
         
     public void playSong() {

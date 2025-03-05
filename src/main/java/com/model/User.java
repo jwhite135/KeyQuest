@@ -1,17 +1,28 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class User {
     private String username;
     private String password;
     private String email;
-    private String UUID;
+    private UUID id;
     private ArrayList<Song> favoriteSongs;
     private int dailyStreak;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
 
+    public User(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.favoriteSongs = favoriteSongs;
+        this.dailyStreak = dailyStreak;
+        this.friends = friends;
+        this.favoritePosts = favoritePosts;
+    }
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
