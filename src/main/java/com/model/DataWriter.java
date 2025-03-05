@@ -27,7 +27,7 @@ public class DataWriter extends DataConstants{
 
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getID());
+        userDetails.put(USER_ID, user.getUUID());
         userDetails.put(USER_EMAIL, user.getEmail());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_TYPE, user.getType());

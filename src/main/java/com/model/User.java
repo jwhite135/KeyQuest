@@ -59,8 +59,8 @@ public class User {
         return this.email;
     }
 
-    public String getUUID() {
-        return this.UUID;
+    public UUID getUUID() {
+        return this.id;
     }
 
     public ArrayList<Song> getFavoriteSongs() {
@@ -122,5 +122,8 @@ public class User {
 
     public boolean isMatch(String username, String password) {
         return false;
+    }
+    public String getType() {
+        return "user";
     }
 }

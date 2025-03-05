@@ -14,7 +14,7 @@ public class Guitar {
     }
 
     public void playNote(Note note) {
-        return note;
+        return;
     }
 
     public void playSong(Song song) {

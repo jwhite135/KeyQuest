@@ -16,5 +16,7 @@ public class Student extends User{
     public void doLesson(Lesson lesson) {
         return;
     }
-
+    public String getType() {
+        return "Student";
+    }
 }
