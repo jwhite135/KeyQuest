@@ -1,10 +1,10 @@
 package com.model;
-import java.util.UUID;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Song {
     private UUID id;
-    private Genre genre;    
+    private Genre genre;
     private String name;
     private String artist;
     private ArrayList<SheetMusic> sheetMusic;
