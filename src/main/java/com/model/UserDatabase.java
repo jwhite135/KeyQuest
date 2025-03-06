@@ -26,7 +26,7 @@ public class UserDatabase {
         return users.get(0);
     }
 
-    public boolean addUser(User user) {
+    public static boolean addUser(User user) {
         if (user == null) {
             return false;
         } 

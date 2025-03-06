@@ -1,6 +1,6 @@
 package com.model;
-import java.util.ArrayList;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -102,7 +102,7 @@ public class DataLoader extends DataConstants {
                         JSONArray lessonList = (JSONArray)userJSON.get(STUDENT_LESSONS);
                         // parse Lesson
                         UUID teacherID = UUID.fromString((String)userJSON.get(STUDENT_TEACHER));
-                        users.add(new Student(id, username, email, password, dailyStreak, null, null, null, null, null));
+                        users.add(new Student(id, username, email, password, "Student", dailyStreak, null, null, null, null, null));
                         break;
                     case "Teacher":
                         ArrayList<UUID> students = new ArrayList<UUID>();
@@ -115,7 +115,7 @@ public class DataLoader extends DataConstants {
                         users.add(new Teacher(id, username, email, password, dailyStreak, null, null, null, null));
                         break;
                     default:
-                        users.add(new User(id, username, email, password, dailyStreak, null, null, null));
+                        users.add(new User(id, username, email, password, "Student", dailyStreak, null, null, null));
                         break;
                 }
             }
