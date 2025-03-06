@@ -12,6 +12,9 @@ public class UserDatabase {
     }
 
     public static UserDatabase getInstance() {
+        if (userDatabase == null) {
+            userDatabase = new UserDatabase();
+        }
         return userDatabase;
     }
 
