@@ -123,7 +123,18 @@ public class User {
     public boolean isMatch(String username, String password) {
         return false;
     }
+
     public String getType() {
         return "user";
+    }
+
+    public String toString() {
+        return "User: " + this.username + "\n"
+            + "Email: " + this.email + "\n"
+            + "Daily Streak: " + this.dailyStreak + "\n"
+            + "Favorite Songs: " + this.favoriteSongs + "\n"
+            + "Friends: " + this.friends + "\n"
+            + "Favorite Posts: " + this.favoritePosts + "\n\n";
+
     }
 }
