@@ -8,9 +8,13 @@ public class UserDatabase {
 
     private UserDatabase() {
         users = new ArrayList<User>();
+        users = DataLoader.getUsers();
     }
 
     public static UserDatabase getInstance() {
+        if (userDatabase == null) {
+            userDatabase = new UserDatabase();
+        }
         return userDatabase;
     }
 
@@ -22,4 +26,16 @@ public class UserDatabase {
         return users.get(0);
     }
 
+    public boolean addUser(User user) {
+        if (user == null) {
+            return false;
+        } 
+        for (User existingUser : users) {
+            if (user.getEmail().equals(existingUser.getEmail())) {
+                return false;
+            }
+        }
+        users.add(user);
+        return true;
+    }
 }

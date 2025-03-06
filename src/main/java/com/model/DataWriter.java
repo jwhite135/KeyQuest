@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants{
 
-    public void saveUsers() {
+    public static void saveUsers() {
         UserDatabase users = UserDatabase.getInstance();
         ArrayList<User> userList = users.getUsers();
         JSONArray jsonUsers = new JSONArray();
@@ -27,7 +27,7 @@ public class DataWriter extends DataConstants{
 
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getUUID());
+        userDetails.put(USER_ID, user.getUUID().toString());
         userDetails.put(USER_EMAIL, user.getEmail());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_TYPE, user.getType());
@@ -37,6 +37,12 @@ public class DataWriter extends DataConstants{
         //userDetails.put(USER_FAVORITE_POSTS, user.getFavoritePosts());
         
         return userDetails;
+    }
+
+    public static void main(String[] args) {
+        User josiah = new User("jwhite", "password", "jwhite@email.com");
+        UserDatabase.getInstance().addUser(josiah);
+        saveUsers();
     }
 
     /*

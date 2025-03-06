@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
-    public ArrayList<Song> getSongs() {
+    public static ArrayList<Song> getSongs() {
         ArrayList<Song> songs = new ArrayList<Song>();
         try {
             FileReader reader = new FileReader(SONG_FILE_NAME);
@@ -61,11 +61,12 @@ public class DataLoader extends DataConstants {
         return songs;
     }
 
-    public ArrayList<User> getUsers() {
+    public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
+
             for(int i = 0; i < usersJSON.size(); i++) {
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
 				UUID id = UUID.fromString((String)userJSON.get(USER_ID));
@@ -125,7 +126,15 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public ArrayList<Post> getPosts() {
+    public static ArrayList<Post> getPosts() {
         return new ArrayList<Post>();
+    }
+    
+    public static void main(String[] args) {
+        DataLoader dl = new DataLoader();
+        ArrayList<User> users = dl.getUsers();
+        for(User user : users) {
+            System.out.println(user);
+        }
     }
 }
