@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader extends DataConstants {
-    public ArrayList<Song> getSongs() {
+    public static ArrayList<Song> getSongs() {
         ArrayList<Song> songs = new ArrayList<Song>();
         try {
             FileReader reader = new FileReader(SONG_FILE_NAME);
@@ -61,7 +61,7 @@ public class DataLoader extends DataConstants {
         return songs;
     }
 
-    public ArrayList<User> getUsers() {
+    public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
@@ -126,7 +126,7 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-    public ArrayList<Post> getPosts() {
+    public static ArrayList<Post> getPosts() {
         return new ArrayList<Post>();
     }
     
