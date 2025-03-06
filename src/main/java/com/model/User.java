@@ -26,6 +26,7 @@ public class User {
         this.favoritePosts = favoritePosts;
     }
     public User(String username, String password, String email) {
+        this.id = UUIDgenerator();
         this.username = username;
         this.password = password;
         this.email = email;
@@ -136,5 +137,9 @@ public class User {
             + "Friends: " + this.friends + "\n"
             + "Favorite Posts: " + this.favoritePosts + "\n\n";
 
+    }
+
+    private UUID UUIDgenerator() {
+        return UUID.randomUUID();
     }
 }

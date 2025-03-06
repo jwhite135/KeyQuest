@@ -1,30 +1,30 @@
 [
     {
-        "id":"ddaae79a-34d5-4ef4-b911-755d9e19959b",
-        "username": "josiahGrey",
-        "email":"jgrey@email.sc.edu",
         "dailyStreak": 100,
-        "favoriteSongs":["073657f2-0de9-4fa7-a699-2744002efe8d", "3e7607be-d290-436b-acf1-6ca8ac4013a7"],
-        "friends":["0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea", "ef08a850-a3f5-4d87-9a51-c2d83f8132f0"],
-        "favoritePosts":["2239f262-455e-49a4-9ce8-cf89a131c43f", "2b05c4c8-9c7c-4db3-89d8-d791d4148849"],
-        "type": "user"
-    },{
-        "id":"0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
-        "username": "jdog",
-        "email":"jwrath@gmail.com",
+        "password": null,
+        "id": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
+        "type": "user",
+        "email": "jgrey@email.sc.edu"
+    },
+    {
         "dailyStreak": 0,
-        "favoriteSongs":["073657f2-0de9-4fa7-a699-2744002efe8d"],
-        "friends":["ddaae79a-34d5-4ef4-b911-755d9e19959b", "ef08a850-a3f5-4d87-9a51-c2d83f8132f0"],
-        "favoritePosts":["2b05c4c8-9c7c-4db3-89d8-d791d4148849"],
-        "type": "user"
-    },{
-        "id":"ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
-        "username": "thegoat",
-        "email":"jjettas@hotmail.com",
+        "password": null,
+        "id": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
+        "type": "user",
+        "email": "jwrath@gmail.com"
+    },
+    {
         "dailyStreak": 7,
-        "favoriteSongs":["3e7607be-d290-436b-acf1-6ca8ac4013a7"],
-        "friends":["ddaae79a-34d5-4ef4-b911-755d9e19959b", "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea"],
-        "favoritePosts":["2239f262-455e-49a4-9ce8-cf89a131c43f"],
-        "type": "user"
+        "password": null,
+        "id": "ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
+        "type": "user",
+        "email": "jjettas@hotmail.com"
+    },
+    {
+        "dailyStreak": 0,
+        "password": "password",
+        "id": "1d6845bf-0fff-482f-912c-aca75e678c9e",
+        "type": "user",
+        "email": "jwhite@email.com"
     }
 ]
