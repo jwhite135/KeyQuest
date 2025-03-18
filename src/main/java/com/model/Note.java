@@ -10,4 +10,8 @@ abstract class Note {
     public void playNote() {
 
     }
+
+    public String getNote() {
+        return "";
+    }
 }

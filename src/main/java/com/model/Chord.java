@@ -2,16 +2,24 @@ package com.model;
 
 import java.util.ArrayList;
 
+import org.jfugue.player.Player;
+
 public class Chord {
     private ArrayList<Note> notes;
+    private static Player player = new Player();
     
     public Chord(ArrayList<Note> notes) {
         this.notes = notes;
     }
 
     public void playChord() {
+        String playThis = "";
         for (int i = 0; i < notes.size(); ++i) {
-            notes.get(i).playNote();
+            playThis += notes.get(i).getNote();
+            if (i > 0 && i < notes.size() - 1) {
+                playThis += ".";
+            }
         }
+        player.play(playThis);
     }
 }

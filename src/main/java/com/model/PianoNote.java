@@ -18,4 +18,14 @@ public class PianoNote extends Note {
     public void playNote() {
         player.play(key);
     }
+
+    public String getNote() {
+        if (sharp) {
+            return key + "#";
+        } else if (flat) {
+            return key + "b";
+        } else {
+            return key;
+        }
+    }
 }

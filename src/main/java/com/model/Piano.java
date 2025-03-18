@@ -3,7 +3,7 @@ package com.model;
 import java.util.ArrayList;
 
 
-public class Piano {
+public class Piano extends Instrument {
     private ArrayList<PianoNote> notes;
     private PianoNote minNote;
     private PianoNote maxNote;
