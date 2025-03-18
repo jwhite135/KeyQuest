@@ -18,4 +18,5 @@ abstract class SheetMusic {
         this.timeSignatureDenominator = timeSignatureDenominator;
         this.measures = measures;
     }
+
 }

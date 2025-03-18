@@ -10,6 +10,8 @@ public class Chord {
     }
 
     public void playChord() {
-        
+        for (int i = 0; i < notes.size(); ++i) {
+            notes.get(i).playNote();
+        }
     }
 }

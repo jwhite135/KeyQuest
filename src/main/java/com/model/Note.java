@@ -6,4 +6,8 @@ abstract class Note {
     public Note(int length) {
         this.length = length;
     }
+
+    public void playNote() {
+
+    }
 }

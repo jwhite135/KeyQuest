@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
+
 public class Piano {
     private ArrayList<PianoNote> notes;
     private PianoNote minNote;
