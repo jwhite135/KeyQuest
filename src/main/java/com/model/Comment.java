@@ -10,6 +10,8 @@ public class Comment {
     public Comment(String body, User author) {
         this.body = body;
         this.author = author;
+        // Date Constructor sets to current date/time
         this.date = new Date();
     }
+    
 }
