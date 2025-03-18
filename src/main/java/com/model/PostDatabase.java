@@ -34,7 +34,7 @@ public class PostDatabase {
         return null; // Placeholder for actual implementation
     }
 
-    public ArrayList<Post> searchByArist(String author) {
+    public ArrayList<Post> searchByArtist(String author) {
         /*
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
