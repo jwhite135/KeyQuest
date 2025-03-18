@@ -11,6 +11,8 @@ public class PianoMeasure extends Measure {
     }
     
     public void playMeasure() {
-
+        for (int i = 0; i < chords.size(); ++i) {
+            chords.get(i).playChord();
+        }
     }
 }
