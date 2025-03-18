@@ -21,7 +21,6 @@ public class Post {
         this.isPrivate = isPrivate;
     }
 
-    /*
     public Song getSong() {
         return this.song;
     }
@@ -77,7 +76,6 @@ public class Post {
     public void setTitle(String title) {
         this.title = title;
     }
-    */
 
     
     public void addComment(String body, String author) {
