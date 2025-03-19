@@ -35,6 +35,12 @@
               },
               {
                 "notes": [
+                  { "type": 1, "pitch": "A4", "length": "i" },
+                  { "type": 1, "pitch": "D4", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
                   { "type": 1, "pitch": "G3", "length": "q" },
                   { "type": 1, "pitch": "C4", "length": "q" }
                 ]
