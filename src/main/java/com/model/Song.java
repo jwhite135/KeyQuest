@@ -34,11 +34,15 @@ public class Song {
 
     public void playAlong(Instrument instrument) {
         if(instrument instanceof Piano) {
-            sheetMusic.get(0).play();
+            sheetMusic.get(0).playMeasures();
         } else {
             System.out.println("Instrument not supported");
         }
     }
+
+    public ArrayList<SheetMusic> getSheetMusic() {
+        return sheetMusic;
+    } 
 
     public Genre getGenre() {
         return genre;
