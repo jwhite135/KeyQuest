@@ -1,9 +1,9 @@
 package com.model;
 
 abstract class Note {
-    private int length;
+    protected String length;
 
-    public Note(int length) {
+    public Note(String length) {
         this.length = length;
     }
 

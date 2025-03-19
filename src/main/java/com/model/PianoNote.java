@@ -6,26 +6,40 @@ public class PianoNote extends Note {
     private String key;
     private boolean sharp;
     private boolean flat;
-    private static Player player = new Player();
+    private final static Player player = new Player();
 
-    public PianoNote(int length, String key, boolean sharp, boolean flat) {
+    public PianoNote(String length, String key, boolean sharp, boolean flat) {
         super(length);
         this.key = key;
         this.sharp = sharp;
         this.flat = flat;
     }
 
+    @Override
     public void playNote() {
-        player.play(key);
+        player.play(getNote());
     }
 
+    @Override
     public String getNote() {
         if (sharp) {
-            return key + "#";
+            return key + "#" + length;
         } else if (flat) {
-            return key + "b";
+            return key + "b" + length;
         } else {
-            return key;
+            return key + length;
         }
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public boolean isSharp() {
+        return sharp;
+    }
+
+    public boolean isFlat() {
+        return flat;
     }
 }
