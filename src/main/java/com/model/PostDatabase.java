@@ -22,54 +22,41 @@ public class PostDatabase {
     }
 
     public ArrayList<Post> searchByName(String title) {
-        /*
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
-            if (post.getName().equalsIgnoreCase(title)) {
+            if (post.getTitle().equals(title)) {
                 result.add(post);
             }
         }
         return result;
-        */
-        return null; // Placeholder for actual implementation
     }
 
-    public ArrayList<Post> searchByArist(String author) {
-        /*
+    public ArrayList<Post> searchBySong(String song) {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
-            if (post.getArtist().equalsIgnoreCase(author)) {
+            if (post.getSong().getName().equalsIgnoreCase(song)) {
                 result.add(post);
             }
         }
         return result;
-        */
-        return null; // Placeholder for actual implementation
     }
 
-    public ArrayList<Post> searchByDifficulty(int difficulty) {
-        /*
-        ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
-            if (post.getDifficulty().equalsIgnoreCase(difficulty)) {
-                result.add(post);
-            }
-        }
-        return result;
-        */
-        return null; // Placeholder for actual implementation
+    public ArrayList<Post> sortByMostRecent() {
+        posts.sort( (a,b) -> b.getDate().compareTo(a.getDate()) );
+        return posts;
     }
 
-    public ArrayList<Post> searchByGenre(Genre genre) {
-        /*
-        ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
-            if (post.getGenre().equalsIgnoreCase(genre)) {
-                result.add(post);
-            }
-        }
-        return result;
-        */
-        return null; // Placeholder for actual implementation
+    public ArrayList<Post> sortByMostLiked() {
+        posts.sort( (a,b) -> Integer.compare(a.getFavorites(), b.getFavorites()) );
+        return posts;
     }
+
+    public boolean addPost(Post post) {
+        return posts.add(post);
+    }
+
+    public void save() {
+        DataWriter.savePosts();
+    } 
+
 }
