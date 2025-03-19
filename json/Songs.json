@@ -79,5 +79,342 @@
         ]
       }
     ]
+  },
+  {
+    "id": "3e7607be-d290-436b-acf1-6ca8ac4013a8",
+    "genre": "classical",
+    "title": "USC Alma Mater",
+    "artist": "R. Burns/G. Wauchope arr. Gordon (Dick) Goodwin",
+    "difficulty": 3,
+    "SheetMusic": [
+      {
+        "type": 1,
+        "tempo": 120,
+        "timeSignatureNumerator": 2,
+        "timeSignatureDenominator": 2,
+        "measures": [
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q"}
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "i"}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "i"}
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G3", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "h"}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "h" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "h", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "h", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "i"}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "h" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G3", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "h" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "i" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F4", "length": "w" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "E4", "length": "q", "flat": true }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "D4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "C4", "length": "q" }
+                ]
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "B4", "length": "w", "flat": true }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
