@@ -15,4 +15,8 @@ public class PianoMeasure extends Measure {
             chords.get(i).playChord();
         }
     }
+
+    private void setShowClef(boolean showClef) {
+        this.showClef = showClef;
+    }
 }
