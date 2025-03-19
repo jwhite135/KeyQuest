@@ -17,7 +17,7 @@ public class PianoMeasure extends Measure {
         }
     }
 
-    public boolean showClef() {
+    public boolean getShowClef() {
         return showClef;
     }
 
