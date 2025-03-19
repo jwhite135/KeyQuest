@@ -9,7 +9,9 @@ abstract class SheetMusic {
     private ArrayList<Measure> measures;
 
     public SheetMusic() {
-        
+        tempo = 120;
+        timeSignatureNumerator = 4;
+        timeSignatureDenominator = 4;
     }
 
     public SheetMusic(int tempo, int timeSignatureNumerator, int timeSignatureDenominator, ArrayList<Measure> measures) {
@@ -17,6 +19,12 @@ abstract class SheetMusic {
         this.timeSignatureNumerator = timeSignatureNumerator;
         this.timeSignatureDenominator = timeSignatureDenominator;
         this.measures = measures;
+    }
+
+    public void playMeasure() {
+        for (int i = 0; i < measures.size(); ++i) {
+            measures.get(i).playMeasure();
+        }
     }
 
 }

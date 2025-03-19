@@ -21,6 +21,6 @@ public class Piano extends Instrument {
     }
 
     public void playSong(Song song) {
-        
+        song.playSong();
     }
 }
