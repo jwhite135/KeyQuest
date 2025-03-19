@@ -20,8 +20,13 @@ public class Post {
         this.author = author;
         this.date = date;
         this.isPrivate = isPrivate;
+        this.favorites = 0;
+        PostDatabase.getInstance().addPost(this);
     }
 
+<<<<<<< HEAD
+    // Accessor methods for data writing
+=======
     public Post(UUID id, Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title) {
         this.id = id;
         this.song = song;
@@ -30,6 +35,7 @@ public class Post {
         this.date = date;
         this.isPrivate = isPrivate;
     }
+>>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
     public Song getSong() {
         return this.song;
     }
@@ -62,10 +68,15 @@ public class Post {
         return this.id;
     }
 
-    public void setSong(Song song) {
-        this.song = song;
+    public void addComment(String body, User author) {
+        comments.add(new Comment(body, author));
     }
 
+<<<<<<< HEAD
+    public void addFavorite(User currentUser) {
+        currentUser.favoritePost(this);
+        favorites++;
+=======
     public void setFavorites(int favorites) {
         this.favorites = favorites;
     }
@@ -93,5 +104,6 @@ public class Post {
 
     public void addFavorite() {
         return;
+>>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
     }
 }

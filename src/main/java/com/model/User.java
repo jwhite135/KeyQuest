@@ -118,7 +118,7 @@ public class User {
     }
 
     public void favoritePost(Post post) {
-        return;
+        favoritePosts.add(post);
     }
 
     public boolean isMatch(String username, String password) {
