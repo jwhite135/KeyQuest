@@ -28,10 +28,12 @@ public abstract class DataConstants {
     protected static final String SHEET_MUSIC_TIME_SIG_DEN = "timeSignatureDenominator";
     protected static final String SHEET_MUSIC_MEASURES = "measures";
     protected static final String MEASURE_TYPE = "type";
+    protected static final String MEASURE_NUM_OF_LINES = "numOfLines";
     protected static final String MEASURE_CHORDS = "chords";
     protected static final String CHORD_NOTES = "notes";
     protected static final String NOTE_TYPE = "type";
     protected static final String NOTE_PITCH = "pitch";
+    protected static final String NOTE_FRET = "fret";
     protected static final String NOTE_LENGTH = "length";
 
     protected static final String POST_FILE_NAME = "./json/Posts.json";
@@ -43,4 +45,7 @@ public abstract class DataConstants {
     protected static final String POST_DATE = "date";
     protected static final String POST_PRIVATE = "private";
     protected static final String POST_TITLE = "title";
+    protected static final String COMMENT_BODY = "body";
+    protected static final String COMMENT_AUTHOR_ID = "authorID";
+    protected static final String COMMENT_DATE = "date";
 }

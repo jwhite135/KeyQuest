@@ -33,14 +33,13 @@ public class Song {
     }
         
     public void playSong() {
-        return;
+        sheetMusic.get(0).play();
     }
 
     public void playAlong(Instrument instrument) {
         return;
     }
 
-    /*
     public Genre getGenre() {
         return genre;
     }
@@ -72,5 +71,4 @@ public class Song {
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
     }
-    */
 }
