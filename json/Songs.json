@@ -263,12 +263,12 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "h", "flat": true }
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "h", "flat": true }
+                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
                 ]
               },
               {
