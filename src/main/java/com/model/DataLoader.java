@@ -1,6 +1,7 @@
 package com.model;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -16,7 +17,7 @@ public class DataLoader extends DataConstants {
             for(int i = 0; i < songsJSON.size(); i++) {
                 JSONObject songJSON = (JSONObject)songsJSON.get(i);
                 UUID id = UUID.fromString((String)songJSON.get(SONG_ID));
-                Genre genre = (Genre)songJSON.get(SONG_GENRE);
+                Genre genre = Genre.valueOf(((String) songJSON.get(SONG_GENRE)).toUpperCase());
                 String title = (String)songJSON.get(SONG_TITLE);
                 String artist = (String)songJSON.get(SONG_ARTIST);
                 int difficulty = ((Long)songJSON.get(SONG_DIFFICULTY)).intValue();
@@ -24,11 +25,11 @@ public class DataLoader extends DataConstants {
                 JSONArray sheets = (JSONArray)songJSON.get(SONG_SHEET_MUSIC);
                 for(int j = 0; j < sheets.size(); j++) {
                     int sheetType = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TYPE)).intValue();
-                    if (sheetType == 1) {
+                    //if (sheetType == 1) {
                         int tempo = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TEMPO)).intValue();
                         int timeSignatureNumerator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_NUM)).intValue();
                         int timeSignatureDenominator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_DEN)).intValue();
-                    }
+                    //}
                     ArrayList<Measure> measures = new ArrayList<Measure>();
                     JSONArray measureList = (JSONArray)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_MEASURES);
                     for(int k = 0; k < measureList.size(); k++) {
@@ -41,7 +42,7 @@ public class DataLoader extends DataConstants {
                             for(int m = 0; m < noteList.size(); m++) {
                                 int noteType = ((Long)((JSONObject)noteList.get(m)).get(NOTE_TYPE)).intValue();
                                 String pitch = (String)((JSONObject)noteList.get(m)).get(NOTE_PITCH);
-                                int length = ((Long)((JSONObject)noteList.get(m)).get(NOTE_LENGTH)).intValue();
+                                String length = (String)((JSONObject)noteList.get(m)).get(NOTE_LENGTH);
                                 if(noteType == 1) {
                                     notes.add(new PianoNote(length, pitch, false, false));
                                 }
@@ -52,6 +53,7 @@ public class DataLoader extends DataConstants {
                             measures.add(new PianoMeasure(true, chords));
                         }
                     }
+                    sheetMusics.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator, measures));
                 }
                 songs.add(new Song(id, genre, title, artist, sheetMusics, difficulty));
             }
@@ -125,16 +127,54 @@ public class DataLoader extends DataConstants {
 
         return users;
     }
-
+/*
     public static ArrayList<Post> getPosts() {
-        return new ArrayList<Post>();
-    }
-    
-    public static void main(String[] args) {
-        DataLoader dl = new DataLoader();
-        ArrayList<User> users = dl.getUsers();
-        for(User user : users) {
-            System.out.println(user);
+        ArrayList<Post> posts = new ArrayList<Post>();
+        try {
+            FileReader reader = new FileReader(POST_FILE_NAME);
+            JSONArray postsJSON = (JSONArray)new JSONParser().parse(reader);
+            for(int i = 0; i < postsJSON.size(); i++) {
+                JSONObject postJSON = (JSONObject)postsJSON.get(i);
+                UUID id = UUID.fromString((String)postJSON.get(POST_ID));
+                UUID songID = UUID.fromString((String)postJSON.get(POST_SONG));
+                Song song = null;
+                for(Song s : getSongs()) {
+                    if(s.getUUID().equals(songID)) {
+                        song = s;
+                    }
+                }
+                int favorites = ((Long)postJSON.get(POST_FAVORITES)).intValue();
+                ArrayList<Comment> comments = new ArrayList<Comment>();
+                JSONArray commentList = (JSONArray)postJSON.get(POST_COMMENTS);
+                for(int j = 0; j < commentList.size(); j++) {
+                    JSONObject commentJSON = (JSONObject)commentList.get(j);
+                    UUID commentID = UUID.fromString((String)commentJSON.get(COMMENT_ID));
+                    String text = (String)commentJSON.get(COMMENT_TEXT);
+                    UUID authorID = UUID.fromString((String)commentJSON.get(COMMENT_AUTHOR));
+                    User author = null;
+                    for(User user : getUsers()) {
+                        if(user.getUUID().equals(authorID)) {
+                            author = user;
+                        }
+                    }
+                    comments.add(new Comment(commentID, text, author));
+                }
+                UUID authorID = UUID.fromString((String)postJSON.get(POST_AUTHOR));
+                User author = null;
+                for(User user : getUsers()) {
+                    if(user.getUUID().equals(authorID)) {
+                        author = user;
+                    }
+                }
+                Date date = new Date((String)postJSON.get(POST_DATE));
+                boolean isPrivate = (boolean)postJSON.get(POST_PRIVATE);
+                String title = (String)postJSON.get(POST_TITLE);
+                posts.add(new Post(id, song, comments, author, date, isPrivate, title));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return posts;
     }
+*/
 }

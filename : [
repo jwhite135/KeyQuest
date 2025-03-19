@@ -1,0 +1,174 @@
+[33mcommit e990b7a52155853617aab76694d1271e0b5df9a0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Josiah White <jwhite010305@gmail.com>
+Date:   Wed Mar 19 00:43:37 2025 -0400
+
+    Added further implementation to DataWriter - needs testing + the related methods to be added.  Added related components to DataConstants
+
+:100644 100644 12db626 c8f1161 M	src/main/java/com/model/DataConstants.java
+:100644 100644 de79e25 785323b M	src/main/java/com/model/DataWriter.java
+:100644 100644 0b20d64 f2a518f M	src/main/java/com/model/Song.java
+:100644 100644 4eaf8e5 755b013 M	target/classes/com/model/DataConstants.class
+:100644 100644 9e111d7 9f4760e M	target/classes/com/model/DataWriter.class
+:100644 100644 8631055 e74f109 M	target/classes/com/model/KeyQuestFACADE.class
+:100644 100644 b622361 d8454d2 M	target/classes/com/model/Song.class
+
+[33mcommit a1612f1a223aed23f03bfdbfe444c3e4d59d65d6[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: MatthewRadin <143623355+MatthewRadin@users.noreply.github.com>
+Date:   Tue Mar 18 13:53:07 2025 -0400
+
+    closed #37 create tablature stub
+
+:000000 100644 0000000 d5d49f9 A	src/main/java/com/model/Tablature.java
+:000000 100644 0000000 dfa92db A	target/classes/com/model/Tablature.class
+
+[33mcommit b33b1d159a4e475fef6532aa03d0e7d6a94329be[m
+Author: MatthewRadin <143623355+MatthewRadin@users.noreply.github.com>
+Date:   Tue Mar 18 13:51:12 2025 -0400
+
+    closed #29
+
+:000000 100644 0000000 2600328 A	src/main/java/com/model/TabMeasure.java
+:100644 100644 73b51ee 8631055 M	target/classes/com/model/KeyQuestFACADE.class
+:000000 100644 0000000 f091445 A	target/classes/com/model/TabMeasure.class
+
+[33mcommit b05e86614d9f5c6ce66151d6951b6a0870ba3983[m
+Merge: b6b6489 5c0169c
+Author: Ryan Leadbitter <rdleadbitter@gmail.com>
+Date:   Tue Mar 18 12:41:19 2025 -0400
+
+    Merge branch 'main' of https://github.com/jwhite135/KeyQuest
+
+[33mcommit b6b64892521ae5b8068d40e4bd43b653c7f697d2[m
+Author: Ryan Leadbitter <rdleadbitter@gmail.com>
+Date:   Tue Mar 18 12:41:06 2025 -0400
+
+    worked on music structures
+
+:100644 100644 647e548 b1b3da1 M	src/main/java/com/model/Chord.java
+:100644 100644 e66eb03 13f1d6e M	src/main/java/com/model/Note.java
+:100644 100644 eeaf5d5 eb07f61 M	src/main/java/com/model/Piano.java
+:100644 100644 16b86ad 09b4594 M	src/main/java/com/model/PianoNote.java
+:100644 100644 7bf785e 160bc7a M	target/classes/com/model/Chord.class
+:100644 100644 6d5dcb8 cfa17ac M	target/classes/com/model/Note.class
+:100644 100644 e07fc2f 946fdaf M	target/classes/com/model/Piano.class
+:100644 100644 33433a7 7b66f83 M	target/classes/com/model/PianoNote.class
+:100644 100644 49936a7 68e36df M	target/classes/com/model/Rest.class
+
+[33mcommit 5c0169c0ef73c37e1e660c9693b0cd05bc7adaee[m
+Merge: dc3b64d b9c19fb
+Author: Ian Attmore <ian.attmore@outlook.com>
+Date:   Tue Mar 18 12:36:19 2025 -0400
+
+    Merge branch 'main' of https://github.com/jwhite135/KeyQuest
+
+[33mcommit dc3b64d59c1bd489e10ba8b49069889470991389[m
+Author: Ian Attmore <ian.attmore@outlook.com>
+Date:   Tue Mar 18 12:36:03 2025 -0400
+
+    adding facade class close #1
+
+:000000 100644 0000000 aac8487 A	src/main/java/com/model/KeyQuestFACADE.java
+:100644 100644 67b1f9c 0bd827b M	src/main/java/com/model/Post.java
+:100644 100644 341a47e 15f8a2a M	src/main/java/com/model/PostDatabase.java
+:100644 100644 ab245cf b4c8607 M	src/main/java/com/model/UserDatabase.java
+:000000 100644 0000000 73b51ee A	target/classes/com/model/KeyQuestFACADE.class
+:100644 100644 15eafd6 0c4c921 M	target/classes/com/model/Post.class
+:100644 100644 8765067 9172e9d M	target/classes/com/model/PostDatabase.class
+:100644 100644 2656e45 4d91b56 M	target/classes/com/model/UserDatabase.class
+
+[33mcommit b9c19fbc810c86cb119db53e6cd09a5f69f1d47a[m[33m ([m[1;31morigin/pianomeasure[m[33m)[m
+Author: Ryan Leadbitter <rdleadbitter@gmail.com>
+Date:   Tue Mar 18 12:19:59 2025 -0400
+
+    worked on piano stuff
+
+:100644 100644 726102f 647e548 M	src/main/java/com/model/Chord.java
+:100644 100644 af4b9e2 d8808b2 M	src/main/java/com/model/Measure.java
+:100644 100644 fb121ff e66eb03 M	src/main/java/com/model/Note.java
+:100644 100644 5ca38fb eeaf5d5 M	src/main/java/com/model/Piano.java
+:100644 100644 c831905 9475c5f M	src/main/java/com/model/PianoMeasure.java
+:100644 100644 a3d9417 16b86ad M	src/main/java/com/model/PianoNote.java
+:100644 100644 57e3103 d37cef4 M	src/main/java/com/model/SheetMusic.java
+:100644 100644 6d844d0 7bf785e M	target/classes/com/model/Chord.class
+:100644 100644 43f2f55 38dc5ef M	target/classes/com/model/Measure.class
+:100644 100644 4cb1394 6d5dcb8 M	target/classes/com/model/Note.class
+:100644 100644 e26a692 e07fc2f M	target/classes/com/model/Piano.class
+:100644 100644 92201c7 f8f90fd M	target/classes/com/model/PianoMeasure.class
+:100644 100644 c177b2b 33433a7 M	target/classes/com/model/PianoNote.class
+:100644 100644 406a6be 49936a7 M	target/classes/com/model/Rest.class
+
+[33mcommit 95f754354b00c9358759c3b1071c4ddbbc60ec95[m
+Author: ocoulam <owen.coulam.1@gmail.com>
+Date:   Tue Mar 18 00:38:37 2025 -0400
+
+    closed #8
+
+:100644 100644 978e6eb 8642967 M	src/main/java/com/model/Comment.java
+:100644 100644 c9f8f5a 7a7ab9d M	src/main/java/com/model/DataLoader.java
+:100644 100644 52f3a40 de79e25 M	src/main/java/com/model/DataWriter.java
+:100644 100644 4b01e80 a7a219b M	target/classes/com/model/Comment.class
+:100644 100644 d6c5c3b 696ae1b M	target/classes/com/model/DataLoader.class
+:100644 100644 fc4d433 9e111d7 M	target/classes/com/model/DataWriter.class
+
+[33mcommit 077e5ec0a44be32f71ffd308b2b1a0e2fe5213cc[m
+Author: ocoulam <owen.coulam.1@gmail.com>
+Date:   Thu Mar 6 18:19:24 2025 -0500
+
+    Added updating user database functionality #14 #58
+
+:100644 100644 252e308 c9f8f5a M	src/main/java/com/model/DataLoader.java
+:100644 100644 bbfbacf ab245cf M	src/main/java/com/model/UserDatabase.java
+:100644 100644 696ae1b d6c5c3b M	target/classes/com/model/DataLoader.class
+:100644 100644 940f5be fc4d433 M	target/classes/com/model/DataWriter.class
+:100644 100644 1ead6b1 2656e45 M	target/classes/com/model/UserDatabase.class
+
+[33mcommit f7f8384256b5482b2bab65efc0b3fd9bfc6916ab[m
+Merge: a714539 15895fa
+Author: ocoulam <owen.coulam.1@gmail.com>
+Date:   Thu Mar 6 13:25:00 2025 -0500
+
+    Additonal changes with User data
+
+[33mcommit a714539ecaf80864cfb4ddca53df7a21a5145012[m
+Author: ocoulam <owen.coulam.1@gmail.com>
+Date:   Thu Mar 6 13:24:25 2025 -0500
+
+    Object changes - User, Teacher, Student
+
+:100644 100644 2f34cfb 3343783 M	target/classes/com/model/DataWriter.class
+:100644 100644 2dbff52 3e82f73 M	target/classes/com/model/Guitar.class
+:100644 100644 7339ed5 4e305f1 M	target/classes/com/model/Student.class
+:100644 100644 d836f98 44e1f67 M	target/classes/com/model/Teacher.class
+:100644 100644 006d446 f353240 M	target/classes/com/model/User.class
+
+[33mcommit 15895fab764255fc11d6bdeaf4d701a41a6f3a88[m
+Author: Ryan Leadbitter <rdleadbitter@gmail.com>
+Date:   Thu Mar 6 12:55:26 2025 -0500
+
+    implemented test for data writer
+
+:100644 100644 497d1c4 9bf16c6 M	json/Users.json
+:100644 100644 c6087eb 52f3a40 M	src/main/java/com/model/DataWriter.java
+:100644 100644 99eb296 fcb1eea M	src/main/java/com/model/User.java
+:100644 100644 3343783 940f5be M	target/classes/com/model/DataWriter.class
+:100644 100644 f1d5f29 c759d9c M	target/classes/com/model/User.class
+:000000 100644 0000000 e69de29 A	target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+:000000 100644 0000000 b77c87f A	target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+
+[33mcommit 25fc243c19bf88fb914fe273e74879d87d70e755[m
+Author: Ian Attmore <ian.attmore@outlook.com>
+Date:   Thu Mar 6 12:44:43 2025 -0500
+
+    fixing userdatabase
+
+:100644 100644 96c9d85 bbfbacf M	src/main/java/com/model/UserDatabase.java
+:100644 100644 8d3bdd9 1ead6b1 M	target/classes/com/model/UserDatabase.class
+
+[33mcommit e893fdfb316d4501a79026b066d34b5e3f511220[m
+Author: Ian Attmore <ian.attmore@outlook.com>
+Date:   Thu Mar 6 12:42:46 2025 -0500
+
+    adding functionality to user database
+
+:100644 100644 06b9670 252e308 M	src/main/java/com/model/DataLoader.java
+:100644 100644 7

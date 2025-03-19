@@ -3,7 +3,7 @@ package com.model;
 import java.util.ArrayList;
 
 public class SongDatabase {
-    private SongDatabase songDatabase;
+    private static SongDatabase songDatabase;
     private ArrayList<Song> songs;
 
     private SongDatabase() {
@@ -11,15 +11,21 @@ public class SongDatabase {
     }
 
     public static SongDatabase getInstance() {
-        return null; // Placeholder for actual implementation
+        if(songDatabase == null) {
+            songDatabase = new SongDatabase();
+        }
+        return songDatabase;
     } 
 
     public ArrayList<Song> getSongs() {
         return songs;
     }
 
+    public void setSongs(ArrayList<Song> songs) {
+        this.songs = songs;
+    }
+    
     public ArrayList<Song> searchByName(String name) {
-        /**
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songs) {
             if (song.getName().equalsIgnoreCase(name)) {
@@ -27,12 +33,9 @@ public class SongDatabase {
             }
         }
         return result;
-         */
-        return null; // Placeholder for actual implementation
     }
 
     public ArrayList<Song> searchByArtist(String artist) {
-        /**
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songs) {
             if (song.getArtist().equalsIgnoreCase(artist)) {
@@ -40,33 +43,25 @@ public class SongDatabase {
             }
         }
         return result;
-         */
-        return null; // Placeholder for actual implementation
     }
 
     public ArrayList<Song> searchByDifficulty(int difficulty) {
-        /**
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songs) {
-            if (song.getDifficulty().equalsIgnoreCase(difficulty)) {
+            if (song.getDifficulty() == difficulty) {
                 result.add(song);
             }
         }
         return result;
-         */
-        return null; // Placeholder for actual implementation
     }
 
     public ArrayList<Song> searchByGenre(Genre genre) {
-        /**
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songs) {
-            if (song.getGenre().equalsIgnoreCase(genre)) {
+            if (song.getGenre() == genre) {
                 result.add(song);
             }
         }
         return result;
-         */
-        return null; // Placeholder for actual implementation
     }
 }

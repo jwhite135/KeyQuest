@@ -15,11 +15,16 @@ public class Chord {
     public void playChord() {
         String playThis = "";
         for (int i = 0; i < notes.size(); ++i) {
-            playThis += notes.get(i).getNote();
-            if (i > 0 && i < notes.size() - 1) {
-                playThis += ".";
+            playThis += ((PianoNote)notes.get(i)).getKey();
+            if (i < notes.size() - 1) {
+                playThis += "+";
             }
         }
+        playThis += ((PianoNote)notes.get(0)).getLength();
         player.play(playThis);
+    }
+
+    public ArrayList<Note> getNotes() {
+        return notes;
     }
 }

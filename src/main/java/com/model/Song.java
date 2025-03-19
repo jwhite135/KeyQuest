@@ -10,10 +10,6 @@ public class Song {
     private ArrayList<SheetMusic> sheetMusic;
     private int difficulty;
 
-    public Song() {
-        this.sheetMusic = new ArrayList<SheetMusic>();
-    }
-    
     public Song(UUID id, Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
         this.id = id;
         this.genre = genre;
@@ -33,11 +29,15 @@ public class Song {
     }
         
     public void playSong() {
-        sheetMusic.get(0).play();
+        sheetMusic.get(0).playMeasures();
     }
 
     public void playAlong(Instrument instrument) {
-        return;
+        if(instrument instanceof Piano) {
+            sheetMusic.get(0).play();
+        } else {
+            System.out.println("Instrument not supported");
+        }
     }
 
     public Genre getGenre() {
@@ -70,5 +70,13 @@ public class Song {
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public UUID getUUID() {
+        return id;
+    }
+
+    public void setUUID(UUID id) {
+        this.id = id;
     }
 }

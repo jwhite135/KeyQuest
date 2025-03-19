@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-abstract class SheetMusic {
+public class SheetMusic {
     private int tempo;
     private int timeSignatureNumerator;
     private int timeSignatureDenominator;
@@ -21,10 +21,13 @@ abstract class SheetMusic {
         this.measures = measures;
     }
 
-    public void playMeasure() {
+    public void playMeasures() {
         for (int i = 0; i < measures.size(); ++i) {
             measures.get(i).playMeasure();
         }
     }
 
+    public ArrayList<Measure> getMeasures() {
+        return measures;
+    }
 }

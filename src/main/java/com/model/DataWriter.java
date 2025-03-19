@@ -8,8 +8,6 @@ import java.lang.reflect.Method;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import javafx.scene.effect.Shadow;
-
 public class DataWriter extends DataConstants{
 
     public static void saveUsers() {

@@ -10,8 +10,12 @@ abstract class Measure {
     }
 
     public void playMeasure() {
-        for (int i = 0; i < chords.size(); ++i) {
+        for (int i = 0; i < chords.size(); i++) {
             chords.get(i).playChord();
         }
+    }
+
+    public ArrayList<Chord> getChords() {
+        return chords;
     }
 }

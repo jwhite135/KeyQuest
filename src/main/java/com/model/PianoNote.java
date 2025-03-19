@@ -27,7 +27,7 @@ public class PianoNote extends Note {
         } else if (flat) {
             return key + "b" + length;
         } else {
-            return key + length;
+            return key + length.toLowerCase();
         }
     }
 
@@ -41,5 +41,9 @@ public class PianoNote extends Note {
 
     public boolean isFlat() {
         return flat;
+    }
+
+    public String getLength() {
+        return length;
     }
 }
