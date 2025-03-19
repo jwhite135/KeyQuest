@@ -3,6 +3,10 @@ package com.model;
 abstract class Note {
     protected String length;
 
+    public Note() {
+        length = "";
+    }
+
     public Note(String length) {
         this.length = length;
     }
