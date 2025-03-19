@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class UserDatabase {
     private static UserDatabase userDatabase;
-    private ArrayList<User> users;
+    private static ArrayList<User> users;
 
     private UserDatabase() {
         users = new ArrayList<User>();
@@ -23,7 +23,12 @@ public class UserDatabase {
     }
 
     public User getUser(String email, String password) {
-        return users.get(0);
+        for (User user : users) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public static boolean addUser(User user) {

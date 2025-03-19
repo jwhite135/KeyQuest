@@ -1,81 +1,83 @@
 [
-    {
-        "id":"073657f2-0de9-4fa7-a699-2744002efe8d",
-        "genre": "rock",
-        "title": "Rock Song",
-        "artist": "Rock Band",
-        "difficulty": 2
-    },{
-        "id":"3e7607be-d290-436b-acf1-6ca8ac4013a7",
-        "genre": "classical",
-        "title": "Oriental Riff",
-        "artist": "Unknown",
-        "difficulty": 1,
-        "SheetMusic": {
+  {
+    "id": "3e7607be-d290-436b-acf1-6ca8ac4013a7",
+    "genre": "classical",
+    "title": "Oriental Riff",
+    "artist": "Unknown",
+    "difficulty": 1,
+    "SheetMusic": [
+      {
+        "type": 1,
+        "tempo": 100,
+        "timeSignatureNumerator": 4,
+        "timeSignatureDenominator": 4,
+        "measures": [
+          {
             "type": 1,
-            "tempo": "100",
-            "timeSignatureNumerator": "4",
-            "timeSignatureDenominator": "4",
-            "measures": [
-                {
-                    "type": 1,
-                    "chords": [
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "A4", "length": "i"},
-                                {"type": 1, "pitch": "D4", "length": "i"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "A4", "length": "i"},
-                                {"type": 1, "pitch": "D4", "length": "i"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "A4", "length": "i"},
-                                {"type": 1, "pitch": "D4", "length": "i"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "G3", "length": "q"},
-                                {"type": 1, "pitch": "C4", "length": "q"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "E3", "length": "q"},
-                                {"type": 1, "pitch": "C4", "length": "q"}
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": 1,
-                    "chords": [
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "E3", "length": "q"},
-                                {"type": 1, "pitch": "A4", "length": "q"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "E3", "length": "q"},
-                                {"type": 1, "pitch": "A4", "length": "q"}
-                            ]
-                        },
-                        {
-                            "notes": [
-                                {"type": 1, "pitch": "G3", "length": "h"},
-                                {"type": 1, "pitch": "C4", "length": "h"}
-                            ]
-                        }
-                    ]
-                }
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "A4", "length": "i" },
+                  { "type": 1, "pitch": "D4", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "A4", "length": "i" },
+                  { "type": 1, "pitch": "D4", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "A4", "length": "i" },
+                  { "type": 1, "pitch": "D4", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "A4", "length": "i" },
+                  { "type": 1, "pitch": "D4", "length": "i" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G3", "length": "q" },
+                  { "type": 1, "pitch": "C4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "E3", "length": "q" },
+                  { "type": 1, "pitch": "C4", "length": "q" }
+                ]
+              }
             ]
-        }
-    }
+          },
+          {
+            "type": 1,
+            "chords": [
+              {
+                "notes": [
+                  { "type": 1, "pitch": "E3", "length": "q" },
+                  { "type": 1, "pitch": "A4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "E3", "length": "q" },
+                  { "type": 1, "pitch": "A4", "length": "q" }
+                ]
+              },
+              {
+                "notes": [
+                  { "type": 1, "pitch": "G3", "length": "h" },
+                  { "type": 1, "pitch": "C4", "length": "h" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]

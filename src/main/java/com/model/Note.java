@@ -1,9 +1,21 @@
 package com.model;
 
 abstract class Note {
-    private int length;
+    protected String length;
 
-    public Note(int length) {
+    public Note() {
+        length = "";
+    }
+
+    public Note(String length) {
         this.length = length;
+    }
+
+    public void playNote() {
+
+    }
+
+    public String getNote() {
+        return "";
     }
 }

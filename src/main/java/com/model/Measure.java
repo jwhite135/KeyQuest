@@ -3,13 +3,19 @@ package com.model;
 import java.util.ArrayList;
 
 abstract class Measure {
-    private ArrayList<Chord> chords;
+    protected ArrayList<Chord> chords;
 
     public Measure(ArrayList<Chord> chords) {
         this.chords = chords;
     }
 
-    public void playChord() {
-        
+    public void playMeasure() {
+        for (int i = 0; i < chords.size(); i++) {
+            chords.get(i).playChord();
+        }
+    }
+
+    public ArrayList<Chord> getChords() {
+        return chords;
     }
 }

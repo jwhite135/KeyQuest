@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class Post {
     private Song song;
@@ -11,9 +12,9 @@ public class Post {
     private Date date;
     private boolean isPrivate;
     private String title;
-    private String UUID;
+    private UUID id;
 
-    public Post(Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate) {
+    public Post(Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title) {
         this.song = song;
         this.comments = comments;
         this.author = author;
@@ -23,7 +24,18 @@ public class Post {
         PostDatabase.getInstance().addPost(this);
     }
 
+<<<<<<< HEAD
     // Accessor methods for data writing
+=======
+    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title) {
+        this.id = id;
+        this.song = song;
+        this.comments = comments;
+        this.author = author;
+        this.date = date;
+        this.isPrivate = isPrivate;
+    }
+>>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
     public Song getSong() {
         return this.song;
     }
@@ -52,16 +64,46 @@ public class Post {
         return this.title;
     }
 
-    public String getID() {
-        return this.UUID;
+    public UUID getUUID() {
+        return this.id;
     }
 
     public void addComment(String body, User author) {
         comments.add(new Comment(body, author));
     }
 
+<<<<<<< HEAD
     public void addFavorite(User currentUser) {
         currentUser.favoritePost(this);
         favorites++;
+=======
+    public void setFavorites(int favorites) {
+        this.favorites = favorites;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public void setIsPrivate(boolean isPrivate) {
+        this.isPrivate = isPrivate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    
+    public void addComment(String body, String author) {
+        return;
+    }
+
+    public void addFavorite() {
+        return;
+>>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
     }
 }
