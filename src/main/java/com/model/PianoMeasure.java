@@ -10,13 +10,18 @@ public class PianoMeasure extends Measure {
         this.showClef = showClef;
     }
     
+    @Override
     public void playMeasure() {
         for (int i = 0; i < chords.size(); ++i) {
             chords.get(i).playChord();
         }
     }
 
-    private void setShowClef(boolean showClef) {
+    public boolean showClef() {
+        return showClef;
+    }
+
+    public void setShowClef(boolean showClef) {
         this.showClef = showClef;
     }
 }
