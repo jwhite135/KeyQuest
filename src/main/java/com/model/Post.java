@@ -12,30 +12,32 @@ public class Post {
     private Date date;
     private boolean isPrivate;
     private String title;
+    private String body;
     private UUID id;
 
-    public Post(Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title) {
+    // Construtor for creation, note that post is added to database through Facade
+    public Post(Song song, User author, boolean isPrivate, String title, String body) {
+        this.id = UUID.randomUUID();
         this.song = song;
-        this.comments = comments;
+        this.comments = new ArrayList<Comment>();
         this.author = author;
-        this.date = date;
+        this.date = new Date();
         this.isPrivate = isPrivate;
         this.favorites = 0;
-        PostDatabase.getInstance().addPost(this);
     }
 
-<<<<<<< HEAD
-    // Accessor methods for data writing
-=======
-    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title) {
+    // Construtor for data loading
+    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title, String body) {
         this.id = id;
         this.song = song;
         this.comments = comments;
         this.author = author;
         this.date = date;
         this.isPrivate = isPrivate;
+        this.body = body;
     }
->>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
+
+    // Accessor methods for data writing
     public Song getSong() {
         return this.song;
     }
@@ -56,6 +58,10 @@ public class Post {
         return this.date;
     }
 
+    public String getBody() {
+        return this.body;
+    }
+
     public boolean getIsPrivate() {
         return this.isPrivate;
     }
@@ -72,11 +78,11 @@ public class Post {
         comments.add(new Comment(body, author));
     }
 
-<<<<<<< HEAD
     public void addFavorite(User currentUser) {
         currentUser.favoritePost(this);
         favorites++;
-=======
+    }
+
     public void setFavorites(int favorites) {
         this.favorites = favorites;
     }
@@ -95,15 +101,5 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    
-    public void addComment(String body, String author) {
-        return;
-    }
-
-    public void addFavorite() {
-        return;
->>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
     }
 }

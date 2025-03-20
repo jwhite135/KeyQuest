@@ -45,6 +45,7 @@ public abstract class DataConstants {
     protected static final String POST_DATE = "date";
     protected static final String POST_PRIVATE = "private";
     protected static final String POST_TITLE = "title";
+    protected static final String POST_BODY = "body";
     protected static final String COMMENT_BODY = "body";
     protected static final String COMMENT_AUTHOR_ID = "authorID";
     protected static final String COMMENT_DATE = "date";
