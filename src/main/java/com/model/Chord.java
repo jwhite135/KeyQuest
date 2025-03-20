@@ -22,6 +22,10 @@ public class Chord {
         playThis += ((PianoNote)notes.get(0)).getLength();
         player.play(playThis);
     }
+    /*
+     * In order to make chord work for guitar as well this may need changing
+     * Either change this method or how guitar notes work as a whole
+     */
 
     public ArrayList<Note> getNotes() {
         return notes;
