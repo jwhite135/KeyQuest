@@ -31,12 +31,7 @@ public class PostDatabase {
         return result;
     }
 
-<<<<<<< HEAD
     public ArrayList<Post> searchBySong(String song) {
-=======
-    public ArrayList<Post> searchByArtist(String author) {
-        /*
->>>>>>> 87b2148760e0fefe81362f6f1721e101e9e263b2
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
             if (post.getSong().getName().equalsIgnoreCase(song)) {

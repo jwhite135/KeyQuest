@@ -1,14 +1,14 @@
 package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.lang.reflect.Method;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class DataWriter extends DataConstants{
+public class DataWriter extends DataConstants {
 
     public static void saveUsers() {
         UserDatabase users = UserDatabase.getInstance();
@@ -41,7 +41,7 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
-    public void saveSongs() {
+    public static void saveSongs() {
         SongDatabase songs = SongDatabase.getInstance();
         ArrayList<Song> songList = songs.getSongs();
         JSONArray jsonSongs = new JSONArray();
@@ -147,7 +147,7 @@ public class DataWriter extends DataConstants{
         return songDetails;
     }
     
-    public void savePosts() {
+    public static void savePosts() {
         PostDatabase posts = PostDatabase.getInstance();
         ArrayList<Post> postList = posts.getPosts();
         JSONArray jsonPosts = new JSONArray();
@@ -183,6 +183,7 @@ public class DataWriter extends DataConstants{
         postDetails.put(POST_DATE, post.getDate());
         postDetails.put(POST_PRIVATE, post.getIsPrivate());
         postDetails.put(POST_TITLE, post.getTitle());
+        postDetails.put(POST_BODY, post.getBody());
         
         return postDetails;
     }

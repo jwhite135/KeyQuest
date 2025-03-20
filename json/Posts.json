@@ -7,7 +7,8 @@
         "authorID": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
         "date": "10/12/1904",
         "private": false,
-        "title": "Bohemian Rhapsody"
+        "title": "Bohemian Rhapsody",
+        "body": "Is this the real life? Is this just fantasy?"
     },{
         "postID": "2b05c4c8-9c7c-4db3-89d8-d791d4148849",
         "songID": "3e7607be-d290-436b-acf1-6ca8ac4013a7",
@@ -16,6 +17,7 @@
         "authorID": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
         "date": "6/7/2014",
         "private": false,
-        "title": "Dance of the Sugar Plum Fairy"
+        "title": "Dance of the Sugar Plum Fairy",
+        "body": "Dance dance dance"
     }
 ]

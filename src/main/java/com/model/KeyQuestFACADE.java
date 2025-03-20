@@ -29,8 +29,9 @@ public class KeyQuestFACADE {
         return UserDatabase.addUser(user);
     }
 
-    public boolean makePost(Post post) {
-        return PostDatabase.addPost(post);
+    public boolean makePost(Song song, boolean isPrivate, String title, String body) {
+        Post newPost = new Post(song, this.user, isPrivate, title, body);
+        return posts.addPost(newPost);
     }
 
     public void makeComment(Post post, String comment) {
@@ -38,27 +39,15 @@ public class KeyQuestFACADE {
     }
 
     public void favoritePost(Post post) {
-        post.addFavorite();; 
+        post.addFavorite(this.user);
     }
 
-    public ArrayList<Post> searchByUser(User user) {
-        ArrayList<Post> userPosts = new ArrayList<Post>();
-        for (Post post : posts.getPosts()) {
-            if (post.getAuthor().equals(user)) {
-                userPosts.add(post);
-            }
-        }
-        return userPosts;
+    public ArrayList<Post> searchByUser(String user) {
+        return posts.searchByUser(user);
     }
 
-    public ArrayList<Post> searchBySong(Song song) {
-        ArrayList<Post> songPosts = new ArrayList<Post>();
-        for (Post post : posts.getPosts()) {
-            if (post.getSong().equals(song)) {
-                songPosts.add(post);
-            }
-        }
-        return songPosts;
+    public ArrayList<Post> searchBySong(String song) {
+        return posts.searchBySong(song);
     }
 
     public ArrayList<Post> sortByMostRecent() {
