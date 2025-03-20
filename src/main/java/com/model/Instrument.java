@@ -17,4 +17,8 @@ public class Instrument {
     public void playSong(Song song) {
 
     }
+
+    public String getName() {
+        return name;
+    }
 }
