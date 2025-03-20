@@ -1,7 +1,6 @@
 package com.model;
 
 import java.util.ArrayList;
-
 import org.jfugue.player.Player;
 
 public class Chord {
