@@ -11,10 +11,13 @@ public class TabMeasure extends Measure {
         this.numberOfLines = instrument.getName().equalsIgnoreCase("Bassguitar") ? 4 : 6;
     }
 
-    @Override
     public void playMeasure() {
         for (Chord chord : chords) {
             chord.playChord();
         }
+    }
+
+    public int getNumberOfLines() {
+        return numberOfLines;
     }
 }
