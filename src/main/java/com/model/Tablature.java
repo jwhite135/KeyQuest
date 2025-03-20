@@ -22,6 +22,6 @@ public class Tablature extends Note {
     }
 
     public void playNote() {
-       
+       // Code for playing the note here
     }
 }
