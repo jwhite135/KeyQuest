@@ -15,12 +15,10 @@ public class BassGuitar extends Guitar {
         return tuning;
     }
 
-    public void displayBassGuitar() {
-
-    }
-
     public void playNote(Note note) {
-
+        if (note instanceof Tablature) {
+            note.playNote();
+        }
     }
 
     public void playSong(Song song) {
