@@ -50,6 +50,14 @@ public class KeyQuestFACADE {
         return posts.searchBySong(song);
     }
 
+    public ArrayList<Post> searchByName(String title) {
+        return posts.searchByName(title);
+    }
+
+    public ArrayList<Post> searchByArtist(String artist) {
+        return posts.searchByArtist(artist);
+    }
+
     public ArrayList<Post> sortByMostRecent() {
         return posts.sortByMostRecent();
     }
@@ -68,14 +76,6 @@ public class KeyQuestFACADE {
 
     public void createSong(SheetMusic sheetMusic, String name) {
         
-    }
-
-    public ArrayList<Post> searchByName(String title) {
-        return posts.searchByName(title);
-    }
-
-    public ArrayList<Post> searchByArtist(String artist) {
-        return posts.searchByArtist(artist);
     }
 
     public void searchByDifficulty(int difficulty) {
