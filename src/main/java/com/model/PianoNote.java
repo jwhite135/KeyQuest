@@ -8,6 +8,21 @@ public class PianoNote extends Note {
     private boolean flat;
     private final static Player player = new Player();
 
+    /*  ---- Notation ----
+        [Instrument]<Note><Octave><Duration>
+        Instrument: Piano by default
+        Note: A-G, # for sharp and b for flat
+        Octave: 0-8
+        Duration: Letters
+            - w: whole note
+            - h: half note
+            - q: quarter note
+            - i: eighth note
+            - s: sixteenth note
+
+        Examples of combined notation: C4q, F#5i, Ab3w
+    */
+
     public PianoNote(String length, String key, boolean sharp, boolean flat) {
         super(length);
         this.key = key;
