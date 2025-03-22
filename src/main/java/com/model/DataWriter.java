@@ -33,7 +33,6 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_EMAIL, user.getEmail());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_TYPE, user.getType());
-        userDetails.put(USER_DAILY_STREAK, user.getDailyStreak());
         userDetails.put(USER_FAVORITE_SONGS, getUUIDList(user.getFavoriteSongs()));
         userDetails.put(USER_FRIENDS, getUUIDList(user.getFriends()));
         userDetails.put(USER_FAVORITE_POSTS, getUUIDList(user.getFavoritePosts()));
