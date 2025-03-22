@@ -6,7 +6,7 @@ public class Tablature extends Note {
     private int stringNumber;
     private int fret;
     private String length;
-    private String noteData; // Includes octave
+    private String key; // Includes octave
     private final static Player player = new Player();
 
     public Tablature(int stringNumber, int fret, String length) {
@@ -16,7 +16,158 @@ public class Tablature extends Note {
         }
         this.stringNumber = stringNumber;
         this.fret = fret;
-        // TO DO- Add conversion implementation
+
+        if (stringNumber == 1 && fret == 0) { key = "E2"; }
+        else if (stringNumber == 1 && fret == 1) { key = "F2"; }
+        else if (stringNumber == 1 && fret == 2) { key = "F#2"; }
+        else if (stringNumber == 1 && fret == 3) { key = "G2"; }
+        else if (stringNumber == 1 && fret == 4) { key = "G#2"; }
+        else if (stringNumber == 1 && fret == 5) { key = "A2"; }
+        else if (stringNumber == 1 && fret == 6) { key = "A#2"; }
+        else if (stringNumber == 1 && fret == 7) { key = "B2"; }
+        else if (stringNumber == 1 && fret == 8) { key = "C3"; }
+        else if (stringNumber == 1 && fret == 9) { key = "C#3"; }
+        else if (stringNumber == 1 && fret == 10) { key = "D3"; }
+        else if (stringNumber == 1 && fret == 11) { key = "D#3"; }
+        else if (stringNumber == 1 && fret == 12) { key = "E3"; }
+        else if (stringNumber == 1 && fret == 13) { key = "F3"; }
+        else if (stringNumber == 1 && fret == 14) { key = "F#3"; }
+        else if (stringNumber == 1 && fret == 15) { key = "G3"; }
+        else if (stringNumber == 1 && fret == 16) { key = "G#3"; }
+        else if (stringNumber == 1 && fret == 17) { key = "A3"; }
+        else if (stringNumber == 1 && fret == 18) { key = "A#3"; }
+        else if (stringNumber == 1 && fret == 19) { key = "B3"; }
+        else if (stringNumber == 1 && fret == 20) { key = "C4"; }
+        else if (stringNumber == 1 && fret == 21) { key = "C#4"; }
+        else if (stringNumber == 1 && fret == 22) { key = "D4"; }
+        else if (stringNumber == 1 && fret == 23) { key = "D#4"; }
+        else if (stringNumber == 1 && fret == 24) { key = "E4"; }
+        else if (stringNumber == 2 && fret == 0) { key = "A2"; }
+        else if (stringNumber == 2 && fret == 1) { key = "A#2"; }
+        else if (stringNumber == 2 && fret == 2) { key = "B2"; }
+        else if (stringNumber == 2 && fret == 3) { key = "C3"; }
+        else if (stringNumber == 2 && fret == 4) { key = "C#3"; }
+        else if (stringNumber == 2 && fret == 5) { key = "D3"; }
+        else if (stringNumber == 2 && fret == 6) { key = "D#3"; }
+        else if (stringNumber == 2 && fret == 7) { key = "E3"; }
+        else if (stringNumber == 2 && fret == 8) { key = "F3"; }
+        else if (stringNumber == 2 && fret == 9) { key = "F#3"; }
+        else if (stringNumber == 2 && fret == 10) { key = "G3"; }
+        else if (stringNumber == 2 && fret == 11) { key = "G#3"; }
+        else if (stringNumber == 2 && fret == 12) { key = "A3"; }
+        else if (stringNumber == 2 && fret == 13) { key = "A#3"; }
+        else if (stringNumber == 2 && fret == 14) { key = "B3"; }
+        else if (stringNumber == 2 && fret == 15) { key = "C4"; }
+        else if (stringNumber == 2 && fret == 16) { key = "C#4"; }
+        else if (stringNumber == 2 && fret == 17) { key = "D4"; }
+        else if (stringNumber == 2 && fret == 18) { key = "D#4"; }
+        else if (stringNumber == 2 && fret == 19) { key = "E4"; }
+        else if (stringNumber == 2 && fret == 20) { key = "F4"; }
+        else if (stringNumber == 2 && fret == 21) { key = "F#4"; }
+        else if (stringNumber == 2 && fret == 22) { key = "G4"; }
+        else if (stringNumber == 2 && fret == 23) { key = "G#4"; }
+        else if (stringNumber == 2 && fret == 24) { key = "A4"; }
+        else if (stringNumber == 3 && fret == 0) { key = "D3"; }
+        else if (stringNumber == 3 && fret == 1) { key = "D#3"; }
+        else if (stringNumber == 3 && fret == 2) { key = "E3"; }
+        else if (stringNumber == 3 && fret == 3) { key = "F3"; }
+        else if (stringNumber == 3 && fret == 4) { key = "F#3"; }
+        else if (stringNumber == 3 && fret == 5) { key = "G3"; }
+        else if (stringNumber == 3 && fret == 6) { key = "G#3"; }
+        else if (stringNumber == 3 && fret == 7) { key = "A3"; }
+        else if (stringNumber == 3 && fret == 8) { key = "A#3"; }
+        else if (stringNumber == 3 && fret == 9) { key = "B3"; }
+        else if (stringNumber == 3 && fret == 10) { key = "C4"; }
+        else if (stringNumber == 3 && fret == 11) { key = "C#4"; }
+        else if (stringNumber == 3 && fret == 12) { key = "D4"; }
+        else if (stringNumber == 3 && fret == 13) { key = "D#4"; }
+        else if (stringNumber == 3 && fret == 14) { key = "E4"; }
+        else if (stringNumber == 3 && fret == 15) { key = "F4"; }
+        else if (stringNumber == 3 && fret == 16) { key = "F#4"; }
+        else if (stringNumber == 3 && fret == 17) { key = "G4"; }
+        else if (stringNumber == 3 && fret == 18) { key = "G#4"; }
+        else if (stringNumber == 3 && fret == 19) { key = "A4"; }
+        else if (stringNumber == 3 && fret == 20) { key = "A#4"; }
+        else if (stringNumber == 3 && fret == 21) { key = "B4"; }
+        else if (stringNumber == 3 && fret == 22) { key = "C5"; }
+        else if (stringNumber == 3 && fret == 23) { key = "C#5"; }
+        else if (stringNumber == 3 && fret == 24) { key = "D5"; }
+        else if (stringNumber == 4 && fret == 0) { key = "G3"; }
+        else if (stringNumber == 4 && fret == 1) { key = "G#3"; }
+        else if (stringNumber == 4 && fret == 2) { key = "A3"; }
+        else if (stringNumber == 4 && fret == 3) { key = "A#3"; }
+        else if (stringNumber == 4 && fret == 4) { key = "B3"; }
+        else if (stringNumber == 4 && fret == 5) { key = "C4"; }
+        else if (stringNumber == 4 && fret == 6) { key = "C#4"; }
+        else if (stringNumber == 4 && fret == 7) { key = "D4"; }
+        else if (stringNumber == 4 && fret == 8) { key = "D#4"; }
+        else if (stringNumber == 4 && fret == 9) { key = "E4"; }
+        else if (stringNumber == 4 && fret == 10) { key = "F4"; }
+        else if (stringNumber == 4 && fret == 11) { key = "F#4"; }
+        else if (stringNumber == 4 && fret == 12) { key = "G4"; }
+        else if (stringNumber == 4 && fret == 13) { key = "G#4"; }
+        else if (stringNumber == 4 && fret == 14) { key = "A4"; }
+        else if (stringNumber == 4 && fret == 15) { key = "A#4"; }
+        else if (stringNumber == 4 && fret == 16) { key = "B4"; }
+        else if (stringNumber == 4 && fret == 17) { key = "C5"; }
+        else if (stringNumber == 4 && fret == 18) { key = "C#5"; }
+        else if (stringNumber == 4 && fret == 19) { key = "D5"; }
+        else if (stringNumber == 4 && fret == 20) { key = "D#5"; }
+        else if (stringNumber == 4 && fret == 21) { key = "E5"; }
+        else if (stringNumber == 4 && fret == 22) { key = "F5"; }
+        else if (stringNumber == 4 && fret == 23) { key = "F#5"; }
+        else if (stringNumber == 4 && fret == 24) { key = "G5"; }
+        else if (stringNumber == 5 && fret == 0) { key = "B3"; }
+        else if (stringNumber == 5 && fret == 1) { key = "C4"; }
+        else if (stringNumber == 5 && fret == 2) { key = "C#4"; }
+        else if (stringNumber == 5 && fret == 3) { key = "D4"; }
+        else if (stringNumber == 5 && fret == 4) { key = "D#4"; }
+        else if (stringNumber == 5 && fret == 5) { key = "E4"; }
+        else if (stringNumber == 5 && fret == 6) { key = "F4"; }
+        else if (stringNumber == 5 && fret == 7) { key = "F#4"; }
+        else if (stringNumber == 5 && fret == 8) { key = "G4"; }
+        else if (stringNumber == 5 && fret == 9) { key = "G#4"; }
+        else if (stringNumber == 5 && fret == 10) { key = "A4"; }
+        else if (stringNumber == 5 && fret == 11) { key = "A#4"; }
+        else if (stringNumber == 5 && fret == 12) { key = "B4"; }
+        else if (stringNumber == 5 && fret == 13) { key = "C5"; }
+        else if (stringNumber == 5 && fret == 14) { key = "C#5"; }
+        else if (stringNumber == 5 && fret == 15) { key = "D5"; }
+        else if (stringNumber == 5 && fret == 16) { key = "D#5"; }
+        else if (stringNumber == 5 && fret == 17) { key = "E5"; }
+        else if (stringNumber == 5 && fret == 18) { key = "F5"; }
+        else if (stringNumber == 5 && fret == 19) { key = "F#5"; }
+        else if (stringNumber == 5 && fret == 20) { key = "G5"; }
+        else if (stringNumber == 5 && fret == 21) { key = "G#5"; }
+        else if (stringNumber == 5 && fret == 22) { key = "A5"; }
+        else if (stringNumber == 5 && fret == 23) { key = "A#5"; }
+        else if (stringNumber == 5 && fret == 24) { key = "B5"; }
+        else if (stringNumber == 6 && fret == 0) { key = "E4"; }
+        else if (stringNumber == 6 && fret == 1) { key = "F4"; }
+        else if (stringNumber == 6 && fret == 2) { key = "F#4"; }
+        else if (stringNumber == 6 && fret == 3) { key = "G4"; }
+        else if (stringNumber == 6 && fret == 4) { key = "G#4"; }
+        else if (stringNumber == 6 && fret == 5) { key = "A4"; }
+        else if (stringNumber == 6 && fret == 6) { key = "A#4"; }
+        else if (stringNumber == 6 && fret == 7) { key = "B4"; }
+        else if (stringNumber == 6 && fret == 8) { key = "C5"; }
+        else if (stringNumber == 6 && fret == 9) { key = "C#5"; }
+        else if (stringNumber == 6 && fret == 10) { key = "D5"; }
+        else if (stringNumber == 6 && fret == 11) { key = "D#5"; }
+        else if (stringNumber == 6 && fret == 12) { key = "E5"; }
+        else if (stringNumber == 6 && fret == 13) { key = "F5"; }
+        else if (stringNumber == 6 && fret == 14) { key = "F#5"; }
+        else if (stringNumber == 6 && fret == 15) { key = "G5"; }
+        else if (stringNumber == 6 && fret == 16) { key = "G#5"; }
+        else if (stringNumber == 6 && fret == 17) { key = "A5"; }
+        else if (stringNumber == 6 && fret == 18) { key = "A#5"; }
+        else if (stringNumber == 6 && fret == 19) { key = "B5"; }
+        else if (stringNumber == 6 && fret == 20) { key = "C6"; }
+        else if (stringNumber == 6 && fret == 21) { key = "C#6"; }
+        else if (stringNumber == 6 && fret == 22) { key = "D6"; }
+        else if (stringNumber == 6 && fret == 23) { key = "D#6"; }
+        else if (stringNumber == 6 && fret == 24) { key = "E6"; }
+        this.length = length;
     }
 
     public int getStringNumber() {
@@ -28,7 +179,7 @@ public class Tablature extends Note {
     }
 
     public String getNote() {
-        return noteData;
+        return key + length;
     }
 
     public String getLength() {
