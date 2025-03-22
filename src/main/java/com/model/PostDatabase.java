@@ -21,6 +21,16 @@ public class PostDatabase {
         return posts;
     }
 
+    public ArrayList<Post> searchByUser(String user) {
+        ArrayList<Post> result = new ArrayList<Post>();
+        for (Post post : posts) {
+            if (post.getAuthor().getUsername().equalsIgnoreCase(user)) {
+                result.add(post);
+            }
+        }
+        return result;
+    }
+
     public ArrayList<Post> searchByName(String title) {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
@@ -35,6 +45,16 @@ public class PostDatabase {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : posts) {
             if (post.getSong().getName().equalsIgnoreCase(song)) {
+                result.add(post);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<Post> searchByArtist(String artist) {
+        ArrayList<Post> result = new ArrayList<Post>();
+        for (Post post : posts) {
+            if (post.getSong().getArtist().equalsIgnoreCase(artist)) {
                 result.add(post);
             }
         }
