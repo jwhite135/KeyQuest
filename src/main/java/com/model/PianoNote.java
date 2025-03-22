@@ -34,8 +34,7 @@ public class PianoNote extends Note {
     public void playNote() {
         player.play(getNote());
     }
-
-    @Override
+    
     public String getNote() {
         if (sharp) {
             return key + "#" + length;
