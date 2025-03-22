@@ -1,27 +1,23 @@
 [
     {
-        "dailyStreak": 100,
         "password": null,
         "id": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
         "type": "user",
         "email": "jgrey@email.sc.edu"
     },
     {
-        "dailyStreak": 0,
         "password": null,
         "id": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
         "type": "user",
         "email": "jwrath@gmail.com"
     },
     {
-        "dailyStreak": 7,
         "password": null,
         "id": "ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
         "type": "user",
         "email": "jjettas@hotmail.com"
     },
     {
-        "dailyStreak": 0,
         "password": "password",
         "id": "1d6845bf-0fff-482f-912c-aca75e678c9e",
         "type": "user",

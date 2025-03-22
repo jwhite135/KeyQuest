@@ -11,17 +11,15 @@ public class User {
     private String email;
     private UUID id;
     private ArrayList<Song> favoriteSongs;
-    private int dailyStreak;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
 
-    public User(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.favoriteSongs = favoriteSongs;
-        this.dailyStreak = dailyStreak;
         this.friends = friends;
         this.favoritePosts = favoritePosts;
     }
@@ -31,7 +29,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.favoriteSongs = new ArrayList<Song>();
-        this.dailyStreak = 0;
         this.friends = new ArrayList<User>();
         this.favoritePosts = new ArrayList<Post>();
     }
@@ -43,7 +40,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.favoriteSongs = new ArrayList<Song>();
-        this.dailyStreak = 0;
         this.friends = new ArrayList<User>();
         this.favoritePosts = new ArrayList<Post>();
     }
@@ -68,10 +64,6 @@ public class User {
         return this.favoriteSongs;
     }
 
-    public int getDailyStreak() {
-        return this.dailyStreak;
-    }
-
     public ArrayList<User> getFriends() {
         return this.friends;
     }
@@ -94,10 +86,6 @@ public class User {
 
     public void setFavoriteSongs(ArrayList<Song> favoriteSongs) {
         this.favoriteSongs = favoriteSongs;
-    }
-
-    public void setDailyStreak(int dailyStreak) {
-        this.dailyStreak = dailyStreak;
     }
 
     public void setFriends(ArrayList<User> friends) {
@@ -132,7 +120,6 @@ public class User {
     public String toString() {
         return "User: " + this.username + "\n"
             + "Email: " + this.email + "\n"
-            + "Daily Streak: " + this.dailyStreak + "\n"
             + "Favorite Songs: " + this.favoriteSongs + "\n"
             + "Friends: " + this.friends + "\n"
             + "Favorite Posts: " + this.favoritePosts + "\n\n";

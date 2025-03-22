@@ -77,6 +77,6 @@ public class PostDatabase {
 
     public void save() {
         DataWriter.savePosts();
-    } 
+    }
 
 }
