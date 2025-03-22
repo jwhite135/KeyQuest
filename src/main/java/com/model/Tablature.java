@@ -1,8 +1,13 @@
 package com.model;
 
+import org.jfugue.player.Player;
+
 public class Tablature extends Note {
     private int stringNumber;
     private int fret;
+    private String length;
+    private String noteData; // Includes octave
+    private final static Player player = new Player();
 
     public Tablature(int stringNumber, int fret, String length) {
         super(length);
@@ -11,6 +16,7 @@ public class Tablature extends Note {
         }
         this.stringNumber = stringNumber;
         this.fret = fret;
+        // TO DO- Add conversion implementation
     }
 
     public int getStringNumber() {
@@ -21,7 +27,16 @@ public class Tablature extends Note {
         return fret;
     }
 
+    public String getNote() {
+        return noteData;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    @Override
     public void playNote() {
-       // Code for playing the note here
+        player.play(getNote());
     }
 }
