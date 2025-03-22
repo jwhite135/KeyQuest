@@ -7,7 +7,6 @@ public abstract class DataConstants {
     protected static final String USER_EMAIL = "email";
     protected static final String USER_PASSWORD = "password";
     protected static final String USER_TYPE = "type";
-    protected static final String USER_DAILY_STREAK = "dailyStreak";
     protected static final String USER_FAVORITE_SONGS = "favoriteSongs";
     protected static final String USER_FRIENDS = "friends";
     protected static final String USER_FAVORITE_POSTS = "favoritePosts";
