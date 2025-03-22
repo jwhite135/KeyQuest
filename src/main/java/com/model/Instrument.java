@@ -6,9 +6,9 @@ public class Instrument {
     private Note maxNote;
 
     public Instrument() {
-        this.name = "Guitar";
+        this.name = "Piano";
         this.minNote = null;
-        this.maxNote = null;
+        this.maxNote = null; 
     }
 
     public void playNote(Note note) {
