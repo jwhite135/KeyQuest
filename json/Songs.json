@@ -98,6 +98,9 @@
             "chords": [
               {
                 "notes": [
+                  { "type": 1, "pitch": "F3", "length": "q"},
+                  { "type": 1, "pitch": "F3", "length": "q"},
+                  { "type": 1, "pitch": "F3", "length": "q"},
                   { "type": 1, "pitch": "F3", "length": "q"}
                 ]
               }
