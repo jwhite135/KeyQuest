@@ -6,7 +6,7 @@ public class Tablature extends Note {
 
     public Tablature(int stringNumber, int fret, String length) {
         super(length);
-        if (stringNumber < 1 || fret < 0) {
+        if (stringNumber < 1 || fret < 0 || stringNumber > 6 || fret > 24) {
             throw new IllegalArgumentException("Invalid string number or fret.");
         }
         this.stringNumber = stringNumber;
