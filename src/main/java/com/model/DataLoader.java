@@ -102,7 +102,7 @@ public class DataLoader extends DataConstants {
                         JSONArray lessonList = (JSONArray)userJSON.get(STUDENT_LESSONS);
                         // parse Lesson
                         UUID teacherID = UUID.fromString((String)userJSON.get(STUDENT_TEACHER));
-                        users.add(new Student(id, username, email, password, null, null, null, null, null));
+                        users.add(new Student(id, username, email, password, 0, null, null, null, null, null));
                         break;
                     case "Teacher":
                         ArrayList<UUID> students = new ArrayList<UUID>();
@@ -112,10 +112,10 @@ public class DataLoader extends DataConstants {
                                 students.add(UUID.fromString((String)studentList.get(j)));
                             }
                         }
-                        users.add(new Teacher(id, username, email, password, null, null, null, null));
+                        users.add(new Teacher(id, username, email, password, 0, null, null, null, null));
                         break;
                     default:
-                        users.add(new User(id, username, email, password, null, null, null));
+                        users.add(new User(id, username, email, password, 0, null, null, null));
                         break;
                 }
             }

@@ -22,4 +22,14 @@ public class Teacher extends User {
     public String getType() {
         return "Teacher";
     }
+
+    public String toString() {
+        return "Teacher: " + getUsername() + "\n"
+            + "Email: " + getEmail() + "\n"
+            + "Favorite Songs: " + getFavoriteSongs() + "\n"
+            + "Friends: " + getFriends() + "\n"
+            + "Favorite Posts: " + getFavoritePosts() + "\n"
+            + "Students: " + students + "\n\n";
+
+    }
 }

@@ -98,20 +98,35 @@ public class User {
         this.favoritePosts = favoritePosts;
     }
 
-    public boolean post(Song song, String body) {
-        
-        return false;
+    public boolean post(Song song, String title, String body) {
+        Post post = new Post(song, this, false, title, body);
+        return true;
     }
 
-    public void makeComment(String body) {
-        return;
+    public void makeComment(Post post, String body) {
+        post.addComment(body, this);
     }
 
     public void favoritePost(Post post) {
         favoritePosts.add(post);
     }
 
+    public void removeFavoritePost(Post post) {
+        favoritePosts.remove(post);
+    }
+
+    public void addFriend(User friend) {
+        friends.add(friend);
+    }
+
+    public void removeFriend(User friend) {
+        friends.remove(friend);
+    }
+
     public boolean isMatch(String username, String password) {
+        if (this.username.equals(username) && this.password.equals(password)) {
+            return true;
+        }
         return false;
     }
 

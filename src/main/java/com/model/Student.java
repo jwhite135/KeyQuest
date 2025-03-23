@@ -24,8 +24,19 @@ public class Student extends User{
     public void doLesson(Lesson lesson) {
         lesson.doLesson();
     }
-    
+
     public String getType() {
         return "Student";
+    }
+
+    public String toString() {
+        return "Teacher: " + getUsername() + "\n"
+            + "Email: " + getEmail() + "\n"
+            + "Favorite Songs: " + getFavoriteSongs() + "\n"
+            + "Friends: " + getFriends() + "\n"
+            + "Favorite Posts: " + getFavoritePosts() + "\n"
+            + "Teacher: " + teacher + "\n"
+            + "Lessons: " + lessons + "\n\n";
+
     }
 }
