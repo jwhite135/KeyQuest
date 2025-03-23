@@ -20,10 +20,11 @@ public class Student extends User{
     public void removeLesson(Lesson lesson) {
         lessons.remove(lesson);
     }
-    
+
     public void doLesson(Lesson lesson) {
-        return;
+        lesson.doLesson();
     }
+    
     public String getType() {
         return "Student";
     }

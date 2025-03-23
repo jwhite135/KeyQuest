@@ -11,11 +11,12 @@ public class Teacher extends User {
     }
 
     public Lesson makeLesson(Song song, String lessonTitle) {
-        Lesson lesson = new Lesson(song, lessonTitle);
+        Lesson lesson = new Lesson(song, lessonTitle, this);
         return lesson;
     }
 
     public void assignLesson(Lesson lesson, Student student) {
+        lesson.setStudent(student);
         student.addLesson(lesson);
     }
     public String getType() {
