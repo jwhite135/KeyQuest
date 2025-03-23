@@ -100,6 +100,7 @@ public class User {
 
     public boolean post(Song song, String title, String body) {
         Post post = new Post(song, this, false, title, body);
+        PostDatabase.getInstance().addPost(post);
         return true;
     }
 
