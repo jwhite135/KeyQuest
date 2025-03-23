@@ -13,6 +13,14 @@ public class Student extends User{
         this.teacher = teacher;
     }
 
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
+    }
+
+    public void removeLesson(Lesson lesson) {
+        lessons.remove(lesson);
+    }
+    
     public void doLesson(Lesson lesson) {
         return;
     }

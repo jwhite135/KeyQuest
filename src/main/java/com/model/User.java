@@ -13,8 +13,9 @@ public class User {
     private ArrayList<Song> favoriteSongs;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
+    private int dailyStreak;
 
-    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+    public User(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -22,6 +23,7 @@ public class User {
         this.favoriteSongs = favoriteSongs;
         this.friends = friends;
         this.favoritePosts = favoritePosts;
+        this.dailyStreak = dailyStreak;
     }
     public User(String username, String password, String email) {
         this.id = UUIDgenerator();
