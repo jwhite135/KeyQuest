@@ -11,11 +11,9 @@ public class User {
     private ArrayList<Song> favoriteSongs;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
+    private int dailyStreak;
 
-    // For data writing
-    public User(UUID id, String username, String email, String password, 
-                ArrayList<Song> favoriteSongs, ArrayList<User> friends,
-                ArrayList<Post> favoritePosts) {
+    public User(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -23,6 +21,7 @@ public class User {
         this.favoriteSongs = favoriteSongs;
         this.friends = friends;
         this.favoritePosts = favoritePosts;
+        this.dailyStreak = dailyStreak;
     }
 
     // For creation
@@ -100,20 +99,36 @@ public class User {
         this.favoritePosts = favoritePosts;
     }
 
-    public boolean post(Song song, String body) {
-        
-        return false;
+    public boolean post(Song song, String title, String body) {
+        Post post = new Post(song, this, false, title, body);
+        PostDatabase.getInstance().addPost(post);
+        return true;
     }
 
-    public void makeComment(String body) {
-        return;
+    public void makeComment(Post post, String body) {
+        post.addComment(body, this);
     }
 
     public void favoritePost(Post post) {
         favoritePosts.add(post);
     }
 
+    public void removeFavoritePost(Post post) {
+        favoritePosts.remove(post);
+    }
+
+    public void addFriend(User friend) {
+        friends.add(friend);
+    }
+
+    public void removeFriend(User friend) {
+        friends.remove(friend);
+    }
+
     public boolean isMatch(String username, String password) {
+        if (this.username.equals(username) && this.password.equals(password)) {
+            return true;
+        }
         return false;
     }
 

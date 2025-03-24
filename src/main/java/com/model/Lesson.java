@@ -7,15 +7,21 @@ public class Lesson {
     private boolean completed;
     private Teacher teacher;
 
-    public Lesson(Song song, String title) {
-        this.student = student;
+    public Lesson(Song song, String title, Teacher teacher) {
         this.song = song;
         this.title = title;
-        this.teacher = teacher;
         this.completed = false;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public void setComplete(boolean completed) {
         this.completed = completed;
+    }
+
+    public void doLesson() {
+        
     }
 }

@@ -17,8 +17,12 @@ public class Music {
             Pattern bass = new Pattern("C2q | Ab2q C2q Eb2q | Ab3q Ab2q C2q | Db2q Db2i Eb2i F2i G2i | Ab3h");
             bass.setVoice(3).setInstrument("Piano").setTempo(84);
             player.play(soprano, alto, tenor, bass);
+            // Thread.sleep(300);
+            // String music = "i[Guitar] E1w | i[Electric_Bass_Finger] E1w";
+            // player.play(music);
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
 }

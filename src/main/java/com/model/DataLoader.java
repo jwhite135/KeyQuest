@@ -2,6 +2,7 @@ package com.model;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.time.LocalDate;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -102,7 +103,7 @@ public class DataLoader extends DataConstants {
                         JSONArray lessonList = (JSONArray)userJSON.get(STUDENT_LESSONS);
                         // parse Lesson
                         UUID teacherID = UUID.fromString((String)userJSON.get(STUDENT_TEACHER));
-                        users.add(new Student(id, username, email, password, null, null, null, null, null));
+                        users.add(new Student(id, username, email, password, 0, null, null, null, null, null));
                         break;
                     case "Teacher":
                         ArrayList<UUID> students = new ArrayList<UUID>();
@@ -112,10 +113,10 @@ public class DataLoader extends DataConstants {
                                 students.add(UUID.fromString((String)studentList.get(j)));
                             }
                         }
-                        users.add(new Teacher(id, username, email, password, null, null, null, null));
+                        users.add(new Teacher(id, username, email, password, 0, null, null, null, null));
                         break;
                     default:
-                        users.add(new User(id, username, email, password, null, null, null));
+                        users.add(new User(id, username, email, password, 0, null, null, null));
                         break;
                 }
             }
@@ -125,7 +126,7 @@ public class DataLoader extends DataConstants {
 
         return users;
     }
-/*
+
     public static ArrayList<Post> getPosts() {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
@@ -134,45 +135,34 @@ public class DataLoader extends DataConstants {
             for(int i = 0; i < postsJSON.size(); i++) {
                 JSONObject postJSON = (JSONObject)postsJSON.get(i);
                 UUID id = UUID.fromString((String)postJSON.get(POST_ID));
-                UUID songID = UUID.fromString((String)postJSON.get(POST_SONG));
+                UUID songID = UUID.fromString((String)postJSON.get(POST_SONG_ID));
                 Song song = null;
                 for(Song s : getSongs()) {
                     if(s.getUUID().equals(songID)) {
                         song = s;
                     }
                 }
-                int favorites = ((Long)postJSON.get(POST_FAVORITES)).intValue();
+                int favorites = ((Long)postJSON.get(POST_NUM_FAVORITES)).intValue();
                 ArrayList<Comment> comments = new ArrayList<Comment>();
                 JSONArray commentList = (JSONArray)postJSON.get(POST_COMMENTS);
                 for(int j = 0; j < commentList.size(); j++) {
                     JSONObject commentJSON = (JSONObject)commentList.get(j);
-                    UUID commentID = UUID.fromString((String)commentJSON.get(COMMENT_ID));
-                    String text = (String)commentJSON.get(COMMENT_TEXT);
-                    UUID authorID = UUID.fromString((String)commentJSON.get(COMMENT_AUTHOR));
-                    User author = null;
-                    for(User user : getUsers()) {
-                        if(user.getUUID().equals(authorID)) {
-                            author = user;
-                        }
-                    }
-                    comments.add(new Comment(commentID, text, author));
+                    String text = (String)commentJSON.get(COMMENT_BODY);
+                    UUID authorID = UUID.fromString((String)commentJSON.get(COMMENT_AUTHOR_ID));
+                    LocalDate date = LocalDate.parse((String)commentJSON.get(COMMENT_DATE));
+                    comments.add(new Comment(text, null, date));
                 }
-                UUID authorID = UUID.fromString((String)postJSON.get(POST_AUTHOR));
+                UUID authorID = UUID.fromString((String)postJSON.get(POST_AUTHOR_ID));
                 User author = null;
-                for(User user : getUsers()) {
-                    if(user.getUUID().equals(authorID)) {
-                        author = user;
-                    }
-                }
-                Date date = new Date((String)postJSON.get(POST_DATE));
+                LocalDate date = LocalDate.parse((String)postJSON.get(POST_DATE));
                 boolean isPrivate = (boolean)postJSON.get(POST_PRIVATE);
                 String title = (String)postJSON.get(POST_TITLE);
-                posts.add(new Post(id, song, comments, author, date, isPrivate, title));
+                String body = (String)postJSON.get(POST_BODY);
+                posts.add(new Post(id, song, comments, author, date, isPrivate, title, body));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return posts;
     }
-*/
 }

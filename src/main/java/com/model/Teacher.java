@@ -10,14 +10,26 @@ public class Teacher extends User {
         this.students = students;
     }
 
-    public void makeLesson(String song, String lessonTitle) {
-
+    public Lesson makeLesson(Song song, String lessonTitle) {
+        Lesson lesson = new Lesson(song, lessonTitle, this);
+        return lesson;
     }
 
     public void assignLesson(Lesson lesson, Student student) {
-
+        lesson.setStudent(student);
+        student.addLesson(lesson);
     }
     public String getType() {
         return "Teacher";
+    }
+
+    public String toString() {
+        return "Teacher: " + getUsername() + "\n"
+            + "Email: " + getEmail() + "\n"
+            + "Favorite Songs: " + getFavoriteSongs() + "\n"
+            + "Friends: " + getFriends() + "\n"
+            + "Favorite Posts: " + getFavoritePosts() + "\n"
+            + "Students: " + students + "\n\n";
+
     }
 }
