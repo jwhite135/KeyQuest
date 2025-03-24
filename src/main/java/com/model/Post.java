@@ -1,7 +1,7 @@
 package com.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 public class Post {
@@ -9,7 +9,7 @@ public class Post {
     private int favorites;
     private ArrayList<Comment> comments;
     private User author;
-    private Date date;
+    private LocalDate date;
     private boolean isPrivate;
     private String title;
     private String body;
@@ -21,13 +21,13 @@ public class Post {
         this.song = song;
         this.comments = new ArrayList<Comment>();
         this.author = author;
-        this.date = new Date();
+        this.date = LocalDate.now();
         this.isPrivate = isPrivate;
         this.favorites = 0;
     }
 
     // Construtor for data loading
-    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, Date date, boolean isPrivate, String title, String body) {
+    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, LocalDate date, boolean isPrivate, String title, String body) {
         this.id = id;
         this.song = song;
         this.comments = comments;
@@ -54,7 +54,7 @@ public class Post {
         return this.author;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 

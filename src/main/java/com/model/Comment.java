@@ -1,19 +1,25 @@
 package com.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Comment {
     private String body;
     private User author;
-    private Date date;
+    private LocalDate date;
     private UUID id;
 
     public Comment(String body, User author) {
         this.body = body;
         this.author = author;
         // Date Constructor sets to current date/time
-        this.date = new Date();
+        this.date = LocalDate.now();
+    }
+
+    public Comment(String body, User author, LocalDate date) {
+        this.body = body;
+        this.author = author;
+        this.date = date;
     }
 
     public String getBody() {
@@ -24,7 +30,7 @@ public class Comment {
         return this.author;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
     

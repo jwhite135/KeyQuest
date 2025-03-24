@@ -39,7 +39,7 @@ public abstract class DataConstants {
     protected static final String POST_ID = "postID";
     protected static final String POST_SONG_ID = "songID";
     protected static final String POST_NUM_FAVORITES = "numFavorites";
-    protected static final String POST_COMMENT_IDS = "commentIDs";
+    protected static final String POST_COMMENTS = "comments";
     protected static final String POST_AUTHOR_ID = "authorID";
     protected static final String POST_DATE = "date";
     protected static final String POST_PRIVATE = "private";
