@@ -16,6 +16,6 @@ public enum Genre {
     RAP,
     SOUL,
     FUNK,
-    INSTRUMENAL,
+    INSTRUMENTAL,
     INDIE;
 }

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class User {
-    private String firstName;
-    private String lastName;
     private String username;
     private String password;
     private String email;
@@ -14,7 +12,10 @@ public class User {
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
 
-    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+    // For data writing
+    public User(UUID id, String username, String email, String password, 
+                ArrayList<Song> favoriteSongs, ArrayList<User> friends,
+                ArrayList<Post> favoritePosts) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -23,6 +24,8 @@ public class User {
         this.friends = friends;
         this.favoritePosts = favoritePosts;
     }
+
+    // For creation
     public User(String username, String password, String email) {
         this.id = UUIDgenerator();
         this.username = username;
@@ -33,7 +36,8 @@ public class User {
         this.favoritePosts = new ArrayList<Post>();
     }
 
-    public User(UUID id, String firstName, String lastName, String email,
+    // Misc
+    public User(UUID id, String username, String email,
             String password, String type, ArrayList<UUID> favoriteSongs,
             ArrayList<UUID> friends, ArrayList<UUID> favoritePosts) {
         this.username = username;
