@@ -25,7 +25,7 @@ public class User {
     }
 
     // For creation
-    public User(String username, String password, String email) {
+    private User(String username, String password, String email) {
         this.id = UUIDgenerator();
         this.username = username;
         this.password = password;
@@ -45,6 +45,17 @@ public class User {
         this.favoriteSongs = new ArrayList<Song>();
         this.friends = new ArrayList<User>();
         this.favoritePosts = new ArrayList<Post>();
+    }
+
+    public static User getInstance(String username, String password, String email) {
+        for (User user : UserDatabase.getInstance().getUsers()) {
+            if (user.isMatch(username, password)) {
+                return null;
+            } else if (user.getUsername().equals(username)) {
+                return null;
+            }
+        }
+        return new User(username, password, email);
     }
 
     public String getUsername() {

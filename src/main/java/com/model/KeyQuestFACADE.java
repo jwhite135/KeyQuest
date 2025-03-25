@@ -16,6 +16,10 @@ public class KeyQuestFACADE {
         instrument = new Piano();
     }
 
+    private void setFacadeUser(User user) {
+        this.user = user;
+    }
+
     public boolean login(String email, String password) {
         user = users.getUser(email, password);
         if (user == null) {
@@ -25,8 +29,12 @@ public class KeyQuestFACADE {
     }
 
     public boolean makeUser(String username, String password, String email) {
-        user = new User(username, password, email);
-        return UserDatabase.addUser(user);
+        User newUser = User.getInstance(username, password, email);
+        if(newUser == null) {
+            return false;
+        }
+        user = newUser;
+        return UserDatabase.addUser(newUser);
     }
 
     public boolean makePost(Song song, boolean isPrivate, String title, String body) {
