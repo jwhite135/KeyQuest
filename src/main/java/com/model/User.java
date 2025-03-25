@@ -150,4 +150,8 @@ public class User {
             + "Favorite Posts: " + this.favoritePosts + "\n\n";
 
     }
+
+    public UUID UUIDgenerator() {
+        return UUID.randomUUID();
+    }
 }
