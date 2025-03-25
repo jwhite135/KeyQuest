@@ -30,4 +30,16 @@ public class SheetMusic {
     public ArrayList<Measure> getMeasures() {
         return measures;
     }
+
+    public int getTimeSigDen() {
+        return timeSignatureDenominator;
+    }
+
+    public int getTimeSigNum() {
+        return timeSignatureNumerator;
+    }
+
+    public int getTempo() {
+        return tempo;
+    }
 }

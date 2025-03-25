@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+
 import org.jfugue.player.Player;
 
 public class Chord {
@@ -20,6 +21,7 @@ public class Chord {
             }
         }
         playThis += ((PianoNote)notes.get(0)).getLength();
+        System.out.println("playing " + playThis);
         player.play(playThis);
     }
     /*

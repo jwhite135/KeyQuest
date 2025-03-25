@@ -5,8 +5,8 @@ import java.util.UUID;
 public class Teacher extends User {
     private ArrayList<Student> students;
 
-    public Teacher(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts, ArrayList<Student> students) {
-        super(id, username, email, password, dailyStreak, favoriteSongs, friends, favoritePosts);
+    public Teacher(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts, ArrayList<Student> students) {
+        super(id, username, email, password, favoriteSongs, friends, favoritePosts);
         this.students = students;
     }
 
