@@ -17,4 +17,6 @@ abstract class Note {
     public String getLength() {
         return length;
     }
+    
+    public abstract String getKey();
 }
