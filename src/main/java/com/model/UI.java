@@ -10,13 +10,14 @@ public class UI {
     
     public void scen1() {
 
-        System.out.println("SCENARIO 1: Logging in with an existing account\n");
+        System.out.println(" ----- SCENARIO 1: ------ Logging in with an existing account\n");
         // Check for existing account in JSON
-        printUsersJSON();
         System.out.println("\nWe can see Fellicia Fredrickson" +
             "has an account, but Fred does not.\n");
         
         // Will print second line since account already exists
+        System.out.println("Attempting to create account for with username 'ffredrickson'"
+            + "and password 'abc123' and email fred@yahoo.com");
         if(facade.makeUser("ffredrickson", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
         } else {
@@ -24,14 +25,18 @@ public class UI {
         }
 
         // Tries again with new username "ffred", prints first line now
+        System.out.println("Attempting to create account for with username 'ffred'"
+            + "with all other credentials the same");
         if(facade.makeUser("ffred", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
         } else {
             System.out.println("Account already exists. Please log in.");
         }
 
+        System.out.println("Saving data and logging out...");
         facade.logout();
-        printUsersJSON();
+        // Check for existing account in JSON
+        System.out.println("Attempting to log in as 'ffred' with password 'abc123'");
         if( facade.login("ffred", "abc123") ) {
             System.out.println("You are now logged in");
         } else {
@@ -55,14 +60,13 @@ public class UI {
 
     public void run() {
         scen1();
-        scen2();
-        scen3();
-        exit();
+        // scen2();
+        // scen3();
     }
 
     public static void main(String[] args) {
         UI ui = new UI();
         ui.run();
-        ui.exit();
+        // ui.exit();
     }
 }
