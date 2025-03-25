@@ -1,8 +1,6 @@
 package com.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class UI {
 
@@ -45,22 +43,27 @@ public class UI {
         
     }
 
-    public void printUsersJSON() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("../../../json/users.json"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void scen2() {
+        System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
+        
+        System.out.println("Searching for songs by Tom Petty...");
+        ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Tom Petty");
+        for (Song song : sortedSongs) {
+            System.out.println(song);
         }
+        // Should display "I Won't Back Down", "Mary Jane's Last Dance", and "Free Fallin"
+
+        System.out.println("\nPlaying song 'Free Fallin'...");
+        Song freeFallin = sortedSongs.get(2);
+        facade.playSong(freeFallin);
+
+        System.out.println("\nPrinting out sheet music and notes for 'Free Fallin'...");
+        facade.convertToTextFile(freeFallin);
     }
 
     public void run() {
         scen1();
-        // scen2();
+        scen2();
         // scen3();
     }
 

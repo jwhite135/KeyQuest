@@ -83,4 +83,9 @@ public class Song {
     public void setUUID(UUID id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return name + " by " + artist;
+    }
 }

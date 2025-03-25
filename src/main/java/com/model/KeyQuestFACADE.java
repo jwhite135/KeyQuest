@@ -50,6 +50,8 @@ public class KeyQuestFACADE {
         post.addFavorite(this.user);
     }
 
+    // Post searching
+
     public ArrayList<Post> searchByUser(String user) {
         return posts.searchByUser(user);
     }
@@ -58,20 +60,34 @@ public class KeyQuestFACADE {
         return posts.searchBySong(song);
     }
 
-    public ArrayList<Post> searchByName(String title) {
+    public ArrayList<Post> searchPostsByName(String title) {
         return posts.searchByName(title);
     }
 
-    public ArrayList<Post> searchByArtist(String artist) {
+    public ArrayList<Post> searchPostsByArtist(String artist) {
         return posts.searchByArtist(artist);
     }
 
-    public ArrayList<Post> sortByMostRecent() {
+    public ArrayList<Post> sortPostsByMostRecent() {
         return posts.sortByMostRecent();
     }
 
-    public ArrayList<Post> sortByMostLiked() {
+    public ArrayList<Post> sortPostsByMostLiked() {
         return posts.sortByMostLiked();
+    }
+
+    // Song searching
+
+    public ArrayList<Song> searchSongsByName(String name) {
+        return songs.searchByName(name);
+    }
+
+    public ArrayList<Song> searchSongsByArtist(String artist) {
+        return songs.searchByArtist(artist);
+    }
+
+    public ArrayList<Song> searchSongsByDifficulty(int difficulty) {
+        return songs.searchByDifficulty(difficulty);
     }
 
     public void playNote(Note note) {
@@ -79,7 +95,11 @@ public class KeyQuestFACADE {
     }
 
     public void playSong(Song song) {
-        instrument.playSong(song);
+        song.playSong();
+    }
+
+    public String convertToTextFile(Song song) {
+        return song.toString();
     }
 
     public void createSong(SheetMusic sheetMusic, String name) {
