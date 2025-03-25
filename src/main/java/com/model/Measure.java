@@ -34,4 +34,26 @@ abstract class Measure {
     public ArrayList<Chord> getChords() {
         return chords;
     }
+
+    public void printMeasure() {
+        for (Chord chord : chords) {
+            for (Note note : chord.getNotes()) {
+                if (note.getKey().equals("C")) {
+                    System.out.print("C");
+                } else if (note.getKey().equals("D")) {
+                    System.out.print("D");
+                } else if (note.getKey().equals("E")) {
+                    System.out.print("E");
+                } else if (note.getKey().equals("F")) {
+                    System.out.print("F");
+                } else if (note.getKey().equals("G")) {
+                    System.out.print("G");
+                } else if (note.getKey().equals("A")) {
+                    System.out.print("A");
+                } else if (note.getKey().equals("B")) {
+                    System.out.print("B");
+                }
+            }
+        }
+    }
 }
