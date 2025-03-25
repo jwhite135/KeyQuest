@@ -25,11 +25,9 @@ public class DataLoader extends DataConstants {
                 JSONArray sheets = (JSONArray)songJSON.get(SONG_SHEET_MUSIC);
                 for(int j = 0; j < sheets.size(); j++) {
                     int sheetType = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TYPE)).intValue();
-                    //if (sheetType == 1) {
-                        int tempo = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TEMPO)).intValue();
-                        int timeSignatureNumerator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_NUM)).intValue();
-                        int timeSignatureDenominator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_DEN)).intValue();
-                    //}
+                    int tempo = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TEMPO)).intValue();
+                    int timeSignatureNumerator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_NUM)).intValue();
+                    int timeSignatureDenominator = ((Long)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_TIME_SIG_DEN)).intValue();
                     ArrayList<Measure> measures = new ArrayList<Measure>();
                     JSONArray measureList = (JSONArray)((JSONObject)sheets.get(j)).get(SHEET_MUSIC_MEASURES);
                     for(int k = 0; k < measureList.size(); k++) {
@@ -41,10 +39,12 @@ public class DataLoader extends DataConstants {
                             JSONArray noteList = (JSONArray)((JSONObject)chordList.get(l)).get(CHORD_NOTES);
                             for(int m = 0; m < noteList.size(); m++) {
                                 int noteType = ((Long)((JSONObject)noteList.get(m)).get(NOTE_TYPE)).intValue();
-                                String pitch = (String)((JSONObject)noteList.get(m)).get(NOTE_PITCH);
+                                String key = (String)((JSONObject)noteList.get(m)).get(NOTE_KEY);
                                 String length = (String)((JSONObject)noteList.get(m)).get(NOTE_LENGTH);
+                                //boolean sharp = (boolean)((JSONObject)noteList.get(m)).get(NOTE_SHARP);
+                                //boolean flat = (boolean)((JSONObject)noteList.get(m)).get(NOTE_FLAT);
                                 if(noteType == 1) {
-                                    notes.add(new PianoNote(length, pitch, false, false));
+                                    notes.add(new PianoNote(length, key, false, false));
                                 }
                             }
                             chords.add(new Chord(notes));
@@ -103,7 +103,7 @@ public class DataLoader extends DataConstants {
                         JSONArray lessonList = (JSONArray)userJSON.get(STUDENT_LESSONS);
                         // parse Lesson
                         UUID teacherID = UUID.fromString((String)userJSON.get(STUDENT_TEACHER));
-                        users.add(new Student(id, username, email, password, 0, null, null, null, null, null));
+                        users.add(new Student(id, username, email, password, null, null, null, null, null));
                         break;
                     case "Teacher":
                         ArrayList<UUID> students = new ArrayList<UUID>();
@@ -113,10 +113,10 @@ public class DataLoader extends DataConstants {
                                 students.add(UUID.fromString((String)studentList.get(j)));
                             }
                         }
-                        users.add(new Teacher(id, username, email, password, 0, null, null, null, null));
+                        users.add(new Teacher(id, username, email, password, null, null, null, null));
                         break;
                     default:
-                        users.add(new User(id, username, email, password, 0, null, null, null));
+                        users.add(new User(id, username, email, password, null, null, null));
                         break;
                 }
             }

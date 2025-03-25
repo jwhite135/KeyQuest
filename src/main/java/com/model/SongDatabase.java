@@ -7,7 +7,7 @@ public class SongDatabase {
     private ArrayList<Song> songs;
 
     private SongDatabase() {
-        this.songs = new ArrayList<Song>();
+        songs = DataLoader.getSongs();
     }
 
     public static SongDatabase getInstance() {

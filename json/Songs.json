@@ -17,38 +17,38 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "A4", "length": "i" },
-                  { "type": 1, "pitch": "D4", "length": "i" }
+                  { "type": 1, "key": "A4", "length": "i" },
+                  { "type": 1, "key": "D4", "length": "i" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "A4", "length": "i" },
-                  { "type": 1, "pitch": "D4", "length": "i" }
+                  { "type": 1, "key": "A4", "length": "i" },
+                  { "type": 1, "key": "D4", "length": "i" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "A4", "length": "i" },
-                  { "type": 1, "pitch": "D4", "length": "i" }
+                  { "type": 1, "key": "A4", "length": "i" },
+                  { "type": 1, "key": "D4", "length": "i" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "A4", "length": "i" },
-                  { "type": 1, "pitch": "D4", "length": "i" }
+                  { "type": 1, "key": "A4", "length": "i" },
+                  { "type": 1, "key": "D4", "length": "i" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "G3", "length": "q" },
-                  { "type": 1, "pitch": "C4", "length": "q" }
+                  { "type": 1, "key": "G3", "length": "q" },
+                  { "type": 1, "key": "C4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "E3", "length": "q" },
-                  { "type": 1, "pitch": "C4", "length": "q" }
+                  { "type": 1, "key": "E3", "length": "q" },
+                  { "type": 1, "key": "C4", "length": "q" }
                 ]
               }
             ]
@@ -58,20 +58,20 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "E3", "length": "q" },
-                  { "type": 1, "pitch": "A4", "length": "q" }
+                  { "type": 1, "key": "E3", "length": "q" },
+                  { "type": 1, "key": "A4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "E3", "length": "q" },
-                  { "type": 1, "pitch": "A4", "length": "q" }
+                  { "type": 1, "key": "E3", "length": "q" },
+                  { "type": 1, "key": "A4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "G3", "length": "h" },
-                  { "type": 1, "pitch": "C4", "length": "h" }
+                  { "type": 1, "key": "G3", "length": "h" },
+                  { "type": 1, "key": "C4", "length": "h" }
                 ]
               }
             ]
@@ -98,10 +98,10 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q"},
-                  { "type": 1, "pitch": "F3", "length": "q"},
-                  { "type": 1, "pitch": "F3", "length": "q"},
-                  { "type": 1, "pitch": "F3", "length": "q"}
+                  { "type": 1, "key": "F3", "length": "q"},
+                  { "type": 1, "key": "F3", "length": "q"},
+                  { "type": 1, "key": "F3", "length": "q"},
+                  { "type": 1, "key": "F3", "length": "q"}
                 ]
               }
             ]
@@ -111,22 +111,22 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "i"}
+                  { "type": 1, "key": "D4", "length": "i"}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "i"}
+                  { "type": 1, "key": "C4", "length": "i"}
                 ]
               }
             ]
@@ -136,17 +136,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                  { "type": 1, "key": "B4", "length": "q", "flat": true}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                  { "type": 1, "key": "B4", "length": "q", "flat": true}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q" }
+                  { "type": 1, "key": "F3", "length": "q" }
                 ]
               }
             ]
@@ -156,17 +156,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "G3", "length": "q" }
+                  { "type": 1, "key": "G3", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "G4", "length": "q" }
+                  { "type": 1, "key": "G4", "length": "q" }
                 ]
               }
             ]
@@ -176,12 +176,12 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "h"}
+                  { "type": 1, "key": "F3", "length": "h"}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q" }
+                  { "type": 1, "key": "F3", "length": "q" }
                 ]
               }
             ]
@@ -191,17 +191,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "q" }
+                  { "type": 1, "key": "C4", "length": "q" }
                 ]
               }
             ]
@@ -211,17 +211,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "q" }
+                  { "type": 1, "key": "D4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "q" }
+                  { "type": 1, "key": "D4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F4", "length": "q" }
+                  { "type": 1, "key": "F4", "length": "q" }
                 ]
               }
             ]
@@ -231,17 +231,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "F4", "length": "q" }
+                  { "type": 1, "key": "F4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "q" }
+                  { "type": 1, "key": "D4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               }
             ]
@@ -251,12 +251,12 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "h" }
+                  { "type": 1, "key": "C4", "length": "h" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q" }
+                  { "type": 1, "key": "F3", "length": "q" }
                 ]
               }
             ]
@@ -266,22 +266,22 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "i"}
+                  { "type": 1, "key": "D4", "length": "i"}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "h" }
+                  { "type": 1, "key": "C4", "length": "h" }
                 ]
               }
             ]
@@ -291,17 +291,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                  { "type": 1, "key": "B4", "length": "q", "flat": true}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true}
+                  { "type": 1, "key": "B4", "length": "q", "flat": true}
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q" }
+                  { "type": 1, "key": "F3", "length": "q" }
                 ]
               }
             ]
@@ -311,17 +311,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "G3", "length": "q" }
+                  { "type": 1, "key": "G3", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "G4", "length": "q" }
+                  { "type": 1, "key": "G4", "length": "q" }
                 ]
               }
             ]
@@ -331,17 +331,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "h" }
+                  { "type": 1, "key": "F3", "length": "h" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "i" }
+                  { "type": 1, "key": "F3", "length": "i" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "i" }
+                  { "type": 1, "key": "F3", "length": "i" }
                 ]
               }
             ]
@@ -351,17 +351,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "q", "flat": true }
+                  { "type": 1, "key": "B4", "length": "q", "flat": true }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "q" }
+                  { "type": 1, "key": "C4", "length": "q" }
                 ]
               }
             ]
@@ -371,17 +371,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "q" }
+                  { "type": 1, "key": "D4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F4", "length": "w" }
+                  { "type": 1, "key": "F4", "length": "w" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "E4", "length": "q", "flat": true }
+                  { "type": 1, "key": "E4", "length": "q", "flat": true }
                 ]
               }
             ]
@@ -391,17 +391,17 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "D4", "length": "q" }
+                  { "type": 1, "key": "D4", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "F3", "length": "q" }
+                  { "type": 1, "key": "F3", "length": "q" }
                 ]
               },
               {
                 "notes": [
-                  { "type": 1, "pitch": "C4", "length": "q" }
+                  { "type": 1, "key": "C4", "length": "q" }
                 ]
               }
             ]
@@ -411,7 +411,7 @@
             "chords": [
               {
                 "notes": [
-                  { "type": 1, "pitch": "B4", "length": "w", "flat": true }
+                  { "type": 1, "key": "B4", "length": "w", "flat": true }
                 ]
               }
             ]

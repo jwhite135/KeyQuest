@@ -7,7 +7,6 @@ public class UserDatabase {
     private static ArrayList<User> users;
 
     private UserDatabase() {
-        users = new ArrayList<User>();
         users = DataLoader.getUsers();
     }
 

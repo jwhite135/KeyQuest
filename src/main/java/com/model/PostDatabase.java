@@ -7,7 +7,7 @@ public class PostDatabase {
     private ArrayList<Post> posts;
 
     private PostDatabase() {
-        this.posts = new ArrayList<Post>();
+        posts = DataLoader.getPosts();
     }
 
     public static PostDatabase getInstance() {

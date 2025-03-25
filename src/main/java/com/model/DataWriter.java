@@ -78,7 +78,7 @@ public class DataWriter extends DataConstants {
                 for (int j = 0; j < measures.size(); j++) {
                     JSONObject measureDetails = new JSONObject();
                     measureDetails.put(MEASURE_TYPE, 1);
-                    ArrayList<Chord> chords = measureArray.get(i).getChords();
+                    ArrayList<Chord> chords = measures.get(j).getChords();
                     JSONArray chordArray = new JSONArray();
                     for (int k = 0; k < chords.size(); k++) {
                         JSONObject chordDetails = new JSONObject();
@@ -88,8 +88,10 @@ public class DataWriter extends DataConstants {
                             JSONObject noteDetails = new JSONObject();
                             if(notes.get(l) instanceof PianoNote) {
                                 noteDetails.put(NOTE_TYPE, 1);
-                                noteDetails.put(NOTE_PITCH, notes.get(l).getPitch());
                                 noteDetails.put(NOTE_LENGTH, notes.get(l).getLength());
+                                noteDetails.put(NOTE_KEY, ((PianoNote)notes.get(l)).getKey());
+                                noteDetails.put(NOTE_SHARP, ((PianoNote)notes.get(l)).isSharp());
+                                noteDetails.put(NOTE_FLAT, ((PianoNote)notes.get(l)).isFlat());
                             }
                             else {
                                 noteDetails.put(NOTE_TYPE, 0);
@@ -116,8 +118,8 @@ public class DataWriter extends DataConstants {
                 for (int j = 0; j < measures.size(); j++) {
                     JSONObject measureDetails = new JSONObject();
                     measureDetails.put(MEASURE_TYPE, 2);
-                    measureDetails.put(MEASURE_NUM_OF_LINES, measures.get(j).getNumOfLines());
-                    ArrayList<Chord> chords = measureArray.get(i).getChords();
+                    measureDetails.put(MEASURE_NUM_OF_LINES, ((TabMeasure)measures.get(j)).getNumberOfLines());
+                    ArrayList<Chord> chords = measures.get(j).getChords();
                     JSONArray chordArray = new JSONArray();
                     for (int k = 0; k < chords.size(); k++) {
                         JSONObject chordDetails = new JSONObject();
@@ -126,7 +128,8 @@ public class DataWriter extends DataConstants {
                         for (int l = 0; l < notes.size(); l++) {
                             JSONObject noteDetails = new JSONObject();
                             noteDetails.put(NOTE_TYPE, 2);
-                            noteDetails.put(NOTE_FRET, notes.get(l).getFret());
+                            noteDetails.put(NOTE_STRING_NUM, ((Tablature)notes.get(l)).getStringNumber());
+                            noteDetails.put(NOTE_FRET, ((Tablature)notes.get(l)).getFret());
                             noteDetails.put(NOTE_LENGTH, notes.get(l).getLength());
                             noteArray.add(noteDetails);
                         }
@@ -177,7 +180,7 @@ public class DataWriter extends DataConstants {
             commentDetails.put(COMMENT_DATE, comments.get(i).getDate());
             commentArray.add(commentDetails);
         }
-        postDetails.put(POST_COMMENT_IDS, commentArray);
+        postDetails.put(POST_COMMENTS, commentArray);
         postDetails.put(POST_AUTHOR_ID, post.getAuthor().getUUID());
         postDetails.put(POST_DATE, post.getDate());
         postDetails.put(POST_PRIVATE, post.getIsPrivate());

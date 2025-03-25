@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
 
 public class User {
@@ -11,9 +12,8 @@ public class User {
     private ArrayList<Song> favoriteSongs;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
-    private int dailyStreak;
 
-    public User(UUID id, String username, String email, String password, int dailyStreak, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -21,12 +21,11 @@ public class User {
         this.favoriteSongs = favoriteSongs;
         this.friends = friends;
         this.favoritePosts = favoritePosts;
-        this.dailyStreak = dailyStreak;
     }
 
     // For creation
     public User(String username, String password, String email) {
-        this.id = UUIDgenerator();
+        this.id = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.email = email;
@@ -126,10 +125,7 @@ public class User {
     }
 
     public boolean isMatch(String username, String password) {
-        if (this.username.equals(username) && this.password.equals(password)) {
-            return true;
-        }
-        return false;
+        return this.username.equals(username) && this.password.equals(password);
     }
 
     public String getType() {
@@ -143,9 +139,5 @@ public class User {
             + "Friends: " + this.friends + "\n"
             + "Favorite Posts: " + this.favoritePosts + "\n\n";
 
-    }
-
-    private UUID UUIDgenerator() {
-        return UUID.randomUUID();
     }
 }
