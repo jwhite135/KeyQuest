@@ -2,6 +2,11 @@ package com.model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * Song class that holds the genre, name, artist, sheet music, and difficulty of a song
+ * It also has methods to play the song and play along with the song
+ * @author 
+ */
 public class Song {
     private UUID id;
     private Genre genre;
@@ -10,6 +15,15 @@ public class Song {
     private ArrayList<SheetMusic> sheetMusic;
     private int difficulty;
 
+    /**
+     * This constructor is used for creating a song from the database when the UUID is known
+     * @param id the UUID of the song
+     * @param genre the genre of the song
+     * @param title the title of the song
+     * @param artist the artist of the song
+     * @param sheetMusic ArrayList of sheet music for the song
+     * @param difficulty the difficulty of the song represented as an integer
+     */
     public Song(UUID id, Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
         this.id = id;
         this.genre = genre;
@@ -19,6 +33,9 @@ public class Song {
         this.difficulty = difficulty;
     }
 
+    /**
+     * This constructor is used for creating a song from the user interface when the UUID is not known and will be generated
+     */
     public Song(Genre genre, String title, String artist, ArrayList<SheetMusic> sheetMusic, int difficulty) {
         this.genre = genre;
         this.name = title;
@@ -32,6 +49,12 @@ public class Song {
         sheetMusic.get(0).playMeasures();
     }
 
+    /**
+     * This method will play the song along with the instrument that is passed in
+     * Will need to be rewritten if instrument is removed
+     * Currently only supports playing along with a piano
+     * @param instrument the instrument to play along with
+     */
     public void playAlong(Instrument instrument) {
         if(instrument instanceof Piano) {
             sheetMusic.get(0).playMeasures();
@@ -39,6 +62,10 @@ public class Song {
             System.out.println("Instrument not supported");
         }
     }
+
+    /**
+     * Accessor methods for the instance variables
+     */
 
     public ArrayList<SheetMusic> getSheetMusic() {
         return sheetMusic;

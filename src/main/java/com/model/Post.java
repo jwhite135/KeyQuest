@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * Post class that holds the song, comments, author, date, privacy, title, body, and favorites of a post
+ * @author a few people?
+ */
 public class Post {
     private Song song;
     private int favorites;
@@ -15,7 +19,14 @@ public class Post {
     private String body;
     private UUID id;
 
-    // Construtor for creation, note that post is added to database through Facade
+    /**
+     * Construtor for creation, note that post is added to database through Facade
+     * @param song the post is attached to
+     * @param author the user who created the post
+     * @param isPrivate whether the post is private
+     * @param title the title of the post
+     * @param body the body of the post
+     */
     public Post(Song song, User author, boolean isPrivate, String title, String body) {
         this.id = UUID.randomUUID();
         this.song = song;
@@ -26,7 +37,9 @@ public class Post {
         this.favorites = 0;
     }
 
-    // Construtor for data loading
+    /**
+     * Constructor for reading from database and loading into memory
+     */
     public Post(UUID id, Song song, ArrayList<Comment> comments, User author, LocalDate date, boolean isPrivate, String title, String body, int favorites) {
         this.id = id;
         this.song = song;
@@ -39,7 +52,10 @@ public class Post {
         this.title = title;
     }
 
-    // Accessor methods for data writing
+    /**
+     * Accessor methods for the instance variables
+     */
+    
     public Song getSong() {
         return this.song;
     }
