@@ -29,7 +29,7 @@ public class PianoSheetMusic extends SheetMusic {
         System.out.println("Time Signature: " + getTimeSigNum() + "/" + getTimeSigDen());
         System.out.println("Measures: ");
         for (Measure measure : getMeasures()) {
-            measure.printMeasure();
+            measure.playMeasure();
         }
     }
 }

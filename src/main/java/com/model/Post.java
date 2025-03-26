@@ -6,7 +6,8 @@ import java.util.UUID;
 
 /**
  * Post class that holds the song, comments, author, date, privacy, title, body, and favorites of a post
- * @author a few people?
+ * @author Ian Attmore
+ * @author Owen Coulam
  */
 public class Post {
     private Song song;

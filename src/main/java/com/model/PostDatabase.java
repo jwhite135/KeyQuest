@@ -7,7 +7,8 @@ import java.util.ArrayList;
  * This class is a singleton class that is used to access the posts from the DataLoader class
  * Includes methods to search and sort the posts by different criteria
  * Includes a method to add a post to the database and a method to save the posts to the data file
- * @author Owen Coulam
+ * @author Ian Attmore
+ * @author Owen CoulamOwen Coulam
  */
 public class PostDatabase {
     private static PostDatabase postDatabase;

@@ -5,7 +5,8 @@ import java.util.UUID;
 /**
  * Song class that holds the genre, name, artist, sheet music, and difficulty of a song
  * It also has methods to play the song and play along with the song
- * @author 
+ * @author Josiah White
+ * @author Matthew Radin
  */
 public class Song {
     private UUID id;
