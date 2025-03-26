@@ -26,5 +26,6 @@ public class Rest extends Note{
     @Override
     public String getKey() {
         //TODO Figure out what to do here or if this method is needed
+        return null;
     }
 }
