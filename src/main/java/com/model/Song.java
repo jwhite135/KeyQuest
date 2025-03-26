@@ -33,6 +33,16 @@ public class Song {
         this.difficulty = difficulty;
     }
 
+    public Song(String title, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {
+        this.id = UUID.randomUUID();
+        this.name = title;
+        this.artist = artist;
+        this.difficulty = difficulty;
+        this.genre = Genre.valueOf(genre);
+        this.sheetMusic = new ArrayList<SheetMusic>();
+        this.sheetMusic.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator, type));
+    }
+
     /**
      * This constructor is used for creating a song from the user interface when the UUID is not known and will be generated
      */
