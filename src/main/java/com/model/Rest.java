@@ -21,11 +21,10 @@ public class Rest extends Note{
     }
 
     /**
-     * Rests do not have a key, so this method is not implemented.
+     * Rests do not have a key, so this method is not used in the code.
      */
     @Override
     public String getKey() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getKey'");
+        //TODO Figure out what to do here or if this method is needed
     }
 }
