@@ -29,13 +29,14 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put(USER_ID, user.getUUID());
+        userDetails.put(USER_ID, user.getUUID().toString());
+        userDetails.put(USER_USERNAME, user.getUsername());
         userDetails.put(USER_EMAIL, user.getEmail());
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_TYPE, user.getType());
-        userDetails.put(USER_FAVORITE_SONGS, getUUIDList(user.getFavoriteSongs()));
-        userDetails.put(USER_FRIENDS, getUUIDList(user.getFriends()));
-        userDetails.put(USER_FAVORITE_POSTS, getUUIDList(user.getFavoritePosts()));
+        //userDetails.put(USER_FAVORITE_SONGS, getUUIDList(user.getFavoriteSongs()));
+        //userDetails.put(USER_FRIENDS, getUUIDList(user.getFriends()));
+        //userDetails.put(USER_FAVORITE_POSTS, getUUIDList(user.getFavoritePosts()));
         
         return userDetails;
     }
@@ -59,16 +60,16 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getSongJSON(Song song) {
         JSONObject songDetails = new JSONObject();
-        songDetails.put(SONG_ID, song.getUUID());
+        songDetails.put(SONG_ID, song.getUUID().toString());
         songDetails.put(SONG_TITLE, song.getName());
         songDetails.put(SONG_ARTIST, song.getArtist());
-        songDetails.put(SONG_GENRE, song.getGenre());
+        songDetails.put(SONG_GENRE, song.getGenre().toString().toLowerCase());
         songDetails.put(SONG_DIFFICULTY, song.getDifficulty());
         ArrayList<SheetMusic> sheetMusic = song.getSheetMusic();
         JSONArray sheetMusicArray = new JSONArray();
         for (int i = 0; i < sheetMusic.size(); i++) {
             JSONObject sheetMusicDetails = new JSONObject();
-            if(sheetMusic.get(i) instanceof PianoSheetMusic) {
+            //if(sheetMusic.get(i) instanceof PianoSheetMusic) {
                 sheetMusicDetails.put(SHEET_MUSIC_TYPE, 1);
                 sheetMusicDetails.put(SHEET_MUSIC_TEMPO, sheetMusic.get(i).getTempo());
                 sheetMusicDetails.put(SHEET_MUSIC_TIME_SIG_NUM, sheetMusic.get(i).getTimeSigNum());
@@ -107,7 +108,8 @@ public class DataWriter extends DataConstants {
                 }
                 sheetMusicDetails.put(SHEET_MUSIC_MEASURES, measureArray);
                 sheetMusicArray.add(sheetMusicDetails);
-            }
+            //}
+            /*
             else {
                 sheetMusicDetails.put(SHEET_MUSIC_TYPE, 2);
                 sheetMusicDetails.put(SHEET_MUSIC_TEMPO, sheetMusic.get(i).getTempo());
@@ -128,7 +130,7 @@ public class DataWriter extends DataConstants {
                         for (int l = 0; l < notes.size(); l++) {
                             JSONObject noteDetails = new JSONObject();
                             noteDetails.put(NOTE_TYPE, 2);
-                            noteDetails.put(NOTE_STRING_NUM, ((Tablature)notes.get(l)).getStringNumber());
+                            noteDetails.put(NOTE_STRING_NUMBER, ((Tablature)notes.get(l)).getStringNumber());
                             noteDetails.put(NOTE_FRET, ((Tablature)notes.get(l)).getFret());
                             noteDetails.put(NOTE_LENGTH, notes.get(l).getLength());
                             noteArray.add(noteDetails);
@@ -141,7 +143,7 @@ public class DataWriter extends DataConstants {
                 }
                 sheetMusicDetails.put(SHEET_MUSIC_MEASURES, measureArray);
                 sheetMusicArray.add(sheetMusicDetails);
-            }
+            } */
             sheetMusicArray.add(sheetMusicDetails);
         }
         songDetails.put(SONG_SHEET_MUSIC, sheetMusicArray);

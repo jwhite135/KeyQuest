@@ -28,7 +28,14 @@ public class Chord {
     public void playChord() {
         String playThis = "";
         for (int i = 0; i < notes.size(); ++i) {
-            playThis += ((PianoNote)notes.get(i)).getKey();
+            playThis += ((PianoNote)notes.get(i)).getKey().charAt(0);
+            if(((PianoNote)notes.get(i)).isFlat()) {
+                playThis += "b";
+            }
+            if(((PianoNote)notes.get(i)).isSharp()) {
+                playThis += "#";
+            }
+            playThis += ((PianoNote)notes.get(i)).getKey().charAt(1);
             if (i < notes.size() - 1) {
                 playThis += "+";
             }

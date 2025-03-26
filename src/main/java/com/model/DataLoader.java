@@ -41,10 +41,10 @@ public class DataLoader extends DataConstants {
                                 int noteType = ((Long)((JSONObject)noteList.get(m)).get(NOTE_TYPE)).intValue();
                                 String key = (String)((JSONObject)noteList.get(m)).get(NOTE_KEY);
                                 String length = (String)((JSONObject)noteList.get(m)).get(NOTE_LENGTH);
-                                //boolean sharp = (boolean)((JSONObject)noteList.get(m)).get(NOTE_SHARP);
-                                //boolean flat = (boolean)((JSONObject)noteList.get(m)).get(NOTE_FLAT);
+                                boolean sharp = (boolean)((JSONObject)noteList.get(m)).getOrDefault(NOTE_SHARP, false);
+                                boolean flat = (boolean)((JSONObject)noteList.get(m)).getOrDefault(NOTE_FLAT, false);
                                 if(noteType == 1) {
-                                    notes.add(new PianoNote(length, key, false, false));
+                                    notes.add(new PianoNote(length, key, sharp, flat));
                                 }
                             }
                             chords.add(new Chord(notes));
@@ -76,6 +76,7 @@ public class DataLoader extends DataConstants {
 				String email = (String)userJSON.get(USER_EMAIL);
                 String password = (String)userJSON.get(USER_PASSWORD);
                 String type = (String)userJSON.get(USER_TYPE);
+                /*
                 ArrayList<UUID> favoriteSongs = new ArrayList<UUID>();
                 JSONArray songs = (JSONArray)userJSON.get(USER_FAVORITE_SONGS);
                 if(songs != null) {
@@ -97,6 +98,7 @@ public class DataLoader extends DataConstants {
                         favoritePosts.add(UUID.fromString((String)posts.get(j)));
                     }
                 }
+                    */
                 switch(type) {
                     case "Student":
                         ArrayList<Lesson> lessons = new ArrayList<Lesson>();
@@ -136,12 +138,6 @@ public class DataLoader extends DataConstants {
                 JSONObject postJSON = (JSONObject)postsJSON.get(i);
                 UUID id = UUID.fromString((String)postJSON.get(POST_ID));
                 UUID songID = UUID.fromString((String)postJSON.get(POST_SONG_ID));
-                Song song = null;
-                for(Song s : getSongs()) {
-                    if(s.getUUID().equals(songID)) {
-                        song = s;
-                    }
-                }
                 int favorites = ((Long)postJSON.get(POST_NUM_FAVORITES)).intValue();
                 ArrayList<Comment> comments = new ArrayList<Comment>();
                 JSONArray commentList = (JSONArray)postJSON.get(POST_COMMENTS);
@@ -153,12 +149,11 @@ public class DataLoader extends DataConstants {
                     comments.add(new Comment(text, null, date));
                 }
                 UUID authorID = UUID.fromString((String)postJSON.get(POST_AUTHOR_ID));
-                User author = null;
                 LocalDate date = LocalDate.parse((String)postJSON.get(POST_DATE));
                 boolean isPrivate = (boolean)postJSON.get(POST_PRIVATE);
                 String title = (String)postJSON.get(POST_TITLE);
                 String body = (String)postJSON.get(POST_BODY);
-                posts.add(new Post(id, song, comments, author, date, isPrivate, title, body));
+                posts.add(new Post(id, null, comments, null, date, isPrivate, title, body, favorites));
             }
         } catch (Exception e) {
             e.printStackTrace();

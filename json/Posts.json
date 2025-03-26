@@ -2,12 +2,12 @@
   {
     "postID": "2239f262-455e-49a4-9ce8-cf89a131c43f",
     "songID": "073657f2-0de9-4fa7-a699-2744002efe8d",
-    "NumFavorites": 0,
+    "numFavorites": 0,
     "comments": [
       {
         "user": "ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
         "body": "HOLY SHNIKES THIS APP is ok i guess...",
-        "date": "0-1-1"
+        "date": "2000-01-01"
       },
       {
         "user": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
@@ -17,7 +17,7 @@
       {
         "user": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
         "body": "This song is ok",
-        "date": "1409-3-9"
+        "date": "1409-03-09"
       }
     ],
     "authorID": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
@@ -29,21 +29,21 @@
   {
     "postID": "2b05c4c8-9c7c-4db3-89d8-d791d4148849",
     "songID": "3e7607be-d290-436b-acf1-6ca8ac4013a7",
-    "NumFavorites": 0,
-    "commentIDs": [
+    "numFavorites": 0,
+    "comments": [
       {
         "user": "ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
         "body": "I cant stop playing this song, HELP!",
-        "date": "1975-4-5"
+        "date": "1975-04-05"
       },
       {
         "user": "ef08a850-a3f5-4d87-9a51-c2d83f8132f0",
         "body": "I love this song",
-        "date": "2014-5-30"
+        "date": "2014-05-30"
       }
     ],
     "authorID": "0768d5bf-ddbe-4ebe-aa5c-0205c0e634ea",
-    "date": "2014-6-7",
+    "date": "2014-06-07",
     "private": false,
     "title": "Dance of the Sugar Plum Fairy",
     "body": "Dance dance dance"

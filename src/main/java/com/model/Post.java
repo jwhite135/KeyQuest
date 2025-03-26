@@ -27,7 +27,7 @@ public class Post {
     }
 
     // Construtor for data loading
-    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, LocalDate date, boolean isPrivate, String title, String body) {
+    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, LocalDate date, boolean isPrivate, String title, String body, int favorites) {
         this.id = id;
         this.song = song;
         this.comments = comments;
@@ -35,6 +35,8 @@ public class Post {
         this.date = date;
         this.isPrivate = isPrivate;
         this.body = body;
+        this.favorites = favorites;
+        this.title = title;
     }
 
     // Accessor methods for data writing

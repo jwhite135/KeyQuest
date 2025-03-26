@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 public class keyquest {
     public static void main(String[] args) {
-        DataLoader dataLoader = new DataLoader();
-        SongDatabase songDatabase = SongDatabase.getInstance();
-        ArrayList<Song> songs = songDatabase.getSongs();
-        for (Song song : songs) {
-            System.out.println("ID: " + song.getUUID());
-            System.out.println("Genre: " + song.getGenre());
-            System.out.println("Title: " + song.getName());
-            System.out.println("Artist: " + song.getArtist());
-            System.out.println("Difficulty: " + song.getDifficulty());
-            System.out.println("---------------------------");
-            song.playSong();
+        PostDatabase postDatabase = PostDatabase.getInstance();
+        ArrayList<Post> posts = postDatabase.getPosts();
+        for(Post post : posts) {
+            System.out.println(post.getTitle());
+            System.out.println(post.getBody());
+            System.out.println(post.getDate());
+            System.out.println(post.getFavorites());
+            ArrayList<Comment> comments = post.getComments();
+            for(Comment comment : comments) {
+                System.out.println(comment.getBody());
+                System.out.println(comment.getDate());
+            }
+            System.out.println(post.getIsPrivate());
         }
     }
 }

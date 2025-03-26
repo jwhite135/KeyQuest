@@ -23,15 +23,15 @@ public class Comment {
     }
 
     public String getBody() {
-        return this.body;
+        return body;
     }
 
     public User getAuthor() {
-        return this.author;
+        return author;
     }
 
     public LocalDate getDate() {
-        return this.date;
+        return date;
     }
     
 }
