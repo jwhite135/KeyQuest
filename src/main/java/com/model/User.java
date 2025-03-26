@@ -6,7 +6,8 @@ import java.util.UUID;
 /**
  * User class that holds the username, password, email, id, favorite songs, friends, and favorite posts of a user
  * The user can post, make a comment, favorite a post, add a friend, remove a friend, and check if the user is a match
- * @author 
+ * @author Owen Coulam
+ * @author Ian Attmore
  */
 public class User {
     private String username;
