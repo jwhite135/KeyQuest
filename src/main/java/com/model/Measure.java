@@ -36,4 +36,5 @@ abstract class Measure {
         return chords;
     }
 
+    public abstract void printMeasure();
 }

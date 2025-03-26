@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * The playMeasures method will play each measure in the list of measures
  * @author Ryan Leadbitter
  */
-public abstract class SheetMusic {
+public class SheetMusic {
     private int tempo;
     private int timeSignatureNumerator;
     private int timeSignatureDenominator;
@@ -66,5 +66,4 @@ public abstract class SheetMusic {
         return tempo;
     }
 
-    public abstract void printSheetMusic();
 }
