@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 abstract class Measure {
     protected ArrayList<Chord> chords;
+    
 
     /**
      * Constructor for Measure
@@ -48,22 +49,36 @@ abstract class Measure {
         for (Chord chord : chords) {
             for (Note note : chord.getNotes()) {
                 letter = note.getKey().charAt(0) + "";
-                octave = Integer.parseInt(note.getKey().substring(1));
+                if (note.getKey().charAt(1) == '#' || note.getKey().charAt(1) == 'b') {
+                    octave = Integer.parseInt(note.getKey().substring(2));
+                } else {
+                    octave = Integer.parseInt(note.getKey().substring(1));
+                }
 
-                if (letter.equals("C")) {
-                    notes.add(1 + octave * 7);
-                } else if (letter.equals("D")) {
-                    notes.add(2 + octave * 7);
-                } else if (letter.equals("E")) {
-                    notes.add(3 + octave * 7);
-                } else if (letter.equals("F")) {
-                    notes.add(4 + octave * 7);
-                } else if (letter.equals("G")) {
-                    notes.add(5 + octave * 7);
-                } else if (letter.equals("A")) {
-                    notes.add(6 + octave * 7);
-                } else if (letter.equals("B")) {
-                    notes.add(7 + octave * 7);
+                switch (letter) {
+                    case "C":
+                        notes.add(1 + octave * 7);
+                        break;
+                    case "D":
+                        notes.add(2 + octave * 7);
+                        break;
+                    case "E":
+                        notes.add(3 + octave * 7);
+                        break;
+                    case "F":
+                        notes.add(4 + octave * 7);
+                        break;
+                    case "G":
+                        notes.add(5 + octave * 7);
+                        break;
+                    case "A":
+                        notes.add(6 + octave * 7);
+                        break;
+                    case "B":
+                        notes.add(7 + octave * 7);
+                        break;
+                    default:
+                        break;
                 }
 
                 for (int i: notes) {
