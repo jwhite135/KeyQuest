@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * UI class that prints out the scenarios for the KeyQuest program
@@ -10,8 +11,9 @@ import java.util.ArrayList;
 public class UI {
 
     private KeyQuestFACADE facade = new KeyQuestFACADE();
+    Scanner scanner = new Scanner(System.in);
     
-    public void scen1() {
+    public void scenario1() {
 
         System.out.println(" ----- SCENARIO 1: ------ Logging in with an existing account\n");
         // Check for existing account in JSON
@@ -48,28 +50,73 @@ public class UI {
         
     }
 
-    public void scen2() {
+    public void scenario2() {
         System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
         
-        System.out.println("Searching for songs by Tom Petty...");
+        System.out.println("Searching for songs by Sir Reginald Dower...");
         ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Tom Petty");
         for (Song song : sortedSongs) {
             System.out.println(song);
         }
-        // Should display "I Won't Back Down", "Mary Jane's Last Dance", and "Free Fallin"
+        // Should display "Oriental Riff"
 
         System.out.println("\nPlaying song 'Free Fallin'...");
         Song freeFallin = sortedSongs.get(2);
         facade.playSong(freeFallin);
 
         System.out.println("\nPrinting out sheet music and notes for 'Free Fallin'...");
-        facade.convertToTextFile(freeFallin);
+        System.out.println(facade.convertToTextFile(freeFallin));
+    }
+
+    public void scenario3() {
+        System.out.println("\n ----- SCENARIO 3: ------ Creating a song\n");
+        // Check for existing account in JSON
+        System.out.println("Attempting to log in as 'ffredrickson' with password 'easy123'...");
+        if ( facade.login("ffredrickson", "easy123") ) {
+            System.out.println("You are now logged in");
+        } else {
+            System.out.println("Incorrect username or password");
+        }
+
+        System.out.println("Creating a new song...");
+        Song CMajorScale = initDemoSong();
+        System.out.println("Song created successfully!");
+        facade.playSong(CMajorScale);
+
+        facade.logout();
+        // Show users JSON file and songs JSON file
+
+        System.out.println("Attempting to log in as 'ffred' with password 'abc123'...");
+        if ( facade.login("ffred", "abc123") ) {
+            System.out.println("You are now logged in");
+        } else {
+            System.out.println("Incorrect username or password");
+        }
+
+        System.out.println("Searching for C Major Scale song...");
+        ArrayList<Song> tempSongs = facade.searchSongsByName("C Major Scale"); // Should have length 1
+        System.out.println("Playing C Major Scale song...");
+        facade.playSong(tempSongs.get(0));
+    }
+
+    public Song initDemoSong() {
+        // Create a new song: C Major Scale by Unknown Artist
+        String name = "C Major Scale";
+        String artist = "Unknown Artist";
+        int difficulty = 1;
+        String genre = "Classical";
+        int timeSignatureDenominator = 4;
+        int timeSignatureNumerator = 4;
+        int tempo = 120;
+        Song cMajorScale = facade.createSong(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo);
+        facade.addMeasureToSong(cMajorScale, null);
+        return cMajorScale;
     }
 
     public void run() {
-        scen1();
-        scen2();
-        // scen3();
+        scenario1();
+        scenario2();
+        // scenario3();
     }
 
     public static void main(String[] args) {

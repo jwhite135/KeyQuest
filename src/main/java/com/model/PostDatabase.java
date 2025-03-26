@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Includes methods to search and sort the posts by different criteria
  * Includes a method to add a post to the database and a method to save the posts to the data file
  * @author Ian Attmore
- * @author Owen Coulam
+ * @author Owen CoulamOwen Coulam
  */
 public class PostDatabase {
     private static PostDatabase postDatabase;

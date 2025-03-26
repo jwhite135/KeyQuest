@@ -31,10 +31,14 @@ public class SongDatabase {
             songDatabase = new SongDatabase();
         }
         return songDatabase;
-    } 
+    }
 
     public ArrayList<Song> getSongs() {
         return songs;
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
     public void setSongs(ArrayList<Song> songs) {
