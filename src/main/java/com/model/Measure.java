@@ -35,6 +35,11 @@ abstract class Measure {
         return chords;
     }
 
+    /**
+     * Method to print the measure and add the notes given
+     * Loops through the chords and prints the notes included in each chord
+     * @param chords list of chords which include the notes being played
+     */
     public void printMeasure() {
         ArrayList<Integer> notes = new ArrayList<Integer>();
         String letter;

@@ -8,6 +8,15 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * DataWriter class that writes data to JSON files
+ * Writes: Users, Songs, Posts
+ * For users, writes: ID, Username, Email, Password, Type, FavoriteSongs, Friends, FavoritePosts
+ * For songs, writes: ID, Genre, Title, Artist, Difficulty, SheetMusic, Tempo, TimeSignature, Measures, Chords, Notes
+ * For posts, writes: ID, SongID, NumFavorites, Comments, AuthorID, Date, Private, Title, Body
+ * @see DataConstants
+ * @author Josiah White
+ */
 public class DataWriter extends DataConstants {
 
     public static void saveUsers() {

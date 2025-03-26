@@ -2,7 +2,10 @@ package com.model;
 
 import java.util.ArrayList;
 
-
+/**
+ * Piano class that holds a list of notes, along with the min and max notes that can be played
+ * @author Ryan Leadbitter
+ */
 public class Piano extends Instrument {
     private ArrayList<PianoNote> notes;
     private PianoNote minNote;

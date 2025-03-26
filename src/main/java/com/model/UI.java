@@ -2,6 +2,11 @@ package com.model;
 
 import java.util.ArrayList;
 
+/**
+ * UI class that prints out the scenarios for the KeyQuest program
+ * Holds a main method to run the UI and test the scenarios
+ * @author Owen Coulam
+ */
 public class UI {
 
     private KeyQuestFACADE facade = new KeyQuestFACADE();

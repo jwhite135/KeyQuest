@@ -9,6 +9,14 @@ public class Tablature extends Note {
     private String key; // Includes octave
     private final static Player player = new Player();
 
+    /**
+     * Constructor for Tablature
+     * Determines if the instrument is a guitar or bass guitar
+     * Takes the fret and string number for the guitar and converts it to piano notation for the player
+     * @param stringNumber the string number of the guitar note
+     * @param fret the fret number of the guitar note
+     * @param length the length of the note
+     */
     public Tablature(int stringNumber, int fret, String length) {
         super(length);
         if (stringNumber < 1 || fret < 0 || stringNumber > 6 || fret > 24) {
@@ -170,6 +178,10 @@ public class Tablature extends Note {
         this.length = length;
     }
 
+    /**
+     * Accessor methods for the Tablature class
+     */
+
     public int getStringNumber() {
         return stringNumber;
     }
@@ -189,5 +201,15 @@ public class Tablature extends Note {
     @Override
     public void playNote() {
         player.play(getNote());
+    }
+
+    /**
+     * Tablature notes do not have a piano key associated, so this method is not implemented
+     * Subject to change
+     */
+    @Override
+    public String getKey() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getKey'");
     }
 }

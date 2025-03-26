@@ -1,5 +1,12 @@
 package com.model;
 
+/**
+ * Instrument class that is the superclass of all instruments
+ * Currently only has a name, minNote, and maxNote
+ * Will be used to play notes and songs
+ * On the chopping block for future iterations
+ * @author Owen Coulam
+ */
 public class Instrument {
     private String name;
     private Note minNote;

@@ -8,6 +8,16 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * DataLoader class that reads in the JSON files and creates objects from them
+ * Loads: UUID, Genre, Song, SheetMusic, Measure, Chord, Note, User, Lesson, Post, Comment
+ * For songs, loads: ID, Genre, Title, Artist, Difficulty, SheetMusic, Tempo, TimeSignature, Measures, Chords, Notes
+ * For users, loads: ID, Username, Email, Password, Type, FavoriteSongs, Friends, FavoritePosts, Lessons, Teacher, Students
+ * For posts, loads: ID, SongID, NumFavorites, Comments, AuthorID, Date, Private, Title, Body
+ * For comments, loads: Body, Author, Date
+ * @see DataConstants
+ * @author Josiah White
+ */
 public class DataLoader extends DataConstants {
     public static ArrayList<Song> getSongs() {
         ArrayList<Song> songs = new ArrayList<Song>();
