@@ -35,6 +35,4 @@ abstract class Measure {
     public ArrayList<Chord> getChords() {
         return chords;
     }
-
-    public abstract void printMeasure();
 }

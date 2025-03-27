@@ -104,10 +104,4 @@ public class SongDatabase {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        SongDatabase songDatabase = SongDatabase.getInstance();
-        ArrayList<Song> songsByName = songDatabase.searchByName("");
-        songsByName.get(0).getSheetMusic().printSheetMusic();
-    }
 }
