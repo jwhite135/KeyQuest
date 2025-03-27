@@ -12,9 +12,6 @@ public class keyquest {
     public static void main(String[] args) {
         SongDatabase songDatabase = SongDatabase.getInstance();
         ArrayList<Song> songs = songDatabase.getSongs();
-        System.out.println(songs.get(2).getName());
-        songs.get(2).playSong();
-        System.out.println(songs.get(3).getName());
-        songs.get(3).playSong();
+        songs.get(0).playSong();
     }
 }

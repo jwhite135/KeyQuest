@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "User",
+            "request": "launch",
+            "mainClass": "com.keyquestjavafx/com.model.User",
+            "projectName": "keyquestjavafx"
+        },
+        {
+            "type": "java",
             "name": "keyquest",
             "request": "launch",
             "mainClass": "com.keyquestjavafx/com.model.keyquest",

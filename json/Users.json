@@ -1,5 +1,12 @@
 [
   {
+    "password": "easy123",
+    "id": "ae46b2dc-8d5f-4d52-995e-447d189a6cf2",
+    "type": "user",
+    "email": "bossb@hotgirls.com",
+    "username": "ffredrickson"
+  },
+  {
     "password": "something",
     "id": "ddaae79a-34d5-4ef4-b911-755d9e19959b",
     "type": "user",
