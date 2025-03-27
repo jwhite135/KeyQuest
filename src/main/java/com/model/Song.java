@@ -55,6 +55,10 @@ public class Song {
         this.difficulty = difficulty;
         this.id = UUID.randomUUID();
     }
+
+    public void addMeasure(Measure measure) {
+        sheetMusic.get(0).addMeasure(measure);
+    }
         
     public void playSong() {
         sheetMusic.get(0).playMeasures();

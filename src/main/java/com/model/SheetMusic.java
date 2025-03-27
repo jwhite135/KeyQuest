@@ -68,6 +68,10 @@ public class SheetMusic {
         return measures;
     }
 
+    public void addMeasure(Measure measure) {
+        measures.add(measure);
+    }
+
     public int getTimeSigDen() {
         return timeSignatureDenominator;
     }
