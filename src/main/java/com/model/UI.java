@@ -89,9 +89,9 @@ public class UI {
         }
 
         System.out.println("Creating a new song...");
-        Song AHorsesJourney = initDemoSong();
+        Song CMajorScale = initDemoSong();
         System.out.println("Song created successfully!");
-        System.out.println(facade.playSong(AHorsesJourney));
+        System.out.println(facade.playSong(CMajorScale));
 
         facade.logout();
         // Show users JSON file and songs JSON file
@@ -152,13 +152,12 @@ public class UI {
 
     public void run() {
         //scenario1();
-        scenario2();
-        //scenario3();
+        //scenario2();
+         scenario3();
     }
 
     public static void main(String[] args) {
         UI ui = new UI();
         ui.run();
-        // ui.exit();
     }
 }
