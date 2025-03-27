@@ -1,5 +1,7 @@
 package com.model;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 /**
@@ -61,7 +63,17 @@ public class UI {
         System.out.println("\nPlaying song '"+sortedSongs.get(0).getName()+"' and ");
         System.out.println("printing out sheet music and notes for '"+sortedSongs.get(0).getName()+"'...\n");
         Song odeToJoy = sortedSongs.get(0);
-        facade.playSong(odeToJoy);
+        PrintStream consoleStream = System.out;
+        PrintStream fileStream;
+        try {
+            fileStream = new PrintStream("song_output.txt");
+            System.setOut(fileStream);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(facade.playSong(odeToJoy));
+        System.setOut(consoleStream);
 
         System.out.println(facade.convertToTextFile(odeToJoy));
     }
@@ -77,9 +89,9 @@ public class UI {
         }
 
         System.out.println("Creating a new song...");
-        Song CMajorScale = initDemoSong();
+        Song AHorsesJourney = initDemoSong();
         System.out.println("Song created successfully!");
-        facade.playSong(CMajorScale);
+        System.out.println(facade.playSong(AHorsesJourney));
 
         facade.logout();
         // Show users JSON file and songs JSON file
@@ -94,7 +106,7 @@ public class UI {
         System.out.println("Searching for C Major Scale song...");
         ArrayList<Song> tempSongs = facade.searchSongsByName("C Major Scale"); // Should have length 1
         System.out.println("Playing C Major Scale song...");
-        facade.playSong(tempSongs.get(0));
+        System.out.println(facade.playSong(tempSongs.get(0)));
     }
 
     public Song initDemoSong() {
@@ -140,8 +152,8 @@ public class UI {
 
     public void run() {
         //scenario1();
-        //scenario2();
-        scenario3();
+        scenario2();
+        //scenario3();
     }
 
     public static void main(String[] args) {

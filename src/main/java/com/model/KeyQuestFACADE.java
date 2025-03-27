@@ -143,7 +143,8 @@ public class KeyQuestFACADE {
     }
 
     public String convertToTextFile(Song song) {
-        return song.toString();
+        ArrayList<SheetMusic> sheetMusic = song.getSheetMusic();
+        
     }
 
     public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {

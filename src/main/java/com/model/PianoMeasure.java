@@ -1,6 +1,5 @@
 package com.model;
 
-import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -21,17 +20,11 @@ public class PianoMeasure extends Measure {
     public PianoMeasure(boolean showClef, ArrayList<Chord> chords) {
         super(chords);
         this.showClef = showClef;
-        try {
-            this.fileStream = new PrintStream("../../../../song_output.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
     
     /**
      * Method to play the measure
      * Loops through the chords and plays them using playChord()
-     * @return output string
      */
     @Override
     public String playMeasure() {
