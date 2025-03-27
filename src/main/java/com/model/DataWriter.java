@@ -158,9 +158,6 @@ public class DataWriter extends DataConstants {
             }
             // Adds the measure array to the sheet music
             sheetMusicDetails.put(SHEET_MUSIC_MEASURES, measureArray);
-
-            // Adds the sheet music to the sheet music array
-            sheetMusicArray.add(sheetMusicDetails);
             // TODO: Properly implement guitar and other further instruments for parsing and saving
             /* 
             else {
