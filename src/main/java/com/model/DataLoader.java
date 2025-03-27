@@ -57,7 +57,7 @@ public class DataLoader extends DataConstants {
                     for(int k = 0; k < measureList.size(); k++) {
 
                         // Parsing measure attributes
-                        int measureType = ((Long)((JSONObject)measureList.get(j)).get(MEASURE_TYPE)).intValue();
+                        int measureType = ((Long)((JSONObject)measureList.get(k)).get(MEASURE_TYPE)).intValue();
                         // Parsing chords
                         ArrayList<Chord> chords = new ArrayList<Chord>();
                         JSONArray chordList = (JSONArray)((JSONObject)measureList.get(k)).get(MEASURE_CHORDS);
