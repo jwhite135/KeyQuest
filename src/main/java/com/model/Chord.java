@@ -41,12 +41,12 @@ public class Chord {
             String currentNote = ((PianoNote)notes.get(i)).getKey();
             playThis += ((PianoNote)notes.get(i)).getKey().charAt(0);
             if(((PianoNote)notes.get(i)).isFlat()) {
+                playThis += "b";
                 currentNote += "b";
-                playThis += currentNote;
             }
             if(((PianoNote)notes.get(i)).isSharp()) {
+                playThis += "#";
                 currentNote += "#";
-                playThis += currentNote;
             }
             playThis += ((PianoNote)notes.get(i)).getKey().charAt(1);
             if (i < notes.size() - 1) {

@@ -52,6 +52,10 @@ public class UI {
 
     public void scenario2() {
         System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
+
+        Song alma = facade.searchSongsByName("USC Alma Mater").get(0);
+        System.out.println(facade.playSong(alma));
+
         
         System.out.println("Searching for songs by Beethoven...");
         ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Beethoven");
@@ -152,8 +156,8 @@ public class UI {
 
     public void run() {
         //scenario1();
-        //scenario2();
-         scenario3();
+        scenario2();
+        //scenario3();
     }
 
     public static void main(String[] args) {
