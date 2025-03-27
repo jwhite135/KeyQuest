@@ -1,5 +1,7 @@
 package com.model;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 /**
@@ -8,6 +10,7 @@ import java.util.ArrayList;
  */
 public class PianoMeasure extends Measure {
     private boolean showClef;
+    private PrintStream fileStream;
 
     /**
      * Constructor for PianoMeasure
@@ -18,6 +21,11 @@ public class PianoMeasure extends Measure {
     public PianoMeasure(boolean showClef, ArrayList<Chord> chords) {
         super(chords);
         this.showClef = showClef;
+        try {
+            this.fileStream = new PrintStream("../../../../song_output.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     
     /**
@@ -25,11 +33,12 @@ public class PianoMeasure extends Measure {
      * Loops through the chords and plays them using playChord()
      */
     @Override
-    public void playMeasure() {
+    public String playMeasure() {
+        String output = "";
         for (int i = 0; i < chords.size(); ++i) {
-            chords.get(i).playChord();
+            output += chords.get(i).playChord();
         }
-        System.out.println("---------------------------------------------");
+        return output +"\n---------------------------------------------\n";
     }
 
     /**

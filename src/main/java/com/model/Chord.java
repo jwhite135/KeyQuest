@@ -34,8 +34,9 @@ public class Chord {
      * Loops through notes and plays them
      * Adds each note to a string that is used an as argument by the player
      */
-    public void playChord() {
+    public String playChord() {
         String playThis = "";
+        String output = "";
         for (int i = 0; i < notes.size(); ++i) {
             String currentNote = ((PianoNote)notes.get(i)).getKey();
             playThis += ((PianoNote)notes.get(i)).getKey().charAt(0);
@@ -51,10 +52,11 @@ public class Chord {
             if (i < notes.size() - 1) {
                 playThis += "+";
             }
-            System.out.print(currentNote + "[" + ((PianoNote)notes.get(i)).getLength() + "] ");
+            output += currentNote + "[" + ((PianoNote)notes.get(i)).getLength() + "] ";
         }
         playThis += ((PianoNote)notes.get(0)).getLength();
         player.play(playThis);
+        return output;
     }
 
     public ArrayList<Note> getNotes() {

@@ -1,7 +1,6 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * UI class that prints out the scenarios for the KeyQuest program
@@ -11,17 +10,16 @@ import java.util.Scanner;
 public class UI {
 
     private KeyQuestFACADE facade = new KeyQuestFACADE();
-    Scanner scanner = new Scanner(System.in);
     
     public void scenario1() {
 
-        System.out.println(" ----- SCENARIO 1: ------ Logging in with an existing account\n");
+        System.out.println("\n ----- SCENARIO 1: ------ Logging in with an existing account\n");
         // Check for existing account in JSON
         System.out.println("\nWe can see Fellicia Fredrickson" +
-            "has an account, but Fred does not.\n");
+            " has an account, but Fred does not.\n");
         
         // Will print second line since account already exists
-        System.out.println("Attempting to create account for with username 'ffredrickson'"
+        System.out.println("Attempting to create account for with username 'ffredrickson' "
             + "and password 'abc123' and email fred@yahoo.com");
         if(facade.makeUser("ffredrickson", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
@@ -31,7 +29,7 @@ public class UI {
 
         // Tries again with new username "ffred", prints first line now
         System.out.println("Attempting to create account for with username 'ffred'"
-            + "with all other credentials the same");
+            + " with all other credentials the same");
         if(facade.makeUser("ffred", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
         } else {

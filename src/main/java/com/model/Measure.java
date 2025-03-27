@@ -22,10 +22,11 @@ abstract class Measure {
      * Method to play the measure
      * Loops through the chords and plays them
      */
-    public void playMeasure() {
+    public String playMeasure() {
         for (int i = 0; i < chords.size(); i++) {
             chords.get(i).playChord();
         }
+        return "\n---------------------------------------------\n";
     }
 
     /**
