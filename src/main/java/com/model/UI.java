@@ -101,10 +101,10 @@ public class UI {
 
     public Song initDemoSong() {
         // Create a new song: A Horse's Journey by Unknown Artist
-        String name = "A Horse's Journey";
+        String name = "C Major Scale";
         String artist = "Unknown Artist";
         int difficulty = 1;
-        String genre = "Classical";
+        String genre = "CLASSICAL";
         int timeSignatureDenominator = 4;
         int timeSignatureNumerator = 4;
         int tempo = 120;
