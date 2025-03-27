@@ -146,41 +146,9 @@ public class KeyQuestFACADE {
     }
 
     public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {
-        Song newSong = new Song(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo)
+        Song newSong = new Song(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo);
         songs.addSong(newSong);
         return newSong;
-    }
-
-    public void addMeasureToSong(Song song, Measure measure) {
-        song.addMeasure(measure);
-    }
-
-    public void searchByDifficulty(int difficulty) {
-        posts.searchByDifficulty(difficulty);
-    }
-
-    public void searchByGenre(Genre genre) {
-        posts.searchByGenre(genre);
-    }
-
-    public SheetMusic getSheetMusic(Song song) {
-        return songs.getSheetMusic(song);
-    }
-
-    public void makeLesson(Song song, String lessonTitle) {
-        users.addLesson(song, lessonTitle);
-    }
-
-    public void assignLesson(Lesson lesson, User user) {
-        user.addLesson(lesson);
-    }
-
-    public void completeLesson(Lesson lesson) {
-        
-    }
-
-    public void setLessonComplete(Lesson lesson) {
-        lesson.setComplete(true);
     }
 
     /**

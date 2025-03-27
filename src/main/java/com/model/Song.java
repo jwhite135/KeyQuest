@@ -41,7 +41,7 @@ public class Song {
         this.difficulty = difficulty;
         this.genre = Genre.valueOf(genre);
         this.sheetMusic = new ArrayList<SheetMusic>();
-        this.sheetMusic.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator, type));
+        this.sheetMusic.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator));
     }
 
     /**

@@ -2,6 +2,11 @@ package com.model;
 
 import org.jfugue.player.Player;
 
+/**
+ * Tablature class that extends Note and implements playNote method
+ * This class is used to represent a note for guitar or bass guitar
+ * @author Matthew Radin
+ */
 public class Tablature extends Note {
     private int stringNumber;
     private int fret;
@@ -137,11 +142,10 @@ public class Tablature extends Note {
 
     /**
      * Tablature notes do not have a piano key associated, so this method is not implemented
-     * Subject to change
      */
     @Override
     public String getKey() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getKey'");
+        // TODO Find way to impliment or remove this method
+        return null;
     }
 }
