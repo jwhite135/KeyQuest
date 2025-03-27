@@ -146,7 +146,7 @@ public class KeyQuestFACADE {
     }
 
     public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {
-        Song newSong = new Song(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo)
+        Song newSong = new Song(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo);
         songs.addSong(newSong);
         return newSong;
     }
