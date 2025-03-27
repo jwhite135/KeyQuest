@@ -100,8 +100,8 @@ public class UI {
     }
 
     public Song initDemoSong() {
-        // Create a new song: C Major Scale by Unknown Artist
-        String name = "C Major Scale";
+        // Create a new song: A Horse's Journey by Unknown Artist
+        String name = "A Horse's Journey";
         String artist = "Unknown Artist";
         int difficulty = 1;
         String genre = "Classical";
@@ -109,7 +109,20 @@ public class UI {
         int timeSignatureNumerator = 4;
         int tempo = 120;
         Song cMajorScale = facade.createSong(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo);
-        facade.addMeasureToSong(cMajorScale, null);
+        ArrayList<Note> chord1 = new ArrayList<>();
+        ArrayList<Note> note2 = new ArrayList<>();
+        ArrayList<Note> note3 = new ArrayList<>();
+        ArrayList<Note> firstNote = new ArrayList<>();
+        ArrayList<Note> firstNote = new ArrayList<>();
+        ArrayList<Note> firstNote = new ArrayList<>();
+        notes.add(new PianoNote("q", "C4", false, false));
+        Chord chord = new Chord(notes);
+        notes.add(new PianoNote("q", "D4", false, false));
+        notes.add(new PianoNote("q", "E4", false, false));
+        notes.add(new PianoNote("q", "C4", false, false));
+        notes.add(new PianoNote("q", "C4", false, false));
+        ArrayList<Chord> chords = new ArrayList<>();
+        facade.addMeasureToSong(cMajorScale, new PianoMeasure(false, chords));
         return cMajorScale;
     }
 
