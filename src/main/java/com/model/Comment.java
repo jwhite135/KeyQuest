@@ -27,11 +27,10 @@ public class Comment {
 
     /**
      * Second constructor for Comment that allows for a date to be passed in
-     * To be used for testing for now, but could be changed later such that the first constructor
-     * calls the second constructor with LocalDate.now() as the date:
-        public Comment(String body, User author) {
-            this(body, author, LocalDate.now());
-        }
+     * Used for loading in existing comments from the database
+     * @param body The body of the comment
+     * @param author The author of the comment
+     * @param date The date the comment was posted
      */
     public Comment(String body, User author, LocalDate date) {
         this.body = body;
