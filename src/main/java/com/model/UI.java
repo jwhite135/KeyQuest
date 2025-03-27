@@ -78,8 +78,6 @@ public class UI {
         }
         System.out.println(facade.playSong(odeToJoy));
         System.setOut(consoleStream);
-
-        System.out.println(facade.convertToTextFile(odeToJoy));
     }
 
     public void scenario3() {
