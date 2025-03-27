@@ -19,11 +19,14 @@ public class TabMeasure extends Measure {
     /**
      * Guitar notes are converted to jfugue notes and played using the correct soundpack
      * The notes are played in the order they are in the chord
-     */
-    public void playMeasure() {
+    * @return 
+    */
+    public String playMeasure() {
+        String output = "";
         for (Chord chord : chords) {
-            chord.playChord();
+        output += chord.playChord();
         }
+        return output + "\n---------------------------------------------\n";
     }
 
     public int getNumberOfLines() {
