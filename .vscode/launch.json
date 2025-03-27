@@ -11,10 +11,16 @@
             "request": "launch",
             "mainClass": "com.keyquestjavafx/com.model.UI",
 =======
+<<<<<<< HEAD
+            "name": "UI",
+            "request": "launch",
+            "mainClass": "com.keyquestjavafx/com.model.UI",
+=======
             "name": "User",
             "request": "launch",
             "mainClass": "com.keyquestjavafx/com.model.User",
 >>>>>>> 46c638277caa4ae9cb1a9b304d39178eef69b723
+>>>>>>> 0da54707bc6df5bb9a0fd58a05b24e7323f7ab56
             "projectName": "keyquestjavafx"
         },
         {

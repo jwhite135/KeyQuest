@@ -1,7 +1,8 @@
 package com.model;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * UI class that prints out the scenarios for the KeyQuest program
@@ -11,17 +12,16 @@ import java.util.Scanner;
 public class UI {
 
     private KeyQuestFACADE facade = new KeyQuestFACADE();
-    Scanner scanner = new Scanner(System.in);
     
     public void scenario1() {
 
-        System.out.println(" ----- SCENARIO 1: ------ Logging in with an existing account\n");
+        System.out.println("\n ----- SCENARIO 1: ------ Logging in with an existing account\n");
         // Check for existing account in JSON
         System.out.println("\nWe can see Fellicia Fredrickson" +
-            "has an account, but Fred does not.\n");
+            " has an account, but Fred does not.\n");
         
         // Will print second line since account already exists
-        System.out.println("Attempting to create account for with username 'ffredrickson'"
+        System.out.println("Attempting to create account for with username 'ffredrickson' "
             + "and password 'abc123' and email fred@yahoo.com");
         if(facade.makeUser("ffredrickson", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
@@ -31,7 +31,7 @@ public class UI {
 
         // Tries again with new username "ffred", prints first line now
         System.out.println("Attempting to create account for with username 'ffred'"
-            + "with all other credentials the same");
+            + " with all other credentials the same");
         if(facade.makeUser("ffred", "abc123", "fred@yahoo.com") ) {
             System.out.println("Account has been created! You are now logged in.");
         } else {
@@ -63,7 +63,17 @@ public class UI {
         System.out.println("\nPlaying song '"+sortedSongs.get(0).getName()+"' and ");
         System.out.println("printing out sheet music and notes for '"+sortedSongs.get(0).getName()+"'...\n");
         Song odeToJoy = sortedSongs.get(0);
-        facade.playSong(odeToJoy);
+        PrintStream consoleStream = System.out;
+        PrintStream fileStream;
+        try {
+            fileStream = new PrintStream("song_output.txt");
+            System.setOut(fileStream);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(facade.playSong(odeToJoy));
+        System.setOut(consoleStream);
 
         System.out.println(facade.convertToTextFile(odeToJoy));
     }
@@ -79,9 +89,9 @@ public class UI {
         }
 
         System.out.println("Creating a new song...");
-        Song CMajorScale = initDemoSong();
+        Song AHorsesJourney = initDemoSong();
         System.out.println("Song created successfully!");
-        facade.playSong(CMajorScale);
+        System.out.println(facade.playSong(AHorsesJourney));
 
         facade.logout();
         // Show users JSON file and songs JSON file
@@ -96,7 +106,7 @@ public class UI {
         System.out.println("Searching for C Major Scale song...");
         ArrayList<Song> tempSongs = facade.searchSongsByName("C Major Scale"); // Should have length 1
         System.out.println("Playing C Major Scale song...");
-        facade.playSong(tempSongs.get(0));
+        System.out.println(facade.playSong(tempSongs.get(0)));
     }
 
     public Song initDemoSong() {

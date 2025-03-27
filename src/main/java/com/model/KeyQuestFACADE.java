@@ -138,12 +138,13 @@ public class KeyQuestFACADE {
         instrument.playNote(note);
     }
 
-    public void playSong(Song song) {
-        song.playSong();
+    public String playSong(Song song) {
+        return song.playSong();
     }
 
     public String convertToTextFile(Song song) {
-        return song.toString();
+        ArrayList<SheetMusic> sheetMusic = song.getSheetMusic();
+        
     }
 
     public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {

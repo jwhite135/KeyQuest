@@ -60,8 +60,8 @@ public class Song {
         sheetMusic.get(0).addMeasure(measure);
     }
         
-    public void playSong() {
-        sheetMusic.get(0).playMeasures();
+    public String playSong() {
+        return sheetMusic.get(0).playMeasures();
     }
 
     /**
