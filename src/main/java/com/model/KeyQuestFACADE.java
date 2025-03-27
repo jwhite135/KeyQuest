@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * KeyQuestFACADE class that holds the main methods for the program
  * This class is used to interact with the User, Post, and Song databases
  * It is the main class that the GUI/User will interact with to get data, set data, and use the application
- * @author Ian Attmore
+ * @author Ian Attmore, Owen Coulam
  */
 public class KeyQuestFACADE {
     private User user;
@@ -145,36 +145,14 @@ public class KeyQuestFACADE {
         return song.toString();
     }
 
-    public void createSong(SheetMusic sheetMusic, String name) {
-        
+    public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {
+        Song newSong = new Song(name, artist, difficulty, genre, timeSignatureNumerator, timeSignatureDenominator, tempo);
+        songs.addSong(newSong);
+        return newSong;
     }
 
-    public void searchByDifficulty(int difficulty) {
-        posts.searchByDifficulty(difficulty);
-    }
-
-    public void searchByGenre(Genre genre) {
-        posts.searchByGenre(genre);
-    }
-
-    public SheetMusic getSheetMusic(Song song) {
-        return songs.getSheetMusic(song);
-    }
-
-    public void makeLesson(Song song, String lessonTitle) {
-        users.addLesson(song, lessonTitle);
-    }
-
-    public void assignLesson(Lesson lesson, User user) {
-        user.addLesson(lesson);
-    }
-
-    public void doLesson(Lesson lesson) {
-        
-    }
-
-    public void setLessonComplete(Lesson lesson) {
-        lesson.setComplete(true);
+    public void addMeasureToSong(Song song, Measure measure) {
+        song.addMeasure(measure);
     }
 
     /**

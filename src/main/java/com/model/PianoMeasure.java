@@ -29,6 +29,7 @@ public class PianoMeasure extends Measure {
         for (int i = 0; i < chords.size(); ++i) {
             chords.get(i).playChord();
         }
+        System.out.println("---------------------------------------------");
     }
 
     /**

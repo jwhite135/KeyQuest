@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * The class is a singleton class, meaning only one instance of the class can be created
  * The class is used to access the songs from the DataLoader class
  * The class includes methods to search for songs by name, artist, difficulty, and genre
- * @author 
+ * @author Josiah White
  */
 public class SongDatabase {
     private static SongDatabase songDatabase;
@@ -31,10 +31,14 @@ public class SongDatabase {
             songDatabase = new SongDatabase();
         }
         return songDatabase;
-    } 
+    }
 
     public ArrayList<Song> getSongs() {
         return songs;
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
     public void setSongs(ArrayList<Song> songs) {

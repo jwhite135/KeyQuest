@@ -24,6 +24,20 @@ public class SheetMusic {
     }
 
     /**
+     * Constructor #2 for SheetMusic
+     * Creates default measures for given sheet music parameters
+     * @param tempo the tempo of the sheet music
+     * @param timeSignatureNumerator the numerator of the time signature
+     * @param timeSignatureDenominator the denominator of the time signature
+     */
+    SheetMusic(int tempo, int timeSignatureNumerator, int timeSignatureDenominator) {
+        this.tempo = tempo;
+        this.timeSignatureNumerator = timeSignatureNumerator;
+        this.timeSignatureDenominator = timeSignatureDenominator;
+        this.measures = new ArrayList<Measure>();
+    }
+
+    /**
      * Constructor for SheetMusic
      * @param tempo the tempo of the sheet music
      * @param timeSignatureNumerator the numerator of the time signature
@@ -54,6 +68,10 @@ public class SheetMusic {
         return measures;
     }
 
+    public void addMeasure(Measure measure) {
+        measures.add(measure);
+    }
+
     public int getTimeSigDen() {
         return timeSignatureDenominator;
     }
@@ -65,4 +83,5 @@ public class SheetMusic {
     public int getTempo() {
         return tempo;
     }
+
 }

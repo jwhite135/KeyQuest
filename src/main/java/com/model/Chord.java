@@ -21,6 +21,15 @@ public class Chord {
     }
 
     /**
+     * Constructor for single note cord
+     * @param note single note
+     */
+    public Chord(Note note) {
+        notes = new ArrayList<Note>();
+        notes.add(note);
+    }
+
+    /**
      * Plays the chord using jFugue player
      * Loops through notes and plays them
      * Adds each note to a string that is used an as argument by the player
@@ -28,20 +37,23 @@ public class Chord {
     public void playChord() {
         String playThis = "";
         for (int i = 0; i < notes.size(); ++i) {
+            String currentNote = ((PianoNote)notes.get(i)).getKey();
             playThis += ((PianoNote)notes.get(i)).getKey().charAt(0);
             if(((PianoNote)notes.get(i)).isFlat()) {
-                playThis += "b";
+                currentNote += "b";
+                playThis += currentNote;
             }
             if(((PianoNote)notes.get(i)).isSharp()) {
-                playThis += "#";
+                currentNote += "#";
+                playThis += currentNote;
             }
             playThis += ((PianoNote)notes.get(i)).getKey().charAt(1);
             if (i < notes.size() - 1) {
                 playThis += "+";
             }
+            System.out.print(currentNote + "[" + ((PianoNote)notes.get(i)).getLength() + "] ");
         }
         playThis += ((PianoNote)notes.get(0)).getLength();
-        System.out.println("playing " + playThis);
         player.play(playThis);
     }
 

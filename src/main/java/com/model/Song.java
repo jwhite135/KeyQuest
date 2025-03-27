@@ -5,7 +5,8 @@ import java.util.UUID;
 /**
  * Song class that holds the genre, name, artist, sheet music, and difficulty of a song
  * It also has methods to play the song and play along with the song
- * @author 
+ * @author Josiah White
+ * @author Matthew Radin
  */
 public class Song {
     private UUID id;
@@ -33,6 +34,16 @@ public class Song {
         this.difficulty = difficulty;
     }
 
+    public Song(String title, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {
+        this.id = UUID.randomUUID();
+        this.name = title;
+        this.artist = artist;
+        this.difficulty = difficulty;
+        this.genre = Genre.valueOf(genre);
+        this.sheetMusic = new ArrayList<SheetMusic>();
+        this.sheetMusic.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator));
+    }
+
     /**
      * This constructor is used for creating a song from the user interface when the UUID is not known and will be generated
      */
@@ -43,6 +54,10 @@ public class Song {
         this.sheetMusic = sheetMusic;
         this.difficulty = difficulty;
         this.id = UUID.randomUUID();
+    }
+
+    public void addMeasure(Measure measure) {
+        sheetMusic.get(0).addMeasure(measure);
     }
         
     public void playSong() {
