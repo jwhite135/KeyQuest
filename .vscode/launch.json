@@ -6,9 +6,15 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "UI",
             "request": "launch",
             "mainClass": "com.keyquestjavafx/com.model.UI",
+=======
+            "name": "User",
+            "request": "launch",
+            "mainClass": "com.keyquestjavafx/com.model.User",
+>>>>>>> 46c638277caa4ae9cb1a9b304d39178eef69b723
             "projectName": "keyquestjavafx"
         },
         {
