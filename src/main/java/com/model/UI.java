@@ -53,15 +53,15 @@ public class UI {
     public void scenario2() {
         System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
         
-        System.out.println("Searching for songs by Sir Reginald Dower...");
-        ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Tom Petty");
+        System.out.println("Searching for songs by Beethoven...");
+        ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Beethoven");
         for (Song song : sortedSongs) {
             System.out.println(song);
         }
         // Should display "Oriental Riff"
 
         System.out.println("\nPlaying song 'Free Fallin'...");
-        Song freeFallin = sortedSongs.get(2);
+        Song freeFallin = sortedSongs.get(0);
         facade.playSong(freeFallin);
 
         System.out.println("\nPrinting out sheet music and notes for 'Free Fallin'...");
@@ -141,7 +141,7 @@ public class UI {
     }
 
     public void run() {
-        scenario1();
+        //scenario1();
         scenario2();
         // scenario3();
     }

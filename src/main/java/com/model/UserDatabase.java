@@ -40,9 +40,9 @@ public class UserDatabase {
      * Method to get a user by their email and password
      * @return the user if the user exists, null if the user does not exist
      */
-    public User getUser(String email, String password) {
+    public User getUser(String username, String password) {
         for (User user : users) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
         }
@@ -58,7 +58,7 @@ public class UserDatabase {
             return false;
         } 
         for (User existingUser : users) {
-            if (user.getEmail().equals(existingUser.getEmail())) {
+            if (user.getUsername().equals(existingUser.getUsername())) {
                 return false;
             }
         }

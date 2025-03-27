@@ -77,7 +77,9 @@ public class User {
      * @return the user if the user does not already exist, null if the user already exists
      */
     public static User getInstance(String username, String password, String email) {
+        System.out.println("Creating user");
         for (User user : UserDatabase.getInstance().getUsers()) {
+            System.out.println("ismatch" +user.isMatch(username, password));
             if (user.isMatch(username, password)) {
                 return null;
             } else if (user.getUsername().equals(username)) {

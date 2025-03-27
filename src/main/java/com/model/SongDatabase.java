@@ -18,7 +18,9 @@ public class SongDatabase {
      * Initializes the songs ArrayList by calling the DataLoader class
      */
     private SongDatabase() {
+        System.out.println("Before loading");
         songs = DataLoader.getSongs();
+        System.out.println("After loading");
     }
 
     /**
@@ -66,8 +68,10 @@ public class SongDatabase {
      * @return an ArrayList of songs that have the same artist
      */
     public ArrayList<Song> searchByArtist(String artist) {
+        System.out.println("in method");
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songs) {
+            System.out.println("Searching: " +song.getArtist());
             if (song.getArtist().equalsIgnoreCase(artist)) {
                 result.add(song);
             }
