@@ -38,7 +38,11 @@ public class PianoMeasure extends Measure {
         for (int i = 0; i < chords.size(); ++i) {
             output += chords.get(i).playChord();
         }
+<<<<<<< HEAD
         return output +"\n---------------------------------------------\n";
+=======
+        System.out.println("\n---------------------------------------------");
+>>>>>>> 0da54707bc6df5bb9a0fd58a05b24e7323f7ab56
     }
 
     /**

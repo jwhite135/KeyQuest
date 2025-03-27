@@ -51,19 +51,19 @@ public class UI {
     public void scenario2() {
         System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
         
-        System.out.println("Searching for songs by Sir Reginald Dower...");
-        ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Tom Petty");
+        System.out.println("Searching for songs by Beethoven...");
+        ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Beethoven");
         for (Song song : sortedSongs) {
             System.out.println(song);
         }
         // Should display "Oriental Riff"
 
-        System.out.println("\nPlaying song 'Free Fallin'...");
-        Song freeFallin = sortedSongs.get(2);
-        facade.playSong(freeFallin);
+        System.out.println("\nPlaying song '"+sortedSongs.get(0).getName()+"' and ");
+        System.out.println("printing out sheet music and notes for '"+sortedSongs.get(0).getName()+"'...\n");
+        Song odeToJoy = sortedSongs.get(0);
+        facade.playSong(odeToJoy);
 
-        System.out.println("\nPrinting out sheet music and notes for 'Free Fallin'...");
-        System.out.println(facade.convertToTextFile(freeFallin));
+        System.out.println(facade.convertToTextFile(odeToJoy));
     }
 
     public void scenario3() {
@@ -99,10 +99,10 @@ public class UI {
 
     public Song initDemoSong() {
         // Create a new song: A Horse's Journey by Unknown Artist
-        String name = "A Horse's Journey";
+        String name = "C Major Scale";
         String artist = "Unknown Artist";
         int difficulty = 1;
-        String genre = "Classical";
+        String genre = "CLASSICAL";
         int timeSignatureDenominator = 4;
         int timeSignatureNumerator = 4;
         int tempo = 120;
@@ -139,9 +139,9 @@ public class UI {
     }
 
     public void run() {
-        scenario1();
-        scenario2();
-        // scenario3();
+        //scenario1();
+        //scenario2();
+        scenario3();
     }
 
     public static void main(String[] args) {

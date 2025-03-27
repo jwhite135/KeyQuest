@@ -36,8 +36,8 @@ public class KeyQuestFACADE {
      * @params email and password of the user
      * @return true if the user is logged in, false if the user is not logged in or the user does not exist
      */
-    public boolean login(String email, String password) {
-        user = users.getUser(email, password);
+    public boolean login(String username, String password) {
+        user = users.getUser(username, password);
         if (user == null) {
             return false;
         }
@@ -51,6 +51,7 @@ public class KeyQuestFACADE {
      */
     public boolean makeUser(String username, String password, String email) {
         User newUser = User.getInstance(username, password, email);
+        System.out.println(newUser);
         if(newUser == null) {
             return false;
         }
@@ -162,7 +163,7 @@ public class KeyQuestFACADE {
     public void logout() {
         user = null;
         DataWriter.saveUsers();
-        DataWriter.savePosts();
+        //DataWriter.savePosts();
         DataWriter.saveSongs();
     }
 }
