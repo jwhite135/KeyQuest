@@ -52,6 +52,10 @@ public class UI {
 
     public void scenario2() {
         System.out.println("\n ----- SCENARIO 2: ------ Playing a song\n");
+
+        Song alma = facade.searchSongsByName("USC Alma Mater").get(0);
+        System.out.println(facade.playSong(alma));
+
         
         System.out.println("Searching for songs by Beethoven...");
         ArrayList<Song> sortedSongs = facade.searchSongsByArtist("Beethoven");
@@ -89,9 +93,9 @@ public class UI {
         }
 
         System.out.println("Creating a new song...");
-        Song AHorsesJourney = initDemoSong();
+        Song CMajorScale = initDemoSong();
         System.out.println("Song created successfully!");
-        System.out.println(facade.playSong(AHorsesJourney));
+        System.out.println(facade.playSong(CMajorScale));
 
         facade.logout();
         // Show users JSON file and songs JSON file
@@ -159,6 +163,5 @@ public class UI {
     public static void main(String[] args) {
         UI ui = new UI();
         ui.run();
-        // ui.exit();
     }
 }
