@@ -21,6 +21,15 @@ public class Chord {
     }
 
     /**
+     * Constructor for single note cord
+     * @param note single note
+     */
+    public Chord(Note note) {
+        notes = new ArrayList<Note>();
+        notes.add(note);
+    }
+
+    /**
      * Plays the chord using jFugue player
      * Loops through notes and plays them
      * Adds each note to a string that is used an as argument by the player
