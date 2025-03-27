@@ -142,8 +142,8 @@ public class UI {
 
     public void run() {
         //scenario1();
-        //scenario2();
-        scenario3();
+        scenario2();
+        //scenario3();
     }
 
     public static void main(String[] args) {
