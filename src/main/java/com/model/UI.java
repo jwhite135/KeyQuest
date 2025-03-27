@@ -60,12 +60,12 @@ public class UI {
         }
         // Should display "Oriental Riff"
 
-        System.out.println("\nPlaying song 'Free Fallin'...");
-        Song freeFallin = sortedSongs.get(0);
-        facade.playSong(freeFallin);
+        System.out.println("\nPlaying song '"+sortedSongs.get(0).getName()+"' and ");
+        System.out.println("printing out sheet music and notes for '"+sortedSongs.get(0).getName()+"'...\n");
+        Song odeToJoy = sortedSongs.get(0);
+        facade.playSong(odeToJoy);
 
-        System.out.println("\nPrinting out sheet music and notes for 'Free Fallin'...");
-        System.out.println(facade.convertToTextFile(freeFallin));
+        System.out.println(facade.convertToTextFile(odeToJoy));
     }
 
     public void scenario3() {
@@ -142,8 +142,8 @@ public class UI {
 
     public void run() {
         //scenario1();
-        scenario2();
-        // scenario3();
+        //scenario2();
+        scenario3();
     }
 
     public static void main(String[] args) {
