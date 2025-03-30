@@ -3,7 +3,7 @@ module com.keyquestjavafx {
     requires javafx.fxml;
     requires json.simple;
     requires jfugue;
-
+    requires junit;
 
     opens com.keyquestjavafx to javafx.fxml;
     exports com.keyquestjavafx;
