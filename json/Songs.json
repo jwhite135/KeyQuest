@@ -205,6 +205,7 @@
                                         "type": 1,
                                         "key": "F3",
                                         "sharp": false
+<<<<<<< HEAD
                                     },
                                     {
                                         "flat": false,
@@ -226,6 +227,8 @@
                                         "type": 1,
                                         "key": "F3",
                                         "sharp": false
+=======
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                     }
                                 ]
                             }
@@ -240,7 +243,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -251,7 +258,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -289,7 +300,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -300,7 +315,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -338,7 +357,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -349,7 +372,11 @@
                                         "flat": false,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "G4",
+=======
+                                        "key": "G3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -392,7 +419,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -403,7 +434,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -490,7 +525,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -533,7 +572,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -544,7 +587,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -564,7 +611,11 @@
                                 "notes": [
                                     {
                                         "flat": false,
+<<<<<<< HEAD
                                         "length": "h",
+=======
+                                        "length": "i",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "type": 1,
                                         "key": "C4",
                                         "sharp": false
@@ -582,7 +633,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -593,7 +648,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -631,7 +690,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -642,7 +705,11 @@
                                         "flat": false,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "G4",
+=======
+                                        "key": "G3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -696,7 +763,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -707,7 +778,11 @@
                                         "flat": true,
                                         "length": "q",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -810,7 +885,11 @@
                                         "flat": true,
                                         "length": "w",
                                         "type": 1,
+<<<<<<< HEAD
                                         "key": "B4",
+=======
+                                        "key": "B3",
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
                                         "sharp": false
                                     }
                                 ]
@@ -1346,5 +1425,123 @@
         ],
         "id": "bde2b3b0-e773-44c3-bce3-ac5afafd039c",
         "title": "C Major Scale"
+<<<<<<< HEAD
+=======
+    },
+    {
+        "difficulty": 1,
+        "artist": "Unknown Artist",
+        "genre": "classical",
+        "SheetMusic": [
+            {
+                "measures": [
+                    {
+                        "chords": [
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "C4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "D4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "E4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "F4",
+                                        "sharp": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": 1
+                    },
+                    {
+                        "chords": [
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "G4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "A4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "B4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "C5",
+                                        "sharp": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": 1
+                    }
+                ],
+                "timeSignatureNumerator": 4,
+                "tempo": 120,
+                "timeSignatureDenominator": 4,
+                "type": 1
+            }
+        ],
+        "id": "2eb30047-5e4b-4183-b885-a39ddc4b3516",
+        "title": "C Major Scale"
+>>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
     }
 ]
