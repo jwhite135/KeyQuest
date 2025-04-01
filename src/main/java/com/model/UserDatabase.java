@@ -65,4 +65,8 @@ public class UserDatabase {
         users.add(user);
         return true;
     }
+
+    public void save() {
+        DataWriter.saveUsers();
+    }
 }
