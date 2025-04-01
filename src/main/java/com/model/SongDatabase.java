@@ -104,4 +104,8 @@ public class SongDatabase {
         }
         return result;
     }
+
+    public void save() {
+        DataWriter.saveSongs();
+    }
 }
