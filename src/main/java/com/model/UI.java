@@ -154,13 +154,8 @@ public class UI {
 
     public void run() {
         //scenario1();
-<<<<<<< HEAD
         //scenario2();
-        // scenario3();
-=======
-        scenario2();
         //scenario3();
->>>>>>> 6012aabbb107ae3c1fd402356099af69f8aa0d11
     }
 
     public static void main(String[] args) {
