@@ -43,7 +43,7 @@ public class User {
      * Constructor for User in the case that the user is not already in the database and needs to be created
      * Initializes the id, username, password, email, favorite songs, friends, and favorite posts
      */
-    private User(String username, String password, String email) {
+    public User(String username, String password, String email) {
         this.id = UUIDgenerator();
         this.username = username;
         this.password = password;
