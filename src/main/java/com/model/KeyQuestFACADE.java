@@ -2,7 +2,7 @@ package com.model;
 
 import java.util.ArrayList;
 
-/**
+/** 
  * KeyQuestFACADE class that holds the main methods for the program
  * This class is used to interact with the User, Post, and Song databases
  * It is the main class that the GUI/User will interact with to get data, set data, and use the application
