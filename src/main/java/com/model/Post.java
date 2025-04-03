@@ -127,13 +127,27 @@ public class Post {
     }
 
     public void addComment(String body, User author) {
+        if(body.equals("")) {
+            return;
+        }
         comments.add(new Comment(body, author));
         numComments++;
     }
 
     public void addFavorite(User currentUser) {
+        if(currentUser.getFavoritePosts().contains(this)) {
+            return;
+        }
         currentUser.favoritePost(this);
         favorites++;
+    }
+
+    public void removeFavorite(User currentUser) {
+        if(!currentUser.getFavoritePosts().contains(this)) {
+            return;
+        }
+        currentUser.removeFavoritePost(this);
+        favorites--;
     }
 
     public void setFavorites(int favorites) {
