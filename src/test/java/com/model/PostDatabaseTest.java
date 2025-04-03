@@ -14,7 +14,7 @@ public class PostDatabaseTest {
     @Before
     public void setUp() {
         postDatabase = PostDatabase.getInstance();
-        postDatabase.getPosts().clear(); // Clear the database before each test
+        postDatabase.getPosts().clear();
         user = new User("testUser", "password", "test@example.com");
         song = new Song("Test Song", "Test Artist", 1, "Pop", 4, 4, 120);
     }

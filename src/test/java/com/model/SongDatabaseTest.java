@@ -12,7 +12,7 @@ public class SongDatabaseTest {
     @Before
     public void setUp() {
         songDatabase = SongDatabase.getInstance();
-        songDatabase.getSongs().clear(); // Clear the database before each test
+        songDatabase.getSongs().clear();
     }
 
     @Test
