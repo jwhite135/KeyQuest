@@ -1,8 +1,14 @@
 package com.model;
+<<<<<<< HEAD
+
+import static org.junit.Assert.*;
+
+=======
 import java.util.UUID;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
+>>>>>>> 5417448b5e97abb079638fba3dd78307b09b9826
 import org.junit.Test;
 
 public class UserTest {
@@ -16,6 +22,9 @@ public class UserTest {
         friend = new User("friend", "pwd", "friend@email.com");
     }
 
+<<<<<<< HEAD
+    // Futher tests go
+=======
     @Test
     public void testUserCreation() {
         assertNotNull(user);
@@ -60,4 +69,5 @@ public class UserTest {
         assertFalse(user.isMatch("username", "NOTpassword"));
         assertFalse(user.isMatch("NOTusername", "password"));
     }
+>>>>>>> 5417448b5e97abb079638fba3dd78307b09b9826
 }

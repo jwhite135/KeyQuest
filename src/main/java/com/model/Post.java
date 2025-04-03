@@ -19,6 +19,37 @@ public class Post {
     private String title;
     private String body;
     private UUID id;
+    private int numComments;
+
+    public Post(String song, User author, String title, String body) {
+        this.id = UUID.randomUUID();
+        this.comments = new ArrayList<Comment>();
+        this.author = author;
+        this.date = LocalDate.now();
+        this.isPrivate = false;
+        this.favorites = 0;
+        this.numComments = 0;
+
+        if (title.equals("")) {
+            this.title = "Default title";
+        } else {
+            this.title = title;
+        }
+
+        if(body.equals("")) {
+            this.body = "Lorem ipsum dolor sit amet.";
+        } else {
+            this.body = body;
+        }
+
+        this.body = body;
+        this.song = null;
+        for (Song s : SongDatabase.getInstance().getSongs()) {
+            if (s.getName().equals(song)) {
+                this.song = s;
+            }
+        }
+    }
 
     /**
      * Construtor for creation, note that post is added to database through Facade
@@ -36,6 +67,7 @@ public class Post {
         this.date = LocalDate.now();
         this.isPrivate = isPrivate;
         this.favorites = 0;
+        this.numComments = 0;
     }
 
     /**
@@ -51,6 +83,7 @@ public class Post {
         this.body = body;
         this.favorites = favorites;
         this.title = title;
+        this.numComments = 0;
     }
 
     /**
@@ -95,6 +128,7 @@ public class Post {
 
     public void addComment(String body, User author) {
         comments.add(new Comment(body, author));
+        numComments++;
     }
 
     public void addFavorite(User currentUser) {
