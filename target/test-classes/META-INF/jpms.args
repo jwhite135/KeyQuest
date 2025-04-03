@@ -1,0 +1,4 @@
+--patch-module
+com.keyquestjavafx=_
+--add-reads
+com.keyquestjavafx=ALL-UNNAMED
