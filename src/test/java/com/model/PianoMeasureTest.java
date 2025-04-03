@@ -3,13 +3,16 @@ package com.model;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class PianoMeasureTest {
+    private PianoMeasure measure;
     
-    @Test
-    public void testPlayingPianoMeasure() {
+    @Before
+    public void setUp() {
         ArrayList<Chord> chords = new ArrayList<>();
         ArrayList<Note> cMajor = new ArrayList<>();
         cMajor.add(new PianoNote("q", "C3", false, false));
@@ -31,7 +34,26 @@ public class PianoMeasureTest {
         fMajor.add(new PianoNote("q", "A4", false, false));
         fMajor.add(new PianoNote("q", "C5", false, false));
         chords.add(new Chord(fMajor));
-        PianoMeasure measure = new PianoMeasure(false, chords);
+        measure = new PianoMeasure(false, chords);
+    }
+
+    @Test
+    public void testPianoMeasureConstructor() {
+        assertNotNull(measure);
+    }
+
+    @Test
+    public void testMeasureCreation() {
+        for (Chord chord : measure.getChords()) {
+            assertNotNull(chord);
+            for (Note note : chord.getNotes()) {
+                assertNotNull(note);
+            }
+        }
+    }
+
+    @Test
+    public void testPlayingPianoMeasure() {
         String output = measure.playMeasure();
         assertNotNull(output);
     }
