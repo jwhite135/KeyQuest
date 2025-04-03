@@ -4,6 +4,7 @@ import java.util.UUID;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
 public class UserTest {
     private User user;
     private User friend;
