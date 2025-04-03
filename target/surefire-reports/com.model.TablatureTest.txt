@@ -1,13 +1,11 @@
 -------------------------------------------------------------------------------
-Test set: com.model.DataWriterTest
+Test set: com.model.TablatureTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! -- in com.model.DataWriterTest
-com.model.DataWriterTest.testWritingPosts -- Time elapsed: 0.020 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "com.model.Song.getUUID()" because the return value of "com.model.Post.getSong()" is null
-	at com.keyquestjavafx/com.model.DataWriter.getPostJSON(DataWriter.java:239)
-	at com.keyquestjavafx/com.model.DataWriter.savePosts(DataWriter.java:216)
-	at com.keyquestjavafx/com.model.PostDatabase.save(PostDatabase.java:122)
-	at com.keyquestjavafx/com.model.DataWriterTest.testWritingPosts(DataWriterTest.java:35)
+Tests run: 7, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.367 s <<< FAILURE! -- in com.model.TablatureTest
+com.model.TablatureTest.testTablatureBassGuitar -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalArgumentException: Unsupported instrument type. Only Guitar and BassGuitar are supported.
+	at com.keyquestjavafx/com.model.Tablature.<init>(Tablature.java:42)
+	at com.keyquestjavafx/com.model.TablatureTest.testTablatureBassGuitar(TablatureTest.java:18)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at junit@4.13.2/org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
@@ -35,12 +33,10 @@ java.lang.NullPointerException: Cannot invoke "com.model.Song.getUUID()" because
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-com.model.DataWriterTest.testWritingPostComments -- Time elapsed: 0.001 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "com.model.Song.getUUID()" because the return value of "com.model.Post.getSong()" is null
-	at com.keyquestjavafx/com.model.DataWriter.getPostJSON(DataWriter.java:239)
-	at com.keyquestjavafx/com.model.DataWriter.savePosts(DataWriter.java:216)
-	at com.keyquestjavafx/com.model.PostDatabase.save(PostDatabase.java:122)
-	at com.keyquestjavafx/com.model.DataWriterTest.testWritingPostComments(DataWriterTest.java:45)
+com.model.TablatureTest.testTablatureGuitar -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: Unsupported instrument type. Only Guitar and BassGuitar are supported.
+	at com.keyquestjavafx/com.model.Tablature.<init>(Tablature.java:42)
+	at com.keyquestjavafx/com.model.TablatureTest.testTablatureGuitar(TablatureTest.java:12)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at junit@4.13.2/org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
