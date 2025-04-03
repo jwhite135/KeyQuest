@@ -21,6 +21,9 @@ public class Comment {
      */
     public Comment(String body, User author) {
         this.body = body;
+        if(body.equals("")) {
+            this.body = "Lorem ipsum dolor sit amet.";
+        }
         this.author = author;
         this.date = LocalDate.now();
     }
