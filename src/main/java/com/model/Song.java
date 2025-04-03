@@ -39,7 +39,7 @@ public class Song {
         this.name = title;
         this.artist = artist;
         this.difficulty = difficulty;
-        this.genre = Genre.valueOf(genre);
+        this.genre = Genre.valueOf(genre.toUpperCase());
         this.sheetMusic = new ArrayList<SheetMusic>();
         this.sheetMusic.add(new SheetMusic(tempo, timeSignatureNumerator, timeSignatureDenominator));
     }

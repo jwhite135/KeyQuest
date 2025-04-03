@@ -30,7 +30,7 @@ public class SheetMusic {
      * @param timeSignatureNumerator the numerator of the time signature
      * @param timeSignatureDenominator the denominator of the time signature
      */
-    SheetMusic(int tempo, int timeSignatureNumerator, int timeSignatureDenominator) {
+    public SheetMusic(int tempo, int timeSignatureNumerator, int timeSignatureDenominator) {
         this.tempo = tempo;
         this.timeSignatureNumerator = timeSignatureNumerator;
         this.timeSignatureDenominator = timeSignatureDenominator;
