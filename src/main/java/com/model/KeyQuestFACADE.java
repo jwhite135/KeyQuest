@@ -65,6 +65,9 @@ public class KeyQuestFACADE {
      * @return true if the post is created and added to the PostDatabase
      */
     public boolean makePost(Song song, boolean isPrivate, String title, String body) {
+        if ( title.equals("") || body.equals("") ) {
+            return false;
+        }
         Post newPost = new Post(song, this.user, isPrivate, title, body);
         return posts.addPost(newPost);
     }
