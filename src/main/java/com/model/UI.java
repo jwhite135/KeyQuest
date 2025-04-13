@@ -153,7 +153,7 @@ public class UI {
     }
 
     public void run() {
-        //scenario1();
+        scenario1();
         //scenario2();
         //scenario3();
     }

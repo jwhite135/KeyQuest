@@ -1,9 +1,11 @@
 package com.model;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
 
 public class KeyQuestFACADETest {
 
@@ -51,6 +53,15 @@ public class KeyQuestFACADETest {
     }
 
     @Test
+    public void testMakePost_Failure() {
+        facade.makeUser("testUser", "password123", "test@example.com");
+        facade.login("testUser", "password123");
+        Song song = new Song("Test Song", "Test Artist", 1, "Pop", 4, 4, 120);
+        boolean result = facade.makePost(song, false, "", "This is a test post.");
+        assertFalse("Post should not be created successfully, since one or more parameters were empty", result);
+    }
+
+    @Test
     public void testSearchSongsByName() {
         Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
         Song song2 = facade.createSong("Test Song 2", "Artist 2", 2, "Rock", 4, 4, 120);
@@ -67,12 +78,72 @@ public class KeyQuestFACADETest {
         assertEquals("Search should return two songs", 2, results.size());
         assertTrue("Search should return the correct songs", results.contains(song1) && results.contains(song2));
     }
+
+    @Test
+    public void testSearchSongsByName_Failure() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        ArrayList<Song> results = facade.searchSongsByName("Nonexistent Song");
+        assertEquals("Search should return no songs", 0, results.size());
+    }
+
+    @Test
+    public void testSearchSongsByArtist_Failure() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        ArrayList<Song> results = facade.searchSongsByArtist("Nonexistent Artist");
+        assertEquals("Search should return no songs", 0, results.size());
+    }
+
+    @Test
+    public void testFavoritePost() {
+        facade.makeUser("testUser", "password123", "test@example.com");
+        facade.login("testUser", "password123");
+        Song song = new Song("Test Song", "Test Artist", 1, "Pop", 4, 4, 120);
+        facade.makePost(song, false, "", "This is a test post.");
+        Post post = PostDatabase.getInstance().getPosts().get(0);
+        facade.favoritePost(post);
+        if (post.getFavorites() == 1) {
+            assertTrue("Post should be favorited successfully", true);
+        } else {
+            fail("Post should be favorited successfully");
+        }
+    }
+
+    @Test
+    public void testSearchPostsByName() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        Song song2 = facade.createSong("Test Song 2", "Artist 2", 2, "Rock", 4, 4, 120);
+        facade.makePost(song1, false, "Post 1", "This is post 1.");
+        facade.makePost(song2, false, "Post 2", "This is post 2.");
+        ArrayList<Post> results = facade.searchPostsByName("Post 1");
+        assertEquals("Search should return one post", 1, results.size());
+        assertEquals("Search should return the correct post", "Post 1", results.get(0).getTitle());
+        assertEquals("Search should return the correct post", "This is post 1.", results.get(0).getBody());
+    }
+
+    @Test
+    public void testSearchPostsByName_Failure() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        facade.makePost(song1, false, "Post 1", "This is post 1.");
+        ArrayList<Post> results = facade.searchPostsByName("Nonexistent Post");
+        assertEquals("Search should return no posts", 0, results.size());
+    }
+
+    @Test
+    public void testSearchPostsByArtist() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        Song song2 = facade.createSong("Test Song 2", "Artist 1", 2, "Rock", 4, 4, 120);
+        facade.makePost(song1, false, "Post 1", "This is post 1.");
+        facade.makePost(song2, false, "Post 2", "This is post 2.");
+        ArrayList<Post> results = facade.searchPostsByArtist("Artist 1");
+        assertEquals("Search should return two posts", 2, results.size());
+    }
+
+    @Test
+    public void testSearchPostsByArtist_Failure() {
+        Song song1 = facade.createSong("Test Song 1", "Artist 1", 1, "Pop", 4, 4, 120);
+        facade.makePost(song1, false, "Post 1", "This is post 1.");
+        ArrayList<Post> results = facade.searchPostsByArtist("Nonexistent Artist");
+        assertEquals("Search should return no posts", 0, results.size());
+    }
+
 }
-
-// Search song by name and artist fails:
-// createSong in KeyQuestFACADE only creates a song object, it does not add it to the database
-// Also check the logic in searchSongsByName and searchSongsByArtist methods in KeyQuestFACADE
-
-// testMakeUser() fails:
-// The issue is in the getInstance method of the User class, it is not returning null when the user already exists
-// The logic in the getInstance method needs to be updated to check if the user already exists but the password is different
