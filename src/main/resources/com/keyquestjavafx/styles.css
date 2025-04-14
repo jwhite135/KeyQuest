@@ -1,3 +1,7 @@
-.label {
-    -fx-test-fill:#54f967;
+.root {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica";
+    -fx-base: #A5762C;
+    -fx-background: #EDE4D1;
+    
 }
