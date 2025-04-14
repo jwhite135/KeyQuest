@@ -18,6 +18,6 @@ public class LandingPageController {
     }
     @FXML
     private void logIn() throws IOException {
-        App.setRoot("logIn");
+        App.setRoot("Login");
     }
 }

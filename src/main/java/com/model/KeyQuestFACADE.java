@@ -14,19 +14,27 @@ public class KeyQuestFACADE {
     private SongDatabase songs;
     private UserDatabase users;
     private Instrument instrument;
+    private static KeyQuestFACADE facade;
 
     /**
      * Constructor for KeyQuestFACADE
      * Initializes the Post, Song, and User databases
      * Initializes the instrument to be a Piano by default
      */
-    public KeyQuestFACADE() {
+    private KeyQuestFACADE() {
         posts = PostDatabase.getInstance();
         songs = SongDatabase.getInstance();
         users = UserDatabase.getInstance();
         instrument = new Piano();
     }
 
+    public static KeyQuestFACADE getInstance() {
+        if(facade == null) {
+            facade = new KeyQuestFACADE();
+            return facade;
+        }
+        return facade;
+    }
     private void setFacadeUser(User user) {
         this.user = user;
     }
