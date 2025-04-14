@@ -20,7 +20,7 @@
          <font>
             <Font name="Palatino Linotype" size="49.0" />
          </font></Label>
-      <Button id="createAccountButton" fx:id="createAccountButton" onAction="#createAccount" text="Create an Account" />
+      <Button id="createAccountButton" fx:id="createAccountButton" mnemonicParsing="false" onAction="#createAccount" text="Create an Account" />
       <Button id="logInButton" fx:id="logInButton" mnemonicParsing="false" onAction="#logIn" text="Log In" />
    </children>
    <padding>
