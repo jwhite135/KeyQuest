@@ -24,7 +24,6 @@ public class PostTest {
         assertNotNull("Post should be created", newPost);
     }
 
-    // TODO: Empty strings
     @Test
     public void testPostCreationAllEmptyStrings() {
         User testUser = new User("Kenny", "blahblah", "beepboop@yahoo.com");
