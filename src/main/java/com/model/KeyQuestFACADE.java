@@ -25,6 +25,7 @@ public class KeyQuestFACADE {
         posts = PostDatabase.getInstance();
         songs = SongDatabase.getInstance();
         users = UserDatabase.getInstance();
+        users.populate();
         instrument = new Piano();
     }
 

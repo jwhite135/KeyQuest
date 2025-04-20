@@ -23,7 +23,7 @@ public class DataWriter extends DataConstants {
      */
     public static void saveUsers() {
         UserDatabase users = UserDatabase.getInstance();
-        ArrayList<User> userList = users.getUsers();
+        ArrayList<User> userList = users.getUserList();
         JSONArray jsonUsers = new JSONArray();
         // Iterates through each user and adds them to the JSON array
         for(int i = 0; i < userList.size(); i++) {
@@ -54,10 +54,9 @@ public class DataWriter extends DataConstants {
         userDetails.put(USER_PASSWORD, user.getPassword());
         userDetails.put(USER_TYPE, user.getType());
 
-        // TODO: Implement User having other objects as members and how to work through that properly.  
-        //userDetails.put(USER_FAVORITE_SONGS, getUUIDList(user.getFavoriteSongs()));
-        //userDetails.put(USER_FRIENDS, getUUIDList(user.getFriends()));
-        //userDetails.put(USER_FAVORITE_POSTS, getUUIDList(user.getFavoritePosts()));
+        userDetails.put(USER_FAVORITE_SONGS, getUUIDList(user.getFavoriteSongs()));
+        userDetails.put(USER_FRIENDS, getUUIDList(user.getFriends()));
+        userDetails.put(USER_FAVORITE_POSTS, getUUIDList(user.getFavoritePosts()));
         
         return userDetails;
     }
@@ -67,7 +66,7 @@ public class DataWriter extends DataConstants {
      */
     public static void saveSongs() {
         SongDatabase songs = SongDatabase.getInstance();
-        ArrayList<Song> songList = songs.getSongs();
+        ArrayList<Song> songList = songs.getSongList();
         JSONArray jsonSongs = new JSONArray();
 
         // Iterates through each song and adds them to the JSON array
@@ -208,7 +207,7 @@ public class DataWriter extends DataConstants {
      */
     public static void savePosts() {
         PostDatabase posts = PostDatabase.getInstance();
-        ArrayList<Post> postList = posts.getPosts();
+        ArrayList<Post> postList = posts.getPostList();
         JSONArray jsonPosts = new JSONArray();
 
         // Iterates through each post and adds them to the JSON array

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class UI {
 
-    private KeyQuestFACADE facade = new KeyQuestFACADE();
+    private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
     
     public void scenario1() {
 

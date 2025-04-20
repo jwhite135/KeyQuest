@@ -17,6 +17,11 @@ public class User {
     private ArrayList<Song> favoriteSongs;
     private ArrayList<User> friends;
     private ArrayList<Post> favoritePosts;
+    private ArrayList<Post> authoredPosts;
+    private ArrayList<UUID> favoriteSongsUUIDs;
+    private ArrayList<UUID> friendsUUIDs;
+    private ArrayList<UUID> favoritePostsUUIDs;
+    private ArrayList<UUID> authoredPostsUUIDs;
 
     /**
      * Default constructor for User
@@ -29,7 +34,7 @@ public class User {
      * @param friends An arraylist of the friends of the user
      * @param favoritePosts An arraylist of the favorite posts of the user
      */
-    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts) {
+    public User(UUID id, String username, String email, String password, ArrayList<Song> favoriteSongs, ArrayList<User> friends, ArrayList<Post> favoritePosts, ArrayList<Post> authoredPosts) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -37,6 +42,7 @@ public class User {
         this.favoriteSongs = favoriteSongs;
         this.friends = friends;
         this.favoritePosts = favoritePosts;
+        this.authoredPosts = authoredPosts;
     }
 
     /**
@@ -60,14 +66,16 @@ public class User {
      * The favorite songs, friends, and favorite posts are initialized as empty arraylists
      */
     public User(UUID id, String username, String email,
-            String password, String type, ArrayList<UUID> favoriteSongs,
-            ArrayList<UUID> friends, ArrayList<UUID> favoritePosts) {
+            String password, String type, ArrayList<UUID> favoriteSongsUUIDs,
+            ArrayList<UUID> friendsUUIDs, ArrayList<UUID> favoritePostsUUIDs, ArrayList<UUID> authoredPostsUUIDs) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.favoriteSongs = new ArrayList<Song>();
-        this.friends = new ArrayList<User>();
-        this.favoritePosts = new ArrayList<Post>();
+        this.favoriteSongsUUIDs = favoriteSongsUUIDs;
+        this.friendsUUIDs = friendsUUIDs;
+        this.favoritePostsUUIDs = favoritePostsUUIDs;
+        this.authoredPostsUUIDs = authoredPostsUUIDs;
     }
 
     /**
@@ -77,8 +85,7 @@ public class User {
      * @return the user if the user does not already exist, null if the user already exists
      */
     public static User getInstance(String username, String password, String email) {
-        System.out.println("Creating user");
-        for (User user : UserDatabase.getInstance().getUsers()) {
+        for (User user : UserDatabase.getInstance().getUserList()) {
             if (user.isMatch(username, password)) {
                 return null;
             } else if (user.getUsername().equals(username)) {
@@ -189,5 +196,29 @@ public class User {
 
     public UUID UUIDgenerator() {
         return UUID.randomUUID();
+    }
+
+    public ArrayList<UUID> getFavoriteSongsUUIDs() {
+        return favoriteSongsUUIDs;
+    }
+
+    public ArrayList<UUID> getFriendsUUIDs() {
+        return friendsUUIDs;
+    }
+
+    public ArrayList<UUID> getFavoritePostsUUIDs() {
+        return favoritePostsUUIDs;
+    }
+
+    public ArrayList<UUID> getAuthoredPostsUUIDs() {
+        return authoredPostsUUIDs;
+    }
+
+    public ArrayList<Post> getAuthoredPosts() {
+        return authoredPosts;
+    }
+
+    public void setAuthoredPosts(ArrayList<Post> authoredPosts) {
+        this.authoredPosts = authoredPosts;
     }
 }

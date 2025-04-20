@@ -115,8 +115,7 @@ public class DataLoader extends DataConstants {
 				String email = (String)userJSON.get(USER_EMAIL);
                 String password = (String)userJSON.get(USER_PASSWORD);
                 String type = (String)userJSON.get(USER_TYPE);
-                // TODO: Implement further User attributes and figure out how to initialize from UUIDs
-                /*
+
                 ArrayList<UUID> favoriteSongs = new ArrayList<UUID>();
                 JSONArray songs = (JSONArray)userJSON.get(USER_FAVORITE_SONGS);
                 if(songs != null) {
@@ -138,7 +137,13 @@ public class DataLoader extends DataConstants {
                         favoritePosts.add(UUID.fromString((String)posts.get(j)));
                     }
                 }
-                    */
+                ArrayList<UUID> authoredPosts = new ArrayList<UUID>();
+                JSONArray authoredPostList = (JSONArray)userJSON.get(USER_AUTHORED_POSTS);
+                if(authoredPostList != null) {
+                    for(int j = 0; j < authoredPostList.size(); j++) {
+                        authoredPosts.add(UUID.fromString((String)authoredPostList.get(j)));
+                    }
+                }
                 // TODO: Fully implement student and teacher distinction - archetype here.  
                 switch(type) {
                     case "Student":
@@ -160,7 +165,7 @@ public class DataLoader extends DataConstants {
                         break;
                     default:
                         // Adds the parsed user to the user list
-                        users.add(new User(id, username, email, password, null, null, null));
+                        users.add(new User(id, username, email, password, "user", favoriteSongs, friends, favoritePosts, authoredPosts));
                         break;
                 }
             }
@@ -212,7 +217,7 @@ public class DataLoader extends DataConstants {
                 String body = (String)postJSON.get(POST_BODY);
 
                 // Adding the post to the post list
-                posts.add(new Post(id, null, comments, null, date, isPrivate, title, body, favorites));
+                posts.add(new Post(id, songID, comments, authorID, date, isPrivate, title, body, favorites));
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -10,6 +10,7 @@ public abstract class DataConstants {
     protected static final String USER_FAVORITE_SONGS = "favoriteSongs";
     protected static final String USER_FRIENDS = "friends";
     protected static final String USER_FAVORITE_POSTS = "favoritePosts";
+    protected static final String USER_AUTHORED_POSTS = "authoredPosts";
     protected static final String STUDENT_LESSONS = "lessons";
     protected static final String STUDENT_TEACHER = "teacher";
     protected static final String TEACHER_STUDENTS = "students";
