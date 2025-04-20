@@ -1,6 +1,9 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * SongDatabase class that holds a list of songs and methods to search for songs by name, artist, difficulty, and genre
@@ -11,14 +14,19 @@ import java.util.ArrayList;
  */
 public class SongDatabase {
     private static SongDatabase songDatabase;
-    private ArrayList<Song> songs;
+    private ArrayList<Song> songList;
+    private Map<UUID, Song> songMap;
 
     /**
      * Constructor for the SongDatabase class
      * Initializes the songs ArrayList by calling the DataLoader class
      */
     private SongDatabase() {
-        songs = DataLoader.getSongs();
+        songList = DataLoader.getSongs();
+        songMap = new HashMap<UUID, Song>();
+        for(Song song : songList) {
+            songMap.put(song.getUUID(), song);
+        }
     }
 
     /**
@@ -33,16 +41,17 @@ public class SongDatabase {
         return songDatabase;
     }
 
-    public ArrayList<Song> getSongs() {
-        return songs;
+    public ArrayList<Song> getSongList() {
+        return songList;
+    }
+
+    public Map<UUID, Song> getSongMap() {
+        return songMap;
     }
 
     public void addSong(Song song) {
-        songs.add(song);
-    }
-
-    public void setSongs(ArrayList<Song> songs) {
-        this.songs = songs;
+        songList.add(song);
+        songMap.put(song.getUUID(), song);
     }
     
     /**
@@ -52,7 +61,7 @@ public class SongDatabase {
      */
     public ArrayList<Song> searchByName(String name) {
         ArrayList<Song> result = new ArrayList<Song>();
-        for (Song song : songs) {
+        for (Song song : songList) {
             if (song.getName().equalsIgnoreCase(name)) {
                 result.add(song);
             }
@@ -67,7 +76,7 @@ public class SongDatabase {
      */
     public ArrayList<Song> searchByArtist(String artist) {
         ArrayList<Song> result = new ArrayList<Song>();
-        for (Song song : songs) {
+        for (Song song : songList) {
             if (song.getArtist().equalsIgnoreCase(artist)) {
                 result.add(song);
             }
@@ -82,7 +91,7 @@ public class SongDatabase {
      */
     public ArrayList<Song> searchByDifficulty(int difficulty) {
         ArrayList<Song> result = new ArrayList<Song>();
-        for (Song song : songs) {
+        for (Song song : songList) {
             if (song.getDifficulty() == difficulty) {
                 result.add(song);
             }
@@ -97,7 +106,7 @@ public class SongDatabase {
      */
     public ArrayList<Song> searchByGenre(Genre genre) {
         ArrayList<Song> result = new ArrayList<Song>();
-        for (Song song : songs) {
+        for (Song song : songList) {
             if (song.getGenre() == genre) {
                 result.add(song);
             }

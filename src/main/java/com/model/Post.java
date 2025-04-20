@@ -20,6 +20,8 @@ public class Post {
     private String body;
     private UUID id;
     private int numComments;
+    private UUID songUUID;
+    private UUID authorUUID;
 
     public Post(String song, User author, String title, String body) {
         this.id = UUID.randomUUID();
@@ -44,7 +46,7 @@ public class Post {
 
         this.body = body;
         this.song = null;
-        for (Song s : SongDatabase.getInstance().getSongs()) {
+        for (Song s : SongDatabase.getInstance().getSongList()) {
             if (s.getName().equals(song)) {
                 this.song = s;
             }
@@ -73,11 +75,11 @@ public class Post {
     /**
      * Constructor for reading from database and loading into memory
      */
-    public Post(UUID id, Song song, ArrayList<Comment> comments, User author, LocalDate date, boolean isPrivate, String title, String body, int favorites) {
+    public Post(UUID id, UUID songUUID, ArrayList<Comment> comments, UUID authorUUID, LocalDate date, boolean isPrivate, String title, String body, int favorites) {
         this.id = id;
-        this.song = song;
+        this.songUUID = songUUID;
         this.comments = comments;
-        this.author = author;
+        this.authorUUID = authorUUID;
         this.date = date;
         this.isPrivate = isPrivate;
         this.body = body;
@@ -168,5 +170,17 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
+    }
+
+    public UUID getSongUUID() {
+        return songUUID;
+    }
+
+    public UUID getAuthorUUID() {
+        return authorUUID;
     }
 }

@@ -1,0 +1,22 @@
+.root {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica";
+    -fx-background-color: #EDE4D1;
+}
+
+.button {
+    -fx-color: #A5762C;
+}
+
+.form-container {
+    -fx-background-color: #EDE4D1;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+#errorMessage {
+    -fx-text-fill: red;
+}

@@ -1,6 +1,9 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * PostDatabase class that holds all the posts and has methods to search and sort them
@@ -12,10 +15,16 @@ import java.util.ArrayList;
  */
 public class PostDatabase {
     private static PostDatabase postDatabase;
-    private ArrayList<Post> posts;
+    private ArrayList<Post> postList;
+    private Map<UUID, Post> postMap;
+
 
     private PostDatabase() {
-        posts = DataLoader.getPosts();
+        postList = DataLoader.getPosts();
+        postMap = new HashMap<UUID, Post>();
+        for(Post post : postList) {
+            postMap.put(post.getUUID(), post);
+        }
     }
 
     /**
@@ -30,8 +39,12 @@ public class PostDatabase {
         return postDatabase;
     }
 
-    public ArrayList<Post> getPosts() {
-        return posts;
+    public ArrayList<Post> getPostList() {
+        return postList;
+    }
+
+    public Map<UUID, Post> getPostMap() {
+        return postMap;
     }
 
     /**
@@ -41,7 +54,7 @@ public class PostDatabase {
      */
     public ArrayList<Post> searchByUser(String user) {
         ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
+        for (Post post : postList) {
             if (post.getAuthor().getUsername().equalsIgnoreCase(user)) {
                 result.add(post);
             }
@@ -56,7 +69,7 @@ public class PostDatabase {
      */
     public ArrayList<Post> searchByName(String title) {
         ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
+        for (Post post : postList) {
             if (post.getTitle().equals(title)) {
                 result.add(post);
             }
@@ -71,7 +84,7 @@ public class PostDatabase {
      */
     public ArrayList<Post> searchBySong(String song) {
         ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
+        for (Post post : postList) {
             if (post.getSong().getName().equalsIgnoreCase(song)) {
                 result.add(post);
             }
@@ -86,7 +99,7 @@ public class PostDatabase {
      */
     public ArrayList<Post> searchByArtist(String artist) {
         ArrayList<Post> result = new ArrayList<Post>();
-        for (Post post : posts) {
+        for (Post post : postList) {
             if (post.getSong().getArtist().equalsIgnoreCase(artist)) {
                 result.add(post);
             }
@@ -100,13 +113,13 @@ public class PostDatabase {
      */
 
     public ArrayList<Post> sortByMostRecent() {
-        posts.sort( (a,b) -> b.getDate().compareTo(a.getDate()) );
-        return posts;
+        postList.sort( (a,b) -> b.getDate().compareTo(a.getDate()) );
+        return postList;
     }
 
     public ArrayList<Post> sortByMostLiked() {
-        posts.sort( (a,b) -> Integer.compare(a.getFavorites(), b.getFavorites()) );
-        return posts;
+        postList.sort( (a,b) -> Integer.compare(a.getFavorites(), b.getFavorites()) );
+        return postList;
     }
 
     /**
@@ -115,11 +128,22 @@ public class PostDatabase {
      * @return true if the post is added to the database
      */
     public boolean addPost(Post post) {
-        return posts.add(post);
+        if(postList.add(post)) {
+            postMap.put(post.getUUID(), post);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void save() {
         DataWriter.savePosts();
     }
 
+    public void populate() {
+        for(Post post : postList) {
+            post.setSong(SongDatabase.getInstance().getSongMap().get(post.getSongUUID()));
+            post.setAuthor(UserDatabase.getInstance().getUserMap().get(post.getAuthorUUID()));
+        }
+    }
 }
