@@ -5,7 +5,7 @@ package com.model;
  * Will be used in the Chord class to play notes
  * @author Ryan Leadbitter
  */
-abstract class Note {
+public abstract class Note {
     protected String length;
 
     public Note(String length) {
