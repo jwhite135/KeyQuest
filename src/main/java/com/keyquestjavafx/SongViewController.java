@@ -14,7 +14,7 @@ public class SongViewController {
     @FXML private Label difficultyLabel;
     @FXML private ComboBox<String> instrumentDropdown;
 
-    private KeyQuestFACADE facade;
+    private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
     private Song song;
     private boolean loop;
 
