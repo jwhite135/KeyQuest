@@ -33,17 +33,17 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="129.0" text="Play a Song" textFill="WHITE" />
+                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#goToPlaySong" prefHeight="75.0" prefWidth="129.0" text="Play a Song" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="129.0" text="Make a song" textFill="WHITE" />
+                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#goToMakeSong" prefHeight="75.0" prefWidth="129.0" text="Make a song" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="129.0" text="Check Posts" textFill="WHITE" />
+                  <Button layoutX="35.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#goToCheckPosts" prefHeight="75.0" prefWidth="129.0" text="Check Posts" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

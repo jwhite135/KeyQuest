@@ -23,39 +23,33 @@
             <URL value="@styles.css" />
          </stylesheets>
 
-         <!-- Logo -->
          <ImageView fitHeight="96.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/KeyQuestLogoTransparent.png" />
             </image>
          </ImageView>
 
-         <!-- Title -->
          <Label alignment="CENTER" text="Song Search">
             <font>
                <Font name="Palatino Linotype" size="30.0" />
             </font>
          </Label>
 
-         <!-- Search Controls -->
          <HBox alignment="CENTER" spacing="10.0">
             <children>
                <ComboBox fx:id="searchTypeCombo" prefWidth="120.0" />
-               <TextField fx:id="searchField" promptText="Enter song title, artist, or difficulty..." prefWidth="250.0" />
+               <TextField fx:id="searchField" promptText="Search..." prefWidth="250.0" />
                <Button fx:id="searchButton" text="Search" onAction="#onSearch" />
             </children>
          </HBox>
 
-         <!-- Error Message -->
          <Label fx:id="errorMessage" textFill="red" />
 
-         <!-- Search Results -->
-         <VBox fx:id="resultsBox" spacing="10.0" prefHeight="250.0" prefWidth="600.0" styleClass="results-container" style="-fx-border-color: lightgray; -fx-border-width: 1;">
-            <!-- Results will be added here dynamically -->
+         <VBox fx:id="resultsBox" spacing="10.0" prefHeight="250.0" prefWidth="600.0" style="-fx-border-color: lightgray; -fx-border-width: 1;">
+            <!-- Results dynamically added here -->
          </VBox>
       </VBox>
 
-      <!-- Back Button (optional) -->
       <ImageView fx:id="backArrow" fitHeight="23.0" fitWidth="58.0" onMouseClicked="#goBack"
                  pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <image>
