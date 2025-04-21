@@ -18,7 +18,7 @@ public class SongViewController {
     private Song song;
     private boolean loop;
 
-    public void setSongFacade(KeyQuestFACADE facade) {
+    public void setFacade(KeyQuestFACADE facade) {
         this.facade = facade;
     }
 
