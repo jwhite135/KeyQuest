@@ -86,7 +86,7 @@ public class SongSearchController {
 
             // Pass data to SongViewController
             SongViewController controller = loader.getController();
-            controller.setSongFacade(songFacade);
+            controller.setFacade(facade);
             controller.setSong(selectedSong);
 
             Stage stage = (Stage) ((Control) event.getSource()).getScene().getWindow();

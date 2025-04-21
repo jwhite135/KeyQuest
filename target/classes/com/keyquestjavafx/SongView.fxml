@@ -2,51 +2,46 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.WebView?>  <!-- Optional if rendering HTML-based sheet music -->
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.SongViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.keyquestjavafx.SongViewController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
          <stylesheets>
             <URL value="@styles.css" />
          </stylesheets>
 
-         <!-- Sheet Music Display Area -->
-         <center>
-            <VBox alignment="CENTER" spacing="10.0">
-               <padding>
-                  <Insets top="20.0" bottom="20.0" left="20.0" right="20.0"/>
-               </padding>
+         <!-- Top Song Info -->
+         <top>
+            <VBox spacing="10.0" padding="20.0">
                <children>
-                  <Label text="Sheet Music">
-                     <font>
-                        <Font name="Palatino Linotype" size="24.0" />
-                     </font>
-                  </Label>
-                  <VBox fx:id="sheetMusicContainer" styleClass="sheet-music" prefHeight="400.0" prefWidth="700.0" style="-fx-border-color: lightgray; -fx-border-width: 2;">
-                     <!-- Sheet music nodes/images will be inserted here -->
-                  </VBox>
+                  <Label fx:id="titleLabel" font="$x1" text="Song Title" />
+                  <Label fx:id="artistLabel" text="Artist" />
+                  <Label fx:id="difficultyLabel" text="Difficulty: #" />
                </children>
+            </VBox>
+         </top>
+
+         <!-- Center Sheet Music Area -->
+         <center>
+            <VBox fx:id="sheetMusicContainer" alignment="CENTER" prefHeight="400.0" prefWidth="700.0"
+                  style="-fx-border-color: gray; -fx-border-width: 2; -fx-background-color: #f9f9f9;">
+               <Label text="Sheet music goes here..." />
             </VBox>
          </center>
 
-         <!-- Bottom Control Panel -->
+         <!-- Bottom Controls -->
          <bottom>
-            <HBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #f4f4f4;" padding="10.0">
+            <HBox alignment="CENTER" spacing="15.0" padding="10.0" style="-fx-background-color: #f4f4f4;">
                <children>
                   <Label text="Instrument:" />
                   <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
-
                   <Button fx:id="playButton" text="▶" onAction="#onPlay" />
                   <Button fx:id="muteButton" text="🔇" onAction="#onMute" />
                   <Button fx:id="metronomeButton" text="🎵" onAction="#onToggleMetronome" />
