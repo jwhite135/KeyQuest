@@ -16,17 +16,23 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <stylesheets>
-      <URL value="@styles.css" />
+      <URL value="@../../../../../../../FINAL_KEYQUEST/KeyQuest/src/main/resources/com/keyquestjavafx/styles.css" />
    </stylesheets>
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="232.0" text="KeyQuest">
+      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="613.0">
+         <children>
+            <Label fx:id="username" onMouseClicked="#goToProfilePage" text="Username" />
+            <ImageView fx:id="userImage" fitHeight="62.0" fitWidth="62.0" onMouseClicked="#goToProfilePage" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="99.0" prefWidth="254.0" text="KeyQuest">
          <font>
             <Font name="Palatino Linotype" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="96.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="164.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/KeyQuestLogoTransparent.png" />
+            <Image url="@../../../../../../../FINAL_KEYQUEST/KeyQuest/src/main/resources/com/keyquestjavafx/images/KeyQuestLogoTransparent.png" />
          </image>
       </ImageView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
