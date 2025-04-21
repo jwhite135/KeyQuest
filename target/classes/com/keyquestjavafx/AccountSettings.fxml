@@ -20,6 +20,9 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="425.0" prefWidth="653.0" spacing="20.0" styleClass="form-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.AccountSettingsController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
    <stylesheets>
       <URL value="@styles.css" />
    </stylesheets>
@@ -28,8 +31,12 @@
          <top>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <buttons>
-                <Button minWidth="61.0" mnemonicParsing="false" prefHeight="27.0" text="Button" />
-                <ImageView fx:id="homePageButton" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+                <Button minWidth="61.0" mnemonicParsing="false" prefHeight="27.0" text="Button">
+                     <font>
+                        <Font name="Palatino Linotype" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fx:id="homePageButton" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/KeyQuestLogoTransparent.png" />
                      </image>
@@ -38,41 +45,102 @@
             </ButtonBar>
          </top>
          <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Settings" styleClass="header-label" VBox.vgrow="ALWAYS" />
-                  <HBox alignment="CENTER" spacing="5.0" VBox.vgrow="ALWAYS">
+                  <Label text="Settings" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Palatino Linotype" size="30.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="309.0" prefWidth="613.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
                         <BorderPane prefHeight="421.0" prefWidth="472.0" HBox.hgrow="ALWAYS">
                            <center>
-                              <GridPane styleClass="settings-grid" BorderPane.alignment="CENTER">
+                              <GridPane prefHeight="245.0" prefWidth="458.0" style="-fx-background-color: A37736;" BorderPane.alignment="CENTER">
                                 <columnConstraints>
-                                  <ColumnConstraints percentWidth="50" />
-                                  <ColumnConstraints percentWidth="50" />
+                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="241.6666259765625" />
+                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="160.66664632161462" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="228.0" minWidth="10.0" prefWidth="68.66668701171875" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints percentHeight="20" />
-                                  <RowConstraints percentHeight="20" />
-                                  <RowConstraints percentHeight="20" />
-                                  <RowConstraints percentHeight="20" />
-                                  <RowConstraints percentHeight="20" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                                 </rowConstraints>
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Change Username:" textFill="WHITE" GridPane.hgrow="ALWAYS" />
-                                    <TextField fx:id="changeUsernameField" GridPane.columnIndex="1" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Change Profile Picture:" textFill="WHITE" GridPane.rowIndex="1" GridPane.hgrow="ALWAYS" />
-                                    <Button fx:id="changeProfilePictureButton" text="Choose File..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Change Password:" textFill="WHITE" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS" />
-                                    <TextField fx:id="changePasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="App Language:" textFill="WHITE" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS" />
-                                    <ChoiceBox fx:id="changeLanguageChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="App Theme:" textFill="WHITE" GridPane.rowIndex="4" GridPane.hgrow="ALWAYS" />
-                                    <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 1em;" text=" Change Username:   " textFill="WHITE" GridPane.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="changeUsernameField" prefHeight="46.0" prefWidth="87.0" GridPane.columnIndex="1" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text=" Change Profile Picture: " textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="changeProfilePictureButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="229.0" style="-fx-background-color: white;" text="Choose File..." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text=" Change Password:    " textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="changePasswordField" prefHeight="46.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text=" App Language:   " textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="changeLanguageChoiceBox" prefHeight="46.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text=" App Theme:   " textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="21.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
                                        <children>
-                                          <RadioButton fx:id="lightModeButton" text="Light Mode" textFill="WHITE" toggleGroup="$Theme" />
-                                          <RadioButton fx:id="darkModeButton" text="Dark Mode" textFill="WHITE" toggleGroup="$Theme" />
+                                          <RadioButton fx:id="lightModeButton" mnemonicParsing="false" selected="true" text="Light " textFill="WHITE" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font name="Palatino Linotype" size="14.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="Theme" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="darkModeButton" mnemonicParsing="false" text="Dark" textFill="WHITE" toggleGroup="$Theme" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font name="Palatino Linotype" size="14.0" />
+                                             </font>
+                                          </RadioButton>
                                        </children>
                                     </HBox>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Palatino Linotype" size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                               </GridPane>
                            </center>
@@ -83,11 +151,23 @@
             </VBox>
          </center>
          <left>
-            <VBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+            <VBox alignment="CENTER_RIGHT" prefHeight="229.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Account" styleClass="label-large" />
-                  <Label fx:id="notificationSettingsButton" onMouseClicked="#goToNotifications" text="Notifications" styleClass="label-large" />
-                  <Label fx:id="preferencesSettingsButton" onMouseClicked="#goToPreferences" text="Preferences" styleClass="label-large" />
+                  <Label style="-fx-font-size: 1em;" text="Account " VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="notificationSettingsButton" onMouseClicked="#goToNotifications" style="-fx-font-size: 1em;" text="Notifications " VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="preferencesSettingsButton" onMouseClicked="#goToPreferences" style="-fx-font-size: 1em;" text="Preferences " VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
          </left>
