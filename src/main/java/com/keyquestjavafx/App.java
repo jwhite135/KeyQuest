@@ -8,16 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("ProfilePage"), 640, 480);
+        scene = new Scene(loadFXML("LandingPage"), 640, 480);
         stage.setScene(scene);
         stage.show();
     }

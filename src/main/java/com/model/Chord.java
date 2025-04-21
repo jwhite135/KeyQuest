@@ -37,25 +37,58 @@ public class Chord {
     public String playChord() {
         String playThis = "";
         String output = "";
-        for (int i = 0; i < notes.size(); ++i) {
-            String currentNote = ((PianoNote)notes.get(i)).getKey();
-            playThis += ((PianoNote)notes.get(i)).getKey().charAt(0);
-            if(((PianoNote)notes.get(i)).isFlat()) {
-                playThis += "b";
-                currentNote += "b";
-            }
-            if(((PianoNote)notes.get(i)).isSharp()) {
-                playThis += "#";
-                currentNote += "#";
-            }
-            playThis += ((PianoNote)notes.get(i)).getKey().charAt(1);
-            if (i < notes.size() - 1) {
-                playThis += "+";
-            }
-            output += currentNote + "[" + ((PianoNote)notes.get(i)).getLength() + "] ";
+        
+        // Check if there are any notes to play
+        if (notes.isEmpty()) {
+            // Return a rest if no notes
+            player.play("Rq");
+            return "Rest [q]";
         }
-        playThis += ((PianoNote)notes.get(0)).getLength();
-        player.play(playThis);
+        
+        for (int i = 0; i < notes.size(); ++i) {
+            PianoNote note = (PianoNote)notes.get(i);
+            String key = note.getKey();
+            
+            // Special handling for rest notes
+            if (key.equals("R")) {
+                player.play("R" + note.getLength());
+                return "Rest [" + note.getLength() + "]";
+            }
+            
+            String currentNote = key;
+            
+            // Make sure key has at least one character before accessing characters
+            if (key.length() > 0) {
+                playThis += key.charAt(0);
+                
+                // Check if note is flat or sharp
+                if (note.isFlat()) {
+                    playThis += "b";
+                    currentNote += "b";
+                } else if (note.isSharp()) {
+                    playThis += "#";
+                    currentNote += "#";
+                }
+                
+                // Only try to access second character if key is long enough
+                if (key.length() > 1) {
+                    playThis += key.charAt(1);
+                }
+                
+                if (i < notes.size() - 1) {
+                    playThis += "+";
+                }
+                
+                output += currentNote + "[" + note.getLength() + "] ";
+            }
+        }
+        
+        // Only add length from the first note if there are notes
+        if (!notes.isEmpty() && notes.get(0) instanceof PianoNote) {
+            playThis += ((PianoNote)notes.get(0)).getLength();
+            player.play(playThis);
+        }
+        
         return output;
     }
 
