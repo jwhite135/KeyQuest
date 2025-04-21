@@ -1,18 +1,22 @@
 package com.keyquestjavafx;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.model.KeyQuestFACADE;
+import com.model.Song;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import com.model.KeyQuestFACADE;
-import com.model.Song;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class SongSearchController {
 
@@ -21,7 +25,7 @@ public class SongSearchController {
     @FXML private Label errorMessage;
     @FXML private VBox resultsBox;
 
-    private KeyQuestFACADE facade;
+    private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
 
     @FXML
     private void goToHome(MouseEvent event) throws IOException {

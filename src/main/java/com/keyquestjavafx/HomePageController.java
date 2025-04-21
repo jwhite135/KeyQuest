@@ -21,6 +21,7 @@ public class HomePageController {
 
     @FXML
     void goToPlaySong() throws IOException {
+        System.out.println("goToPlaySong triggered");
         App.setRoot("SongSearch");
     }
 
