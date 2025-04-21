@@ -10,8 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -75,28 +75,41 @@ public class SongSearchController {
             errorMessage.setText("No songs found.");
         } else {
             for (Song song : results) {
-                Label songLabel = new Label(song.toString());
-                songLabel.getStyleClass().add("search-result");
-                songLabel.setOnMouseClicked(event -> openSongView(song, event));
-                resultsBox.getChildren().add(songLabel);
+                // Create label for title
+                Label title = new Label(song.getName());
+                title.getStyleClass().add("song-title");
+            
+                // Create label for artist/difficulty metadata
+                Label meta = new Label("By " + song.getArtist() + " • Difficulty: " + song.getDifficulty());
+                meta.getStyleClass().add("song-meta");
+            
+                VBox songContent = new VBox(title, meta);
+                songContent.setSpacing(2);
+            
+                Button songButton = new Button();
+                songButton.setGraphic(songContent);
+                songButton.setMaxWidth(Double.MAX_VALUE);
+                songButton.getStyleClass().add("search-result-button");
+            
+                songButton.setOnAction(e -> openSongView(song));
+            
+                resultsBox.getChildren().add(songButton);
             }
         }
     }
 
-    private void openSongView(Song selectedSong, MouseEvent event) {
+    private void openSongView(Song selectedSong) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
             Parent root = loader.load();
-
-            // Pass data to SongViewController
+    
             SongViewController controller = loader.getController();
             controller.setFacade(facade);
             controller.setSong(selectedSong);
-
-            Stage stage = (Stage) ((Control) event.getSource()).getScene().getWindow();
+    
+            Stage stage = (Stage) resultsBox.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
             errorMessage.setText("Failed to open song view.");
