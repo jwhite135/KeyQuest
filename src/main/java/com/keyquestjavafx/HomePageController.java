@@ -26,7 +26,7 @@ public class HomePageController {
 
     @FXML
     void goToMakeSong() throws IOException {
-        App.setRoot("CreateSongPage");
+        App.setRoot("CreateSong");
     }
 
     @FXML

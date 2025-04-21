@@ -13,16 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.SongSearchController">
-   <children>
-      <VBox alignment="CENTER" prefHeight="500.0" prefWidth="700.0" spacing="20.0" styleClass="form-container">
-         <padding>
-            <Insets top="20.0" bottom="20.0" left="20.0" right="20.0" />
-         </padding>
-         <stylesheets>
-            <URL value="@styles.css" />
-         </stylesheets>
-
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" styleClass="form-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.SongSearchController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>   
+    <children>
          <ImageView fitHeight="96.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/KeyQuestLogoTransparent.png" />
@@ -48,8 +46,6 @@
          <VBox fx:id="resultsBox" spacing="10.0" prefHeight="250.0" prefWidth="600.0" style="-fx-border-color: lightgray; -fx-border-width: 1;">
             <!-- Results dynamically added here -->
          </VBox>
-      </VBox>
-
       <ImageView fx:id="backArrow" fitHeight="23.0" fitWidth="58.0" onMouseClicked="#goBack"
                  pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <image>
@@ -57,4 +53,4 @@
          </image>
       </ImageView>
    </children>
-</AnchorPane>
+</VBox>
