@@ -29,6 +29,10 @@ public class KeyQuestFACADE {
         instrument = new Piano();
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public static KeyQuestFACADE getInstance() {
         if(facade == null) {
             facade = new KeyQuestFACADE();
