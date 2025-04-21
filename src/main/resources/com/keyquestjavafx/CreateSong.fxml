@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane fx:id="rootCreateSong" dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.CreateSongController">
+   <items>
+      <AnchorPane fx:id="sheetPane" minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="640.0" />
+      <VBox fx:id="noteVBox" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="SixteenthNote" fitHeight="38.0" fitWidth="26.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/SixteenthNote2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="EighthNote" fitHeight="38.0" fitWidth="26.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/EighthNote2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="QuarterNote" fitHeight="38.0" fitWidth="34.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/QuarterNote2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="HalfNote" fitHeight="38.0" fitWidth="34.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/HalfNote2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="DottedHalfNote" fitHeight="38.0" fitWidth="68.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/DottedHalfNote2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="WholeNote" fitHeight="38.0" fitWidth="26.0" onDragDetected="#startNoteDrag" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/WholeNote2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>
