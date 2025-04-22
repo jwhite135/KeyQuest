@@ -1,5 +1,6 @@
 package com.keyquestjavafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+
 
 public class CreateSong2Controller implements Initializable {
     
@@ -322,5 +324,25 @@ public class CreateSong2Controller implements Initializable {
         }
         
         return new PianoMeasure(false, chords);
+    }
+
+    @FXML
+    private void goToHome() throws IOException {
+        App.setRoot("HomePage");
+    }
+
+    @FXML
+    private void goToPlaySong() throws IOException {
+        App.setRoot("SongSearch");
+    }
+
+    @FXML
+    private void goToCheckPosts() throws IOException {
+        App.setRoot("PostsPage");
+    }
+
+    @FXML
+    private void goToProfile() throws IOException {
+        App.setRoot("ProfilePage");
     }
 }
