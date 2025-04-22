@@ -54,29 +54,29 @@ public class AccountSettingsController {
     private Button checkPostsButton;
 
     @FXML
-    private Button applyUsername;
+    private Button applyUsernameButton;
 
     @FXML
-    private Button applyPassword;
+    private Button applyPasswordButton;
 
     @FXML
-    private Button applyProfilePicture;
+    private Button applyProfilePictureButton;
 
     @FXML
-    private Button applyLanguage;
+    private Button applyLanguageButton;
 
     @FXML
-    private void goToPlaySong(MouseEvent event) throws IOException {
+    private void goToPlaySong() throws IOException {
         App.setRoot("SongSearch");
     }
 
     @FXML
-    private void goToMakeSong(MouseEvent event) throws IOException {
+    private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong");
     }
 
     @FXML
-    private void goToCheckPosts(MouseEvent event) throws IOException {
+    private void goToCheckPosts() throws IOException {
         //App.setRoot("");
         System.out.println("goToCheckPosts triggered");
     }
@@ -111,27 +111,27 @@ public class AccountSettingsController {
     }
 
     @FXML
-    private void applyUsername(MouseEvent event) {
+    private void applyUsername() {
         String newUsername = changeUsernameField.getText();
         // Logic to apply the new username
         System.out.println("New username applied: " + newUsername);
     }
 
     @FXML
-    private void applyPassword(MouseEvent event) {
+    private void applyPassword() {
         String newPassword = changePasswordField.getText();
         // Logic to apply the new username
         System.out.println("New password applied: " + newPassword);
     }
 
     @FXML
-    private void applyProfilePicture(MouseEvent event) {
+    private void applyProfilePicture() {
         // Logic to apply the new profile picture
         System.out.println("New profile picture applied");
     }
 
     @FXML
-    private void applyLanguage(MouseEvent event) {
+    private void applyLanguage() {
         String selectedLanguage = changeLanguageChoiceBox.getValue();
         // Logic to apply the new language
         System.out.println("New language applied: " + selectedLanguage);
