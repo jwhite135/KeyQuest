@@ -9,14 +9,12 @@ import com.model.Song;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class SongSearchController {
 
@@ -91,31 +89,24 @@ public class SongSearchController {
                 songButton.setMaxWidth(Double.MAX_VALUE);
                 songButton.getStyleClass().add("search-result-button");
             
-                songButton.setOnAction(e -> {
-                    Stage stage = (Stage) songButton.getScene().getWindow();
-                    openSongView(song, stage);
-                });
+                songButton.setOnAction(e -> openSongView(song));
                 
-            
                 resultsBox.getChildren().add(songButton);
             }
         }
     }
 
-    private void openSongView(Song selectedSong, Stage stage) {
+    private void openSongView(Song selectedSong) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
             Parent root = loader.load();
     
             SongViewController controller = loader.getController();
-            controller.setFacade(facade);
+            controller.setFacade(KeyQuestFACADE.getInstance());
             controller.setSong(selectedSong);
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setFullScreen(true);
-            stage.show();
-
+    
+            App.getScene().setRoot(root);
+    
         } catch (IOException e) {
             e.printStackTrace();
             errorMessage.setText("Failed to open song view.");
