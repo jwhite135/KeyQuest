@@ -125,21 +125,28 @@ public class SongViewController {
                             noteImage.setLayoutX(currentX);
                             noteImage.setLayoutY(y - yOffset[0]); // Align the notehead center to pitch Y
                             measurePane.getChildren().add(noteImage);
-
-                            int accidentalOffsetX = 12;
+                            
                             if (note.isSharp()) {
                                 ImageView sharp = loadSymbol("sharp.png", 20); // same for flat
                                 if (sharp != null) {
-                                    sharp.setLayoutX(currentX - accidentalOffsetX); // place left of notehead
-                                    sharp.setLayoutY(y - (yOffset[0]-20));        // align vertically with notehead center
+                                    sharp.setLayoutX(currentX - 15);
+                                    if (note.getLength().equals("w")) {
+                                        sharp.setLayoutY(y - (yOffset[0] + 5));
+                                    } else {
+                                        sharp.setLayoutY(y - (yOffset[0]-20));
+                                    }
                                     measurePane.getChildren().add(sharp);
                                 }
 
                             } else if (note.isFlat()) {
                                 ImageView flat = loadSymbol("flat.png", 20); // same for flat
                                 if (flat != null) {
-                                    flat.setLayoutX(currentX - accidentalOffsetX); // place left of notehead
-                                    flat.setLayoutY(y - (yOffset[0]-20));        // align vertically with notehead center
+                                    flat.setLayoutX(currentX - 12); // place left of notehead
+                                    if (note.getLength().equals("w")) {
+                                        flat.setLayoutY(y - (yOffset[0] + 5));
+                                    } else {
+                                        flat.setLayoutY(y - (yOffset[0]-20));
+                                    }
                                     measurePane.getChildren().add(flat);
                                 }
                             }
@@ -157,12 +164,17 @@ public class SongViewController {
         String file;
         int offset;
         int imageHeight;
-    
         switch (note.getLength()) {
             case "q":
-                file = "quarter_note.png";
-                imageHeight = 40;
-                offset = 25;  // notehead center is near the bottom of the stemmed image
+                if (note.getKey().equals("R")) {
+                    file = "quarter_rest.png";
+                    imageHeight = 40;
+                    offset = 25;
+                } else {
+                    file = "quarter_note.png";
+                    imageHeight = 40;
+                    offset = 25;  // notehead center is near the bottom of the stemmed image
+                }
                 break;
             case "h":
                 file = "half_note.png";
@@ -170,17 +182,24 @@ public class SongViewController {
                 offset = 25;
                 break;
             case "i":
-                file = "eighth_note.png";
-                imageHeight = 40;
-                offset = 25;
+                if (note.getKey().equals("R")) {
+                    System.out.println("eighth rest detected");
+                    file = "eighth_rest.png";
+                    imageHeight = 40;
+                    offset = 25;
+                } else {
+                    file = "eighth_note.png";
+                    imageHeight = 40;
+                    offset = 25;  // notehead center is near the bottom of the stemmed image
+                }
                 break;
             case "w":
                 file = "whole_note.png";
                 imageHeight = 10;  // visually shrink it to match other notehead sizes
-                offset = 5;        // center of 10px image
+                offset = -5;        // center of 10px image
                 break;
             default:
-                System.err.println("⚠️ Unsupported note length: " + note.getLength());
+                System.err.println("Unsupported note length: " + note.getLength());
                 yOffsetOut[0] = 0;
                 return new ImageView();
         }

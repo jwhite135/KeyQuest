@@ -1133,6 +1133,17 @@
                                         "flat": false,
                                         "length": "i",
                                         "type": 1,
+                                        "key": "R",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
                                         "key": "C4",
                                         "sharp": false
                                     }
@@ -1172,6 +1183,17 @@
                                         "length": "q",
                                         "type": 1,
                                         "key": "B4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "R",
                                         "sharp": false
                                     }
                                 ]
@@ -1232,6 +1254,17 @@
                                         "length": "q",
                                         "type": 1,
                                         "key": "C5",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "R",
                                         "sharp": false
                                     }
                                 ]
@@ -1575,7 +1608,7 @@
                 "type": 1
             }
         ],
-        "id": "bde2b3b0-e773-44c3-bce3-ac5afafd039o",
+        "id": "bde2b3b0-e773-44c3-bce3-ac5afafd0394",
         "title": "C# Major Scale"
     }
 ]
