@@ -1035,11 +1035,16 @@
                                         "flat": false,
                                         "length": "i",
                                         "type": 1,
-                                        "key": "D#5",
+                                        "key": "D5",
                                         "sharp": true
                                     }
                                 ]
-                            },
+                            }
+                        ],
+                        "type": 1
+                    },
+                    {
+                        "chords": [
                             {
                                 "notes": [
                                     {
@@ -1057,16 +1062,11 @@
                                         "flat": false,
                                         "length": "i",
                                         "type": 1,
-                                        "key": "D#5",
+                                        "key": "D5",
                                         "sharp": true
                                     }
                                 ]
-                            }
-                        ],
-                        "type": 1
-                    },
-                    {
-                        "chords": [
+                            },
                             {
                                 "notes": [
                                     {
@@ -1120,7 +1120,7 @@
                                 "notes": [
                                     {
                                         "flat": false,
-                                        "length": "i",
+                                        "length": "q",
                                         "type": 1,
                                         "key": "A4",
                                         "sharp": false
@@ -1180,6 +1180,55 @@
                                 "notes": [
                                     {
                                         "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "C4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "E4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "G4",
+                                        "sharp": true
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "B4",
+                                        "sharp": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": 1
+                    },
+                    {
+                        "chords": [
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
                                         "length": "q",
                                         "type": 1,
                                         "key": "C5",
@@ -1191,9 +1240,102 @@
                                 "notes": [
                                     {
                                         "flat": false,
-                                        "length": "h",
+                                        "length": "i",
                                         "type": 1,
-                                        "key": "A4",
+                                        "key": "E4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "E5",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "D5",
+                                        "sharp": true
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": 1
+                    },
+                    {
+                        "chords": [
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "E5",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "D5",
+                                        "sharp": true
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "E5",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "B4",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "D5",
+                                        "sharp": false
+                                    }
+                                ]
+                            },
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "i",
+                                        "type": 1,
+                                        "key": "C5",
                                         "sharp": false
                                     }
                                 ]
@@ -1427,9 +1569,9 @@
                         "type": 1
                     }
                 ],
-                "timeSignatureNumerator": 4,
+                "timeSignatureNumerator": 8,
                 "tempo": 120,
-                "timeSignatureDenominator": 4,
+                "timeSignatureDenominator": 1,
                 "type": 1
             }
         ],
