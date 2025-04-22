@@ -60,7 +60,7 @@ public class HomePageController {
         // Set the username label to the current user's username
         KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
         if (facade.getUser() != null) {
-            username.setText(facade.getUser().getUsername());
+            username.setText(facade.getUser().getUsername() + "   ");
         }
     }
 }
