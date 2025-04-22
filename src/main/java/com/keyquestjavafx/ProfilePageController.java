@@ -28,8 +28,16 @@ public class ProfilePageController {
     private ListView<String> favoritePostsList;
 
     @FXML
+    private Button settingsButton;
+
+    @FXML
     void goBack() throws IOException {
         App.setRoot("HomePage");
+    }
+
+    @FXML
+    void goToSettings() throws IOException {
+        App.setRoot("AccountSettings");
     }
 
     @FXML

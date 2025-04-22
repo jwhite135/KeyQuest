@@ -44,7 +44,7 @@
          <left>
             <VBox alignment="CENTER_RIGHT" prefHeight="229.0" prefWidth="150.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Account ">
+                  <Label fx:id="accountButton" onMouseClicked="#goToAccount" text="Account ">
                      <font>
                         <Font name="Palatino Linotype" size="24.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Font name="Palatino Linotype" size="24.0" />
                      </font>
                   </Label>
-                  <Label text="Preferences ">
+                  <Label fx:id="preferencesButton" onMouseClicked="#goToPreferences" text="Preferences ">
                      <font>
                         <Font name="Palatino Linotype" size="24.0" />
                      </font>
