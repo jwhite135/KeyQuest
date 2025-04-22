@@ -56,6 +56,7 @@ public class SongViewController {
         pitchToY.put("E5", 85);
         pitchToY.put("F5", 80);
         pitchToY.put("G5", 75);
+        pitchToY.put("R", 100); // Rest
     }
 
     public void setSong(Song song) {
@@ -125,7 +126,7 @@ public class SongViewController {
                             noteImage.setLayoutX(currentX);
                             noteImage.setLayoutY(y - yOffset[0]); // Align the notehead center to pitch Y
                             measurePane.getChildren().add(noteImage);
-                            
+
                             if (note.isSharp()) {
                                 ImageView sharp = loadSymbol("sharp.png", 20); // same for flat
                                 if (sharp != null) {
@@ -164,39 +165,29 @@ public class SongViewController {
         String file;
         int offset;
         int imageHeight;
+    
+        boolean isRest = note.getKey().equals("R");
+    
         switch (note.getLength()) {
             case "q":
-                if (note.getKey().equals("R")) {
-                    file = "quarter_rest.png";
-                    imageHeight = 40;
-                    offset = 25;
-                } else {
-                    file = "quarter_note.png";
-                    imageHeight = 40;
-                    offset = 25;  // notehead center is near the bottom of the stemmed image
-                }
-                break;
-            case "h":
-                file = "half_note.png";
-                imageHeight = 40;
-                offset = 25;
+                file = isRest ? "quarter_rest.png" : "quarter_note.png";
+                imageHeight = isRest ? 30 : 40;
+                offset = isRest ? 0 : 25;
                 break;
             case "i":
-                if (note.getKey().equals("R")) {
-                    System.out.println("eighth rest detected");
-                    file = "eighth_rest.png";
-                    imageHeight = 40;
-                    offset = 25;
-                } else {
-                    file = "eighth_note.png";
-                    imageHeight = 40;
-                    offset = 25;  // notehead center is near the bottom of the stemmed image
-                }
+                file = isRest ? "eighth_rest.png" : "eighth_note.png";
+                imageHeight = isRest ? 30 : 40;
+                offset = isRest ? 0 : 25;
                 break;
             case "w":
-                file = "whole_note.png";
-                imageHeight = 10;  // visually shrink it to match other notehead sizes
-                offset = -5;        // center of 10px image
+                file = isRest ? "whole_rest.png" : "whole_note.png";
+                imageHeight = isRest ? 12 : 10;      // match notehead sizing
+                offset = isRest ? 0 : -5;
+                break;
+            case "h":
+                file = isRest ? "half_rest.png" : "half_note.png";
+                imageHeight = isRest ? 12 : 40;
+                offset = isRest ? 0 : 25;
                 break;
             default:
                 System.err.println("Unsupported note length: " + note.getLength());
@@ -212,8 +203,12 @@ public class SongViewController {
         }
     
         ImageView view = new ImageView(new Image(input));
-        view.setFitHeight(imageHeight);
         view.setPreserveRatio(true);
+        if (isRest) {
+            view.setFitHeight(imageHeight * 0.75);  // ✅ Only rests are scaled down
+        } else {
+            view.setFitHeight(imageHeight);
+        }
         yOffsetOut[0] = offset;
         return view;
     }
