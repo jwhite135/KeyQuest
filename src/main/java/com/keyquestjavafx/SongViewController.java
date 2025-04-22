@@ -44,16 +44,18 @@ public class SongViewController {
 
     private static final Map<String, Integer> pitchToY = new HashMap<>();
     static {
-        pitchToY.put("C4", 80);
-        pitchToY.put("D4", 75);
-        pitchToY.put("E4", 70);
-        pitchToY.put("F4", 65);
-        pitchToY.put("G4", 60);
-        pitchToY.put("A4", 55);
-        pitchToY.put("B4", 50);
-        pitchToY.put("C5", 45);
-        pitchToY.put("D5", 40);
-        pitchToY.put("E5", 35);
+        pitchToY.put("C4", 130);
+        pitchToY.put("D4", 125);
+        pitchToY.put("E4", 120);
+        pitchToY.put("F4", 115);
+        pitchToY.put("G4", 110);
+        pitchToY.put("A4", 105);
+        pitchToY.put("B4", 100);
+        pitchToY.put("C5", 95);
+        pitchToY.put("D5", 90);
+        pitchToY.put("E5", 85);
+        pitchToY.put("F5", 80);
+        pitchToY.put("G5", 75);
     }
 
     public void setSong(Song song) {
@@ -116,23 +118,28 @@ public class SongViewController {
                         String pitch = note.getKey();
                         Integer y = pitchToY.get(pitch);
                         if (y != null) {
-                            ImageView noteImage = getNoteImage(note);
+                            
+                            int[] yOffset = new int[1];
+                            ImageView noteImage = getNoteImage(note, yOffset);
+
                             noteImage.setLayoutX(currentX);
-                            noteImage.setLayoutY(y - 30);
+                            noteImage.setLayoutY(y - yOffset[0]); // Align the notehead center to pitch Y
                             measurePane.getChildren().add(noteImage);
 
+                            int accidentalOffsetX = 12;
                             if (note.isSharp()) {
-                                ImageView sharp = loadSymbol("sharp.png", 20);
+                                ImageView sharp = loadSymbol("sharp.png", 20); // same for flat
                                 if (sharp != null) {
-                                    sharp.setLayoutX(currentX - 15);
-                                    sharp.setLayoutY(y - 25);
+                                    sharp.setLayoutX(currentX - accidentalOffsetX); // place left of notehead
+                                    sharp.setLayoutY(y - (yOffset[0]-20));        // align vertically with notehead center
                                     measurePane.getChildren().add(sharp);
                                 }
+
                             } else if (note.isFlat()) {
-                                ImageView flat = loadSymbol("flat.png", 20);
+                                ImageView flat = loadSymbol("flat.png", 20); // same for flat
                                 if (flat != null) {
-                                    flat.setLayoutX(currentX - 15);
-                                    flat.setLayoutY(y - 25);
+                                    flat.setLayoutX(currentX - accidentalOffsetX); // place left of notehead
+                                    flat.setLayoutY(y - (yOffset[0]-20));        // align vertically with notehead center
                                     measurePane.getChildren().add(flat);
                                 }
                             }
@@ -146,44 +153,52 @@ public class SongViewController {
         }
     }
 
-    private ImageView getNoteImage(Note note) {
+    private ImageView getNoteImage(Note note, int[] yOffsetOut) {
         String file;
-        if (null == note.getLength()) {
-            System.err.println("Unsupported note length: " + note.getLength());
-            return new ImageView();
-        } else switch (note.getLength()) {
+        int offset;
+        int imageHeight;
+    
+        switch (note.getLength()) {
             case "q":
                 file = "quarter_note.png";
+                imageHeight = 40;
+                offset = 25;  // notehead center is near the bottom of the stemmed image
                 break;
             case "h":
                 file = "half_note.png";
+                imageHeight = 40;
+                offset = 25;
                 break;
             case "i":
                 file = "eighth_note.png";
+                imageHeight = 40;
+                offset = 25;
                 break;
             case "w":
                 file = "whole_note.png";
-                break;
-            case "s":
-                file = "sixteenth_note.png";
+                imageHeight = 10;  // visually shrink it to match other notehead sizes
+                offset = 5;        // center of 10px image
                 break;
             default:
-                System.err.println("Unsupported note length: " + note.getLength());
+                System.err.println("⚠️ Unsupported note length: " + note.getLength());
+                yOffsetOut[0] = 0;
                 return new ImageView();
         }
-
+    
         var input = getClass().getResourceAsStream("/com/keyquestjavafx/images/" + file);
         if (input == null) {
             System.err.println("Missing image file: " + file);
+            yOffsetOut[0] = 0;
             return new ImageView();
         }
-
-        Image img = new Image(input);
-        ImageView view = new ImageView(img);
-        view.setFitHeight(60); // scale up
+    
+        ImageView view = new ImageView(new Image(input));
+        view.setFitHeight(imageHeight);
         view.setPreserveRatio(true);
+        yOffsetOut[0] = offset;
         return view;
     }
+    
 
     private ImageView loadSymbol(String filename, double height) {
         var input = getClass().getResourceAsStream("/com/keyquestjavafx/images/" + filename);
