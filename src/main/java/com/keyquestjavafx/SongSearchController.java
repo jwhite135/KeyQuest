@@ -91,14 +91,18 @@ public class SongSearchController {
                 songButton.setMaxWidth(Double.MAX_VALUE);
                 songButton.getStyleClass().add("search-result-button");
             
-                songButton.setOnAction(e -> openSongView(song));
+                songButton.setOnAction(e -> {
+                    Stage stage = (Stage) songButton.getScene().getWindow();
+                    openSongView(song, stage);
+                });
+                
             
                 resultsBox.getChildren().add(songButton);
             }
         }
     }
 
-    private void openSongView(Song selectedSong) {
+    private void openSongView(Song selectedSong, Stage stage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
             Parent root = loader.load();
@@ -106,10 +110,12 @@ public class SongSearchController {
             SongViewController controller = loader.getController();
             controller.setFacade(facade);
             controller.setSong(selectedSong);
-    
-            Stage stage = (Stage) resultsBox.getScene().getWindow();
-            stage.setScene(new Scene(root));
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setFullScreen(true);
             stage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
             errorMessage.setText("Failed to open song view.");
