@@ -1,70 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.keyquestjavafx.SongViewController"
-            prefHeight="600.0" prefWidth="800.0">
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.keyquestjavafx.SongViewController"
+      spacing="10">
 
-    <!-- Stylesheet reference -->
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+    </padding>
+
     <stylesheets>
         <URL value="@styles.css" />
     </stylesheets>
 
-    <!-- Top: Song info -->
-    <top>
-        <VBox spacing="10.0">
-            <padding>
-                <Insets top="20.0" bottom="10.0" left="20.0" right="20.0" />
-            </padding>
-            <children>
-                <Label fx:id="titleLabel" text="Song Title">
-                    <font>
-                        <Font name="Palatino Linotype" size="24.0" />
-                    </font>
-                </Label>
-                <Label fx:id="artistLabel" text="Artist" />
-                <Label fx:id="difficultyLabel" text="Difficulty: #" />
-            </children>
-        </VBox>
-    </top>
+    <!-- Back Button -->
+    <HBox alignment="CENTER_LEFT">
+        <Button fx:id="backButton" text="Back" onAction="#onBack" />
+    </HBox>
 
-    <!-- Center: Sheet music container -->
-    <center>
-        <VBox fx:id="sheetMusicContainer"
-              alignment="CENTER"
-              prefHeight="400.0"
-              prefWidth="700.0"
-              style="-fx-border-color: gray; -fx-border-width: 2; -fx-background-color: #f9f9f9;">
-            <children>
-                <Label text="Sheet music goes here..." />
-            </children>
-        </VBox>
-    </center>
+    <!-- Metadata Section -->
+    <VBox spacing="5">
+        <Label fx:id="titleLabel" text="Title" />
+        <Label fx:id="artistLabel" text="Artist" />
+        <Label fx:id="genreLabel" text="Genre" />
+        <Label fx:id="difficultyLabel" text="Difficulty" />
+    </VBox>
 
-    <!-- Bottom: Playback controls -->
-    <bottom>
-        <HBox spacing="15.0" alignment="CENTER" style="-fx-background-color: #f4f4f4;">
-            <padding>
-                <Insets top="10.0" bottom="10.0" left="10.0" right="10.0" />
-            </padding>
-            <children>
-                <Label text="Instrument:" />
-                <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
-                <Button fx:id="playButton" text="Play" onAction="#onPlay" />
-                <Button fx:id="muteButton" text="Mute" onAction="#onMute" />
-                <Button fx:id="metronomeButton" text="Metronome" onAction="#onToggleMetronome" />
-                <Button fx:id="loopButton" text="Loop" onAction="#onToggleLoop" />
-            </children>
-        </HBox>
-    </bottom>
-</BorderPane>
+    <!-- Instrument Selection -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Instrument:" />
+        <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
+    </HBox>
+
+    <!-- Playback Controls -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="playButton" text="Play" onAction="#onPlay" />
+        <Button fx:id="muteButton" text="Mute" onAction="#onMute" />
+        <Button fx:id="loopButton" text="Loop" onAction="#onToggleLoop" />
+    </HBox>
+
+    <!-- Scrollable Measure Display -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <content>
+            <VBox fx:id="sheetMusicContainer" spacing="20" />
+        </content>
+    </ScrollPane>
+</VBox>

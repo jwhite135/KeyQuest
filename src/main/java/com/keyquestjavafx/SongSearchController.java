@@ -9,14 +9,12 @@ import com.model.Song;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class SongSearchController {
 
@@ -92,7 +90,7 @@ public class SongSearchController {
                 songButton.getStyleClass().add("search-result-button");
             
                 songButton.setOnAction(e -> openSongView(song));
-            
+                
                 resultsBox.getChildren().add(songButton);
             }
         }
@@ -104,12 +102,11 @@ public class SongSearchController {
             Parent root = loader.load();
     
             SongViewController controller = loader.getController();
-            controller.setFacade(facade);
+            controller.setFacade(KeyQuestFACADE.getInstance());
             controller.setSong(selectedSong);
     
-            Stage stage = (Stage) resultsBox.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
+            App.getScene().setRoot(root);
+    
         } catch (IOException e) {
             e.printStackTrace();
             errorMessage.setText("Failed to open song view.");
