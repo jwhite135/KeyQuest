@@ -27,4 +27,8 @@ public abstract class Note {
     }
     
     public abstract String getKey();
+
+    public abstract boolean isSharp();
+    public abstract boolean isFlat();
+    
 }
