@@ -798,9 +798,9 @@
                         "type": 1
                     }
                 ],
-                "timeSignatureNumerator": 2,
+                "timeSignatureNumerator": 3,
                 "tempo": 84,
-                "timeSignatureDenominator": 2,
+                "timeSignatureDenominator": 4,
                 "type": 1
             }
         ],
@@ -1204,17 +1204,6 @@
                                         "flat": false,
                                         "length": "i",
                                         "type": 1,
-                                        "key": "C4",
-                                        "sharp": false
-                                    }
-                                ]
-                            },
-                            {
-                                "notes": [
-                                    {
-                                        "flat": false,
-                                        "length": "i",
-                                        "type": 1,
                                         "key": "E4",
                                         "sharp": false
                                     }
@@ -1375,11 +1364,27 @@
                             }
                         ],
                         "type": 1
+                    },
+                    {
+                        "chords": [
+                            {
+                                "notes": [
+                                    {
+                                        "flat": false,
+                                        "length": "q",
+                                        "type": 1,
+                                        "key": "A4",
+                                        "sharp": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": 1
                     }
                 ],
                 "timeSignatureNumerator": 3,
                 "tempo": 100,
-                "timeSignatureDenominator": 8,
+                "timeSignatureDenominator": 4,
                 "type": 1
             }
         ],

@@ -4,16 +4,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="659.0" prefWidth="779.0" stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.keyquestjavafx.ProfilePageController">
+<BorderPane prefHeight="659.0" prefWidth="779.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.ProfilePageController">
     <!-- Top Navigation Bar -->
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
-            <Button fx:id="backButton" onAction="#goBack" text="Back" />
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-color: #EDE4D1;" stylesheets="@styles.css">
+         <ImageView fitHeight="23.0" fitWidth="58.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/BackArrow.png" />
+            </image>
+         </ImageView>
             <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Profile Page" />
         </HBox>
     </top>
@@ -30,7 +36,7 @@
             <!-- Favorite Songs -->
             <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1;">
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Songs:" />
-                <ListView fx:id="favoriteSongsList" prefHeight="150" />
+                <ListView fx:id="favoriteSongsList" onMouseClicked="#goToSong" prefHeight="150" />
             </VBox>
 
             <!-- Favorite Posts -->

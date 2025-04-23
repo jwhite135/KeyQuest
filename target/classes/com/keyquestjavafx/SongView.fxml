@@ -4,6 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
 <VBox xmlns="http://javafx.com/javafx/8.0.171"
       xmlns:fx="http://javafx.com/fxml/1"
@@ -18,12 +20,28 @@
         <URL value="@styles.css" />
     </stylesheets>
 
-    <!-- Back Button -->
-    <HBox alignment="CENTER_LEFT">
-        <Button fx:id="backButton" text="Back" onAction="#onBack" />
-    </HBox>
+    <!-- Navigation Bar - Compact at the top -->
+    <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
+        <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+        </padding>
+        
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <Label fx:id="usernameLabel" text="Welcome, User" />
+            <!-- Profile picture instead of home button -->
+            <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                <Image url="@images/KeyQuestUserIcon.png" />
+            </ImageView>
+        </HBox>
+        
+        <HBox alignment="CENTER" spacing="20">
+            <Button fx:id="searchSongButton" onAction="#goToPlaySong" text="Search Songs" />
+            <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" />
+            <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" />
+        </HBox>
+    </VBox>
 
-    <!-- Metadata Section -->
+    <!-- Song Metadata -->
     <VBox spacing="5">
         <Label fx:id="titleLabel" text="Title" />
         <Label fx:id="artistLabel" text="Artist" />
@@ -31,23 +49,24 @@
         <Label fx:id="difficultyLabel" text="Difficulty" />
     </VBox>
 
-    <!-- Instrument Selection -->
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Label text="Instrument:" />
-        <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
-    </HBox>
-
-    <!-- Playback Controls -->
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Button fx:id="playButton" text="Play" onAction="#onPlay" />
-        <Button fx:id="muteButton" text="Mute" onAction="#onMute" />
-        <Button fx:id="loopButton" text="Loop" onAction="#onToggleLoop" />
-    </HBox>
-
-    <!-- Scrollable Measure Display -->
+    <!-- Scrollable Sheet Music -->
     <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
         <content>
             <VBox fx:id="sheetMusicContainer" spacing="20" />
         </content>
     </ScrollPane>
+
+    <!-- Instrument & Playback Controls -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Instrument:" />
+        <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="playButton" text="Play" onAction="#onPlay" />
+        <Button fx:id="muteButton" text="Mute" onAction="#onMute" />
+        <Button fx:id="loopButton" text="Loop" onAction="#onToggleLoop" />
+        <Button fx:id="backButton" text="Back" onAction="#onBack" />
+    </HBox>
+
 </VBox>

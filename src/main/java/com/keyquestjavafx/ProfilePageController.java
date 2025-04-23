@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class ProfilePageController {
-
+ 
     @FXML
     private Button backButton;
 
@@ -31,7 +31,7 @@ public class ProfilePageController {
     private Button settingsButton;
 
     @FXML
-    void goBack() throws IOException {
+    void goToHome() throws IOException {
         App.setRoot("HomePage");
     }
 
