@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.keyquestjavafx.SongViewController"
-      spacing="10">
+<VBox spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.SongViewController">
 
     <padding>
-        <Insets top="10" right="10" bottom="10" left="10" />
+        <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
 
     <stylesheets>
@@ -21,15 +22,15 @@
     </stylesheets>
 
     <!-- Navigation Bar - Compact at the top -->
-    <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
+    <VBox alignment="TOP_CENTER" spacing="5" styleClass="form-container">
         <padding>
-            <Insets top="5" right="10" bottom="5" left="10" />
+            <Insets bottom="5" left="10" right="10" top="5" />
         </padding>
         
         <HBox alignment="CENTER_RIGHT" spacing="10">
             <Label fx:id="usernameLabel" text="Welcome, User" />
             <!-- Profile picture instead of home button -->
-            <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilePicButton" fitHeight="30" fitWidth="30" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
                 <Image url="@images/KeyQuestUserIcon.png" />
             </ImageView>
         </HBox>
@@ -57,16 +58,16 @@
     </ScrollPane>
 
     <!-- Instrument & Playback Controls -->
-    <HBox spacing="10" alignment="CENTER_LEFT">
+    <HBox alignment="CENTER_LEFT" spacing="10">
         <Label text="Instrument:" />
         <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
     </HBox>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <Button fx:id="playButton" text="Play" onAction="#onPlay" />
-        <Button fx:id="muteButton" text="Mute" onAction="#onMute" />
-        <Button fx:id="loopButton" text="Loop" onAction="#onToggleLoop" />
-        <Button fx:id="backButton" text="Back" onAction="#onBack" />
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button fx:id="playButton" onAction="#onPlay" text="Play" />
+        <Button fx:id="muteButton" onAction="#onMute" text="Mute" />
+        <Button fx:id="loopButton" onAction="#onToggleLoop" text="Loop" />
+        <Button fx:id="backButton" onAction="#onBack" text="Back" />
     </HBox>
 
 </VBox>

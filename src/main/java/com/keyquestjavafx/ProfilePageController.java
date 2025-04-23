@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 
 public class ProfilePageController {
  
@@ -31,10 +32,10 @@ public class ProfilePageController {
     private Button settingsButton;
 
     @FXML
-    void goToHome() throws IOException {
+    void goToHome(MouseEvent event) throws IOException {
         App.setRoot("HomePage");
     }
-
+ 
     @FXML
     void goToSettings() throws IOException {
         App.setRoot("AccountSettings");

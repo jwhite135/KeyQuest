@@ -36,7 +36,7 @@
             <!-- Favorite Songs -->
             <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1;">
                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Songs:" />
-                <ListView fx:id="favoriteSongsList" onMouseClicked="#goToSong" prefHeight="150" />
+                <ListView fx:id="favoriteSongsList" prefHeight="150" />
             </VBox>
 
             <!-- Favorite Posts -->
