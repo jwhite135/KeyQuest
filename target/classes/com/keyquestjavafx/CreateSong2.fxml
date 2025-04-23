@@ -7,67 +7,96 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" styleClass="form-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.CreateSong2Controller">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.CreateSong2Controller">
     <stylesheets>
         <URL value="@styles.css" />
     </stylesheets>
-   <children>
-      <Label text="Create Song" styleClass="header-label">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      
-      <!-- Song Metadata Section -->
-      <HBox spacing="10" alignment="CENTER">
-         <Label text="Song Title:" styleClass="form-label" />
-         <TextField fx:id="songTitleField" prefWidth="200" />
-         <Label text="Difficulty:" styleClass="form-label" />
-         <ComboBox fx:id="songDifficultyCombo" prefWidth="80" />
-         <Label text="Genre:" styleClass="form-label" />
-         <ComboBox fx:id="songGenreCombo" prefWidth="120" />
-      </HBox>
-      
-      <!-- Note Input Section -->
-      <VBox spacing="10" styleClass="settings-grid">
-         <Label text="Add Notes" styleClass="form-label" style="-fx-font-weight: bold; -fx-font-size: 14;" />
-         <HBox spacing="10" alignment="CENTER">
-            <Label text="Pitch:" styleClass="form-label" />
-            <ComboBox fx:id="notePitchCombo" prefWidth="100" />
-            <Label text="Length:" styleClass="form-label" />
-            <ComboBox fx:id="noteLengthCombo" prefWidth="100" />
-            <Label text="Beat:" styleClass="form-label" />
-            <ComboBox fx:id="noteBeatCombo" prefWidth="80" />
-            <Button fx:id="addNoteButton" text="Add Note" onAction="#addNote" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-         </HBox>
-         
-         <Label fx:id="measureCountLabel" text="Current Measure: 1" styleClass="form-label" style="-fx-font-weight: bold;" />
-      </VBox>
-      
-      <!-- Measure Display Section -->
-      <HBox spacing="20" VBox.vgrow="ALWAYS">
-         <!-- Current Measure -->
-         <VBox spacing="5" HBox.hgrow="ALWAYS">
-            <Label text="Current Measure Notes" style="-fx-font-weight: bold;" />
-            <ListView fx:id="currentMeasureList" VBox.vgrow="ALWAYS" />
-            <Button fx:id="addMeasureButton" text="Add Measure" onAction="#addMeasure" maxWidth="Infinity" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-         </VBox>
-         
-         <!-- All Measures -->
-         <VBox spacing="5" HBox.hgrow="ALWAYS">
-            <Label text="All Measures" style="-fx-font-weight: bold;" />
-            <ListView fx:id="allMeasuresList" VBox.vgrow="ALWAYS" />
-         </VBox>
-      </HBox>
-      
-      <!-- Save Button -->
-      <Button fx:id="saveSongButton" text="Save Song" onAction="#saveSong" prefWidth="150" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-   </children>
-</VBox>
+    
+    <top>
+        <!-- Navigation Bar - Compact at the top -->
+        <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10" />
+            </padding>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="10">
+                <Label fx:id="usernameLabel" text="Welcome, User" />
+                <!-- Profile picture instead of home button -->
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@images/KeyQuestUserIcon.png" />
+                </ImageView>
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="playSongButton" onAction="#goToPlaySong" text="Play Song" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                <Button fx:id="makeSongButton" text="Create Song" style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-opacity: 0.7;" disable="true" />
+                <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10.0" styleClass="form-container">
+            <padding>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+            </padding>
+            
+            <Label text="Create Song" styleClass="header-label">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            
+            <!-- Song Metadata Section - Compact -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Song Title:" styleClass="form-label" />
+                <TextField fx:id="songTitleField" prefWidth="200" />
+                <Label text="Difficulty:" styleClass="form-label" />
+                <ComboBox fx:id="songDifficultyCombo" prefWidth="80" />
+                <Label text="Genre:" styleClass="form-label" />
+                <ComboBox fx:id="songGenreCombo" prefWidth="120" />
+            </HBox>
+            
+            <!-- Note Input Section - Minimized spacing -->
+            <VBox spacing="5" styleClass="settings-grid">
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Pitch:" styleClass="form-label" />
+                    <ComboBox fx:id="notePitchCombo" prefWidth="100" />
+                    <Label text="Length:" styleClass="form-label" />
+                    <ComboBox fx:id="noteLengthCombo" prefWidth="100" />
+                    <Label text="Beat:" styleClass="form-label" />
+                    <ComboBox fx:id="noteBeatCombo" prefWidth="80" />
+                    <Button fx:id="addNoteButton" text="Add Note" onAction="#addNote" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                </HBox>
+                
+                <Label fx:id="measureCountLabel" text="Current Measure: 1" styleClass="form-label" style="-fx-font-weight: bold;" />
+            </VBox>
+            
+            <!-- Measure Display Section - Give most space to this section -->
+            <HBox spacing="15" VBox.vgrow="ALWAYS">
+                <!-- Current Measure -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Current Measure Notes" style="-fx-font-weight: bold;" />
+                    <ListView fx:id="currentMeasureList" VBox.vgrow="ALWAYS" />
+                    <Button fx:id="addMeasureButton" text="Add Measure" onAction="#addMeasure" maxWidth="Infinity" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                </VBox>
+                
+                <!-- All Measures -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="All Measures" style="-fx-font-weight: bold;" />
+                    <ListView fx:id="allMeasuresList" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </HBox>
+            
+            <!-- Save Button -->
+            <Button fx:id="saveSongButton" text="Save Song" onAction="#saveSong" prefWidth="150" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+        </VBox>
+    </center>
+</BorderPane>

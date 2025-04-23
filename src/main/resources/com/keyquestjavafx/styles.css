@@ -1,5 +1,5 @@
 .root {
-    -fx-font-family: "Helvetica";
+    -fx-font-family: "Palatino Linotype";
     -fx-background-color: #EDE4D1;
 }
 
@@ -16,4 +16,31 @@
 
 #errorMessage {
     -fx-text-fill: red;
+}
+
+.search-result-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.04), 4, 0, 0, 2);
+}
+
+.search-result-button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #999999;
+}
+
+.song-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.song-meta {
+    -fx-text-fill: #666666;
+    -fx-font-size: 12px;
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Measure class that holds a list of chords
  * @author Ryan Leadbitter
  */
-abstract class Measure {
+public abstract class Measure {
     protected ArrayList<Chord> chords;
     
 

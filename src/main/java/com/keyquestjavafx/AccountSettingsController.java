@@ -45,6 +45,43 @@ public class AccountSettingsController {
     private Label preferencesSettingsButton;
 
     @FXML
+    private Button playSongButton;
+
+    @FXML
+    private Button makeSongButton;
+
+    @FXML
+    private Button checkPostsButton;
+
+    @FXML
+    private Button applyUsernameButton;
+
+    @FXML
+    private Button applyPasswordButton;
+
+    @FXML
+    private Button applyProfilePictureButton;
+
+    @FXML
+    private Button applyLanguageButton;
+
+    @FXML
+    private void goToPlaySong() throws IOException {
+        App.setRoot("SongSearch");
+    }
+
+    @FXML
+    private void goToMakeSong() throws IOException {
+        App.setRoot("CreateSong");
+    }
+
+    @FXML
+    private void goToCheckPosts() throws IOException {
+        //App.setRoot("");
+        System.out.println("goToCheckPosts triggered");
+    }
+
+    @FXML
     private void goToHome(MouseEvent event) throws IOException {
         App.setRoot("HomePage");
     }
@@ -71,5 +108,32 @@ public class AccountSettingsController {
                 System.out.println("Dark Mode selected");
             }
         });
+    }
+
+    @FXML
+    private void applyUsername() {
+        String newUsername = changeUsernameField.getText();
+        // Logic to apply the new username
+        System.out.println("New username applied: " + newUsername);
+    }
+
+    @FXML
+    private void applyPassword() {
+        String newPassword = changePasswordField.getText();
+        // Logic to apply the new username
+        System.out.println("New password applied: " + newPassword);
+    }
+
+    @FXML
+    private void applyProfilePicture() {
+        // Logic to apply the new profile picture
+        System.out.println("New profile picture applied");
+    }
+
+    @FXML
+    private void applyLanguage() {
+        String selectedLanguage = changeLanguageChoiceBox.getValue();
+        // Logic to apply the new language
+        System.out.println("New language applied: " + selectedLanguage);
     }
 }
