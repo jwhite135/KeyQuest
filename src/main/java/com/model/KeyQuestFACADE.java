@@ -43,6 +43,9 @@ public class KeyQuestFACADE {
     private void setFacadeUser(User user) {
         this.user = user;
     }
+    public User getCurrentUser() {
+        return user;
+    }
 
     /**
      * Determines if the user is logged in
