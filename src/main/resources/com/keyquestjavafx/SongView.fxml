@@ -35,9 +35,9 @@
         </HBox>
         
         <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="searchSongButton" onAction="#goToPlaySong" text="Search Songs" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-            <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-            <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+            <Button fx:id="searchSongButton" onAction="#goToPlaySong" text="Search Songs" />
+            <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" />
+            <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" />
         </HBox>
     </VBox>
 
