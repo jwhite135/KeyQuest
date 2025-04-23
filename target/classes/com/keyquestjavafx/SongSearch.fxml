@@ -21,6 +21,26 @@
         <URL value="@styles.css" />
     </stylesheets>   
     <children>
+        <!-- Navigation Bar - Compact at the top -->
+        <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10" />
+            </padding>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="10">
+                <Label fx:id="usernameLabel" text="Welcome, User" />
+                <!-- Profile picture instead of home button -->
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@images/KeyQuestUserIcon.png" />
+                </ImageView>
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="searchSongButton" text="Search Songs" style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-opacity: 0.7;" disable="true" />
+                <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+            </HBox>
+        </VBox>
          <ImageView fitHeight="96.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/KeyQuestLogoTransparent.png" />
