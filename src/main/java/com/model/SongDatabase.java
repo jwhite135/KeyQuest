@@ -65,6 +65,9 @@ public class SongDatabase {
             if (song.getName().equalsIgnoreCase(name)) {
                 result.add(song);
             }
+            if (name.equalsIgnoreCase("all")) {
+                result.add(song);
+            }
         }
         return result;
     }
@@ -78,6 +81,9 @@ public class SongDatabase {
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songList) {
             if (song.getArtist().equalsIgnoreCase(artist)) {
+                result.add(song);
+            }
+            if (artist.equalsIgnoreCase("all")) {
                 result.add(song);
             }
         }

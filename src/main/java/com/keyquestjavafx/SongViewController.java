@@ -76,10 +76,10 @@ public class SongViewController {
     }
 
     private void updateMetadata() {
-        titleLabel.setText(song.getName());
-        artistLabel.setText(song.getArtist());
-        genreLabel.setText(song.getGenre().toString().toLowerCase());
-        difficultyLabel.setText(String.valueOf(song.getDifficulty()));
+        titleLabel.setText("Name: " + song.getName());
+        artistLabel.setText("Artist: " + song.getArtist());
+        genreLabel.setText("Genre: " + song.getGenre().toString().toLowerCase());
+        difficultyLabel.setText("Difficulty: " + String.valueOf(song.getDifficulty()));
     }
 
     private void renderSheetMusic() {
@@ -105,11 +105,24 @@ public class SongViewController {
                     clef.setLayoutY(85);
                     measurePane.getChildren().add(clef);
                 }
-
-                ImageView timeSig = loadSymbol("time_signature_4_4.png", 40);
-                if (timeSig != null) {
-                    timeSig.setLayoutX(60);
+                ImageView timeSig;
+                if (song.getSheetMusic().get(0).getTimeSigNum() == 4 && song.getSheetMusic().get(0).getTimeSigDen() == 4) {
+                    timeSig = loadSymbol("time_signature_4_4.png", 58);
+                    timeSig.setLayoutY(82);
+                } else if (song.getSheetMusic().get(0).getTimeSigNum() == 3 && song.getSheetMusic().get(0).getTimeSigDen() == 4) {
+                    timeSig = loadSymbol("time_signature_3_4.png", 40);
                     timeSig.setLayoutY(90);
+                } else if (song.getSheetMusic().get(0).getTimeSigNum() == 2 && song.getSheetMusic().get(0).getTimeSigDen() == 4) {
+                    timeSig = loadSymbol("time_signature_2_4.png", 58);
+                    timeSig.setLayoutY(82);
+                } else if (song.getSheetMusic().get(0).getTimeSigNum() == 6 && song.getSheetMusic().get(0).getTimeSigDen() == 8) {
+                    timeSig = loadSymbol("time_signature_6_8.png", 58);
+                    timeSig.setLayoutY(82);
+                } else {
+                    timeSig = loadSymbol("time_signature_4_4.png", 58); // Default to 4/4 if not recognized
+                }
+                if (timeSig != null) {
+                    timeSig.setLayoutX(50);
                     measurePane.getChildren().add(timeSig);
                 }
 
