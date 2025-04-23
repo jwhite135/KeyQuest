@@ -49,7 +49,7 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="779.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="settingsButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="29.0" prefWidth="107.0" text="Settings" textFill="WHITE">
+            <Button fx:id="settingsButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="29.0" prefWidth="107.0" text="Settings">
                <font>
                   <Font size="18.0" />
                </font>

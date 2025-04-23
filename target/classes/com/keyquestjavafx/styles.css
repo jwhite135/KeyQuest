@@ -5,6 +5,7 @@
 
 .button {
     -fx-color: #A5762C;
+    -fx-text-fill: white;
 }
 
 .form-container {
