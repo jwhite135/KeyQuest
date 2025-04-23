@@ -41,6 +41,16 @@ public class ProfilePageController {
     }
 
     @FXML
+    void goToPosts() throws IOException {
+        App.setRoot("PostsPage");
+    }
+
+    @FXML
+    void goToSong() throws IOException {
+        App.setRoot("SongSearch");
+    }
+
+    @FXML
     public void initialize() {
         KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
         User currentUser = facade.getUser();

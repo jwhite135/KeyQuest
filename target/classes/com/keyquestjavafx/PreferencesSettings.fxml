@@ -26,9 +26,56 @@
       <URL value="@styles.css" />
    </stylesheets>
    <children>
-      <BorderPane prefHeight="425.0" prefWidth="613.0" VBox.vgrow="ALWAYS">
-         <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="613.0">
+         <children>
+            <ImageView fx:id="homePageButton" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/KeyQuestLogoTransparent.png" />
+               </image>
+            </ImageView>
+            <Region prefHeight="200.0" prefWidth="1000.0" />
+            <Button fx:id="playSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToPlaySong" prefHeight="48.0" prefWidth="1000.0" text="Play a Song">
+               <font>
+                  <Font name="Palatino Linotype" size="12.0" />
+               </font>
+            </Button>
+            <Region prefHeight="200.0" prefWidth="1000.0" />
+            <Button fx:id="makeSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToMakeSong" prefHeight="48.0" prefWidth="1000.0" text="Make a Song">
+               <font>
+                  <Font name="Palatino Linotype" size="12.0" />
+               </font>
+            </Button>
+            <Region prefHeight="200.0" prefWidth="1000.0" />
+            <Button fx:id="checkPostsButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToCheckPosts" prefHeight="48.0" prefWidth="1000.0" text="Check Posts">
+               <font>
+                  <Font name="Palatino Linotype" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" minHeight="229.0" minWidth="155.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
+            <VBox alignment="CENTER_RIGHT" minHeight="229.0" minWidth="150.0" HBox.hgrow="NEVER">
+               <children>
+                  <Label fx:id="accountSettingsButton" onMouseClicked="#goToAccount" text="Account ">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="notificationsSettingsButton" onMouseClicked="#goToNotification" text="Notifications ">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label text="Preferences ">
+                     <font>
+                        <Font name="Palatino Linotype" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" minHeight="200.0" minWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <Region prefHeight="59.0" prefWidth="463.0" />
                   <Label text="Settings">
@@ -36,10 +83,10 @@
                         <Font name="Palatino Linotype" size="30.0" />
                      </font>
                   </Label>
-                  <Region prefHeight="64.0" prefWidth="463.0" />
-                  <HBox alignment="CENTER" maxWidth="1000.0" prefHeight="309.0" prefWidth="613.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                  <Region maxHeight="97.0" prefHeight="97.0" prefWidth="463.0" />
+                  <HBox alignment="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="309.0" prefWidth="613.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <BorderPane prefHeight="421.0" prefWidth="472.0" style="-fx-background-color: A37736;" HBox.hgrow="ALWAYS">
+                        <BorderPane prefHeight="309.0" prefWidth="613.0" style="-fx-background-color: A37736;" HBox.hgrow="ALWAYS">
                            <center>
                               <GridPane prefHeight="245.0" prefWidth="458.0" style="-fx-background-color: A37736;" BorderPane.alignment="CENTER">
                                  <columnConstraints>
@@ -83,7 +130,7 @@
                                           </RadioButton>
                                        </children>
                                     </HBox>
-                                    <Button fx:id="applyInstrument" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#applyDefaultInstrument" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" text="Apply" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                    <Button fx:id="applyInstrument" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#applyDefaultInstrument" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: ffffff;" styleClass="apply-button" text="Apply" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Palatino Linotype" size="14.0" />
                                        </font>
@@ -108,65 +155,9 @@
                   </HBox>
                </children>
             </VBox>
-         </center>
-         <top>
-            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="613.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fx:id="homePageButton" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/KeyQuestLogoTransparent.png" />
-                     </image>
-                  </ImageView>
-                  <Region prefHeight="200.0" prefWidth="1000.0" />
-                  <Button fx:id="playSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToPlaySong" prefHeight="48.0" prefWidth="1000.0" text="Play a Song">
-                     <font>
-                        <Font name="Palatino Linotype" size="12.0" />
-                     </font>
-                  </Button>
-                  <Region prefHeight="200.0" prefWidth="1000.0" />
-                  <Button fx:id="makeSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToMakeSong" prefHeight="48.0" prefWidth="1000.0" text="Make a Song">
-                     <font>
-                        <Font name="Palatino Linotype" size="12.0" />
-                     </font>
-                  </Button>
-                  <Region prefHeight="200.0" prefWidth="1000.0" />
-                  <Button fx:id="checkPostsButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToCheckPosts" prefHeight="48.0" prefWidth="1000.0" text="Check Posts">
-                     <font>
-                        <Font name="Palatino Linotype" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-         </top>
-         <bottom>
-            <Region minHeight="5.0" BorderPane.alignment="CENTER" />
-         </bottom>
-         <left>
-            <HBox minHeight="229.0" minWidth="155.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Region minWidth="5.0" HBox.hgrow="ALWAYS" />
-                  <VBox alignment="CENTER_RIGHT" prefHeight="229.0" prefWidth="150.0">
-                     <children>
-                        <Label fx:id="accountSettingsButton" onMouseClicked="#goToAccount" text="Account ">
-                           <font>
-                              <Font name="Palatino Linotype" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="notificationsSettingsButton" onMouseClicked="#goToNotification" text="Notifications ">
-                           <font>
-                              <Font name="Palatino Linotype" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label text="Preferences ">
-                           <font>
-                              <Font name="Palatino Linotype" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </left>
-      </BorderPane>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES" />
+         </children>
+      </HBox>
+      <Region minHeight="5.0" />
    </children>
 </VBox>
