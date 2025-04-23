@@ -6,6 +6,8 @@ import com.model.KeyQuestFACADE;
 import com.model.User;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -32,6 +34,9 @@ public class ProfilePageController {
     private Button settingsButton;
 
     @FXML
+    private Label songErrorLabel;
+
+    @FXML
     void goToHome(MouseEvent event) throws IOException {
         App.setRoot("HomePage");
     }
@@ -48,7 +53,40 @@ public class ProfilePageController {
 
     @FXML
     void goToSong() throws IOException {
-        App.setRoot("SongSearch");
+        String selectedSongName = favoriteSongsList.getSelectionModel().getSelectedItem();
+
+    if (selectedSongName == null) {
+        songErrorLabel.setText("Please select a song.");
+        return;
+    }
+
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
+        Parent root = loader.load();
+
+        SongViewController controller = loader.getController();
+        KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+        controller.setFacade(facade);
+
+        // Find the actual Song object from the name
+        User currentUser = facade.getUser();
+        var selectedSong = currentUser.getFavoriteSongs().stream()
+            .filter(song -> song.getName().equals(selectedSongName))
+            .findFirst()
+            .orElse(null);
+
+        if (selectedSong == null) {
+            songErrorLabel.setText("Song not found.");
+            return;
+        }
+
+        controller.setSong(selectedSong);
+        App.getScene().setRoot(root);
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        songErrorLabel.setText("Failed to open song view.");
+    }
     }
 
     @FXML
@@ -63,5 +101,16 @@ public class ProfilePageController {
             // Populate favorite posts
             currentUser.getFavoritePosts().forEach(post -> favoritePostsList.getItems().add(post.getBody()));
         }
+        
+        favoriteSongsList.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // Double-click to open song
+                try {
+                    goToSong();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    songErrorLabel.setText("Failed to open song view.");
+                }
+            }
+        });
     }
 }
