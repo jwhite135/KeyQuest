@@ -234,8 +234,8 @@ public class DataWriter extends DataConstants {
         JSONObject postDetails = new JSONObject();
         
         // Retrieves attributes and puts them into the JSONObject to be put into the file.
-        postDetails.put(POST_ID, post.getUUID());
-        postDetails.put(POST_SONG_ID, post.getSong().getUUID());
+        postDetails.put(POST_ID, post.getUUID().toString());
+        postDetails.put(POST_SONG_ID, post.getSong().getUUID().toString());
         postDetails.put(POST_NUM_FAVORITES, post.getFavorites());
 
         // Goes through each comment in the post's list and adds them into a JSONArray
@@ -247,16 +247,16 @@ public class DataWriter extends DataConstants {
 
             // Retrieves attributes and puts them into the JSONObject to be put into the file.
             commentDetails.put(COMMENT_BODY, comments.get(i).getBody());
-            commentDetails.put(COMMENT_AUTHOR_ID, comments.get(i).getAuthor().getUUID());
-            commentDetails.put(COMMENT_DATE, comments.get(i).getDate());
+            commentDetails.put(COMMENT_AUTHOR_ID, comments.get(i).getAuthor().getUUID().toString());
+            commentDetails.put(COMMENT_DATE, comments.get(i).getDate().toString());
 
             // Adds the comment to the comment array
             commentArray.add(commentDetails);
         }
         // Gets the remaining post attributes
         postDetails.put(POST_COMMENTS, commentArray);
-        postDetails.put(POST_AUTHOR_ID, post.getAuthor().getUUID());
-        postDetails.put(POST_DATE, post.getDate());
+        postDetails.put(POST_AUTHOR_ID, post.getAuthor().getUUID().toString());
+        postDetails.put(POST_DATE, post.getDate().toString());
         postDetails.put(POST_PRIVATE, post.getIsPrivate());
         postDetails.put(POST_TITLE, post.getTitle());
         postDetails.put(POST_BODY, post.getBody());

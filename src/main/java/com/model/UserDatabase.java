@@ -26,9 +26,6 @@ public class UserDatabase {
         for(User user : userList) {
             userMap.put(user.getUUID(), user);
         }
-        for (Map.Entry<UUID, User> entry : userMap.entrySet()) {
-            System.out.println("User UUID: " + entry.getKey() + ", Username: " + entry.getValue().getUsername());
-        }
     }
 
     /**
