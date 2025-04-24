@@ -1,73 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.PostViewController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.keyquest.CommentViewController">
 
-    <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
-    </padding>
+    <!-- Top bar -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: #E8E0C0;">
+            <!-- REPLACED padding="10" with Insets block -->
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
 
-    <stylesheets>
-        <URL value="@styles.css" />
-    </stylesheets>
-
-    <!-- Navigation Bar - Compact at the top -->
-    <VBox alignment="TOP_CENTER" spacing="5" styleClass="form-container">
-        <padding>
-            <Insets bottom="5" left="10" right="10" top="5" />
-        </padding>
-        
-        <HBox alignment="CENTER_RIGHT" spacing="10">
-            <Label fx:id="usernameLabel" text="Welcome, User" />
-            <!-- Profile picture instead of home button -->
-            <ImageView fx:id="profilePicButton" fitHeight="30" fitWidth="30" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
-                <Image url="@images/KeyQuestUserIcon.png" />
-            </ImageView>
+            <ImageView fx:id="logoImageView"
+                       fitWidth="50" fitHeight="50"
+                       pickOnBounds="true"
+                       preserveRatio="true"/>
+            <Button fx:id="homeButton" text="Home"
+                    onAction="#handleHomeAction"
+                    style="-fx-background-color: #A37A38; -fx-text-fill: white;"/>
+            <Button fx:id="checkPostsButton" text="Check Posts"
+                    onAction="#handleCheckPostsAction"
+                    style="-fx-background-color: #A37A38; -fx-text-fill: white;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="welcomeLabel" text="Welcome, …"/>
+            <ImageView fx:id="profileImageView"
+                       fitWidth="40" fitHeight="40"
+                       pickOnBounds="true"
+                       preserveRatio="true"/>
         </HBox>
-        
-        <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="searchSongButton" onAction="#goToPlaySong" text="Search Songs" />
-            <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" />
-            <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" />
+    </top>
+
+    <!-- Main content -->
+    <center>
+        <HBox spacing="20">
+            <!-- REPLACED padding="20" with Insets block -->
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- LEFT: Post details -->
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <Label fx:id="postTitleLabel"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+                <HBox spacing="5" alignment="CENTER_LEFT">
+                    <Label text="from"/>
+                    <Label fx:id="authorLabel" style="-fx-font-style: italic;"/>
+                    <Label text="—"/>
+                    <Label fx:id="songLabel" style="-fx-font-weight: bold;"/>
+                </HBox>
+
+                <!-- scrollable post body -->
+                <ScrollPane fx:id="postBodyScroll"
+                            fitToWidth="true"
+                            prefViewportHeight="200"
+                            VBox.vgrow="ALWAYS">
+                    <Text fx:id="contentText"
+                          wrappingWidth="400"/>
+                </ScrollPane>
+            </VBox>
+
+            <!-- RIGHT: Comments -->
+            <VBox spacing="10" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+                <Label text="COMMENTS"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                <!-- scrollable comments list -->
+                <ScrollPane fx:id="commentsScroll"
+                            fitToWidth="true"
+                            prefViewportHeight="300"
+                            VBox.vgrow="ALWAYS">
+                    <VBox fx:id="commentsContainer"
+                          spacing="10"
+                          style="-fx-background-color: #F5D79A;">
+                        <!-- REPLACED padding="10" with Insets block -->
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                    </VBox>
+                </ScrollPane>
+
+                <HBox spacing="10">
+                    <TextField fx:id="commentInput"
+                               promptText="Leave a comment…"
+                               HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="commentButton"
+                            text="Comment"
+                            onAction="#handleCommentAction"
+                            style="-fx-background-color: #A37A38; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
         </HBox>
-    </VBox>
+    </center>
 
-    <!-- Song Metadata -->
-    <VBox spacing="5">
-        <Label fx:id="titleLabel" text="Title" />
-        <Label fx:id="artistLabel" text="Artist" />
-        <Label fx:id="genreLabel" text="Genre" />
-        <Label fx:id="difficultyLabel" text="Difficulty" />
-    </VBox>
-
-    <!-- Scrollable Sheet Music -->
-    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
-        <content>
-            <VBox fx:id="sheetMusicContainer" spacing="20" />
-        </content>
-    </ScrollPane>
-
-    <!-- Instrument & Playback Controls -->
-    <HBox alignment="CENTER_LEFT" spacing="10">
-        <Label text="Instrument:" />
-        <ComboBox fx:id="instrumentDropdown" prefWidth="150.0" />
-    </HBox>
-
-    <HBox alignment="CENTER_LEFT" spacing="10">
-        <Button fx:id="playButton" onAction="#onPlay" text="Play" />
-        <Button fx:id="muteButton" onAction="#onMute" text="Mute" />
-        <Button fx:id="loopButton" onAction="#onToggleLoop" text="Loop" />
-        <Button fx:id="backButton" onAction="#onBack" text="Back" />
-    </HBox>
-
-</VBox>
+</BorderPane>
