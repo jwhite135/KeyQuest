@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" styleClass="form-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.PostViewController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>   
+    <children>
+        <!-- Navigation Bar - Compact at the top -->
+        <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10" />
+            </padding>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="10">
+                <Label fx:id="usernameLabel" text="Welcome, User" />
+                <!-- Profile picture instead of home button -->
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@images/KeyQuestUserIcon.png" />
+                </ImageView>
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="searchSongButton" text="Search Songs" style="-fx-opacity: 0.7;" disable="true" />
+                <Button fx:id="makeSongButton" onAction="#goToMakeSong" text="Make a Song" />
+                <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" />
+            </HBox>
+        </VBox>
+         <ImageView fitHeight="96.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@images/KeyQuestLogoTransparent.png" />
+            </image>
+         </ImageView>
+
+         <Label alignment="CENTER" text="Song Search">
+            <font>
+               <Font name="Palatino Linotype" size="30.0" />
+            </font>
+         </Label>
+
+         <HBox alignment="CENTER" spacing="10.0">
+            <children>
+               <ComboBox fx:id="searchTypeCombo" prefWidth="120.0" />
+               <TextField fx:id="searchField" promptText="Search..." prefWidth="250.0" />
+               <Button fx:id="searchButton" text="Search" onAction="#onSearch" />
+            </children>
+         </HBox>
+
+         <Label fx:id="errorMessage" textFill="red" />
+
+         <VBox fx:id="resultsBox" spacing="10.0" prefHeight="250.0" prefWidth="600.0" style="-fx-border-color: lightgray; -fx-border-width: 1;">
+            <!-- Results dynamically added here -->
+         </VBox>
+      <ImageView fx:id="backArrow" fitHeight="23.0" fitWidth="58.0" onMouseClicked="#goToHome"
+                 pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@images/BackArrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>
