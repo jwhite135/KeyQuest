@@ -5,6 +5,7 @@
 
 .button {
     -fx-color: #A5762C;
+    -fx-text-fill: white;
 }
 
 .form-container {
@@ -43,4 +44,9 @@
 .song-meta {
     -fx-text-fill: #666666;
     -fx-font-size: 12px;
+}
+
+.apply-button {
+    -fx-background-color: white;
+    -fx-text-fill: black;
 }

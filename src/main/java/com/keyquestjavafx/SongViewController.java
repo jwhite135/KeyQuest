@@ -35,6 +35,11 @@ public class SongViewController {
     @FXML private Button muteButton;
     @FXML private Button loopButton;
     @FXML private Button backButton;
+    @FXML private Button searchSongButton;
+    @FXML private Button makeSongButton;
+    @FXML private Button checkPostsButton;
+    @FXML private Label usernameLabel;
+    @FXML private ImageView profilePicButton;
 
     private Song song;
     private KeyQuestFACADE facade;
@@ -73,6 +78,10 @@ public class SongViewController {
     public void initialize() {
         instrumentDropdown.getItems().addAll("Piano", "Guitar", "Violin", "Flute");
         instrumentDropdown.setValue("Piano");
+        facade = KeyQuestFACADE.getInstance();
+        if (usernameLabel != null) {
+            usernameLabel.setText("Welcome, " + facade.getCurrentUser().getUsername());
+        }
     }
 
     private void updateMetadata() {
@@ -218,7 +227,7 @@ public class SongViewController {
         ImageView view = new ImageView(new Image(input));
         view.setPreserveRatio(true);
         if (isRest) {
-            view.setFitHeight(imageHeight * 0.75);  // ✅ Only rests are scaled down
+            view.setFitHeight(imageHeight * 0.75);  // Only rests are scaled down
         } else {
             view.setFitHeight(imageHeight);
         }
@@ -278,5 +287,29 @@ public class SongViewController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML private void goToPlaySong() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SongSearch.fxml"));
+            Parent root = loader.load();
+            SongSearchController controller = loader.getController();
+            controller.setFacade(facade);
+            backButton.getScene().setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML private void goToMakeSong() throws IOException {
+        App.setRoot("CreateSong2");
+    }
+
+    @FXML private void goToCheckPosts() throws IOException {
+        App.setRoot("PostsPage");
+    }
+
+    @FXML private void goToProfile() throws IOException {
+        App.setRoot("ProfilePage");
     }
 }

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -22,6 +23,11 @@ public class SongSearchController {
     @FXML private ComboBox<String> searchTypeCombo;
     @FXML private Label errorMessage;
     @FXML private VBox resultsBox;
+    @FXML private Button searchSongButton;
+    @FXML private Button makeSongButton;
+    @FXML private Button checkPostsButton;
+    @FXML private Label usernameLabel;
+    @FXML private ImageView profilePicButton;
 
     private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
 
@@ -115,5 +121,17 @@ public class SongSearchController {
 
     public void setFacade(KeyQuestFACADE facade) {
         this.facade = facade;
+    }
+
+    @FXML private void goToMakeSong() throws IOException {
+        App.setRoot("CreateSong2");
+    }
+
+    @FXML private void goToCheckPosts() throws IOException {
+        App.setRoot("PostsPage");
+    }
+
+    @FXML private void goToProfile() throws IOException {
+        App.setRoot("ProfilePage");
     }
 }
