@@ -1,6 +1,9 @@
 package com.keyquestjavafx;
 
+import java.io.File;
 import java.io.IOException;
+
+import com.model.KeyQuestFACADE;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class AccountSettingsController {
 
@@ -135,5 +140,51 @@ public class AccountSettingsController {
         String selectedLanguage = changeLanguageChoiceBox.getValue();
         // Logic to apply the new language
         System.out.println("New language applied: " + selectedLanguage);
+    }
+
+    @FXML
+    private void chooseFile() {
+        KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Profile Picture");
+
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog((Stage) changeProfilePictureButton.getScene().getWindow());
+
+        if (selectedFile != null) {
+            try {
+                // Define your target file path in the photos directory
+                String photosDirPath = getClass().getClassLoader()
+                .getResource("com/keyquestjavafx/images")
+                .getPath();
+                File photosDir = new File(photosDirPath);
+
+                // Give the file a new name (you can customize this)
+                String ext = getFileExtension(selectedFile);
+                String newFileName = facade.getUser().getUsername() + "_profilepic" + ext;
+                File destinationFile = new File(photosDir, newFileName);
+
+                // Copy the file to the destination
+                java.nio.file.Files.copy(
+                    selectedFile.toPath(),
+                    destinationFile.toPath(),
+                    java.nio.file.StandardCopyOption.REPLACE_EXISTING
+                );
+
+                System.out.println("Saved file to: " + destinationFile.getAbsolutePath());
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private String getFileExtension(File file) {
+        String name = file.getName();
+        int lastIndex = name.lastIndexOf('.');
+        return (lastIndex > 0) ? name.substring(lastIndex) : "";
     }
 }

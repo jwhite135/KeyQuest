@@ -1,5 +1,6 @@
 package com.keyquestjavafx;
 
+import java.io.File;
 import java.io.IOException;
 
 import com.model.KeyQuestFACADE;
@@ -61,6 +62,17 @@ public class HomePageController {
         KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
         if (facade.getUser() != null) {
             username.setText(facade.getUser().getUsername() + "   ");
+        }
+
+        String photosDirPath = getClass().getClassLoader()
+                .getResource("com/keyquestjavafx/images")
+                .getPath();
+        System.out.println("photosDirPath: " + photosDirPath + facade.getUser().getUsername() + "_profile.png");
+        
+        File file = new File(photosDirPath + facade.getUser().getUsername()+ "_profilepic.png");
+
+        if (file.exists()) {
+            userImage.setImage(new javafx.scene.image.Image(file.toURI().toString()));
         }
     }
 }
