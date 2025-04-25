@@ -1,5 +1,6 @@
 package com.keyquestjavafx;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -13,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -41,20 +41,14 @@ public class PostViewController {
 
     // Facade to encapsulate data retrieval & persistence
     private KeyQuestFACADE postFacade = KeyQuestFACADE.getInstance();
+    private Post post;
 
     @FXML
     public void initialize() {
-        // — Load static assets (logo / profile placeholder) —
-        logoImageView.setImage(new Image(
-            getClass().getResourceAsStream("@images/KeyQuestLogoTransparent.png")
-        ));
-        profileImageView.setImage(new Image(
-            getClass().getResourceAsStream("@images/KeyQuestUserIcon.png")
-        ));
-
         // — Populate dynamic data —
-        String currentUser = postFacade.getCurrentUsername();
-        welcomeLabel.setText("Welcome, " + currentUser);
+        if (welcomeLabel != null) {
+            welcomeLabel.setText("Welcome, " + postFacade.getCurrentUsername() + "!");
+        }
 
         loadPostData();
         loadComments();
@@ -63,25 +57,26 @@ public class PostViewController {
         commentsScroll.vvalueProperty().bind(commentsContainer.heightProperty());
     }
 
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
     private void loadPostData() {
-        // TODO: replace with real backend call
-        Post post = postFacade.getCurrentPost();
         postTitleLabel.setText(post.getTitle());
-        authorLabel .setText(post.getAuthor());
-        songLabel   .setText(post.getSong());
-        contentText .setText(post.getBody());
+        authorLabel.setText(post.getAuthor().getUsername() + "   -   " + post.getDate().toString());
+        songLabel.setText(post.getSong().getName());
+        contentText.setText(post.getBody());
     }
 
     private void loadComments() {
         commentsContainer.getChildren().clear();
 
-        // TODO: fetch comments list from your service
-        List<Comment> comments = postFacade.getCommentsForCurrentPost();
+        List<Comment> comments = post.getComments();
         for (Comment c : comments) {
             addCommentToView(
-                c.getUser(),
-                c.getTimestamp().format(DateTimeFormatter.ofPattern("M/d/yyyy h:mm a")),
-                c.getText()
+                c.getAuthor().getUsername(),
+                c.getDate().toString(),
+                c.getBody()
             );
         }
     }
@@ -103,19 +98,21 @@ public class PostViewController {
 
     @FXML
     private void handleCommentAction() {
-        String newComment = commentInput.getText().trim();
-        if (newComment.isEmpty()) {
+        String commentTextInput = commentInput.getText().trim();
+        if (commentTextInput.isEmpty()) {
             return; // nothing to add
         }
 
-        // TODO: persist the new comment via your facade / service layer
-        postFacade.addCommentToCurrentPost(newComment);
+        // public Post(String song, User author, String title, String body)
+        // public Comment(String body, User author)
+
+        postFacade.makeComment(this.post, commentTextInput);
 
         // Immediately reflect in UI
         addCommentToView(
             postFacade.getCurrentUsername(),
             LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/yyyy h:mm a")),
-            newComment
+            commentTextInput
         );
 
         // Clear input
@@ -123,15 +120,13 @@ public class PostViewController {
     }
 
     @FXML
-    private void handleHomeAction() {
-        // TODO: navigate to your Home scene
-        postFacade.goHome();
+    private void handleHomeAction() throws IOException {
+        App.setRoot("HomePage");
     }
 
     @FXML
-    private void handleCheckPostsAction() {
-        // TODO: navigate to the Posts list scene
-        postFacade.showAllPosts();
+    private void handleCheckPostsAction() throws IOException {
+        App.setRoot("PostSearch");
     }
 }
 
