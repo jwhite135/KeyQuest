@@ -40,7 +40,7 @@
 
             <ImageView fx:id="profileImageView" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@images/profile_placeholder.png" />
+                    <Image url="@images/KeyQuestUserIcon.png" />
                 </image>
             </ImageView>
         </HBox>
