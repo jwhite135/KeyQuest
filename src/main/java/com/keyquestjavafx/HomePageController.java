@@ -43,7 +43,7 @@ public class HomePageController {
 
     @FXML
     void goToCheckPosts() throws IOException {
-        App.setRoot("PostsPage");
+        App.setRoot("PostSearch");
     }
 
     @FXML
