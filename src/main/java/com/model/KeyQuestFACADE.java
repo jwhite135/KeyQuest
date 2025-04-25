@@ -47,6 +47,13 @@ public class KeyQuestFACADE {
         return user;
     }
 
+    public String getCurrentUsername() {
+        if (user != null) {
+            return user.getUsername();
+        }
+        return "null";
+    }
+
     /**
      * Determines if the user is logged in
      * @params email and password of the user
