@@ -119,14 +119,21 @@ public class PostViewController {
         commentInput.clear();
     }
 
+    // --- Navigation controls ---
+
+    // Handles cases for both the home button and the logo image
     @FXML
-    private void handleHomeAction() throws IOException {
+    private void goToHome() throws IOException {
         App.setRoot("HomePage");
     }
 
     @FXML
-    private void handleCheckPostsAction() throws IOException {
+    private void goToPostsSearch() throws IOException {
         App.setRoot("PostSearch");
+    }
+
+    @FXML private void goToProfile() throws IOException {
+        App.setRoot("ProfilePage");
     }
 }
 

@@ -27,18 +27,18 @@
                 <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
 
-            <ImageView fx:id="logoImageView" fitHeight="100" fitWidth="100" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoImageView" fitHeight="100" fitWidth="100" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToHome">
                 <image>
                     <Image url="@images/KeyQuestLogoTransparent.png" />
                 </image>
             </ImageView>
 
-            <Button fx:id="homeButton" onAction="#handleHomeAction" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Home" />
-            <Button fx:id="checkPostsButton" onAction="#handleCheckPostsAction" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Check Posts" />
+            <Button fx:id="homeButton" onMouseClicked="#goToHome" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Home" />
+            <Button fx:id="checkPostsButton" onMouseClicked="#goToPostsSearch" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Check Posts" />
             <Region HBox.hgrow="ALWAYS" />
             <Label fx:id="welcomeLabel" prefHeight="17.0" prefWidth="143.0" text="Welcome, …" />
 
-            <ImageView fx:id="profileImageView" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profileImageView" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToProfile">
                 <image>
                     <Image url="@images/KeyQuestUserIcon.png" />
                 </image>
