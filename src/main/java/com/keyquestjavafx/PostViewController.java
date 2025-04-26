@@ -63,6 +63,10 @@ public class PostViewController {
         this.post = post;
     }
 
+    public void setFacade(KeyQuestFACADE facade) {
+        this.postFacade = facade;
+    }
+
     private void loadPostData() {
         postTitleLabel.setText(post.getTitle());
         authorLabel.setText(post.getAuthor().getUsername() + "   -   " + post.getDate().toString());

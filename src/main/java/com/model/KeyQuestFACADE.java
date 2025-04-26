@@ -120,7 +120,7 @@ public class KeyQuestFACADE {
         return posts.searchByUser(user);
     }
 
-    public ArrayList<Post> searchBySong(String song) {
+    public ArrayList<Post> searchPostsBySong(String song) {
         return posts.searchBySong(song);
     }
 
@@ -128,7 +128,7 @@ public class KeyQuestFACADE {
         return posts.searchByName(title);
     }
 
-    public ArrayList<Post> searchPostsByArtist(String artist) {
+    public ArrayList<Post> searchPostsByAuthor(String artist) {
         return posts.searchByArtist(artist);
     }
 
