@@ -49,7 +49,7 @@ public class NotificationSettingsController {
 
     @FXML
     private void goToMakeSong() throws IOException {
-        App.setRoot("CreateSong");
+        App.setRoot("CreateSong2");
     }
 
     @FXML

@@ -14,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 public class SongSearchController {
@@ -32,7 +31,7 @@ public class SongSearchController {
     private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
 
     @FXML
-    private void goToHome(MouseEvent event) throws IOException {
+    private void goToHome() throws IOException {
         App.setRoot("HomePage");
     }
 

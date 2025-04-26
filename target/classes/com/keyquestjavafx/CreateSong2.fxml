@@ -20,26 +20,33 @@
     </stylesheets>
     
     <top>
-        <!-- Navigation Bar - Compact at the top -->
-        <VBox styleClass="form-container" spacing="5" alignment="TOP_CENTER">
-            <padding>
-                <Insets top="5" right="10" bottom="5" left="10" />
-            </padding>
-            
-            <HBox alignment="CENTER_RIGHT" spacing="10">
-                <Label fx:id="usernameLabel" text="Welcome, User" />
-                <!-- Profile picture instead of home button -->
-                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="30" fitWidth="30" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@images/KeyQuestUserIcon.png" />
+        <!-- Navigation Bar with KeyQuest Logo -->
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color: #EDE4D1; -fx-padding: 10;">
+            <!-- KeyQuest Logo on the left -->
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="logoImageView" onMouseClicked="#goToHome" fitHeight="50" fitWidth="70" 
+                          pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/KeyQuestLogoTransparent.png" />
+                    </image>
                 </ImageView>
             </HBox>
             
-            <HBox alignment="CENTER" spacing="20">
-                <Button fx:id="playSongButton" onAction="#goToPlaySong" text="Search Songs" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
-                <Button fx:id="makeSongButton" text="Make a Song" style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-opacity: 0.7;" disable="true" />
-                <Button fx:id="checkPostsButton" onAction="#goToCheckPosts" text="Check Posts" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+            <!-- Empty space in the middle to maintain spacing -->
+            <HBox alignment="CENTER" spacing="15" HBox.hgrow="ALWAYS">
+                <!-- No buttons here anymore -->
             </HBox>
-        </VBox>
+            
+            <!-- Profile icon on the right -->
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" maxWidth="100">
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="40" fitWidth="40" 
+                          pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/KeyQuestUserIcon.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+        </HBox>
     </top>
     
     <center>

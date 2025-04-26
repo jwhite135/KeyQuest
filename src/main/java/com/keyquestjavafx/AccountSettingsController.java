@@ -77,7 +77,7 @@ public class AccountSettingsController {
 
     @FXML
     private void goToMakeSong() throws IOException {
-        App.setRoot("CreateSong");
+        App.setRoot("CreateSong2");
     }
 
     @FXML

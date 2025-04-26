@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +24,6 @@ import javafx.scene.shape.Line;
 
 public class SongViewController {
 
-    @FXML private ComboBox<String> instrumentDropdown;
     @FXML private VBox sheetMusicContainer;
     @FXML private Label titleLabel;
     @FXML private Label artistLabel;
@@ -40,9 +38,11 @@ public class SongViewController {
     @FXML private Button checkPostsButton;
     @FXML private Label usernameLabel;
     @FXML private ImageView profilePicButton;
+    @FXML private ImageView backArrow;
 
     private Song song;
     private KeyQuestFACADE facade;
+    private final String defaultInstrument = "Piano";
 
     private boolean loopEnabled = false;
     private boolean isMuted = false;
@@ -61,7 +61,7 @@ public class SongViewController {
         pitchToY.put("E5", 85);
         pitchToY.put("F5", 80);
         pitchToY.put("G5", 75);
-        pitchToY.put("R", 100); // Rest
+        pitchToY.put("R", 100);
     }
 
     public void setSong(Song song) {
@@ -76,8 +76,6 @@ public class SongViewController {
 
     @FXML
     public void initialize() {
-        instrumentDropdown.getItems().addAll("Piano", "Guitar", "Violin", "Flute");
-        instrumentDropdown.setValue("Piano");
         facade = KeyQuestFACADE.getInstance();
         if (usernameLabel != null) {
             usernameLabel.setText("Welcome, " + facade.getCurrentUser().getUsername());
@@ -85,10 +83,21 @@ public class SongViewController {
     }
 
     private void updateMetadata() {
-        titleLabel.setText("Name: " + song.getName());
-        artistLabel.setText("Artist: " + song.getArtist());
-        genreLabel.setText("Genre: " + song.getGenre().toString().toLowerCase());
-        difficultyLabel.setText("Difficulty: " + String.valueOf(song.getDifficulty()));
+        titleLabel.setText(song.getName());
+        artistLabel.setText(song.getArtist());
+        genreLabel.setText(song.getGenre().toString().toLowerCase());
+        difficultyLabel.setText(getRatingStars(song.getDifficulty()));
+    }
+    
+    private String getRatingStars(int difficulty) {
+        StringBuilder stars = new StringBuilder();
+        for (int i = 0; i < difficulty; i++) {
+            stars.append("★");
+        }
+        for (int i = difficulty; i < 5; i++) {
+            stars.append("☆"); 
+        }
+        return stars.toString();
     }
 
     private void renderSheetMusic() {
@@ -100,14 +109,12 @@ public class SongViewController {
                 measurePane.setPrefHeight(150);
                 measurePane.setPrefWidth(500);
 
-                // Draw 5 staff lines
                 for (int i = 0; i < 5; i++) {
                     Line line = new Line(0, 90 + i * 10, 500, 90 + i * 10);
                     line.setStroke(Color.LIGHTGRAY);
                     measurePane.getChildren().add(line);
                 }
 
-                // Draw clef symbol and time signature
                 ImageView clef = loadSymbol("treble_clef.png", 60);
                 if (clef != null) {
                     clef.setLayoutX(5);
@@ -128,7 +135,7 @@ public class SongViewController {
                     timeSig = loadSymbol("time_signature_6_8.png", 58);
                     timeSig.setLayoutY(82);
                 } else {
-                    timeSig = loadSymbol("time_signature_4_4.png", 58); // Default to 4/4 if not recognized
+                    timeSig = loadSymbol("time_signature_4_4.png", 58);
                 }
                 if (timeSig != null) {
                     timeSig.setLayoutX(50);
@@ -235,7 +242,6 @@ public class SongViewController {
         return view;
     }
     
-
     private ImageView loadSymbol(String filename, double height) {
         var input = getClass().getResourceAsStream("/com/keyquestjavafx/images/" + filename);
         if (input == null) {
@@ -251,28 +257,35 @@ public class SongViewController {
     @FXML
     private void onPlay() {
         if (facade != null && song != null) {
-            new Thread(() -> {
-                do {
-                    facade.playSong(song);
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        break;
-                    }
-                } while (loopEnabled);
-            }).start();
+            if (isMuted) {
+                System.out.println("Playing song (muted): " + song.getName() + " with " + defaultInstrument);
+            } else {
+                System.out.println("Playing song: " + song.getName() + " with " + defaultInstrument);
+                new Thread(() -> {
+                    do {
+                        facade.playSong(song);
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            break;
+                        }
+                    } while (loopEnabled);
+                }).start();
+            }
         }
     }
 
     @FXML
     private void onMute() {
         isMuted = !isMuted;
+        muteButton.setText(isMuted ? "Unmute" : "Mute");
         System.out.println("Muted: " + isMuted);
     }
 
     @FXML
     private void onToggleLoop() {
         loopEnabled = !loopEnabled;
+        loopButton.setText(loopEnabled ? "Unloop" : "Loop");
         System.out.println("Loop: " + loopEnabled);
     }
 
@@ -283,13 +296,16 @@ public class SongViewController {
             Parent root = loader.load();
             SongSearchController controller = loader.getController();
             controller.setFacade(facade);
-            backButton.getScene().setRoot(root);
+            
+            // Use backArrow instead of backButton to get the scene
+            backArrow.getScene().setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML private void goToPlaySong() throws IOException {
+    @FXML
+    private void goToPlaySong() throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SongSearch.fxml"));
             Parent root = loader.load();
@@ -301,15 +317,23 @@ public class SongViewController {
         }
     }
 
-    @FXML private void goToMakeSong() throws IOException {
+    @FXML
+    private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong2");
     }
 
-    @FXML private void goToCheckPosts() throws IOException {
+    @FXML
+    private void goToCheckPosts() throws IOException {
         App.setRoot("PostsPage");
     }
 
-    @FXML private void goToProfile() throws IOException {
+    @FXML
+    private void goToProfile() throws IOException {
         App.setRoot("ProfilePage");
+    }
+
+    @FXML
+    private void goToHome() throws IOException {
+        App.setRoot("HomePage");
     }
 }
