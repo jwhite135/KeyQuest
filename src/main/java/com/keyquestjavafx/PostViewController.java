@@ -10,6 +10,8 @@ import com.model.KeyQuestFACADE;
 import com.model.Post;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -134,6 +136,22 @@ public class PostViewController {
 
     @FXML private void goToProfile() throws IOException {
         App.setRoot("ProfilePage");
+    }
+
+    @FXML private void goToPostSong() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
+            Parent root = loader.load();
+    
+            SongViewController controller = loader.getController();
+            controller.setFacade(KeyQuestFACADE.getInstance());
+            controller.setSong(post.getSong());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

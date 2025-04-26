@@ -60,7 +60,7 @@
                 <!-- Generic creator label -->
                 <Label fx:id="postCreatorLabel" style="-fx-font-style: italic;" />
                 <!-- Generic song label -->
-                <Label fx:id="songNameLabel" style="-fx-font-weight: bold;" />
+                <Label fx:id="songNameLabel" style="-fx-font-weight: bold;" onMouseClicked="#goToPostSong" />
 
                 <!-- scrollable post body -->
                 <ScrollPane fx:id="postBodyScroll" fitToWidth="true" prefViewportHeight="180" VBox.vgrow="ALWAYS">
