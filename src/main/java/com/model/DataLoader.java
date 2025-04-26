@@ -1,8 +1,10 @@
 package com.model;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.UUID;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -180,6 +182,98 @@ public class DataLoader extends DataConstants {
      * Reads in the posts from the JSON file and returns an ArrayList of posts for the PostDatabase
      * @return ArrayList<Post> posts
      */
+    
+    /*
+    public class DataWriter {
+    private static final String USER_FILE_NAME = "Users.json";
+    private static final String POST_FILE_NAME = "Posts.json";
+
+    // JSON keys for User
+    private static final String USER_ID       = "id";
+    private static final String USER_USERNAME = "username";
+    private static final String USER_EMAIL    = "email";
+    // …etc…
+
+    // JSON keys for Post
+    private static final String POST_ID         = "id";
+    private static final String POST_SONG_ID    = "songID";
+    private static final String POST_COMMENTS   = "comments";
+    private static final String POST_AUTHOR_ID  = "authorID";
+    private static final String POST_DATE       = "date";
+    private static final String POST_PRIVATE    = "isPrivate";
+    private static final String POST_TITLE      = "title";
+    private static final String POST_BODY       = "body";
+    private static final String POST_NUM_FAVORITES = "favorites";
+
+    // JSON keys for Comment
+    private static final String COMMENT_BODY      = "body";
+    private static final String COMMENT_AUTHOR_ID = "authorID";
+    private static final String COMMENT_DATE      = "date";
+
+    /** Build a lookup map so getUserById is O(1) instead of re-parsing JSON each time. */
+    private static Map<UUID,User> buildUserMap() {
+        Map<UUID,User> map = new HashMap<>();
+        for (User u : getUsers()) {
+            map.put(u.getUUID(), u);
+        }
+        return map;
+    }
+
+    /** Simple helper: find a loaded User by their UUID (or null if not found). */
+    public static User getUserById(UUID userId) {
+        return buildUserMap().get(userId);
+    }
+
+    /** Now enhance your existing getPosts() to wire up the authors. */
+    public static ArrayList<Post> getPosts() {
+        ArrayList<Post> posts = new ArrayList<>();
+        Map<UUID,User> userMap = buildUserMap();
+
+        try (FileReader reader = new FileReader(POST_FILE_NAME)) {
+            JSONArray postsJSON = (JSONArray)new JSONParser().parse(reader);
+            for (Object o : postsJSON) {
+                JSONObject postJSON = (JSONObject)o;
+
+                UUID    id        = UUID.fromString((String)postJSON.get(POST_ID));
+                UUID    songID    = UUID.fromString((String)postJSON.get(POST_SONG_ID));
+                int     favorites = ((Long)postJSON.get(POST_NUM_FAVORITES)).intValue();
+
+                // —— parse comments, setting each comment's author too ——  
+                ArrayList<Comment> comments = new ArrayList<>();
+                JSONArray commentList = (JSONArray)postJSON.get(POST_COMMENTS);
+                for (Object cObj : commentList) {
+                    JSONObject cJson = (JSONObject)cObj;
+                    String  text     = (String)cJson.get(COMMENT_BODY);
+                    UUID    cAuthID  = UUID.fromString((String)cJson.get(COMMENT_AUTHOR_ID));
+                    LocalDate cDate  = LocalDate.parse((String)cJson.get(COMMENT_DATE));
+
+                    Comment comment = new Comment(text, null, cDate);
+                    comment.setAuthor( userMap.get(cAuthID) );
+                    comments.add(comment);
+                }
+
+                // —— parse the post itself ——  
+                UUID      authorID  = UUID.fromString((String)postJSON.get(POST_AUTHOR_ID));
+                LocalDate date      = LocalDate.parse((String)postJSON.get(POST_DATE));
+                boolean   isPrivate = (boolean)postJSON.get(POST_PRIVATE);
+                String    title     = (String)postJSON.get(POST_TITLE);
+                String    body      = (String)postJSON.get(POST_BODY);
+
+                Post p = new Post(
+                    id, songID, comments, authorID, date,
+                    isPrivate, title, body, favorites
+                );
+                // **here** we wire up the non-null author
+                p.setAuthor( userMap.get(authorID) );
+
+                posts.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
+    /*
     public static ArrayList<Post> getPosts() {
 
         ArrayList<Post> posts = new ArrayList<Post>();
@@ -224,5 +318,5 @@ public class DataLoader extends DataConstants {
         }
         // Returns the list of posts
         return posts;
-    }
+    } */
 }

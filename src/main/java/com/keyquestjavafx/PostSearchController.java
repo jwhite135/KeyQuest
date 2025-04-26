@@ -61,7 +61,7 @@ public class PostSearchController {
 
     /** Search button clicked */
     @FXML
-    private void onSearch(ActionEvent event) {
+    private void onSearch() {
         errorMessage.setText("");
         String type  = searchTypeCombo.getValue();
         String query = searchField.getText().trim();

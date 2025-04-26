@@ -52,5 +52,9 @@ public class Comment {
     public LocalDate getDate() {
         return date;
     }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
     
 }

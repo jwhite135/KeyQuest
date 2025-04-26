@@ -152,10 +152,17 @@ public class UI {
         return cMajorScale;
     }
 
+    public void postsScenario() {
+        System.out.println("Searching for posts by title 'Bohemian Rhapsody'...");
+        ArrayList<Post> posts = facade.searchPostsByName("Bohemian Rhapsody");
+        System.out.println(posts.get(0).getTitle() + " by " + posts.get(0).getAuthor().getUsername() + " on " + posts.get(0).getDate());
+    }
+
     public void run() {
         scenario1();
         //scenario2();
         //scenario3();
+        postsScenario();
     }
 
     public static void main(String[] args) {
