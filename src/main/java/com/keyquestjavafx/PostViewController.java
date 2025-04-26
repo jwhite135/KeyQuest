@@ -153,5 +153,20 @@ public class PostViewController {
             e.printStackTrace();
         }
     }
+
+    @FXML private void goToUser() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent root = loader.load();
+    
+            ProfilePageController controller = loader.getController();
+            controller.setUser(post.getAuthor());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

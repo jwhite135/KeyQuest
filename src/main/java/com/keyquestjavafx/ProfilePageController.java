@@ -36,18 +36,24 @@ public class ProfilePageController {
     @FXML
     private Label songErrorLabel;
 
+    private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+    private User currentUser = facade.getUser();
+
     @FXML
     void goToHome(MouseEvent event) throws IOException {
+        currentUser = facade.getUser();
         App.setRoot("HomePage");
     }
  
     @FXML
     void goToSettings() throws IOException {
+        currentUser = facade.getUser();
         App.setRoot("AccountSettings");
     }
 
     @FXML
     void goToPosts() throws IOException {
+        currentUser = facade.getUser();
         App.setRoot("PostsPage");
     }
 
@@ -81,6 +87,8 @@ public class ProfilePageController {
         }
 
         controller.setSong(selectedSong);
+        // Resetting back to the current user for future use
+        currentUser = facade.getUser();
         App.getScene().setRoot(root);
 
     } catch (IOException e) {
@@ -89,17 +97,25 @@ public class ProfilePageController {
     }
     }
 
+    public void setUser(User user) {
+        this.currentUser = user;
+    }
+
+    private void configureSettingsButton() {
+        boolean ownProfile = facade.getUser().getUsername().equals(currentUser.getUsername());
+        settingsButton.setVisible(ownProfile);
+        settingsButton.setManaged(ownProfile);
+    }
+
     @FXML
     public void initialize() {
-        KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
-        User currentUser = facade.getUser();
-
         if (currentUser != null) {
             usernameLabel.setText(currentUser.getUsername());
             // Populate favorite songs
             currentUser.getFavoriteSongs().forEach(song -> favoriteSongsList.getItems().add(song.getName()));
             // Populate favorite posts
             currentUser.getFavoritePosts().forEach(post -> favoritePostsList.getItems().add(post.getBody()));
+            configureSettingsButton();
         }
         
         favoriteSongsList.setOnMouseClicked(event -> {

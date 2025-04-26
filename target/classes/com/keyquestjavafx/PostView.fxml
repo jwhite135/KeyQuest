@@ -58,7 +58,7 @@
                 <!-- Generic title label -->
                 <Label fx:id="postTitleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
                 <!-- Generic creator label -->
-                <Label fx:id="postCreatorLabel" style="-fx-font-style: italic;" />
+                <Label fx:id="postCreatorLabel" style="-fx-font-style: italic;" onMouseClicked="#goToUser" />
                 <!-- Generic song label -->
                 <Label fx:id="songNameLabel" style="-fx-font-weight: bold;" onMouseClicked="#goToPostSong" />
 
