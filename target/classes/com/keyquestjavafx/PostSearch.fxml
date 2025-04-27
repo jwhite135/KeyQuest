@@ -12,10 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<<<<<<< HEAD
-=======
 <?import javafx.scene.control.ScrollPane?>
->>>>>>> 4c1b4a37c80cf07a4be48eaa06c06a256d667a92
 
 <BorderPane prefHeight="700.0" prefWidth="1000.0"
             xmlns="http://javafx.com/javafx/17"
@@ -109,19 +106,11 @@
             <Label fx:id="errorMessage" textFill="red"/>
 
             <!-- results panel -->
-<<<<<<< HEAD
-            <VBox fx:id="resultsBox"
-                  spacing="10.0"
-                  prefWidth="600.0"
-                  VBox.vgrow="ALWAYS"
-                  style="-fx-border-color: lightgray; -fx-border-width: 1;"/>
-=======
             <ScrollPane fitToWidth="true" prefHeight="400.0" style="-fx-border-color: lightgray; -fx-border-width: 1;">
                 <content>
                     <VBox fx:id="resultsBox" spacing="10.0" prefWidth="600.0" />
                 </content>
             </ScrollPane>
->>>>>>> 4c1b4a37c80cf07a4be48eaa06c06a256d667a92
         </VBox>
     </center>
 

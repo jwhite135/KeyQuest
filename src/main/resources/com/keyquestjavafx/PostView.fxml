@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="425.0" prefWidth="653.0"
-            style="-fx-background-color: #E8E0C0;"
+            style="-fx-background-color: #EDE4D1;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.keyquestjavafx.PostViewController">
@@ -25,9 +25,10 @@
     </stylesheets>
 
     <!-- Top bar -->
+    <!-- Correct KeyQuest color: #EDE4D1 -->
     <top>
         <HBox alignment="CENTER_LEFT" spacing="10"
-              style="-fx-background-color: #E8E0C0;">
+              style="-fx-background-color: #EDE4D1;">
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>

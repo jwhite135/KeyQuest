@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="425.0" prefWidth="653.0"
-            style="-fx-background-color: #E8E0C0;"
+            style="-fx-background-color: #EDE4D1;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.keyquestjavafx.PostViewController">
@@ -25,9 +25,10 @@
     </stylesheets>
 
     <!-- Top bar -->
+    <!-- Correct KeyQuest color: #EDE4D1 -->
     <top>
         <HBox alignment="CENTER_LEFT" spacing="10"
-              style="-fx-background-color: #E8E0C0;">
+              style="-fx-background-color: #EDE4D1;">
             <padding>
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
@@ -41,14 +42,6 @@
                 </image>
             </ImageView>
 
-<<<<<<< HEAD
-            <Button fx:id="homeButton"
-                    text="Home"
-                    style="-fx-background-color: #A37A38; -fx-text-fill: white;"
-                    onMouseClicked="#goToHome"/>
-
-=======
->>>>>>> 4c1b4a37c80cf07a4be48eaa06c06a256d667a92
             <Button fx:id="checkPostsButton"
                     text="Check Posts"
                     style="-fx-background-color: #A37A38; -fx-text-fill: white;"
