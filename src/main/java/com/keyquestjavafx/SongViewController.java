@@ -39,6 +39,8 @@ public class SongViewController {
     @FXML private Label usernameLabel;
     @FXML private ImageView profilePicButton;
     @FXML private ImageView backArrow;
+    @FXML private Button createPostButton;
+    @FXML private Button viewPostsButton;
 
     private Song song;
     private KeyQuestFACADE facade;
@@ -335,6 +337,38 @@ public class SongViewController {
     
             ProfilePageController controller = loader.getController();
             controller.setUser(facade.getUser());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onPostCreationClick() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostCreation.fxml"));
+            Parent root = loader.load();
+    
+            PostCreationController controller = loader.getController();
+            controller.setSong(this.song);
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onPostViewing() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostCreation.fxml"));
+            Parent root = loader.load();
+    
+            PostCreationController controller = loader.getController();
+            controller.setSong(this.song);
     
             App.getScene().setRoot(root);
     
