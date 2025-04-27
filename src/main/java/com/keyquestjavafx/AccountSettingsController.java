@@ -157,8 +157,19 @@ public class AccountSettingsController {
     @FXML
     private void applyUsername() {
         String newUsername = changeUsernameField.getText();
-        // Logic to apply the new username
-        System.out.println("New username applied: " + newUsername);
+        KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+        if (facade.checkUsername(newUsername)) {
+            if (facade.checkUsernameExists(newUsername)) {
+                System.out.println("Username already exists");
+            } else if (newUsername.equals(facade.getCurrentUsername())) {
+                System.out.println("Username is the same as the current one");
+            } else {
+                facade.getUser().setUsername(newUsername);
+                System.out.println("New username applied: " + newUsername);
+            }
+        } else {
+            System.out.println("Username is not valid");
+        }
     }
 
     /**
@@ -168,8 +179,13 @@ public class AccountSettingsController {
     @FXML
     private void applyPassword() {
         String newPassword = changePasswordField.getText();
-        // Logic to apply the new username
-        System.out.println("New password applied: " + newPassword);
+        KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+        if (facade.checkPassword(newPassword)) {
+            facade.getUser().setPassword(newPassword);
+            System.out.println("New password applied: " + newPassword);
+        } else {
+            System.out.println("Password is not valid");
+        }
     }
 
     /**

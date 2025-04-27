@@ -198,4 +198,27 @@ public class KeyQuestFACADE {
         //DataWriter.savePosts();
         DataWriter.saveSongs();
     }
+
+    public boolean checkUsername(String username) {
+        if (username.equals("")) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkUsernameExists(String username) {
+        for (User user : users.getUserList()) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkPassword(String password) {
+        if (password.equals("")) {
+            return false;
+        }
+        return true;
+    }
 }
