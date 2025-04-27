@@ -62,7 +62,7 @@ public class SongDatabase {
     public ArrayList<Song> searchByName(String name) {
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songList) {
-            if (song.getName().equalsIgnoreCase(name)) {
+            if (song.getName().toLowerCase().contains(name.toLowerCase())) {
                 result.add(song);
             }
             if (name.equalsIgnoreCase("all")) {
