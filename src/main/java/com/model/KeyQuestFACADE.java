@@ -117,6 +117,10 @@ public class KeyQuestFACADE {
      * Post Searching by User, Song, Name, Artist, Most Recent, and Most Liked
      */
 
+    public ArrayList<Post> getAllPosts() {
+        return posts.getPostList();
+    }
+
     public ArrayList<Post> searchByUser(String user) {
         return posts.searchByUser(user);
     }
@@ -144,6 +148,10 @@ public class KeyQuestFACADE {
     /*
      * Song Searching by Name, Artist, and Difficulty
      */
+
+     public ArrayList<Song> getAllSongs() {
+        return songs.getSongList();
+    }
 
     public ArrayList<Song> searchSongsByName(String name) {
         return songs.searchByName(name);

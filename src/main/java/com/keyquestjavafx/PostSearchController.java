@@ -57,6 +57,7 @@ public class PostSearchController {
             "Most Recent", "Most Liked"
         ));
         sortCombo.getSelectionModel().selectFirst();
+        currentResults = facade.getAllPosts();
     }
 
     /** Search button clicked */

@@ -39,6 +39,28 @@ public class SongSearchController {
     public void initialize() {
         searchTypeCombo.getItems().addAll("Name", "Artist", "Difficulty");
         searchTypeCombo.setValue("Name");
+        ArrayList<Song> results = facade.getAllSongs();
+        for (Song song : results) {
+            // Create label for title
+            Label title = new Label(song.getName());
+            title.getStyleClass().add("song-title");
+        
+            // Create label for artist/difficulty metadata
+            Label meta = new Label("By " + song.getArtist() + " • Difficulty: " + song.getDifficulty());
+            meta.getStyleClass().add("song-meta");
+        
+            VBox songContent = new VBox(title, meta);
+            songContent.setSpacing(2);
+        
+            Button songButton = new Button();
+            songButton.setGraphic(songContent);
+            songButton.setMaxWidth(Double.MAX_VALUE);
+            songButton.getStyleClass().add("search-result-button");
+        
+            songButton.setOnAction(e -> openSongView(song));
+            
+            resultsBox.getChildren().add(songButton);
+        }
     }
 
     @FXML
