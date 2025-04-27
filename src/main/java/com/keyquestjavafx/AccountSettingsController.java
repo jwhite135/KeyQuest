@@ -17,6 +17,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the Account Settings page
+ * This class handles the user input for changing account settings
+ * It interacts with the KeyQuestFACADE to update user information
+ * @author 
+ */
 public class AccountSettingsController {
 
     @FXML
@@ -70,37 +76,66 @@ public class AccountSettingsController {
     @FXML
     private Button applyLanguageButton;
 
+    /**
+     * Method to go to the song search page via Play Song button
+     */
     @FXML
     private void goToPlaySong() throws IOException {
         App.setRoot("SongSearch");
     }
 
+    /**
+     * Method to go to the create song page via Make Song button
+     */
     @FXML
     private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong2");
     }
 
+    /**
+     * Method to go to the check posts page via Check Posts button
+     */
     @FXML
     private void goToCheckPosts() throws IOException {
         //App.setRoot("");
         System.out.println("goToCheckPosts triggered");
     }
 
+    /**
+     * Method to go back to the home page via KeyQuestLogo png
+     * @param event Clicking on the KeyQuestLogo image
+     * @throws IOException If the page cannot be loaded
+     */
     @FXML
     private void goToHome(MouseEvent event) throws IOException {
         App.setRoot("HomePage");
     }
 
+    /**
+     * Method to go to the notification settings page via Notification Settings button
+     * @param event Clicking on the Notification Settings button
+     * @throws IOException If the page cannot be loaded
+     */
     @FXML
     private void goToNotifications(MouseEvent event) throws IOException {
         App.setRoot("NotificationSettings");
     }
 
+    /**
+     * Method to go to the preferences settings page via Preferences Settings button
+     * @param event Clicking on the Preferences Settings button
+     * @throws IOException If the page cannot be loaded
+     */
     @FXML
     private void goToPreferences(MouseEvent event) throws IOException {
         App.setRoot("PreferencesSettings");
     }
 
+    /**
+     * This method is called when the controller is initialized.
+     * It sets up the initial state of the UI components by populating the choice box with languages
+     * and setting the default theme toggle (light or dark mode).
+     */
     @FXML
     private void initialize() {
         changeLanguageChoiceBox.getItems().addAll("English", "Spanish", "French", "German");
@@ -115,6 +150,10 @@ public class AccountSettingsController {
         });
     }
 
+    /**
+     * This method is called when the user clicks the "Apply" button for changing the username.
+     * It retrieves the new username from the text field and applies it in the json.
+     */
     @FXML
     private void applyUsername() {
         String newUsername = changeUsernameField.getText();
@@ -122,6 +161,10 @@ public class AccountSettingsController {
         System.out.println("New username applied: " + newUsername);
     }
 
+    /**
+     * This method is called when the user clicks the "Apply" button for changing the password.
+     * It retrieves the new password from the text field and applies it in the json.
+     */
     @FXML
     private void applyPassword() {
         String newPassword = changePasswordField.getText();
@@ -129,12 +172,10 @@ public class AccountSettingsController {
         System.out.println("New password applied: " + newPassword);
     }
 
-    @FXML
-    private void applyProfilePicture() {
-        // Logic to apply the new profile picture
-        System.out.println("New profile picture applied");
-    }
-
+    /**
+     * This method is called when the user clicks the "Apply" button for changing the profile picture.
+     * It retrieves the new profile picture from the file chooser and applies it in the json.
+     */
     @FXML
     private void applyLanguage() {
         String selectedLanguage = changeLanguageChoiceBox.getValue();
@@ -142,6 +183,10 @@ public class AccountSettingsController {
         System.out.println("New language applied: " + selectedLanguage);
     }
 
+    /**
+     * This method is called when the user clicks the "Apply" button for changing the profile picture.
+     * It retrieves the new profile picture from the file chooser and applies it in the json.
+     */
     @FXML
     private void chooseFile() {
         KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
