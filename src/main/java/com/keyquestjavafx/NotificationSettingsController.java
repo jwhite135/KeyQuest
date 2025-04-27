@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -25,10 +24,10 @@ public class NotificationSettingsController {
     private CheckBox newFriendCheckBox;
 
     @FXML
-    private Label accountSettingsButton;
+    private Button accountSettingsButton;
 
     @FXML
-    private Label preferencesSettingsButton;
+    private Button preferencesSettingsButton;
 
     @FXML
     private ImageView homePageButton;

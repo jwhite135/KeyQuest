@@ -18,10 +18,10 @@ public class PreferencesSettingsController {
     private Label applyInstrumentButton;
 
     @FXML
-    private Label accountSettingsButton;
+    private Button accountSettingsButton;
 
     @FXML
-    private Label notificationsSettingsButton;
+    private Button notificationsSettingsButton;
 
     @FXML
     private ImageView homePageButton;
