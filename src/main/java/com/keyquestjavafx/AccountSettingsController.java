@@ -138,7 +138,7 @@ public class AccountSettingsController {
      */
     @FXML
     private void initialize() {
-        changeLanguageChoiceBox.getItems().addAll("English", "Spanish", "French", "German");
+        changeLanguageChoiceBox.getItems().addAll("English", "Spanish", "French", "Australian");
         changeLanguageChoiceBox.setValue("English");
 
         Theme.selectedToggleProperty().addListener((obs, oldToggle, newToggle) -> {
