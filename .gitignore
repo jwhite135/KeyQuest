@@ -1,2 +1,4 @@
 .vscode/
 pom.xml
+*.class
+target/

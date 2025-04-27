@@ -71,8 +71,14 @@
                 </content>
             </ScrollPane>
 
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER" spacing="10">
                 <Button fx:id="playButton" onAction="#onPlay" text="Play" 
+                       style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       prefWidth="120" prefHeight="40" />
+                <Button fx:id="createPostButton" onAction="#onPostCreationClick" text="Create Post" 
+                       style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       prefWidth="120" prefHeight="40" />
+                <Button fx:id="viewPostsButton" onAction="#onPostViewing" text="Check Posts" 
                        style="-fx-background-color: #A5762C; -fx-text-fill: white; -fx-font-size: 14px;" 
                        prefWidth="120" prefHeight="40" />
             </HBox>
