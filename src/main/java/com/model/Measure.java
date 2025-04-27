@@ -22,9 +22,9 @@ public abstract class Measure {
      * Method to play the measure
      * Loops through the chords and plays them
      */
-    public String playMeasure(String instrument) {
+    public String playMeasure() {
         for (int i = 0; i < chords.size(); i++) {
-            chords.get(i).playChord(instrument);
+            chords.get(i).playChord();
         }
         return "\n---------------------------------------------\n";
     }

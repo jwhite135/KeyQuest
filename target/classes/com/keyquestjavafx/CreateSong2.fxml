@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquestjavafx.CreateSong2Controller">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    
+    <top>
+        <!-- Navigation Bar with KeyQuest Logo -->
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color: #EDE4D1; -fx-padding: 10;">
+            <!-- KeyQuest Logo on the left -->
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="logoImageView" onMouseClicked="#goToHome" fitHeight="50" fitWidth="70" 
+                          pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/KeyQuestLogoTransparent.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+            
+            <!-- Empty space in the middle to maintain spacing -->
+            <HBox alignment="CENTER" spacing="15" HBox.hgrow="ALWAYS">
+                <!-- No buttons here anymore -->
+            </HBox>
+            
+            <!-- Profile icon on the right -->
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" maxWidth="100">
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="40" fitWidth="40" 
+                          pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/KeyQuestUserIcon.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+        </HBox>
+    </top>
+    
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10.0" styleClass="form-container">
+            <padding>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+            </padding>
+            
+            <Label text="Create Song" styleClass="header-label">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            
+            <!-- Song Metadata Section - Compact -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Song Title:" styleClass="form-label" />
+                <TextField fx:id="songTitleField" prefWidth="200" />
+                <Label text="Difficulty:" styleClass="form-label" />
+                <ComboBox fx:id="songDifficultyCombo" prefWidth="80" />
+                <Label text="Genre:" styleClass="form-label" />
+                <ComboBox fx:id="songGenreCombo" prefWidth="120" />
+            </HBox>
+            
+            <!-- Note Input Section - Minimized spacing -->
+            <VBox spacing="5" styleClass="settings-grid">
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="Pitch:" styleClass="form-label" />
+                    <ComboBox fx:id="notePitchCombo" prefWidth="100" />
+                    <Label text="Length:" styleClass="form-label" />
+                    <ComboBox fx:id="noteLengthCombo" prefWidth="100" />
+                    <Label text="Beat:" styleClass="form-label" />
+                    <ComboBox fx:id="noteBeatCombo" prefWidth="80" />
+                    <Button fx:id="addNoteButton" text="Add Note" onAction="#addNote" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                </HBox>
+                
+                <Label fx:id="measureCountLabel" text="Current Measure: 1" styleClass="form-label" style="-fx-font-weight: bold;" />
+            </VBox>
+            
+            <!-- Measure Display Section - Give most space to this section -->
+            <HBox spacing="15" VBox.vgrow="ALWAYS">
+                <!-- Current Measure -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Current Measure Notes" style="-fx-font-weight: bold;" />
+                    <ListView fx:id="currentMeasureList" VBox.vgrow="ALWAYS" />
+                    <Button fx:id="addMeasureButton" text="Add Measure" onAction="#addMeasure" maxWidth="Infinity" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+                </VBox>
+                
+                <!-- All Measures -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="All Measures" style="-fx-font-weight: bold;" />
+                    <ListView fx:id="allMeasuresList" VBox.vgrow="ALWAYS" />
+                </VBox>
+            </HBox>
+            
+            <!-- Save Button -->
+            <Button fx:id="saveSongButton" text="Save Song" onAction="#saveSong" prefWidth="150" style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+        </VBox>
+    </center>
+</BorderPane>

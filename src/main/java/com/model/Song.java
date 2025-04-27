@@ -60,8 +60,8 @@ public class Song {
         sheetMusic.get(0).addMeasure(measure);
     }
         
-    public String playSong(String instrument) {
-        return sheetMusic.get(0).playMeasures(instrument);
+    public String playSong() {
+        return sheetMusic.get(0).playMeasures();
     }
 
     /**
@@ -72,7 +72,7 @@ public class Song {
      */
     public void playAlong(Instrument instrument) {
         if(instrument instanceof Piano) {
-            sheetMusic.get(0).playMeasures(instrument.getName());
+            sheetMusic.get(0).playMeasures();
         } else {
             System.out.println("Instrument not supported");
         }

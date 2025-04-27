@@ -27,10 +27,10 @@ public class PianoMeasure extends Measure {
      * Loops through the chords and plays them using playChord()
      */
     @Override
-    public String playMeasure(String instrument) {
+    public String playMeasure() {
         String output = "";
         for (int i = 0; i < chords.size(); ++i) {
-            output += chords.get(i).playChord(instrument);
+            output += chords.get(i).playChord();
         }
         return output +"\n---------------------------------------------\n";
     }

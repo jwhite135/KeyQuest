@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +24,6 @@ import javafx.scene.shape.Line;
 
 public class SongViewController {
 
-    @FXML private ComboBox<String> instrumentDropdown;
     @FXML private VBox sheetMusicContainer;
     @FXML private Label titleLabel;
     @FXML private Label artistLabel;
@@ -41,12 +39,9 @@ public class SongViewController {
     @FXML private Label usernameLabel;
     @FXML private ImageView profilePicButton;
     @FXML private ImageView backArrow;
-<<<<<<< HEAD
-=======
     @FXML private Button createPostButton;
     @FXML private Button viewPostsButton;
     
->>>>>>> 7b657a658ea9d28ebf305864c31e1617ccf58910
 
     private Song song;
     private KeyQuestFACADE facade;
@@ -84,8 +79,6 @@ public class SongViewController {
 
     @FXML
     public void initialize() {
-        instrumentDropdown.getItems().addAll("Piano", "Guitar", "Violin", "Flute", "Trumpet");
-        instrumentDropdown.setValue("Piano");
         facade = KeyQuestFACADE.getInstance();
         if (usernameLabel != null) {
             usernameLabel.setText("Welcome, " + facade.getCurrentUser().getUsername());
@@ -273,7 +266,7 @@ public class SongViewController {
                 System.out.println("Playing song: " + song.getName() + " with " + defaultInstrument);
                 new Thread(() -> {
                     do {
-                        facade.playSong(song, instrumentDropdown.getValue());
+                        facade.playSong(song);
                         try {
                             Thread.sleep(5000);
                         } catch (InterruptedException e) {

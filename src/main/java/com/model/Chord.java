@@ -34,7 +34,7 @@ public class Chord {
      * Loops through notes and plays them
      * Adds each note to a string that is used an as argument by the player
      */
-    public String playChord(String instrument) {
+    public String playChord() {
         String playThis = "";
         String output = "";
         
@@ -86,7 +86,7 @@ public class Chord {
         // Only add length from the first note if there are notes
         if (!notes.isEmpty() && notes.get(0) instanceof PianoNote) {
             playThis += ((PianoNote)notes.get(0)).getLength();
-            player.play("["+instrument+"] "+playThis);
+            player.play(playThis);
         }
         
         return output;
