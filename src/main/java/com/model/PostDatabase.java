@@ -1,8 +1,8 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -134,6 +134,10 @@ public class PostDatabase {
         } else {
             return false;
         }
+    }
+
+    public Post getPostByID (UUID id) {
+        return postMap.get(id);
     }
 
     public void save() {

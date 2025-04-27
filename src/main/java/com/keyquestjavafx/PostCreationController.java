@@ -46,7 +46,7 @@ public class PostCreationController {
         this.song = song;
         String name = (song != null ? song.getName() : "Unknown Song");
         String artist = (song != null ? song.getArtist() : "Unknown Author");
-        songLabel.setText("For song: " + name + " by " + artist);
+        songLabel.setText(" " + name + " by " + artist);
     }
 
     /** Handle the user clicking “Submit” */
@@ -54,16 +54,18 @@ public class PostCreationController {
     private void handleSubmit() {
         String title = titleField.getText().trim();
         String body  = bodyField.getText().trim();
+        System.out.println("Title: " + title + ", Body: " + body);
         if (title.isEmpty() || body.isEmpty()) {
-            // you could show an alert here instead
             errorMessage.setText("Title and body must not be empty.");
             return;
         }
 
-        // Create the post via your facade (adjust signature as needed)
-        Post newPost = facade.makePost(song, false, title, body);
+        // 2) immediately re-load the fully populated post
+        Post newPost = new Post(song, facade.getUser(), false, title, body);
+        facade.makePost(song, false, title, body);
 
-        // Navigate to the PostView page
+        System.out.println("Post attributes: " + newPost.getTitle() + ", " + newPost.getBody() + ", " + newPost.getSong().getName() + ", " + newPost.getAuthor().getUsername());
+        // 3) now navigate to PostView with the complete object
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PostView.fxml"));
             Parent root = loader.load();
@@ -75,6 +77,7 @@ public class PostCreationController {
             App.getScene().setRoot(root);
         } catch (IOException e) {
             e.printStackTrace();
+            errorMessage.setText("Failed to open PostView.");
         }
     }
 
