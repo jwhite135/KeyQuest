@@ -22,6 +22,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
+/**
+ * The SongViewController class is responsible for displaying the song details and sheet music in the UI.
+ * It handles user interactions such as playing, muting, looping the song, and navigating to other views.
+ * @author Ryan Leadbitter
+ */
 public class SongViewController {
 
     @FXML private VBox sheetMusicContainer;
@@ -50,6 +55,9 @@ public class SongViewController {
     private boolean loopEnabled = false;
     private boolean isMuted = false;
 
+    /**
+     * * Mapping of pitch names to Y coordinates for rendering notes on the sheet music.
+     */
     private static final Map<String, Integer> pitchToY = new HashMap<>();
     static {
         pitchToY.put("C4", 130);
@@ -67,16 +75,27 @@ public class SongViewController {
         pitchToY.put("R", 100);
     }
 
+    /**
+     * Sets the song to be displayed in the view.
+     * @param song The song to be displayed.
+     */
     public void setSong(Song song) {
         this.song = song;
         updateMetadata();
         renderSheetMusic();
     }
 
+    /**
+     * Sets the KeyQuestFACADE instance for the controller.
+     * @param facade The KeyQuestFACADE instance to be set.
+     */
     public void setFacade(KeyQuestFACADE facade) {
         this.facade = facade;
     }
 
+    /**
+     * Initializes the controller and sets the username label.
+     */
     @FXML
     public void initialize() {
         facade = KeyQuestFACADE.getInstance();
@@ -85,6 +104,11 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Sets labels for the song's title, artist, genre, and difficulty.
+     * The difficulty is represented by a string of stars (★) and empty stars (☆).
+     * This method is called to update the metadata displayed in the UI.
+     */
     private void updateMetadata() {
         titleLabel.setText(song.getName());
         artistLabel.setText(song.getArtist());
@@ -92,6 +116,11 @@ public class SongViewController {
         difficultyLabel.setText(getRatingStars(song.getDifficulty()));
     }
     
+    /**
+     * Converts the difficulty level to a string of stars (★) and empty stars (☆).
+     * @param difficulty The difficulty level (1-5).
+     * @return A string representing the difficulty level with stars.
+     */
     private String getRatingStars(int difficulty) {
         StringBuilder stars = new StringBuilder();
         for (int i = 0; i < difficulty; i++) {
@@ -103,6 +132,13 @@ public class SongViewController {
         return stars.toString();
     }
 
+    /**
+     * Renders the sheet music for the song by creating a visual representation of the notes and measures.
+     * This method clears the existing sheet music container and adds new elements based on the song's data.
+     * It creates a pane for each measure, draws lines for the staff, and adds note images based on their pitch and length.
+     * It also adds symbols for the treble clef and time signature.
+     * The method uses a mapping of pitch names to Y coordinates to position the notes correctly on the staff.
+     */
     private void renderSheetMusic() {
         sheetMusicContainer.getChildren().clear();
 
@@ -187,12 +223,17 @@ public class SongViewController {
                     }
                     currentX += 40;
                 }
-
                 sheetMusicContainer.getChildren().add(measurePane);
             }
         }
     }
 
+    /**
+     * Loads the image for a note or rest based on its length and pitch.
+     * @param note The note object containing information about the note.
+     * @param yOffsetOut An array to store the Y offset for the note image.
+     * @return An ImageView representing the note or rest image.
+     */
     private ImageView getNoteImage(Note note, int[] yOffsetOut) {
         String file;
         int offset;
@@ -245,6 +286,12 @@ public class SongViewController {
         return view;
     }
     
+    /**
+     * Loads an image symbol from the resources folder.
+     * @param filename The name of the image file to load.
+     * @param height The height to set for the ImageView.
+     * @return An ImageView containing the loaded image.
+     */
     private ImageView loadSymbol(String filename, double height) {
         var input = getClass().getResourceAsStream("/com/keyquestjavafx/images/" + filename);
         if (input == null) {
@@ -257,6 +304,9 @@ public class SongViewController {
         return img;
     }
 
+    /**
+     * Plays song using the facade's playSong method when the play button is clicked.
+     */
     @FXML
     private void onPlay() {
         if (facade != null && song != null) {
@@ -278,20 +328,10 @@ public class SongViewController {
         }
     }
 
-    @FXML
-    private void onMute() {
-        isMuted = !isMuted;
-        muteButton.setText(isMuted ? "Unmute" : "Mute");
-        System.out.println("Muted: " + isMuted);
-    }
-
-    @FXML
-    private void onToggleLoop() {
-        loopEnabled = !loopEnabled;
-        loopButton.setText(loopEnabled ? "Unloop" : "Loop");
-        System.out.println("Loop: " + loopEnabled);
-    }
-
+    /**
+     * Returns to search screen when the back button is clicked.
+     * It loads the SongSearch.fxml file and sets the scene to it.
+     */
     @FXML
     private void onBack() {
         try {
@@ -307,6 +347,11 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Returns to search screen when the back button is clicked.
+     * It loads the SongSearch.fxml file and sets the scene to it.
+     * @throws IOException
+     */
     @FXML
     private void goToPlaySong() throws IOException {
         try {
@@ -320,6 +365,12 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Goes to post creation screen when the create post button is clicked.
+     * It loads the PostCreation.fxml file and sets the scene to it.
+     * Uses current song to set the song in the PostCreationController.
+     * @throws IOException
+     */
     @FXML
     private void onCreatingPost() throws IOException {
         try {
@@ -336,6 +387,11 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Goes to post search screen when the post song button is clicked.
+     * It loads the PostSearch.fxml file and sets the scene to it.
+     * Uses current song to set the song name in the PostSearchController.
+     */
     @FXML
     private void onSearchingPosts() throws IOException {
         try {
@@ -352,16 +408,29 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Goes to make song screen when the make song button is clicked.
+     * @throws IOException
+     */
     @FXML
     private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong2");
     }
 
+    /**
+     * Goes to check posts screen when the check posts button is clicked.
+     * @throws IOException
+     */
     @FXML
     private void goToCheckPosts() throws IOException {
         App.setRoot("PostsPage");
     }
 
+    /**
+     * Goes to profile page when the profile button is clicked.
+     * It loads the ProfilePage.fxml file and sets the scene to it.
+     * @throws IOException
+     */
     @FXML
     private void goToProfile() throws IOException {
         try {
@@ -378,6 +447,11 @@ public class SongViewController {
         }
     }
 
+    /**
+     * Goes to home page when the home button is clicked.
+     * It loads the HomePage.fxml file and sets the scene to it.
+     * @throws IOException
+     */
     @FXML
     private void goToHome() throws IOException {
         App.setRoot("HomePage");
