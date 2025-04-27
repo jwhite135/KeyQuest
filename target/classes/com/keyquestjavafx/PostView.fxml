@@ -41,11 +41,14 @@
                 </image>
             </ImageView>
 
+<<<<<<< HEAD
             <Button fx:id="homeButton"
                     text="Home"
                     style="-fx-background-color: #A37A38; -fx-text-fill: white;"
                     onMouseClicked="#goToHome"/>
 
+=======
+>>>>>>> 4c1b4a37c80cf07a4be48eaa06c06a256d667a92
             <Button fx:id="checkPostsButton"
                     text="Check Posts"
                     style="-fx-background-color: #A37A38; -fx-text-fill: white;"

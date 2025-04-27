@@ -58,6 +58,7 @@ public class PostSearchController {
         ));
         sortCombo.getSelectionModel().selectFirst();
         currentResults = facade.getAllPosts();
+        refreshResults();
     }
 
     /** Search button clicked */
