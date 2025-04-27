@@ -68,8 +68,8 @@ public class PostViewController {
 
     private void loadPostData() {
         postTitleLabel.setText(post.getTitle());
-        authorLabel.setText(post.getAuthor().getUsername() + "   -   " + post.getDate().toString());
-        songLabel.setText(post.getSong().getName());
+        authorLabel.setText(post.getAuthor().getUsername() + "  -- Created at " + post.getDate().toString());
+        songLabel.setText("Song: " + post.getSong().getName() + " by " + post.getSong().getArtist());
         contentText.setText(post.getBody());
     }
 
