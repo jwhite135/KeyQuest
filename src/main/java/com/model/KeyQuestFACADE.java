@@ -88,12 +88,13 @@ public class KeyQuestFACADE {
      * @params Song post is attached to, if the post is private, the title of the post, and the body of the post
      * @return true if the post is created and added to the PostDatabase
      */
-    public boolean makePost(Song song, boolean isPrivate, String title, String body) {
+    public Post makePost(Song song, boolean isPrivate, String title, String body) {
         if ( title.equals("") || body.equals("") ) {
-            return false;
+            return null;
         }
         Post newPost = new Post(song, this.user, isPrivate, title, body);
-        return posts.addPost(newPost);
+        posts.addPost(newPost);
+        return newPost;
     }
 
     /**
