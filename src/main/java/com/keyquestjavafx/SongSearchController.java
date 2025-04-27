@@ -16,6 +16,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+/**
+ * Controller class for the SongSearch page.
+ * This class handles the search functionality for songs based on name, artist, or difficulty.
+ * It also manages the display of search results and navigation to other pages.
+ * @author Ryan Leadbitter
+ */
 public class SongSearchController {
 
     @FXML private TextField searchField;
@@ -35,6 +41,11 @@ public class SongSearchController {
         App.setRoot("HomePage");
     }
 
+    /**
+     * Initializes the SongSearch page by populating the search type combo box and displaying all songs.
+     * It also sets up the event handler for the search button.
+     * This method is called automatically when the FXML file is loaded.
+     */
     @FXML
     public void initialize() {
         searchTypeCombo.getItems().addAll("Name", "Artist", "Difficulty");
@@ -63,6 +74,11 @@ public class SongSearchController {
         }
     }
 
+    /**
+     * Handles the search functionality when the search button is clicked.
+     * It retrieves the search term and type, performs the search, and displays the results.
+     * If no results are found or if there is an error, an appropriate message is displayed.
+     */
     @FXML
     private void onSearch() {
         String query = searchField.getText().trim();
@@ -123,6 +139,11 @@ public class SongSearchController {
         }
     }
 
+    /**
+     * Opens the SongView page for the selected song.
+     * It loads the SongView.fxml file and sets the selected song in the controller.
+     * @param selectedSong The song to be displayed in the SongView.
+     */
     private void openSongView(Song selectedSong) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SongView.fxml"));
@@ -140,18 +161,36 @@ public class SongSearchController {
         }
     }
 
+    /**
+     * Sets the KeyQuestFACADE instance for this controller.
+     * This method is used to inject the facade into the controller.
+     * @param facade The KeyQuestFACADE instance to be set.
+     */
     public void setFacade(KeyQuestFACADE facade) {
         this.facade = facade;
     }
 
+    /**
+     * Goes to make song page when the make song button is clicked.
+     * @throws IOException
+     */
     @FXML private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong2");
     }
 
+    /**
+     * Goes to check posts page when the check posts button is clicked.
+     * @param username The username to be displayed.
+     * @throws IOException
+     */
     @FXML private void goToCheckPosts() throws IOException {
         App.setRoot("PostsPage");
     }
 
+    /**
+     * Goes to profile page when the profile button is clicked.
+     * @throws IOException
+     */
     @FXML
     private void goToProfile() throws IOException {
         try {

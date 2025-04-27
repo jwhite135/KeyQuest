@@ -40,6 +40,7 @@ public class PostSearchController {
 
     private final KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
     private List<Post> currentResults;
+    private boolean setSong = false;
 
     @FXML
     public void initialize() {
@@ -58,6 +59,14 @@ public class PostSearchController {
         ));
         sortCombo.getSelectionModel().selectFirst();
         currentResults = facade.getAllPosts();
+        refreshResults();
+    }
+
+    public void setSong(String song){
+        setSong = true;
+        currentResults = facade.searchPostsBySong(song);
+        searchTypeCombo.setValue("Song");
+        searchField.setText(song);
         refreshResults();
     }
 
@@ -113,11 +122,11 @@ public class PostSearchController {
     private void refreshResults() {
         resultsBox.getChildren().clear();
         for (Post p : currentResults) {
-            // simple summary — you can replace with a custom Node
             VBox card = new VBox(5);
             Label title = new Label(p.getTitle());
             title.setStyle("-fx-font-weight: bold;");
             Label meta = new Label("By " + p.getAuthor().getUsername()
+                                 + " • Song: " + p.getSong().getName()
                                  + " • " + p.getDate().toString()
                                  + " • ❤ " + p.getFavorites());
             card.getChildren().addAll(title, meta);

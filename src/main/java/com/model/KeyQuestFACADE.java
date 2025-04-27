@@ -97,6 +97,14 @@ public class KeyQuestFACADE {
         return newPost;
     }
 
+    public Post makePost(Post post) {
+        if (post.getTitle().equals("") || post.getBody().equals("")) {
+            return null;
+        }
+        posts.addPost(post);
+        return post;
+    }
+
     /**
      * Method to create a new comment and add it to the PostDatabase
      * @params post the comment is attached to and the body of the comment
@@ -112,6 +120,15 @@ public class KeyQuestFACADE {
      */
     public void favoritePost(Post post) {
         post.addFavorite(this.user);
+    }
+
+    /**
+     * Checks to see if a user has liked a specific post
+     * @param post : Given post
+     * @return true if the user has liked the post, false if the user has not liked the post
+     */
+    public boolean hasUserLiked(Post post) {
+        return this.user.getFavoritePosts().contains(post);
     }
 
     /*

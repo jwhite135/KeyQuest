@@ -46,7 +46,7 @@ public class PostCreationController {
         this.song = song;
         String name = (song != null ? song.getName() : "Unknown Song");
         String artist = (song != null ? song.getArtist() : "Unknown Author");
-        songLabel.setText("For song: " + name + " by " + artist);
+        songLabel.setText(" " + name + " by " + artist);
     }
 
     /** Handle the user clicking “Submit” */
@@ -60,8 +60,8 @@ public class PostCreationController {
             return;
         }
 
-        // Create the post via your facade (adjust signature as needed)
-        Post newPost = facade.makePost(song, false, title, body);
+        Post newPost = new Post(song, facade.getUser(), false, title, body);
+        facade.makePost(newPost);
 
         // Navigate to the PostView page
         try {

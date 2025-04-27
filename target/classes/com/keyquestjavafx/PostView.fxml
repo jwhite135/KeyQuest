@@ -69,6 +69,23 @@
                 <ScrollPane fx:id="postBodyScroll" fitToWidth="true" prefViewportHeight="180" VBox.vgrow="ALWAYS">
                     <Text fx:id="contentText" wrappingWidth="400" />
                 </ScrollPane>
+
+                <!-- Like button + count -->
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <ImageView fx:id="likeIcon"
+                               fitWidth="24" fitHeight="24"
+                               pickOnBounds="true" preserveRatio="true"
+                               onMouseClicked="#handleLikeAction">
+                        <image>
+                            <!-- black heart by default -->
+                            <Image url="@images/heart_black.png"/>
+                        </image>
+                    </ImageView>
+                    <Label fx:id="likeCountLabel"
+                           text="0"
+                           style="-fx-font-size: 14px;"/>
+                </HBox>
+                
             </VBox>
 
             <!-- RIGHT: Comments -->
