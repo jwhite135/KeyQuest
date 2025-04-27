@@ -41,12 +41,8 @@ public class SongViewController {
     @FXML private Label usernameLabel;
     @FXML private ImageView profilePicButton;
     @FXML private ImageView backArrow;
-<<<<<<< HEAD
-=======
     @FXML private Button createPostButton;
     @FXML private Button viewPostsButton;
-    
->>>>>>> 7b657a658ea9d28ebf305864c31e1617ccf58910
 
     private Song song;
     private KeyQuestFACADE facade;
