@@ -35,15 +35,14 @@
 
             <!-- Favorite Songs -->
             <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1;">
-                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Songs:" />
-                <ListView fx:id="favoriteSongsList" prefHeight="150" />
-            <Label fx:id="songErrorLabel" />
+               <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Songs:" />
+               <VBox fx:id="favoriteSongsContainer" spacing="10" />
             </VBox>
 
             <!-- Favorite Posts -->
             <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1;">
-                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Posts:" />
-                <ListView fx:id="favoritePostsList" prefHeight="150" />
+               <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Favorite Posts:" />
+                <VBox fx:id="favoritePostsContainer" spacing="10" />
             </VBox>
         </VBox>
     </center>
