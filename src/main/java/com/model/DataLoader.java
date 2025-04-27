@@ -178,96 +178,6 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
-
-    // THE ABOVE CODE WORKS, DO NOT TOUCH. THIS IS THE PLACE WHERE YOU SHOULD ADD YOUR CODE
-    
-    
-    private static Map<UUID,User> buildUserMap() {
-        Map<UUID,User> map = new HashMap<>();
-        for (User u : getUsers()) {
-            map.put(u.getUUID(), u);
-        }
-        return map;
-    }
-
-    /** Simple helper: find a loaded User by their UUID (or null if not found). */
-    public static User getUserById(UUID userId) {
-        return buildUserMap().get(userId);
-    }
-    
-        /**
-         * Scan your already‐written getSongs() list and return the one with matching ID.
-         */
-        public static Song getSongById(UUID lookUpId) {
-            for (Song s : getSongs()) {
-                if (s.getUUID().equals(lookUpId)) {
-                    return s;
-                }
-            }
-            return null;
-        }
-    
-        /**
-         * Your existing getPosts(), but after constructing each Post,
-         * call getSongById(...) instead of hand‐rolling sheetMusic.
-         */
-        public static ArrayList<Post> getPosts() {
-            ArrayList<Post> posts   = new ArrayList<>();
-            Map<UUID,User>  userMap = buildUserMap();  // your existing user‐loader
-    
-            try (FileReader reader = new FileReader(POST_FILE_NAME)) {
-                JSONArray postsJSON = (JSONArray)new JSONParser().parse(reader);
-                for (Object o : postsJSON) {
-                    JSONObject postJSON = (JSONObject)o;
-    
-                    UUID      postId    = UUID.fromString((String)postJSON.get(POST_ID));
-                    UUID      songId    = UUID.fromString((String)postJSON.get(POST_SONG_ID));
-                    UUID      authorId  = UUID.fromString((String)postJSON.get(POST_AUTHOR_ID));
-                    LocalDate date      = LocalDate.parse((String)postJSON.get(POST_DATE));
-                    boolean   isPrivate = (boolean)postJSON.get(POST_PRIVATE);
-                    String    title     = (String)postJSON.get(POST_TITLE);
-                    String    body      = (String)postJSON.get(POST_BODY);
-                    int       favs      = ((Long)postJSON.get(POST_NUM_FAVORITES)).intValue();
-    
-                    // parse comments (wiring each comment's author)
-                    ArrayList<Comment> comments = new ArrayList<>();
-                    JSONArray commentList = (JSONArray)postJSON.get(POST_COMMENTS);
-                    for (Object cObj : commentList) {
-                        JSONObject cJson = (JSONObject)cObj;
-                        String    text   = (String)cJson.get(COMMENT_BODY);
-                        UUID      cAuth  = UUID.fromString((String)cJson.get(COMMENT_AUTHOR_ID));
-                        LocalDate cDate  = LocalDate.parse((String)cJson.get(COMMENT_DATE));
-    
-                        Comment comment = new Comment(text, null, cDate);
-                        comment.setAuthor(userMap.get(cAuth));
-                        comments.add(comment);
-                    }
-    
-                    // build the Post (song & author still null)
-                    Post p = new Post(
-                        postId, songId, comments, authorId,
-                        date, isPrivate, title, body, favs
-                    );
-    
-                    // wire in Song & User
-                    p.setSong(   getSongById(songId)    );
-                    p.setAuthor( userMap.get(authorId) );
-    
-                    posts.add(p);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return posts;
-        }
-    
-    }
-    
-    
-    
-
-    // Old Post DataWriter code
-    /*
     public static ArrayList<Post> getPosts() {
 
         ArrayList<Post> posts = new ArrayList<Post>();
@@ -295,7 +205,7 @@ public class DataLoader extends DataConstants {
                     LocalDate date = LocalDate.parse((String)commentJSON.get(COMMENT_DATE));
 
                     // Adding the comment to the comment list
-                    comments.add(new Comment(text, null, date));
+                    comments.add(new Comment(text, authorID, date));
                 }
 
                 UUID authorID = UUID.fromString((String)postJSON.get(POST_AUTHOR_ID));
@@ -312,5 +222,6 @@ public class DataLoader extends DataConstants {
         }
         // Returns the list of posts
         return posts;
-    } */
+    } 
+}
 

@@ -144,6 +144,9 @@ public class PostDatabase {
         for(Post post : postList) {
             post.setSong(SongDatabase.getInstance().getSongMap().get(post.getSongUUID()));
             post.setAuthor(UserDatabase.getInstance().getUserMap().get(post.getAuthorUUID()));
+            for(Comment comment : post.getComments()) {
+                comment.setAuthor(UserDatabase.getInstance().getUserMap().get(comment.getAuthorID()));
+            }
         }
     }
 }

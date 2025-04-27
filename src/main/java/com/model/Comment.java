@@ -11,7 +11,8 @@ public class Comment {
     private String body;
     private User author;
     private LocalDate date;
-    private UUID id;
+    private UUID authorID;
+    
 
     /**
      * Constructor for Comment
@@ -41,6 +42,12 @@ public class Comment {
         this.date = date;
     }
 
+    public Comment(String body, UUID authorID, LocalDate date) {
+        this.body = body;
+        this.authorID = authorID;
+        this.date = date;
+    }
+
     public String getBody() {
         return body;
     }
@@ -55,6 +62,10 @@ public class Comment {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public UUID getAuthorID() {
+        return authorID;
     }
     
 }

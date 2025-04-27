@@ -18,7 +18,7 @@ public class KeyQuestFACADE {
 
     /**
      * Constructor for KeyQuestFACADE
-     * Initializes the Post, Song, and User databases
+     * Initializes the Post, Song, and User databases and populates them
      * Initializes the instrument to be a Piano by default
      */
     private KeyQuestFACADE() {
@@ -26,6 +26,7 @@ public class KeyQuestFACADE {
         songs = SongDatabase.getInstance();
         users = UserDatabase.getInstance();
         users.populate();
+        posts.populate();
         instrument = new Piano();
     }
 
