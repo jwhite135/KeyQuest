@@ -6,6 +6,8 @@ import java.io.IOException;
 import com.model.KeyQuestFACADE;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -30,6 +32,8 @@ public class HomePageController {
     @FXML
     private ImageView userImage;
 
+    private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+
     @FXML
     void goToPlaySong() throws IOException {
         System.out.println("goToPlaySong triggered");
@@ -47,13 +51,35 @@ public class HomePageController {
     }
 
     @FXML
-    void goToProfile() throws IOException {
-        App.setRoot("ProfilePage");
+    private void goToProfile() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent root = loader.load();
+    
+            ProfilePageController controller = loader.getController();
+            controller.setUser(facade.getUser());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void goToProfilePage() throws IOException {
-        App.setRoot("ProfilePage");
+    private void goToProfilePage() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent root = loader.load();
+    
+            ProfilePageController controller = loader.getController();
+            controller.setUser(facade.getUser());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

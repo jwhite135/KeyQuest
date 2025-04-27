@@ -329,7 +329,18 @@ public class SongViewController {
 
     @FXML
     private void goToProfile() throws IOException {
-        App.setRoot("ProfilePage");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent root = loader.load();
+    
+            ProfilePageController controller = loader.getController();
+            controller.setUser(facade.getUser());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

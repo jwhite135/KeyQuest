@@ -146,8 +146,20 @@ public class PostSearchController {
 
     // Navigation handlers
 
-    @FXML private void goToProfile(MouseEvent e) throws IOException {
-        App.setRoot("ProfilePage");
+    @FXML
+    private void goToProfile() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent root = loader.load();
+    
+            ProfilePageController controller = loader.getController();
+            controller.setUser(facade.getUser());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML private void goToMakePost(ActionEvent e) throws IOException {

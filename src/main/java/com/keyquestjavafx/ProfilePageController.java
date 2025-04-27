@@ -37,23 +37,20 @@ public class ProfilePageController {
     private Label songErrorLabel;
 
     private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
-    private User currentUser = facade.getUser();
+    private User currentUser;
 
     @FXML
     void goToHome(MouseEvent event) throws IOException {
-        currentUser = facade.getUser();
         App.setRoot("HomePage");
     }
  
     @FXML
     void goToSettings() throws IOException {
-        currentUser = facade.getUser();
         App.setRoot("AccountSettings");
     }
 
     @FXML
     void goToPosts() throws IOException {
-        currentUser = facade.getUser();
         App.setRoot("PostsPage");
     }
 
@@ -99,6 +96,14 @@ public class ProfilePageController {
 
     public void setUser(User user) {
         this.currentUser = user;
+        if (currentUser != null) {
+            usernameLabel.setText(currentUser.getUsername());
+            // Populate favorite songs
+            currentUser.getFavoriteSongs().forEach(song -> favoriteSongsList.getItems().add(song.getName()));
+            // Populate favorite posts
+            currentUser.getFavoritePosts().forEach(post -> favoritePostsList.getItems().add(post.getBody()));
+            configureSettingsButton();
+        }
     }
 
     private void configureSettingsButton() {
@@ -109,15 +114,6 @@ public class ProfilePageController {
 
     @FXML
     public void initialize() {
-        if (currentUser != null) {
-            usernameLabel.setText(currentUser.getUsername());
-            // Populate favorite songs
-            currentUser.getFavoriteSongs().forEach(song -> favoriteSongsList.getItems().add(song.getName()));
-            // Populate favorite posts
-            currentUser.getFavoritePosts().forEach(post -> favoritePostsList.getItems().add(post.getBody()));
-            configureSettingsButton();
-        }
-        
         favoriteSongsList.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // Double-click to open song
                 try {
