@@ -80,7 +80,7 @@ public class SongDatabase {
     public ArrayList<Song> searchByArtist(String artist) {
         ArrayList<Song> result = new ArrayList<Song>();
         for (Song song : songList) {
-            if (song.getArtist().equalsIgnoreCase(artist)) {
+            if (song.getArtist().toLowerCase().contains(artist.toLowerCase())) {
                 result.add(song);
             }
             if (artist.equalsIgnoreCase("all")) {
