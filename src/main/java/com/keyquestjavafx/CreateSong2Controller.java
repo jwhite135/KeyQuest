@@ -56,7 +56,9 @@ public class CreateSong2Controller implements Initializable {
     
     private ObservableList<String> currentMeasureItems = FXCollections.observableArrayList();
     private ObservableList<String> allMeasuresItems = FXCollections.observableArrayList();
-    
+    /*
+     * 
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         songDifficultyCombo.getItems().addAll(1, 2, 3, 4, 5);
@@ -205,7 +207,7 @@ public class CreateSong2Controller implements Initializable {
                 return;
             }
             
-            String artist = "Current User"; 
+            String artist = facade.getCurrentUsername();
             Song song = facade.createSong(title, artist, difficulty, genreStr, 4, 4, 120);
             
             for (int i = 0; i < measures.size(); i++) {
@@ -311,18 +313,16 @@ public class CreateSong2Controller implements Initializable {
         
         for (int i = 0; i < 4; i++) {
             List<PianoNote> beatNotes = currentBeatNotes.get(i);
-            ArrayList<Note> chordNotes = new ArrayList<>();
             
-            for (PianoNote note : beatNotes) {
-                chordNotes.add(note);
+            if (!beatNotes.isEmpty()) {
+                ArrayList<Note> chordNotes = new ArrayList<>();
+                
+                for (PianoNote note : beatNotes) {
+                    chordNotes.add(note);
+                }
+                
+                chords.add(new Chord(chordNotes));
             }
-            
-            if (chordNotes.isEmpty()) {
-                PianoNote restNote = new PianoNote("q", "R", false, false);
-                chordNotes.add(restNote);
-            }
-            
-            chords.add(new Chord(chordNotes));
         }
         
         return new PianoMeasure(false, chords);

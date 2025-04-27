@@ -48,13 +48,6 @@ public class Chord {
         for (int i = 0; i < notes.size(); ++i) {
             PianoNote note = (PianoNote)notes.get(i);
             String key = note.getKey();
-            
-            // Special handling for rest notes
-            if (key.equals("R")) {
-                player.play("R" + note.getLength());
-                return "Rest [" + note.getLength() + "]";
-            }
-            
             String currentNote = key;
             
             // Make sure key has at least one character before accessing characters

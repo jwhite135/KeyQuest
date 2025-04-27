@@ -15,14 +15,20 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="613.0">
-         <children>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="613.0">
+         <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <Button fx:id="logoutButton" onAction="#logoutUser" text="Log Out" 
+                   style="-fx-background-color: #A5762C; -fx-text-fill: white;" />
+         </HBox>
+         
+         <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
             <Label fx:id="username" onMouseClicked="#goToProfilePage" text="Username  " />
             <ImageView fx:id="userImage" fitHeight="62.0" fitWidth="62.0" onMouseClicked="#goToProfilePage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/KeyQuestUserIcon.png" />
-               </image></ImageView>
-         </children>
+               </image>
+            </ImageView>
+         </HBox>
       </HBox>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="99.0" prefWidth="254.0" text="KeyQuest">
          <font>
