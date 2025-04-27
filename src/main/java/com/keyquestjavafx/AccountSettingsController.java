@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  * Controller for the Account Settings page
  * This class handles the user input for changing account settings
  * It interacts with the KeyQuestFACADE to update user information
- * @author 
+ * @author Ian Attmore
  */
 public class AccountSettingsController {
 
