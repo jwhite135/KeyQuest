@@ -83,8 +83,9 @@ public class CreateSong2Controller implements Initializable {
         noteLengthCombo.getItems().addAll("whole", "half", "quarter", "eighth", "sixteenth", "dotted-half");
         noteLengthCombo.setValue("quarter");
         
-        noteBeatCombo.getItems().addAll(0, 1, 2, 3);
-        noteBeatCombo.setValue(0); 
+        // Change the beat numbers to 1-4 instead of 0-3
+        noteBeatCombo.getItems().addAll(1, 2, 3, 4);
+        noteBeatCombo.setValue(1); 
         
         currentMeasureList.setItems(currentMeasureItems);
         allMeasuresList.setItems(allMeasuresItems);
@@ -97,7 +98,8 @@ public class CreateSong2Controller implements Initializable {
     private void initializeNewMeasure() {
         currentBeatNotes.clear();
         
-        for (int i = 0; i < 4; i++) {
+        // Map beat numbers 1-4 to internal indexes
+        for (int i = 1; i <= 4; i++) {
             currentBeatNotes.put(i, new ArrayList<>());
         }
     }
@@ -106,7 +108,7 @@ public class CreateSong2Controller implements Initializable {
     private void addNote() {
         String pitch = notePitchCombo.getValue();
         String noteType = noteLengthCombo.getValue();
-        int beat = noteBeatCombo.getValue();
+        int beat = noteBeatCombo.getValue(); // This is now 1-4
         
         String length = getNoteLength(noteType);
         
@@ -245,7 +247,8 @@ public class CreateSong2Controller implements Initializable {
     private void updateCurrentMeasureDisplay() {
         currentMeasureItems.clear();
         
-        for (int beat = 0; beat < 4; beat++) {
+        // Update the display to show beats 1-4
+        for (int beat = 1; beat <= 4; beat++) {
             List<PianoNote> notes = currentBeatNotes.get(beat);
             
             if (!notes.isEmpty()) {
@@ -280,7 +283,7 @@ public class CreateSong2Controller implements Initializable {
         songGenreCombo.setValue("ROCK");
         notePitchCombo.setValue("C4");
         noteLengthCombo.setValue("quarter");
-        noteBeatCombo.setValue(0);
+        noteBeatCombo.setValue(1); // Changed from 0 to 1
         
         initializeNewMeasure();
         currentMeasureItems.clear();
@@ -311,7 +314,8 @@ public class CreateSong2Controller implements Initializable {
     private PianoMeasure createMeasureFromBeats() {
         ArrayList<Chord> chords = new ArrayList<>();
         
-        for (int i = 0; i < 4; i++) {
+        // Adjust to use 1-4 beat system
+        for (int i = 1; i <= 4; i++) {
             List<PianoNote> beatNotes = currentBeatNotes.get(i);
             
             if (!beatNotes.isEmpty()) {
