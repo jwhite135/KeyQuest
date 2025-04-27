@@ -174,8 +174,8 @@ public class KeyQuestFACADE {
         instrument.playNote(note);
     }
 
-    public String playSong(Song song) {
-        return song.playSong();
+    public String playSong(Song song, String instrument) {
+        return song.playSong(instrument);
     }
 
     public Song createSong(String name, String artist, int difficulty, String genre, int timeSignatureNumerator, int timeSignatureDenominator, int tempo) {

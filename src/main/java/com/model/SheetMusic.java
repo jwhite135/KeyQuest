@@ -54,10 +54,10 @@ public class SheetMusic {
     /**
      * Method to play each measure in the list of measures
      */
-    public String playMeasures() {
+    public String playMeasures(String instrument) {
         String output = "";
         for (int i = 0; i < measures.size(); ++i) {
-            output += measures.get(i).playMeasure();
+            output += measures.get(i).playMeasure(instrument);
         }
         return output;
     }
