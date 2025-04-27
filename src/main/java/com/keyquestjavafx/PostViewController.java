@@ -52,15 +52,14 @@ public class PostViewController {
             welcomeLabel.setText("Welcome, " + postFacade.getCurrentUsername() + "!");
         }
 
-        loadPostData();
-        loadComments();
-
         // Optionally ensure scroll is at bottom for comments
         commentsScroll.vvalueProperty().bind(commentsContainer.heightProperty());
     }
 
     public void setPost(Post post) {
         this.post = post;
+        loadPostData();
+        loadComments();
     }
 
     public void setFacade(KeyQuestFACADE facade) {

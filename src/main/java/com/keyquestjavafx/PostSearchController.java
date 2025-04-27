@@ -140,7 +140,7 @@ public class PostSearchController {
     
         } catch (IOException e) {
             e.printStackTrace();
-            errorMessage.setText("Failed to open song view.");
+            errorMessage.setText("Failed to open post.");
         }
     }
 

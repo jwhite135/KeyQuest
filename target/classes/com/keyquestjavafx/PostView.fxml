@@ -14,33 +14,54 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="425.0" prefWidth="653.0" style="-fx-background-color: #E8E0C0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.keyquest.CommentViewController">
+<BorderPane prefHeight="425.0" prefWidth="653.0"
+            style="-fx-background-color: #E8E0C0;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.keyquestjavafx.PostViewController">
 
     <stylesheets>
-        <URL value="@styles.css" />
+        <URL value="@styles.css"/>
     </stylesheets>
 
     <!-- Top bar -->
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #E8E0C0;">
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-background-color: #E8E0C0;">
             <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
+                <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
 
-            <ImageView fx:id="logoImageView" fitHeight="100" fitWidth="100" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToHome">
+            <ImageView fx:id="logoImageView"
+                       fitHeight="100" fitWidth="100"
+                       pickOnBounds="true" preserveRatio="true"
+                       onMouseClicked="#goToHome">
                 <image>
-                    <Image url="@images/KeyQuestLogoTransparent.png" />
+                    <Image url="@images/KeyQuestLogoTransparent.png"/>
                 </image>
             </ImageView>
 
-            <Button fx:id="homeButton" onMouseClicked="#goToHome" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Home" />
-            <Button fx:id="checkPostsButton" onMouseClicked="#goToPostsSearch" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Check Posts" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="welcomeLabel" prefHeight="17.0" prefWidth="143.0" text="Welcome, …" />
+            <Button fx:id="homeButton"
+                    text="Home"
+                    style="-fx-background-color: #A37A38; -fx-text-fill: white;"
+                    onMouseClicked="#goToHome"/>
 
-            <ImageView fx:id="profileImageView" fitHeight="40" fitWidth="40" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToProfile">
+            <Button fx:id="checkPostsButton"
+                    text="Check Posts"
+                    style="-fx-background-color: #A37A38; -fx-text-fill: white;"
+                    onMouseClicked="#goToPostsSearch"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="welcomeLabel"
+                   text="Welcome, …"/>
+
+            <ImageView fx:id="profileImageView"
+                       fitHeight="40" fitWidth="40"
+                       pickOnBounds="true" preserveRatio="true"
+                       onMouseClicked="#goToProfile">
                 <image>
-                    <Image url="@images/KeyQuestUserIcon.png" />
+                    <Image url="@images/KeyQuestUserIcon.png"/>
                 </image>
             </ImageView>
         </HBox>
@@ -50,41 +71,65 @@
     <center>
         <HBox spacing="20">
             <padding>
-                <Insets bottom="20" left="20" right="20" top="20" />
+                <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
 
-            <!-- LEFT: Post details with explicit fx:id labels -->
+            <!-- LEFT: Post details -->
             <VBox spacing="15" VBox.vgrow="ALWAYS">
-                <!-- Generic title label -->
-                <Label fx:id="postTitleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
-                <!-- Generic creator label -->
-                <Label fx:id="postCreatorLabel" style="-fx-font-style: italic;" onMouseClicked="#goToUser" />
-                <!-- Generic song label -->
-                <Label fx:id="songNameLabel" style="-fx-font-weight: bold;" onMouseClicked="#goToPostSong" />
+                <!-- Title -->
+                <Label fx:id="postTitleLabel"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-                <!-- scrollable post body -->
-                <ScrollPane fx:id="postBodyScroll" fitToWidth="true" prefViewportHeight="180" VBox.vgrow="ALWAYS">
-                    <Text fx:id="contentText" wrappingWidth="400" />
+                <!-- Author (clickable) -->
+                <Label fx:id="authorLabel"
+                       style="-fx-font-style: italic;"
+                       onMouseClicked="#goToUser"/>
+
+                <!-- Song (clickable) -->
+                <Label fx:id="songLabel"
+                       style="-fx-font-weight: bold;"
+                       onMouseClicked="#goToPostSong"/>
+
+                <!-- Post body -->
+                <ScrollPane fx:id="postBodyScroll"
+                            fitToWidth="true"
+                            prefViewportHeight="180"
+                            VBox.vgrow="ALWAYS">
+                    <Text fx:id="contentText"
+                          wrappingWidth="400"/>
                 </ScrollPane>
             </VBox>
 
             <!-- RIGHT: Comments -->
             <VBox alignment="TOP_LEFT" spacing="10" VBox.vgrow="ALWAYS">
-                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="COMMENTS" />
+                <Label text="COMMENTS"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
 
-                <ScrollPane fx:id="commentsScroll" fitToWidth="true" prefViewportHeight="300" VBox.vgrow="ALWAYS">
-                    <VBox fx:id="commentsContainer" spacing="10" style="-fx-background-color: #E0A860;">
+                <ScrollPane fx:id="commentsScroll"
+                            fitToWidth="true"
+                            prefViewportHeight="300"
+                            VBox.vgrow="ALWAYS">
+                    <VBox fx:id="commentsContainer"
+                          spacing="10"
+                          style="-fx-background-color: #E0A860;">
                         <padding>
-                            <Insets bottom="10" left="10" right="10" top="10" />
+                            <Insets top="10" right="10" bottom="10" left="10"/>
                         </padding>
                     </VBox>
                 </ScrollPane>
 
-                <TextArea fx:id="commentInput" prefRowCount="4" promptText="Leave a comment…" wrapText="true" VBox.vgrow="ALWAYS" />
-                
-                <Button fx:id="commentButton" maxWidth="Infinity" onAction="#handleCommentAction" style="-fx-background-color: #A37A38; -fx-text-fill: white;" text="Comment" />
+                <TextArea fx:id="commentInput"
+                          promptText="Leave a comment…"
+                          wrapText="true"
+                          prefRowCount="4"
+                          VBox.vgrow="ALWAYS"/>
+
+                <Button fx:id="commentButton"
+                        text="Comment"
+                        style="-fx-background-color: #A37A38; -fx-text-fill: white;"
+                        maxWidth="Infinity"
+                        onAction="#handleCommentAction"/>
             </VBox>
         </HBox>
     </center>
-
 </BorderPane>

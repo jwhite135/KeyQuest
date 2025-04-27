@@ -156,6 +156,7 @@ public class UI {
         System.out.println("Searching for posts by title 'Bohemian Rhapsody'...");
         ArrayList<Post> posts = facade.searchPostsByName("Bohemian Rhapsody");
         System.out.println(posts.get(0).getTitle() + " by " + posts.get(0).getAuthor().getUsername() + " on " + posts.get(0).getDate());
+        System.out.println(posts.get(0).getSong().getName());
     }
 
     public void run() {
