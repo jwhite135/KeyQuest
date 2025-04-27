@@ -78,8 +78,7 @@ public class PostViewController {
         likeCountLabel.setText(String.valueOf(post.getFavorites()));
         if ( postFacade.hasUserLiked(post) ) {
             liked = true;
-            
-            likeIcon.setImage(new Image(getClass().getResource("/images/heart_red.png").toExternalForm()));
+            likeIcon.setImage(new Image(getClass().getResourceAsStream("images/heart_red.png")));        
         }
     }
 

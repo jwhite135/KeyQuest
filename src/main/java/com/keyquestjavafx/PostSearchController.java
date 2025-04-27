@@ -18,6 +18,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class PostSearchController {
 
@@ -123,20 +126,38 @@ public class PostSearchController {
         resultsBox.getChildren().clear();
         for (Post p : currentResults) {
             VBox card = new VBox(5);
+
             Label title = new Label(p.getTitle());
             title.setStyle("-fx-font-weight: bold;");
-            Label meta = new Label("By " + p.getAuthor().getUsername()
-                                 + " • Song: " + p.getSong().getName()
-                                 + " • " + p.getDate().toString()
-                                 + " • ❤ " + p.getFavorites());
-            card.getChildren().addAll(title, meta);
+
+            // Build TextFlow with conditional heart color
+            Text beforeHeart = new Text(
+                "By " + p.getAuthor().getUsername() +
+                " • Song: " + p.getSong().getName() +
+                " • " + p.getDate().toString() +
+                " • "
+            );
+            beforeHeart.setFill(Color.BLACK);
+
+            // Heart, red if liked, black otherwise
+            boolean liked = facade.hasUserLiked(p);
+            Text heart = new Text("\u2764 ");  // ❤
+            heart.setFill(liked ? Color.RED : Color.BLACK);
+
+            Text likes = new Text(String.valueOf(p.getFavorites()));
+            likes.setFill(Color.BLACK);
+
+            TextFlow metaFlow = new TextFlow(beforeHeart, heart, likes);
+
+            card.getChildren().addAll(title, metaFlow);
             card.setStyle("-fx-padding: 10; -fx-background-color: white; "
-                         + "-fx-border-color: lightgray;");
-            // clicking card opens the post
+                     + "-fx-border-color: lightgray;");
             card.setOnMouseClicked(e -> openPost(p));
+
             resultsBox.getChildren().add(card);
         }
     }
+
 
     private void openPost(Post selectedPost) {
         try {
