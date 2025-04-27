@@ -29,25 +29,25 @@
    <children>
       <HBox alignment="CENTER" prefHeight="63.0" prefWidth="613.0">
          <children>
-            <ImageView fx:id="homePageButton" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+            <ImageView fx:id="homePageButton1" fitHeight="63.0" fitWidth="99.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                <image>
                   <Image url="@images/KeyQuestLogoTransparent.png" />
                </image>
             </ImageView>
             <Region prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="playSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToPlaySong" prefHeight="48.0" prefWidth="1000.0" text="Play a Song" HBox.hgrow="ALWAYS">
+            <Button fx:id="accountSettingsButton" minWidth="116.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="1000.0" text="Account Settings" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Palatino Linotype" size="12.0" />
                </font>
             </Button>
             <Region prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="makeSongButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToMakeSong" prefHeight="48.0" prefWidth="1000.0" text="Make a Song" HBox.hgrow="ALWAYS">
+            <Button fx:id="notificationButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToNotifications" prefHeight="48.0" prefWidth="1000.0" text="Notification Settings" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Palatino Linotype" size="12.0" />
                </font>
             </Button>
             <Region prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
-          <Button fx:id="checkPostsButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToCheckPosts" prefHeight="48.0" prefWidth="1000.0" text="Check Posts" HBox.hgrow="ALWAYS">
+            <Button fx:id="preferencesSettingsButton1" minWidth="116.0" mnemonicParsing="false" onAction="#goToPreferences" prefHeight="48.0" prefWidth="1000.0" text="Preferences Settings" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Palatino Linotype" size="12.0" />
                </font>
@@ -57,25 +57,6 @@
       <HBox alignment="CENTER" minHeight="229.0" minWidth="155.0" VBox.vgrow="ALWAYS">
          <children>
             <Region prefHeight="200.0" prefWidth="200.0" />
-            <VBox alignment="CENTER_RIGHT" minHeight="229.0" minWidth="150.0" HBox.hgrow="NEVER">
-               <children>
-                  <Label text="Account " VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="Palatino Linotype" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="notificationSettingsButton" onMouseClicked="#goToNotifications" text="Notifications " VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="Palatino Linotype" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="preferencesSettingsButton" onMouseClicked="#goToPreferences" text="Preferences " VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="Palatino Linotype" size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
             <VBox alignment="CENTER" minHeight="200.0" minWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
                   <Region prefHeight="59.0" prefWidth="463.0" />
