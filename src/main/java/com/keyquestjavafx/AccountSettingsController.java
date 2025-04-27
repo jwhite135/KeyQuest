@@ -117,7 +117,7 @@ public class AccountSettingsController {
      * @throws IOException If the page cannot be loaded
      */
     @FXML
-    private void goToNotifications(MouseEvent event) throws IOException {
+    private void goToNotifications() throws IOException {
         App.setRoot("NotificationSettings");
     }
 
@@ -127,7 +127,7 @@ public class AccountSettingsController {
      * @throws IOException If the page cannot be loaded
      */
     @FXML
-    private void goToPreferences(MouseEvent event) throws IOException {
+    private void goToPreferences() throws IOException {
         App.setRoot("PreferencesSettings");
     }
 
