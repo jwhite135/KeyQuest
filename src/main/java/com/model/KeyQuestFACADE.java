@@ -122,6 +122,15 @@ public class KeyQuestFACADE {
         post.addFavorite(this.user);
     }
 
+    /**
+     * Checks to see if a user has liked a specific post
+     * @param post : Given post
+     * @return true if the user has liked the post, false if the user has not liked the post
+     */
+    public boolean hasUserLiked(Post post) {
+        return this.user.getFavoritePosts().contains(post);
+    }
+
     /*
      * Post Searching by User, Song, Name, Artist, Most Recent, and Most Liked
      */

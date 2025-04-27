@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -34,6 +35,8 @@ public class PostViewController {
     @FXML private Label authorLabel;
     @FXML private Label songLabel;
     @FXML private Text  contentText;
+    @FXML private ImageView likeIcon;
+    @FXML private Label likeCountLabel;
 
     // --- Comments panel controls ---
     @FXML private VBox      commentsContainer;
@@ -44,6 +47,7 @@ public class PostViewController {
     // Facade to encapsulate data retrieval & persistence
     private KeyQuestFACADE postFacade = KeyQuestFACADE.getInstance();
     private Post post;
+    private boolean liked = false;
 
     @FXML
     public void initialize() {
@@ -71,6 +75,12 @@ public class PostViewController {
         authorLabel.setText(post.getAuthor().getUsername() + "  -- Created at " + post.getDate().toString());
         songLabel.setText("Song: " + post.getSong().getName() + " by " + post.getSong().getArtist());
         contentText.setText(post.getBody());
+        likeCountLabel.setText(String.valueOf(post.getFavorites()));
+        if ( postFacade.hasUserLiked(post) ) {
+            liked = true;
+            
+            likeIcon.setImage(new Image(getClass().getResource("/images/heart_red.png").toExternalForm()));
+        }
     }
 
     private void loadComments() {
@@ -122,6 +132,15 @@ public class PostViewController {
 
         // Clear input
         commentInput.clear();
+    }
+
+    @FXML
+    private void handleLikeAction() {
+        if (liked) { return; }
+        liked = true;
+        postFacade.favoritePost(post);
+        likeIcon.setImage(new Image(getClass().getResourceAsStream("images/heart_red.png")));
+        likeCountLabel.setText(String.valueOf(post.getFavorites()));
     }
 
     // --- Navigation controls ---
