@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /** 
  * KeyQuestFACADE class that holds the main methods for the program
@@ -97,6 +98,14 @@ public class KeyQuestFACADE {
         return newPost;
     }
 
+    public Post makePost(Post post) {
+        if ( post.getTitle().equals("") || post.getBody().equals("") ) {
+            return null;
+        }
+        posts.addPost(post);
+        return post;
+    }
+
     /**
      * Method to create a new comment and add it to the PostDatabase
      * @params post the comment is attached to and the body of the comment
@@ -117,6 +126,16 @@ public class KeyQuestFACADE {
     /*
      * Post Searching by User, Song, Name, Artist, Most Recent, and Most Liked
      */
+
+    public Post populatePost(Post post) {
+        // Populate the post with all attributes
+        // Add code here to populate the post
+        return post;
+    }
+
+    public Post getPostByID(UUID id) {
+        return posts.getPostByID(id);
+    }
 
     public ArrayList<Post> getAllPosts() {
         return posts.getPostList();
