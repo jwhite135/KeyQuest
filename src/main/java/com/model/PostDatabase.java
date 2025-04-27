@@ -55,7 +55,7 @@ public class PostDatabase {
     public ArrayList<Post> searchByUser(String user) {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : postList) {
-            if (post.getAuthor().getUsername().equalsIgnoreCase(user)) {
+            if (post.getAuthor().getUsername().toLowerCase().contains(user.toLowerCase())) {
                 result.add(post);
             }
         }
@@ -70,7 +70,7 @@ public class PostDatabase {
     public ArrayList<Post> searchByName(String title) {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : postList) {
-            if (post.getTitle().equals(title)) {
+            if (post.getTitle().toLowerCase().contains(title.toLowerCase())) {
                 result.add(post);
             }
         }
@@ -85,7 +85,7 @@ public class PostDatabase {
     public ArrayList<Post> searchBySong(String song) {
         ArrayList<Post> result = new ArrayList<Post>();
         for (Post post : postList) {
-            if (post.getSong().getName().equalsIgnoreCase(song)) {
+            if (post.getSong().getName().toLowerCase().contains(song.toLowerCase())) {
                 result.add(post);
             }
         }
@@ -118,7 +118,7 @@ public class PostDatabase {
     }
 
     public ArrayList<Post> sortByMostLiked() {
-        postList.sort( (a,b) -> Integer.compare(a.getFavorites(), b.getFavorites()) );
+        postList.sort( (a,b) -> Integer.compare(b.getFavorites(), a.getFavorites()) );
         return postList;
     }
 
