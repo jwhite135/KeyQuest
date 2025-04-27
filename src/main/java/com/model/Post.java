@@ -70,6 +70,8 @@ public class Post {
         this.isPrivate = isPrivate;
         this.favorites = 0;
         this.numComments = 0;
+        this.title = title;
+        this.body = body;
     }
 
     /**

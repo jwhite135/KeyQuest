@@ -62,12 +62,17 @@
         <style>-fx-font-weight: bold;</style>
       </Label>
 
-      <!-- Title + song on same line -->
+      <!-- Title input -->
       <HBox alignment="CENTER_LEFT" spacing="10">
         <Label text="Title:"/>
         <TextField fx:id="titleField"
                    promptText="Enter title..."
                    prefWidth="400.0"/>
+      </HBox>
+
+      <!-- Song display on its own line -->
+      <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Song:"/>
         <Label fx:id="songLabel"
                style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
       </HBox>
@@ -95,5 +100,4 @@
               prefWidth="120.0"/>
     </VBox>
   </center>
-
 </BorderPane>

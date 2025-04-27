@@ -321,6 +321,38 @@ public class SongViewController {
     }
 
     @FXML
+    private void onCreatingPost() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostCreation.fxml"));
+            Parent root = loader.load();
+    
+            PostCreationController controller = loader.getController();
+            controller.setSong(this.song);
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onSearchingPosts() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostSearch.fxml"));
+            Parent root = loader.load();
+    
+            PostSearchController controller = loader.getController();
+            controller.setSong(this.song.getName());
+    
+            App.getScene().setRoot(root);
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void goToMakeSong() throws IOException {
         App.setRoot("CreateSong2");
     }
