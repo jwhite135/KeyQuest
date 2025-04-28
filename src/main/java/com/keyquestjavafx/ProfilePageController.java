@@ -115,7 +115,7 @@ public class ProfilePageController {
      */
     private Button createPostButton(Post post) {
         Label title = new Label(post.getTitle());
-        title.getStyleClass().add("post-title");
+        title.getStyleClass().add("song-title");
 
         Label meta = new Label("By " + post.getAuthor().getUsername() + " • " + post.getDate());
         meta.getStyleClass().add("post-meta");
