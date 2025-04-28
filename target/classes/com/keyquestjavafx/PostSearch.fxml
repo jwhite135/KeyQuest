@@ -44,18 +44,11 @@
             <HBox alignment="CENTER" spacing="15" HBox.hgrow="ALWAYS"/>
 
             <!-- welcome + profile on right -->
-            <HBox alignment="CENTER_RIGHT"
-                  spacing="10"
-                  HBox.hgrow="ALWAYS">
-                <Label fx:id="usernameLabel"
-                       text="Welcome, User"
-                       style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
-                <ImageView fx:id="profilePicButton"
-                           onMouseClicked="#goToProfile"
-                           fitHeight="40" fitWidth="40"
-                           pickOnBounds="true" preserveRatio="true">
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="40" fitWidth="40" 
+                    pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/KeyQuestUserIcon.png"/>
+                        <Image url="@images/KeyQuestUserIcon.png" />
                     </image>
                 </ImageView>
             </HBox>

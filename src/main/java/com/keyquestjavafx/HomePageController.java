@@ -111,7 +111,6 @@ public class HomePageController {
         String photosDirPath = getClass().getClassLoader()
                 .getResource("com/keyquestjavafx/images")
                 .getPath();
-        System.out.println("photosDirPath: " + photosDirPath + facade.getUser().getUsername() + "_profile.png");
         
         File file = new File(photosDirPath + facade.getUser().getUsername()+ "_profilepic.png");
 

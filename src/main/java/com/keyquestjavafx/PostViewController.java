@@ -51,11 +51,6 @@ public class PostViewController {
 
     @FXML
     public void initialize() {
-        // — Populate dynamic data —
-        if (welcomeLabel != null) {
-            welcomeLabel.setText("Welcome, " + postFacade.getCurrentUsername() + "!");
-        }
-
         // Optionally ensure scroll is at bottom for comments
         commentsScroll.vvalueProperty().bind(commentsContainer.heightProperty());
     }

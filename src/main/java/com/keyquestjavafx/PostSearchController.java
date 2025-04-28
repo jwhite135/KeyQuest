@@ -47,8 +47,6 @@ public class PostSearchController {
 
     @FXML
     public void initialize() {
-        // populate user info
-        usernameLabel.setText("Welcome, " + facade.getCurrentUsername());
 
         // searchType options
         searchTypeCombo.setItems(FXCollections.observableArrayList(
