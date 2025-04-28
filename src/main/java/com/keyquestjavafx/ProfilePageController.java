@@ -68,6 +68,14 @@ public class ProfilePageController {
         if (currentUser != null) {
             usernameLabel.setText(currentUser.getUsername());
 
+            if (currentUser.getFavoriteSongs().isEmpty()) {
+                favoriteSongsContainer.getChildren().add(new Label("No favorite songs yet!"));
+            }
+
+            if (currentUser.getFavoritePosts().isEmpty()) {
+                favoritePostsContainer.getChildren().add(new Label("No favorite posts yet!"));
+            }
+            
             // Populate favorite songs
             favoriteSongsContainer.getChildren().clear();
             currentUser.getFavoriteSongs().forEach(song -> {
