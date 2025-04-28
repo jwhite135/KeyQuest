@@ -30,7 +30,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-
+/**
+ * Controller for the Create Song page
+ * This class handles the user input for creating a new song
+ * @author Josiah White
+ */
 public class CreateSong2Controller implements Initializable {
     
     @FXML private TextField songTitleField;
@@ -56,8 +60,12 @@ public class CreateSong2Controller implements Initializable {
     
     private ObservableList<String> currentMeasureItems = FXCollections.observableArrayList();
     private ObservableList<String> allMeasuresItems = FXCollections.observableArrayList();
-    /*
-     * 
+
+    /**
+     * Initializes the controller, including setting up the combo boxes and lists for notes and measures and genre
+     * @param url The URL location of the FXML file that was loaded
+     * @param resourceBundle The resource bundle that was used to localize the FXML file
+     * This method is called after the FXML file has been loaded
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,14 +76,14 @@ public class CreateSong2Controller implements Initializable {
         songGenreCombo.setValue("ROCK");
         
         notePitchCombo.getItems().addAll(
-            "A0", "A#0", "B0",
-            "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1", "B1",
-            "C2", "C#2", "D2", "D#2", "E2", "F2", "F#2", "G2", "G#2", "A2", "A#2", "B2",
-            "C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3", "A#3", "B3",
-            "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4",
-            "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5",
-            "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6",
-            "C7", "C#7", "D7", "D#7", "E7", "F7", "F#7", "G7", "G#7", "A7", "A#7", "B7",
+            "A0", "A0#", "B0",
+            "C1", "C1#", "D1", "D1#", "E1", "F1", "F1#", "G1", "G1#", "A1", "A1#", "B1",
+            "C2", "C2#", "D2", "D2#", "E2", "F2", "F2#", "G2", "G2#", "A2", "A2#", "B2",
+            "C3", "C3#", "D3", "D3#", "E3", "F3", "F3#", "G3", "G3#", "A3", "A3#", "B3",
+            "C4", "C4#", "D4", "D4#", "E4", "F4", "F4#", "G4", "G4#", "A4", "A4#", "B4",
+            "C5", "C5#", "D5", "D5#", "E5", "F5", "F5#", "G5", "G5#", "A5", "A5#", "B5",
+            "C6", "C6#", "D6", "D6#", "E6", "F6", "F6#", "G6", "G6#", "A6", "A6#", "B6",
+            "C7", "C7#", "D7", "D7#", "E7", "F7", "F7#", "G7", "G7#", "A7", "A7#", "B7",
             "C8"
         );
         notePitchCombo.setValue("C4");
@@ -83,7 +91,6 @@ public class CreateSong2Controller implements Initializable {
         noteLengthCombo.getItems().addAll("whole", "half", "quarter", "eighth", "sixteenth", "dotted-half");
         noteLengthCombo.setValue("quarter");
         
-        // Change the beat numbers to 1-4 instead of 0-3
         noteBeatCombo.getItems().addAll(1, 2, 3, 4);
         noteBeatCombo.setValue(1); 
         
@@ -95,20 +102,27 @@ public class CreateSong2Controller implements Initializable {
         updateMeasureCountLabel();
     }
     
+    /**
+     * This method sets up the current measure to be empty and ready for new notes
+     */
     private void initializeNewMeasure() {
         currentBeatNotes.clear();
         
-        // Map beat numbers 1-4 to internal indexes
         for (int i = 1; i <= 4; i++) {
             currentBeatNotes.put(i, new ArrayList<>());
         }
     }
     
+    /**
+     * This method is called when the user clicks the "Add Note" button
+     * It adds a note to the current measure based on the user's input
+     * If there are already notes at the selected beat, it prompts the user for confirmation
+     */
     @FXML
     private void addNote() {
-        String pitch = notePitchCombo.getValue();
+        String fullPitch = notePitchCombo.getValue();
         String noteType = noteLengthCombo.getValue();
-        int beat = noteBeatCombo.getValue(); // This is now 1-4
+        int beat = noteBeatCombo.getValue(); 
         
         String length = getNoteLength(noteType);
         
@@ -136,7 +150,10 @@ public class CreateSong2Controller implements Initializable {
             }
         }
         
-        boolean isSharp = pitch.contains("#");
+        boolean isSharp = fullPitch.endsWith("#");
+        
+        String pitch = fullPitch.substring(0, Math.min(fullPitch.length(), 2));
+        
         PianoNote note = new PianoNote(length, pitch, isSharp, false);
         
         currentBeatNotes.get(beat).add(note);
@@ -144,6 +161,11 @@ public class CreateSong2Controller implements Initializable {
         updateCurrentMeasureDisplay();
     }
     
+    /**
+     * This method is called when the user clicks the "Add Measure" button
+     * It creates a new measure from the current notes and adds it to the list of measures
+     * If there are no notes in the current measure, it prompts the user to add at least one note first
+     */
     @FXML
     private void addMeasure() {
         boolean hasSomeNotes = false;
@@ -175,6 +197,11 @@ public class CreateSong2Controller implements Initializable {
         updateMeasureCountLabel();
     }
     
+    /**
+     * This method is called when the user clicks the "Save Song" button
+     * If there are notes in the current measure that haven't been added, it prompts the user to add them first
+     * It then creates a new song with the provided title, artist, difficulty, and genre
+     */
     @FXML
     private void saveSong() {
         try {
@@ -244,17 +271,28 @@ public class CreateSong2Controller implements Initializable {
         }
     }
     
+    /**
+     * This method updates the display of the current measure based on the notes added to it
+     * It formats the notes and their lengths for display in the list view
+     */
     private void updateCurrentMeasureDisplay() {
         currentMeasureItems.clear();
         
-        // Update the display to show beats 1-4
         for (int beat = 1; beat <= 4; beat++) {
             List<PianoNote> notes = currentBeatNotes.get(beat);
             
             if (!notes.isEmpty()) {
                 for (PianoNote note : notes) {
                     String noteLength = getDisplayNoteLength(note.getLength());
-                    String noteString = "Beat " + beat + ": " + note.getKey() + " (" + noteLength + ")";
+                    
+                    String displayKey = note.getKey();
+                    if (note.isSharp()) {
+                        displayKey += "#";
+                    } else if (note.isFlat()) {
+                        displayKey += "b";
+                    }
+                    
+                    String noteString = "Beat " + beat + ": " + displayKey + " (" + noteLength + ")";
                     currentMeasureItems.add(noteString);
                 }
             }
@@ -277,13 +315,17 @@ public class CreateSong2Controller implements Initializable {
         measureCountLabel.setText("Current Measure: " + (measureCount + 1));
     }
 
+    /**
+     * This method clears the form fields and resets the state for creating a new song
+     * It also resets the measure count and clears the lists of measures
+     */
     private void clearForm() {
         songTitleField.clear();
         songDifficultyCombo.setValue(3);
         songGenreCombo.setValue("ROCK");
         notePitchCombo.setValue("C4");
         noteLengthCombo.setValue("quarter");
-        noteBeatCombo.setValue(1); // Changed from 0 to 1
+        noteBeatCombo.setValue(1); 
         
         initializeNewMeasure();
         currentMeasureItems.clear();
@@ -311,10 +353,13 @@ public class CreateSong2Controller implements Initializable {
         return alert.showAndWait().filter(response -> response == javafx.scene.control.ButtonType.OK).isPresent();
     }
 
+    /**
+     * This method creates a new measure from the current notes in the beats
+     * @return A new PianoMeasure object containing the chords created from the notes in the beats
+     */
     private PianoMeasure createMeasureFromBeats() {
         ArrayList<Chord> chords = new ArrayList<>();
         
-        // Adjust to use 1-4 beat system
         for (int i = 1; i <= 4; i++) {
             List<PianoNote> beatNotes = currentBeatNotes.get(i);
             
@@ -331,6 +376,10 @@ public class CreateSong2Controller implements Initializable {
         
         return new PianoMeasure(false, chords);
     }
+
+    /**
+     * Included below are all the buttons that lead to other pages in the app
+     */
 
     @FXML
     private void goToHome() throws IOException {

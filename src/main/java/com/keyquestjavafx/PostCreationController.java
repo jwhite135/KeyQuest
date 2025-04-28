@@ -15,6 +15,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+/**
+ * Controller for the Post Creation page
+ * This class handles the user input for creating a new post
+ * It interacts with the KeyQuestFACADE to create a new post
+ * @author Owen Coulam
+ */
 public class PostCreationController {
 
     // Top‐bar
@@ -34,8 +40,7 @@ public class PostCreationController {
 
     @FXML
     public void initialize() {
-        // show current user
-        usernameLabel.setText("Welcome, " + facade.getCurrentUsername());
+        
     }
 
     /**
@@ -49,7 +54,10 @@ public class PostCreationController {
         songLabel.setText(" " + name + " by " + artist);
     }
 
-    /** Handle the user clicking “Submit” */
+    /**
+     * This method is used to submit the post to the database
+     * It is also used to navigate to the PostView page
+     */
     @FXML
     private void handleSubmit() {
         String title = titleField.getText().trim();
@@ -78,8 +86,9 @@ public class PostCreationController {
         }
     }
 
-    // Navigation handlers
-
+    /**
+     * These methods are used to navigate to other pages including the profile and home pages
+     */
     @FXML
     private void goToProfile() throws IOException {
         try {

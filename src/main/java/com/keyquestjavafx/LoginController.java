@@ -12,6 +12,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller for the Login page
+ * This class handles the user input for logging in
+ * It interacts with the KeyQuestFACADE to authenticate the user
+ * @author Josiah White
+ */
 public class LoginController {
 
     @FXML
@@ -34,6 +40,11 @@ public class LoginController {
         App.setRoot("LandingPage");
     }
 
+    /**
+     * Method to log in the user, leads to the home page if successful
+     * If the login fails, an error message is displayed
+     * @param event Clicking on the login button
+     */
     @FXML
     void login(MouseEvent event) throws IOException {
         KeyQuestFACADE facade = KeyQuestFACADE.getInstance();

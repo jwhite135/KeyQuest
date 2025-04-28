@@ -12,6 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
+/**
+ * Controller for the Home page
+ * This class handles the user input for navigating to different pages
+ * @author Matthew Radin, Ian Attmore
+ */
 public class HomePageController {
 
     @FXML
@@ -33,6 +38,14 @@ public class HomePageController {
     private ImageView userImage;
 
     private KeyQuestFACADE facade = KeyQuestFACADE.getInstance();
+
+    /**
+     * Included below are the buttons to go to the different pages including:
+     * - Play Song
+     * - Make Song
+     * - Check Posts
+     * - Profile
+     */
 
     @FXML
     void goToPlaySong() throws IOException {
@@ -82,6 +95,11 @@ public class HomePageController {
         }
     }
 
+    /**
+     * Method to initialize the HomePageController
+     * This method is called when the controller is loaded
+     * It sets the username label and user image
+     */
     @FXML
     public void initialize() {
         // Set the username label to the current user's username
@@ -102,6 +120,11 @@ public class HomePageController {
         }
     }
 
+    /**
+     * Method to log out the user
+     * This method is called when the user clicks the logout button
+     * It calls the logout method from the facade and navigates back to the landing page
+     */
     @FXML
     private void logoutUser() throws IOException {
         // Call the logout method from the facade
