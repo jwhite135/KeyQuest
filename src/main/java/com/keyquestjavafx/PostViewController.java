@@ -21,6 +21,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Controller for the Post View page
+ * This class handles the user input for viewing and interacting with a post
+ * It interacts with the KeyQuestFACADE to retrieve post data
+ * @author Owen Coulam
+ */
 public class PostViewController {
 
     // --- Top bar controls ---
@@ -65,6 +71,10 @@ public class PostViewController {
         this.postFacade = facade;
     }
 
+    /**
+     * This method is used to load the post data into the view
+     * It is called when the post is set, and it populates the UI elements with the post's details
+     */
     private void loadPostData() {
         postTitleLabel.setText(post.getTitle());
         authorLabel.setText(post.getAuthor().getUsername() + "  -- Created at " + post.getDate().toString());
@@ -77,6 +87,10 @@ public class PostViewController {
         }
     }
 
+    /**
+     * This method is used to load the comments into the view
+     * It is called when the post is set, and it populates the UI elements with the post's comments
+     */
     private void loadComments() {
         commentsContainer.getChildren().clear();
 
@@ -90,6 +104,13 @@ public class PostViewController {
         }
     }
 
+    /**
+     * This method is used to add a comment to the view
+     * It creates a new VBox with the comment details and adds it to the comments container
+     * @param user The username of the user who made the comment
+     * @param timestamp The timestamp of when the comment was made
+     * @param text The text of the comment
+     */
     private void addCommentToView(String user, String timestamp, String text) {
         VBox box = new VBox(2);
         Label userLabel = new Label(user);
@@ -105,6 +126,11 @@ public class PostViewController {
         commentsContainer.getChildren().add(box);
     }
 
+    /**
+     * This method is used to handle the comment action
+     * It is called when the user clicks the comment button
+     * It retrieves the comment text from the input field and adds it to the post
+     */
     @FXML
     private void handleCommentAction() {
         String commentTextInput = commentInput.getText().trim();

@@ -22,6 +22,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+/**
+ * Controller for the Post Search page
+ * This class handles the user input for searching and sorting posts
+ * It interacts with the KeyQuestFACADE to retrieve post data
+ * @author Owen Coulam
+ */
 public class PostSearchController {
 
     @FXML private Label usernameLabel;
@@ -45,6 +51,10 @@ public class PostSearchController {
     private List<Post> currentResults;
     private boolean setSong = false;
 
+    /**
+     * Called immediately after loading the FXML.
+     * Initializes the search and sort options and populates the results box
+     */
     @FXML
     public void initialize() {
 
@@ -63,6 +73,10 @@ public class PostSearchController {
         refreshResults();
     }
 
+    /**
+     * Sets the song for the search when the user clicks on a song
+     * @param song The song to search for
+     */
     public void setSong(String song){
         setSong = true;
         currentResults = facade.searchPostsBySong(song);
@@ -71,7 +85,10 @@ public class PostSearchController {
         refreshResults();
     }
 
-    /** Search button clicked */
+    /**
+     * Method to search for posts based on the selected type and query
+     * If the search fails, an error message is displayed
+     */
     @FXML
     private void onSearch() {
         errorMessage.setText("");
@@ -103,7 +120,11 @@ public class PostSearchController {
         refreshResults();
     }
 
-    /** Sort button clicked */
+    /**
+     * When sort button is clicked, sort the posts by the selected criteria
+     * If the sort fails, an error message is displayed
+     * @param event When the sort button is clicked
+     */
     @FXML
     private void onSort(ActionEvent event) {
         if (currentResults == null) {
@@ -119,7 +140,11 @@ public class PostSearchController {
         refreshResults();
     }
 
-    /** Repopulate the resultsBox */
+    /**
+     * Refreshes the results box with the current search results
+     * Clears the previous results and adds new ones
+     * Each post is displayed as a clickable card with title and metadata
+     */
     private void refreshResults() {
         resultsBox.getChildren().clear();
         for (Post p : currentResults) {
@@ -156,7 +181,12 @@ public class PostSearchController {
         }
     }
 
-
+    /**
+     * Method to open the post view when a post is clicked
+     * Will give an error message if the post fails to open
+     * @param selectedPost The post to be opened
+     */
+    @FXML
     private void openPost(Post selectedPost) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PostView.fxml"));
@@ -174,7 +204,13 @@ public class PostSearchController {
         }
     }
 
-    // Navigation handlers
+    /**
+     * Below are the methods for the buttons to navigate to other pages in the app:
+     * - Go to Profile
+     * - Go to Make Post
+     * - Go to Search Songs
+     * - Go to Home
+     */
 
     @FXML
     private void goToProfile() throws IOException {
