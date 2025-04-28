@@ -21,3 +21,13 @@ Make music and post it, as well as interact with and like other peoples posts.
 - **For Teachers: Assign Lessons**
 
 Assign lessons involving songs to your students for them to learn and complete in their own time.
+
+## Deliverables for CSCE 247
+
+- **Backend Presentation**
+
+https://www.youtube.com/watch?v=hnDHQOWvc6Q
+
+- **Frontend Presentation**
+
+https://www.youtube.com/watch?v=H4Wuf_83xos
