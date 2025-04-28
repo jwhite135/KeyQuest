@@ -101,5 +101,14 @@ public class HomePageController {
             userImage.setImage(new javafx.scene.image.Image(file.toURI().toString()));
         }
     }
+
+    @FXML
+    private void logoutUser() throws IOException {
+        // Call the logout method from the facade
+        facade.logout();
+        
+        // Navigate back to the landing page
+        App.setRoot("LandingPage");
+    }
 }
 

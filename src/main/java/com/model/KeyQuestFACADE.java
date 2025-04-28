@@ -212,7 +212,7 @@ public class KeyQuestFACADE {
     public void logout() {
         user = null;
         DataWriter.saveUsers();
-        //DataWriter.savePosts();
+        DataWriter.savePosts();
         DataWriter.saveSongs();
     }
 

@@ -56,7 +56,7 @@ public class CreateSong2Controller implements Initializable {
     
     private ObservableList<String> currentMeasureItems = FXCollections.observableArrayList();
     private ObservableList<String> allMeasuresItems = FXCollections.observableArrayList();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         songDifficultyCombo.getItems().addAll(1, 2, 3, 4, 5);
@@ -66,14 +66,14 @@ public class CreateSong2Controller implements Initializable {
         songGenreCombo.setValue("ROCK");
         
         notePitchCombo.getItems().addAll(
-            "A0", "A#0", "B0",
-            "C1", "C#1", "D1", "D#1", "E1", "F1", "F#1", "G1", "G#1", "A1", "A#1", "B1",
-            "C2", "C#2", "D2", "D#2", "E2", "F2", "F#2", "G2", "G#2", "A2", "A#2", "B2",
-            "C3", "C#3", "D3", "D#3", "E3", "F3", "F#3", "G3", "G#3", "A3", "A#3", "B3",
-            "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4",
-            "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5",
-            "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6",
-            "C7", "C#7", "D7", "D#7", "E7", "F7", "F#7", "G7", "G#7", "A7", "A#7", "B7",
+            "A0", "A0#", "B0",
+            "C1", "C1#", "D1", "D1#", "E1", "F1", "F1#", "G1", "G1#", "A1", "A1#", "B1",
+            "C2", "C2#", "D2", "D2#", "E2", "F2", "F2#", "G2", "G2#", "A2", "A2#", "B2",
+            "C3", "C3#", "D3", "D3#", "E3", "F3", "F3#", "G3", "G3#", "A3", "A3#", "B3",
+            "C4", "C4#", "D4", "D4#", "E4", "F4", "F4#", "G4", "G4#", "A4", "A4#", "B4",
+            "C5", "C5#", "D5", "D5#", "E5", "F5", "F5#", "G5", "G5#", "A5", "A5#", "B5",
+            "C6", "C6#", "D6", "D6#", "E6", "F6", "F6#", "G6", "G6#", "A6", "A6#", "B6",
+            "C7", "C7#", "D7", "D7#", "E7", "F7", "F7#", "G7", "G7#", "A7", "A7#", "B7",
             "C8"
         );
         notePitchCombo.setValue("C4");
@@ -81,8 +81,8 @@ public class CreateSong2Controller implements Initializable {
         noteLengthCombo.getItems().addAll("whole", "half", "quarter", "eighth", "sixteenth", "dotted-half");
         noteLengthCombo.setValue("quarter");
         
-        noteBeatCombo.getItems().addAll(0, 1, 2, 3);
-        noteBeatCombo.setValue(0); 
+        noteBeatCombo.getItems().addAll(1, 2, 3, 4);
+        noteBeatCombo.setValue(1); 
         
         currentMeasureList.setItems(currentMeasureItems);
         allMeasuresList.setItems(allMeasuresItems);
@@ -95,16 +95,16 @@ public class CreateSong2Controller implements Initializable {
     private void initializeNewMeasure() {
         currentBeatNotes.clear();
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i <= 4; i++) {
             currentBeatNotes.put(i, new ArrayList<>());
         }
     }
     
     @FXML
     private void addNote() {
-        String pitch = notePitchCombo.getValue();
+        String fullPitch = notePitchCombo.getValue();
         String noteType = noteLengthCombo.getValue();
-        int beat = noteBeatCombo.getValue();
+        int beat = noteBeatCombo.getValue(); 
         
         String length = getNoteLength(noteType);
         
@@ -132,7 +132,10 @@ public class CreateSong2Controller implements Initializable {
             }
         }
         
-        boolean isSharp = pitch.contains("#");
+        boolean isSharp = fullPitch.endsWith("#");
+        
+        String pitch = fullPitch.substring(0, Math.min(fullPitch.length(), 2));
+        
         PianoNote note = new PianoNote(length, pitch, isSharp, false);
         
         currentBeatNotes.get(beat).add(note);
@@ -205,7 +208,7 @@ public class CreateSong2Controller implements Initializable {
                 return;
             }
             
-            String artist = "Current User"; 
+            String artist = facade.getCurrentUsername();
             Song song = facade.createSong(title, artist, difficulty, genreStr, 4, 4, 120);
             
             for (int i = 0; i < measures.size(); i++) {
@@ -243,13 +246,21 @@ public class CreateSong2Controller implements Initializable {
     private void updateCurrentMeasureDisplay() {
         currentMeasureItems.clear();
         
-        for (int beat = 0; beat < 4; beat++) {
+        for (int beat = 1; beat <= 4; beat++) {
             List<PianoNote> notes = currentBeatNotes.get(beat);
             
             if (!notes.isEmpty()) {
                 for (PianoNote note : notes) {
                     String noteLength = getDisplayNoteLength(note.getLength());
-                    String noteString = "Beat " + beat + ": " + note.getKey() + " (" + noteLength + ")";
+                    
+                    String displayKey = note.getKey();
+                    if (note.isSharp()) {
+                        displayKey += "#";
+                    } else if (note.isFlat()) {
+                        displayKey += "b";
+                    }
+                    
+                    String noteString = "Beat " + beat + ": " + displayKey + " (" + noteLength + ")";
                     currentMeasureItems.add(noteString);
                 }
             }
@@ -278,7 +289,7 @@ public class CreateSong2Controller implements Initializable {
         songGenreCombo.setValue("ROCK");
         notePitchCombo.setValue("C4");
         noteLengthCombo.setValue("quarter");
-        noteBeatCombo.setValue(0);
+        noteBeatCombo.setValue(1); 
         
         initializeNewMeasure();
         currentMeasureItems.clear();
@@ -309,20 +320,18 @@ public class CreateSong2Controller implements Initializable {
     private PianoMeasure createMeasureFromBeats() {
         ArrayList<Chord> chords = new ArrayList<>();
         
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i <= 4; i++) {
             List<PianoNote> beatNotes = currentBeatNotes.get(i);
-            ArrayList<Note> chordNotes = new ArrayList<>();
             
-            for (PianoNote note : beatNotes) {
-                chordNotes.add(note);
+            if (!beatNotes.isEmpty()) {
+                ArrayList<Note> chordNotes = new ArrayList<>();
+                
+                for (PianoNote note : beatNotes) {
+                    chordNotes.add(note);
+                }
+                
+                chords.add(new Chord(chordNotes));
             }
-            
-            if (chordNotes.isEmpty()) {
-                PianoNote restNote = new PianoNote("q", "R", false, false);
-                chordNotes.add(restNote);
-            }
-            
-            chords.add(new Chord(chordNotes));
         }
         
         return new PianoMeasure(false, chords);
