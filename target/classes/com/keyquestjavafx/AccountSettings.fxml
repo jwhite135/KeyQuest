@@ -41,13 +41,13 @@
                </font>
             </Button>
             <Region prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="notificationButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToNotifications" prefHeight="48.0" prefWidth="1000.0" text="Notification Settings" HBox.hgrow="ALWAYS">
+            <Button fx:id="notificationButton" minWidth="116.0" mnemonicParsing="false" onAction="#goToNotifications" prefHeight="48.0" prefWidth="1000.0" text="Notifications" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Palatino Linotype" size="12.0" />
                </font>
             </Button>
             <Region prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="preferencesSettingsButton1" minWidth="116.0" mnemonicParsing="false" onAction="#goToPreferences" prefHeight="48.0" prefWidth="1000.0" text="Preferences Settings" HBox.hgrow="ALWAYS">
+            <Button fx:id="preferencesSettingsButton1" minWidth="116.0" mnemonicParsing="false" onAction="#goToPreferences" prefHeight="48.0" prefWidth="1000.0" text="Preferences" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Palatino Linotype" size="12.0" />
                </font>

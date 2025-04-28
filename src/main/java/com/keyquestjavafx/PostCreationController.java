@@ -34,8 +34,7 @@ public class PostCreationController {
 
     @FXML
     public void initialize() {
-        // show current user
-        usernameLabel.setText("Welcome, " + facade.getCurrentUsername());
+
     }
 
     /**

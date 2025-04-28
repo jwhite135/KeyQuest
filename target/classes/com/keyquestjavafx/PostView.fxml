@@ -37,13 +37,14 @@
 
             <Region HBox.hgrow="ALWAYS" />
 
-            <Label fx:id="welcomeLabel" text="Welcome, …" />
-
-            <ImageView fx:id="profileImageView" fitHeight="40" fitWidth="40" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@images/KeyQuestUserIcon.png" />
-                </image>
-            </ImageView>
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="profilePicButton" onMouseClicked="#goToProfile" fitHeight="40" fitWidth="40" 
+                    pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/KeyQuestUserIcon.png" />
+                    </image>
+                </ImageView>
+            </HBox>
         </HBox>
     </top>
 

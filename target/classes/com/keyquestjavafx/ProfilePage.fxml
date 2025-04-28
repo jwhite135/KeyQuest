@@ -31,7 +31,7 @@
             <Label fx:id="usernameLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Username" />
 
             <!-- Bio -->
-            <Label fx:id="bioLabel" style="-fx-font-size: 16px;" text="Bio: This is the user's bio." wrapText="true" />
+            <Label fx:id="bioLabel" style="-fx-font-size: 16px;" text="I like taking long walks on short beaches" wrapText="true" />
 
             <!-- Favorite Songs -->
             <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-border-color: #ccc; -fx-border-width: 1;">
